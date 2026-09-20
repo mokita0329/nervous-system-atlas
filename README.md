@@ -1,6 +1,6 @@
 # <img src="docs/icon/icon.png" alt="" height="40" align="absmiddle"> Clinical Neuroanatomy Atlas
 
-A browser-based 3D atlas of clinical neuroanatomy: 585 meshes and synchronised MRI slices in one MNI
+A browser-based 3D atlas of clinical neuroanatomy: 587 meshes and synchronised MRI slices in one MNI
 coordinate frame, arterial territories, traced pathways, a lesion mode that shows what a syndrome does and why,
 clinical topics, a glossary and a quiz — in English and Turkish, with every entry cited to open-access sources.
 It runs from static files, with no server and no account.

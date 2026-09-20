@@ -10,7 +10,7 @@ from nibabel.processing import resample_from_to
 from . import catalog
 from .atlas_meshes import load_atlas
 from .paths import RAW, VOLUMES, WORK
-from .spaces import GRID_AFFINE, GRID_SHAPE, load_ras
+from .spaces import GRID_AFFINE, GRID_SHAPE, clip_mask, load_ras
 
 
 def write_gz(name: str, arr: np.ndarray) -> dict:
@@ -73,12 +73,13 @@ def main(argv=None) -> None:
                 m = meshes.get(spec.id)
                 if not m:
                     continue
-                img = load_ras(RAW / a.file / f"{rel}.nii.gz")
+                src = spec.extra.get("file", rel)
+                img = load_ras(RAW / a.file / f"{src}.nii.gz")
                 img = resample_from_to(img, (GRID_SHAPE, GRID_AFFINE), order=0)
-                mask = np.asanyarray(img.dataobj) >= 0.5
+                mask = clip_mask(np.asanyarray(img.dataobj) >= 0.5, GRID_AFFINE, spec.extra.get("clip"))
                 gid = next_tract; next_tract += 1
                 tract[mask] = gid
-                lut["tract"][str(gid)] = entry(m) | {"atlas": a.id, "file": rel}
+                lut["tract"][str(gid)] = entry(m) | {"atlas": a.id, "file": src}
                 by_mesh.setdefault(spec.id, {}).setdefault("tract", []).append(gid)
         print(f"painted {a.id}: anat ids so far {next_anat - 1}, tract ids {next_tract - 1}")
     vols = {"labels_anat": write_gz("labels_anat.u16.bin", anat), "labels_tract": write_gz("labels_tract.u8.bin", tract),

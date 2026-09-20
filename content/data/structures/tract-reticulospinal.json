@@ -15,7 +15,7 @@
     "tract-reticulospinal-l",
     "tract-reticulospinal-r"
   ],
-  "summary": "The reticulospinal tract descends from the pontine and medullary reticular formation to the spinal cord, bilaterally with an ipsilateral predominance, in the anterior and lateral funiculi, reconstructed here from its brainstem origin down to the cervicomedullary junction. It is the main non-pyramidal motor pathway for posture, locomotion and axial and proximal movement: the pontine (medial) component facilitates extensor tone and the medullary (lateral) component inhibits it and gates reflexes, and both carry the cortex's commands for gross movement, the startle response and the autonomic outflow to the intermediolateral column. It is what keeps a patient with a corticospinal lesion able to stand and walk, and its imbalance after such lesions produces spasticity; its loss below the lesion in a complete cord injury produces flaccidity and autonomic failure.",
+  "summary": "The reticulospinal tract descends from the pontine and medullary reticular formation to the spinal cord, bilaterally with an ipsilateral predominance, in the anterior and lateral funiculi. The reconstruction shows only its brainstem course, through the pontine and medullary tegmentum to the upper medulla where the tractography data end; the cortical fibers that drive it are the corticoreticular tract, a separate entry, and its spinal course is shown on the cord's white columns. It is the main non-pyramidal motor pathway for posture, locomotion and axial and proximal movement: the pontine (medial) component facilitates extensor tone and the medullary (lateral) component inhibits it and gates reflexes, and both carry the cortex's commands for gross movement, the startle response and the autonomic outflow to the intermediolateral column. It is what keeps a patient with a corticospinal lesion able to stand and walk, and its imbalance after such lesions produces spasticity; its loss below the lesion in a complete cord injury produces flaccidity and autonomic failure.",
   "anatomy": {
     "location": "From the pontine reticular formation (nucleus reticularis pontis oralis and caudalis) mainly ipsilaterally in the anterior funiculus (medial reticulospinal tract) and from the medullary gigantocellular reticular formation bilaterally in the lateral funiculus (lateral reticulospinal tract), descending the whole length of the cord to the ventromedial gray of the ventral horn and the intermediolateral column.",
     "subdivisions": []
@@ -27,8 +27,8 @@
         "via": "origin"
       },
       {
-        "from": "Motor and premotor cortex (corticoreticular fibers)",
-        "via": "input to the reticular formation"
+        "from": "Motor and premotor cortex",
+        "via": "corticoreticular tract"
       }
     ],
     "efferents": [
@@ -75,7 +75,7 @@
         "label": "reticulospinal tract in the ventral brainstem tegmentum"
       }
     ],
-    "normalAppearance": "Tractography shows fibers from the pontomedullary tegmentum descending to the cervicomedullary junction, medial and ventral to the corticospinal bundle; they are not visible on conventional MRI.",
+    "normalAppearance": "Tractography shows fibers in the pontomedullary tegmentum descending to the upper medulla, medial and ventral to the corticospinal bundle, where the diffusion data end; the tract's course in the cord is not resolved, and none of it is visible on conventional MRI.",
     "pathology": [
       {
         "pathology": "Spasticity after capsular stroke (functional)",

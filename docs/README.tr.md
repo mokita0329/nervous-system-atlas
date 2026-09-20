@@ -2,7 +2,7 @@
 
 *Bu, [İngilizce README](../README.md) dosyasının Türkçesidir.*
 
-Tarayıcıda çalışan üç boyutlu bir klinik nöroanatomi atlası: tek bir MNI koordinat çerçevesinde 585 mesh ve
+Tarayıcıda çalışan üç boyutlu bir klinik nöroanatomi atlası: tek bir MNI koordinat çerçevesinde 587 mesh ve
 eşzamanlı MR kesitleri, arter sulama alanları, izlenebilir yolaklar, bir sendromun neyi nasıl bozduğunu gösteren
 lezyon kipi, klinik konular, bir sözlük ve vaka soruları — İngilizce ve Türkçe, her kayıt açık erişimli
 kaynaklara atıflı. Statik dosyalardan çalışır; sunucu da hesap da gerektirmez.

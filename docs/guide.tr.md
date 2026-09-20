@@ -15,8 +15,8 @@ barındırmak, kendi MR'ınızı göstermek ve veriyi yeniden üretmek [gelişti
 | Konular | 19 | gelişim, BOS ve kan-beyin bariyeri, nörotransmitterler, uyku ve EEG, epilepsi, baş ağrısı, demans, hareket bozuklukları, nöromusküler desenler, pediatrik sendromlar, lokalizasyon, görüntüleme, inme, enfeksiyon, tümörler, lökodistrofiler, sinir hasarı, kortikal katmanlar, koma |
 | Sözlük | 205 | |
 | Vaka soruları | 60 | özgün vakalar; yanıt, ilgili yapıları üç boyutta öne çıkarır |
-| Mesh | 585 açık / 655 özel | etiket maskelerinden yeniden meshlenen MNI atlasları, VENAT venöz atlası, işaret noktalarıyla kayıtlanan BodyParts3D ve Z-Anatomy geometrisi ve hiçbir atlasın vermediği, burada kurulan meshler (iki sürümde de 12, açık sürümde 40); tam ayrıntıda 36 MB, ilk boyamada yaklaşık 3,5 MB |
-| Atıflar | 2384 | 824 kaydın tamamında, 657 açık erişimli kaynağa |
+| Mesh | 587 açık / 657 özel | etiket maskelerinden yeniden meshlenen MNI atlasları, VENAT venöz atlası, işaret noktalarıyla kayıtlanan BodyParts3D ve Z-Anatomy geometrisi ve hiçbir atlasın vermediği, burada kurulan meshler (iki sürümde de 12, açık sürümde 40); tam ayrıntıda 36 MB, ilk boyamada yaklaşık 3,5 MB |
+| Atıflar | 2388 | 825 kaydın tamamında, 657 açık erişimli kaynağa |
 
 ## Kesitler, traktuslar ve sulama alanları
 
@@ -77,7 +77,7 @@ açık panel. Sıradan bağlantılar kısa kalır; uzun biçim yalnızca istendi
 
 ## İçerik ve kaynaklar
 
-**Sözlük dışındaki her kayıt yalnızca açık erişimli kaynaklara atıf verir**: NCBI Bookshelf üzerindeki StatPearls bölümleri, PubMed Central'daki makaleler, açık lisanslı başvuru sayfaları. Yayımlanan atlasın hiçbir yerinde basılı ders kitabına ya da ödeme duvarı ardındaki bir makaleye atıf yoktur. Bugün bu, **657 kaynak üzerinden 2384 atıf** demektir ve her atıf, canlı bölümden okunarak geldiği bölümü adlandırır.
+**Sözlük dışındaki her kayıt yalnızca açık erişimli kaynaklara atıf verir**: NCBI Bookshelf üzerindeki StatPearls bölümleri, PubMed Central'daki makaleler, açık lisanslı başvuru sayfaları. Yayımlanan atlasın hiçbir yerinde basılı ders kitabına ya da ödeme duvarı ardındaki bir makaleye atıf yoktur. Bugün bu, **657 kaynak üzerinden 2388 atıf** demektir ve her atıf, canlı bölümden okunarak geldiği bölümü adlandırır.
 
 Bir kaynakça kaydındaki `verified: true` yalnızca bir araç tarafından, canlı kaynak üstverisinden yazılır; elle asla. Bilinmeyen bir kaynağa atıf derlemeyi durdurur; `npm run citations:check` ise bozuk bir atıfta, doğrulanmamış bir kayıtta ya da hiçbir yerden atıf almayan bir kayıtta hata verir. Şemalar, yazım araçları ve kurallar için [İçerik ve kaynaklar](content.md).
 
@@ -85,7 +85,7 @@ Bir kaynakça kaydındaki `verified: true` yalnızca bir araç tarafından, canl
 
 Arayüz İngilizce ve Türkçedir (`src/i18n/en.ts` ve `src/i18n/tr.ts`, 293 dizge; Türkçe tablo İngilizcesine göre tiplenmiştir, bu yüzden eksik bir anahtar tip denetimini düşürür). Türkçe kipte yapılar, kranial sinirler ve yolaklar Türk tıp eğitiminin adlandırdığı gibi, FIPAT'ın *Terminologia Neuroanatomica* ve *Terminologia Anatomica 2* listelerinden gelen Latince terimleriyle adlandırılır; İngilizce ad ikinci satırda kalır.
 
-824 kaydın klinik metinlerinin tamamı da çevrilmiştir. Çeviriler `content/i18n/tr/` altında, üretildikleri İngilizce metnin özetine (hash) sabitlenmiş kaplamalar olarak durur; böylece İngilizce metin değiştiğinde çeviri sessizce yanlış kalmak yerine "eskimiş" olarak işaretlenir.
+825 kaydın klinik metinlerinin tamamı da çevrilmiştir. Çeviriler `content/i18n/tr/` altında, üretildikleri İngilizce metnin özetine (hash) sabitlenmiş kaplamalar olarak durur; böylece İngilizce metin değiştiğinde çeviri sessizce yanlış kalmak yerine "eskimiş" olarak işaretlenir.
 
 ![Atlas Türkçe kipte: yapı ağacı ve panel, yapıları Latince adlarıyla, altında İngilizce adıyla gösteriyor; arayüz Türkçe ve üç boyutlu pencerenin altında makine destekli çeviri uyarısı](screenshots/turkish.webp)
 
@@ -114,7 +114,7 @@ Meshler ve hacimler, [NOTICE](../NOTICE) dosyasında listelenen üçüncü taraf
 
 `NOTICE` üretilir, elle düzenlenmez; her veri kümesi için atıf, lisans ve indirme adresleriyle bir blok içerir ve `npm run notice -- --check` dosya eskidiyse hata verir. Lisans metinlerinin tamamı veriyle birlikte `public/data/licenses/` altında gider. Uygulamada **Hakkında** (ya da `#/about`), yüklü derlemedeki her kaynağı lisansı, atfı ve tam metin bağlantısıyla listeler.
 
-**Nasıl atıf verilir:** Ayci B. *Clinical Neuroanatomy Atlas*, v1.0.2, 2026. Kod Apache 2.0, veri ve içerik CC BY-SA 4.0; `NOTICE` içindeki veri kümelerinden türetilmiştir. Meshleri kullanırken kaynak veri kümelerine, metin için `content/bibliography/` altındaki açık erişimli kaynaklara da atıf verin.
+**Nasıl atıf verilir:** Ayci B. *Clinical Neuroanatomy Atlas*, v1.0.3, 2026. Kod Apache 2.0, veri ve içerik CC BY-SA 4.0; `NOTICE` içindeki veri kümelerinden türetilmiştir. Meshleri kullanırken kaynak veri kümelerine, metin için `content/bibliography/` altındaki açık erişimli kaynaklara da atıf verin.
 
 ## Bilinen sınırlar
 

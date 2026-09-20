@@ -14,6 +14,10 @@ same tree, so a change to any one of the three can move the version.
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [1.0.3] - 2026-09-20
+
 ### Added
 
 - **An individual's MRI as a slice contrast.** `atlas-subject <scan> --id <id>` takes a NIfTI, a folder of
@@ -74,6 +78,17 @@ same tree, so a change to any one of the three can move the version.
 
 ### Fixed
 
+- **The "reticulospinal tract" ran up into the cortex.** The HCP1065 tractography map the mesh came from
+  (`projection/RST`) is the corticoreticular pathway: its streamlines run from the frontal cortex down to the
+  pontomedullary reticular formation (z −50 to +74 mm in MNI, most of it above the brainstem) and stop at the
+  upper medulla where the diffusion data end, so nothing of the tract's spinal course was ever in it. Shipped
+  whole under the reticulospinal name it drew a descending brainstem tract in the cortex, which a reader
+  reported. The map is now cut at the pontomesencephalic junction (z = −22 mm): above it is a new
+  **Corticoreticular tract** entry (`tract-corticoreticular`, with its own prose, citations and Turkish
+  overlay); below it the mesh ids `tract-reticulospinal-l/r` keep their names but show only the brainstem course
+  through the pontine and medullary tegmentum, and the entry says so and points at the cord's white columns
+  for the rest. The tract label volume painted on the slices is cut the same way. Both editions gain two
+  meshes (587 public, 657 private).
 - **Mirror left the lesion marker, the slices and the shown meshes on the original side.** Only the involved
   set changed; the layout ran only when the syndrome id changed. A side change is now a re-layout too (the
   authored camera preset is the one thing not re-applied, so the reader's angle survives).
@@ -413,7 +428,8 @@ Written in numbered batches with the Python authoring helpers in `tools/author/`
   checked with no errors and terminology-normalised. `content.tr.json` ships in both
   editions and `check-public` treats it like the English bundle.
 
-[Unreleased]: https://github.com/aycibatuhan/nervous-system-atlas/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/aycibatuhan/nervous-system-atlas/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/aycibatuhan/nervous-system-atlas/releases/tag/v1.0.3
 [1.0.2]: https://github.com/aycibatuhan/nervous-system-atlas/releases/tag/v1.0.2
 [1.0.1]: https://github.com/aycibatuhan/nervous-system-atlas/releases/tag/v1.0.1
 [1.0.0]: https://github.com/aycibatuhan/nervous-system-atlas/releases/tag/v1.0.0

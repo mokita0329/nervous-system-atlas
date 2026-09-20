@@ -36,6 +36,27 @@ def to_grid(img: nib.Nifti1Image, order: int = 0) -> nib.Nifti1Image:
     return resample_from_to(img, (GRID_SHAPE, GRID_AFFINE), order=order, mode="constant", cval=0)
 
 
+def clip_mask(mask: np.ndarray, affine: np.ndarray, clip: dict | None) -> np.ndarray:
+    """Zero the mask outside a slab given in RAS mm: any of xmin/xmax/ymin/ymax/zmin/zmax (inclusive).
+    The volume must be axis-aligned (what load_ras and the atlas grid give); an oblique affine is refused."""
+    if not clip:
+        return mask
+    off = affine[:3, :3] - np.diag(np.diag(affine[:3, :3]))
+    if np.abs(off).max() > 1e-6:
+        raise ValueError("clip_mask needs an axis-aligned affine")
+    out = mask.copy()
+    for ax, name in enumerate("xyz"):
+        coords = affine[ax, ax] * np.arange(mask.shape[ax]) + affine[ax, 3]
+        keep = np.ones(mask.shape[ax], bool)
+        if f"{name}min" in clip:
+            keep &= coords >= clip[f"{name}min"]
+        if f"{name}max" in clip:
+            keep &= coords <= clip[f"{name}max"]
+        shape = [1, 1, 1]; shape[ax] = -1
+        out &= keep.reshape(shape)
+    return out
+
+
 def voxel_to_ras(affine: np.ndarray, ijk: np.ndarray) -> np.ndarray:
     ijk = np.asarray(ijk, dtype=float)
     return ijk @ affine[:3, :3].T + affine[:3, 3]

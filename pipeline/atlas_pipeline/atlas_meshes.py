@@ -14,7 +14,7 @@ from . import catalog
 from .catalog import BUDGET, LOD_FACES, LOD_MIN_FACES, MeshSpec
 from .meshing import export_glb, export_with_lod, mesh_from_mask, mesh_stats, weld_group
 from .paths import MESHES, RAW, WORK
-from .spaces import arterial_atlas_affine, load_ras
+from .spaces import arterial_atlas_affine, clip_mask, load_ras
 
 MASK = RAW / "mni_t1w" / "tpl-MNI152NLin2009cAsym_res-01_desc-brain_mask.nii.gz"
 
@@ -138,15 +138,18 @@ def build_binary_atlas(a: catalog.AtlasSpec, only: set[str] | None, force: bool 
         c = cached(spec.id, path, force)
         if c:
             out.append(c); continue
-        img = load_ras(RAW / a.file / f"{rel}.nii.gz")
+        src = spec.extra.get("file", rel)          # several specs may cut one file (catalog.HCP_CLIP)
+        clip = spec.extra.get("clip")
+        img = load_ras(RAW / a.file / f"{src}.nii.gz")
         data = np.asanyarray(img.dataobj)
-        mask = data >= (a.threshold if a.threshold is not None else 0.5)
+        mask = clip_mask(data >= (a.threshold if a.threshold is not None else 0.5), img.affine, clip)
         mesh = mesh_from_mask(mask, img.affine, BUDGET[spec.budget], sigma=1.0, min_component_frac=0.05)
         if mesh is None:
             print(f"  [skip] {spec.id}: empty"); continue
         path = MESHES / spec.system / f"{spec.id}.glb"
         nbytes, lod = export_with_lod(mesh, path, spec.id, LOD_FACES, LOD_MIN_FACES)
-        out.append(record(spec, a.id, None, "native-mni", mesh, path, nbytes, mask.sum(), {"labelVolume": "tract", "file_key": rel, "lod": lod}))
+        out.append(record(spec, a.id, None, "native-mni", mesh, path, nbytes, mask.sum(),
+                          {"labelVolume": "tract", "file_key": src, "lod": lod, **({"clip": clip} if clip else {})}))
         print(f"  {spec.id:48s} {len(mesh.faces):6d} tris {nbytes/1024:7.1f} KB")
     return out
 

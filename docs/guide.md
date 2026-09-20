@@ -15,8 +15,8 @@ lines). Hosting a copy, showing your own MRI and regenerating the data are in th
 | Topics | 19 | development, CSF and the blood–brain barrier, neurotransmitters, sleep and EEG, epilepsy, headache, dementia, movement disorders, neuromuscular patterns, paediatric syndromes, localisation, imaging, stroke, infection, tumours, leukodystrophies, nerve injury, cortical layers, coma |
 | Glossary | 205 | |
 | Quiz | 60 | original vignettes; the answer spotlights the structures in 3D |
-| Meshes | 585 public / 655 private | MNI atlases remeshed from label masks, the VENAT venous atlas, BodyParts3D and Z-Anatomy geometry registered by landmarks, and meshes constructed here from geometry no atlas provides (12 in both editions, 40 in the public one); 36 MB at full detail, about 3.5 MB on first paint |
-| Citations | 2384 | to 657 open-access sources, across all 824 entries |
+| Meshes | 587 public / 657 private | MNI atlases remeshed from label masks, the VENAT venous atlas, BodyParts3D and Z-Anatomy geometry registered by landmarks, and meshes constructed here from geometry no atlas provides (12 in both editions, 40 in the public one); 36 MB at full detail, about 3.5 MB on first paint |
+| Citations | 2388 | to 657 open-access sources, across all 825 entries |
 
 ## Sections, tracts and territories
 
@@ -80,7 +80,7 @@ and the open panel. Ordinary links stay short; the long form is only written whe
 
 ## Content and citations
 
-**Every non-glossary entry cites open-access sources only**: StatPearls chapters on the NCBI Bookshelf, articles in PubMed Central, openly licensed reference pages. No printed textbook is cited anywhere in the shipped atlas, and no paywalled article. Today that is **2384 citations over 657 sources**, and a citation names the section it came from, read from the live chapter.
+**Every non-glossary entry cites open-access sources only**: StatPearls chapters on the NCBI Bookshelf, articles in PubMed Central, openly licensed reference pages. No printed textbook is cited anywhere in the shipped atlas, and no paywalled article. Today that is **2388 citations over 657 sources**, and a citation names the section it came from, read from the live chapter.
 
 `verified: true` on a bibliography entry is only ever written by a tool from live source metadata, never by hand. The build fails on an unknown reference, and `npm run citations:check` fails on a malformed citation, an unverified entry or an entry nothing cites. See [Content and citations](content.md) for the schemas, the authoring tools and the rules.
 
@@ -88,7 +88,7 @@ and the open panel. Ordinary links stay short; the long form is only written whe
 
 The interface exists in English and Turkish (`src/i18n/en.ts` and `src/i18n/tr.ts`, 293 strings, the Turkish table typed against the English one so a missing key fails the typecheck). In Turkish mode structures, cranial nerves and pathways are named the way Turkish medical teaching names them — by their Latin term, from FIPAT's *Terminologia Neuroanatomica* and *Terminologia Anatomica 2* — with the English name as a secondary line.
 
-All 824 entries' clinical prose is translated too, as overlays under `content/i18n/tr/` that pin a hash of the English text they were made from, so an English edit shows up as stale rather than as silently wrong Turkish.
+All 825 entries' clinical prose is translated too, as overlays under `content/i18n/tr/` that pin a hash of the English text they were made from, so an English edit shows up as stale rather than as silently wrong Turkish.
 
 ![The atlas in Turkish: the structure tree and panel naming structures by their Latin terms with the English name beneath, the interface in Turkish, and the machine-assisted translation notice along the foot of the 3D view](screenshots/turkish.webp)
 
@@ -117,7 +117,7 @@ The meshes and volumes are **derivatives** of the third-party datasets listed in
 
 `NOTICE` is generated, never edited by hand — one block per dataset with its citation, licence and download URLs — and `npm run notice -- --check` fails if it is stale. Verbatim licence texts ship with the data in `public/data/licenses/`. In the app, **About** (or `#/about`) lists every source in the loaded build with its licence, its citation and a link to the full text.
 
-**How to cite:** Ayci B. *Clinical Neuroanatomy Atlas*, v1.0.2, 2026. Code Apache 2.0, data and content CC BY-SA 4.0, derived from the datasets in `NOTICE`. Cite the source datasets themselves when you use the meshes, and the open-access references in `content/bibliography/` for the text.
+**How to cite:** Ayci B. *Clinical Neuroanatomy Atlas*, v1.0.3, 2026. Code Apache 2.0, data and content CC BY-SA 4.0, derived from the datasets in `NOTICE`. Cite the source datasets themselves when you use the meshes, and the open-access references in `content/bibliography/` for the text.
 
 ## Known limitations
 

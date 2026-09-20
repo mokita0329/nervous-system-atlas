@@ -1,0 +1,168 @@
+{
+  "kind": "structure",
+  "id": "tract-corticoreticular",
+  "name": "Corticoreticular tract",
+  "synonyms": [
+    "corticoreticular pathway",
+    "corticoreticular fibers",
+    "CRT"
+  ],
+  "latin": "Fibrae corticoreticulares",
+  "names": {
+    "tr": "Fibrae corticoreticulares"
+  },
+  "system": "tracts",
+  "meshIds": [
+    "tract-corticoreticular-l",
+    "tract-corticoreticular-r"
+  ],
+  "summary": "The corticoreticular tract carries the cortex's commands for posture, gait and gross proximal movement from the premotor cortex, the supplementary motor area and the primary motor cortex down to the pontine and medullary reticular formation, which relays them to the cord as the reticulospinal tracts. It descends with the corticospinal tract through the corona radiata, the posterior limb of the internal capsule and the crus cerebri, then leaves it in the pons and medulla to end bilaterally in the reticular nuclei, with the larger share on the same side. Its clinical weight is out of proportion to its obscurity: a capsular stroke that cuts it removes the cortical drive to the inhibitory medullary reticulospinal system, and the spasticity that follows over the next weeks is the corticoreticular sign, not the corticospinal one, while the surviving crossed fibers from the intact hemisphere are what let the patient stand and walk again. The reconstruction shows the tractography bundle from the frontal cortex to the pontomesencephalic level; below that plane the same streamlines continue as the brainstem segment of the reticulospinal system, which is a separate entry.",
+  "anatomy": {
+    "location": "From the premotor cortex, the supplementary motor area and the primary motor cortex (with a contribution from the cingulate motor areas) through the corona radiata into the posterior limb of the internal capsule, medial and slightly anterior to the corticospinal fibers, then the middle of the crus cerebri, the basis pontis and the ventral tegmentum, ending in the nucleus reticularis pontis oralis and caudalis and the medullary gigantocellular nucleus, mostly ipsilaterally with a smaller crossed component.",
+    "subdivisions": []
+  },
+  "connections": {
+    "afferents": [
+      {
+        "from": "Premotor cortex and supplementary motor area",
+        "via": "origin"
+      },
+      {
+        "from": "Primary motor cortex and cingulate motor areas",
+        "via": "origin, smaller share"
+      }
+    ],
+    "efferents": [
+      {
+        "to": "Pontine reticular formation (nucleus reticularis pontis oralis and caudalis)",
+        "via": "termination, mainly ipsilateral"
+      },
+      {
+        "to": "Medullary gigantocellular reticular formation",
+        "via": "termination, bilateral"
+      },
+      {
+        "to": "Reticulospinal tracts to the cord",
+        "via": "relay in the reticular formation"
+      }
+    ],
+    "pathways": [
+      "pathway-reticulospinal"
+    ]
+  },
+  "function": "It is the route by which the cortex sets postural tone, prepares the trunk and proximal limbs before a voluntary movement and starts and steers walking, all of it through the reticulospinal tracts rather than the corticospinal tract, which is built for the fingers. Its inhibitory action on the medullary reticular formation is what keeps the pontine facilitatory system in check, so an upper motor neuron lesion that removes it leaves extensor tone unopposed and produces spasticity, clasp-knife rigidity and hyperreflexia over the following weeks; the corticospinal loss alone gives weakness and loss of fine movement with hypotonia. Because a large minority of the fibers cross and each reticular formation projects to both sides of the cord, the tract from the intact hemisphere takes over gait and posture after a hemispheric stroke, which is why walking recovers when hand function does not.",
+  "bloodSupply": {
+    "arteries": [
+      "artery-mca",
+      "arteries-lenticulostriate",
+      "artery-anterior-choroidal",
+      "artery-basilar",
+      "arteries-pontine"
+    ],
+    "territories": [
+      "territory-mca-major",
+      "territory-lateral-lenticulostriate",
+      "territory-basilar"
+    ]
+  },
+  "imaging": {
+    "bestView": [
+      {
+        "plane": "coronal",
+        "mni": {
+          "meshId": "tract-corticoreticular-l"
+        },
+        "label": "corticoreticular fibers from the premotor cortex to the brainstem"
+      },
+      {
+        "plane": "axial",
+        "mni": {
+          "meshId": "tract-corticoreticular-r"
+        },
+        "label": "corticoreticular tract in the posterior limb, medial to the corticospinal fibers"
+      }
+    ],
+    "normalAppearance": "Tractography shows a bundle from the premotor and motor cortex converging into the posterior limb of the internal capsule medial and anterior to the corticospinal tract and descending through the crus and the ventral pons to the tegmentum; on conventional MRI it cannot be separated from the corticospinal tract.",
+    "pathology": [
+      {
+        "pathology": "Spasticity after capsular stroke",
+        "modality": "MRI",
+        "finding": "Infarct in the posterior limb of the internal capsule involving the corticospinal and corticoreticular fibers; spasticity and hyperreflexia appear over 1-6 weeks as the loss of cortical inhibition of the medullary reticular formation declares itself.",
+        "sequence": "FLAIR",
+        "timing": "Spasticity emerges 1-6 weeks after the lesion"
+      },
+      {
+        "pathology": "Gait recovery after stroke",
+        "modality": "MRI",
+        "finding": "Diffusion tractography after a hemispheric stroke shows the corticoreticular tract of the intact hemisphere and the surviving crossed fibers; their integrity tracks the return of walking better than the corticospinal tract does.",
+        "sequence": "n/a"
+      },
+      {
+        "pathology": "Pathological laughing and crying",
+        "modality": "MRI",
+        "finding": "Bilateral corticoreticular and corticobulbar lesions in the capsules or basis pontis release the brainstem centers for emotional expression.",
+        "sequence": "FLAIR"
+      }
+    ]
+  },
+  "clinical": {
+    "lesionEffects": [
+      {
+        "deficit": "Spasticity, clasp-knife rigidity and hyperreflexia",
+        "side": "contralateral",
+        "mechanism": "Loss of cortical inhibition of the medullary reticular formation, leaving the pontine reticulospinal facilitation of extensors unopposed"
+      },
+      {
+        "deficit": "Impaired postural adjustment and gait initiation",
+        "side": "contralateral",
+        "mechanism": "Loss of the cortical drive to the reticulospinal system that prepares the trunk and proximal limbs"
+      },
+      {
+        "deficit": "Recovery of walking despite persistent hand weakness",
+        "side": "contralateral",
+        "mechanism": "The corticoreticular tract of the intact hemisphere and the crossed fibers reach both sides of the cord through the reticular formation"
+      }
+    ],
+    "examination": [
+      "Tone in the limbs and its velocity dependence, and the clasp-knife catch",
+      "Trunk control, anticipatory postural adjustment and gait initiation in a patient with a hemispheric lesion",
+      "Contrast between recovered walking and persistent loss of fine finger movement"
+    ],
+    "syndromes": [
+      "syn-lacunar-pure-motor",
+      "syn-complete-transection-spinal-shock",
+      "syn-central-transtentorial-herniation"
+    ],
+    "pearls": [
+      "Spasticity is a corticoreticular sign; weakness and clumsy fingers are corticospinal signs",
+      "The stroke patient walks again on the corticoreticular tract of the other hemisphere, not on the corticospinal tract",
+      "The HCP tractography bundle once labeled reticulospinal is this tract: it runs from cortex to reticular formation, and the diffusion data stop at the upper medulla"
+    ]
+  },
+  "pitfalls": [],
+  "citations": [
+    {
+      "ref": "sp-reticular-formation",
+      "section": "Structure and Function"
+    },
+    {
+      "ref": "sp-upper-motor-neuron-lesion",
+      "section": "Structure and Function"
+    },
+    {
+      "ref": "sp-spasticity",
+      "section": "Etiology"
+    },
+    {
+      "ref": "sp-extrapyramidal-system",
+      "section": "Structure and Function"
+    }
+  ],
+  "tags": [
+    "white matter",
+    "tractography"
+  ],
+  "status": "draft",
+  "subsystem": "projection",
+  "parent": "corona-radiata"
+}

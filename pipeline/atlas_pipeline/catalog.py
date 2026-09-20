@@ -413,7 +413,8 @@ HCP = {
     "projection/CBT": ("tract-corticobulbar", "Corticobulbar tract", "tracts", "projection", False),
     "projection/ML": ("tract-medial-lemniscus", "Medial lemniscus", "tracts", "projection", False, "medial-lemniscus"),
     "projection/DRTT": ("tract-dentatorubrothalamic", "Dentatorubrothalamic tract", "tracts", "cerebellar", False),
-    "projection/RST": ("tract-reticulospinal", "Reticulospinal tract", "tracts", "projection", False),
+    "projection/RST": ("tract-corticoreticular", "Corticoreticular tract", "tracts", "projection", False),
+    "projection/RST|spinal": ("tract-reticulospinal", "Reticulospinal tract", "tracts", "projection", False),
     "projection/OR": ("tract-optic-radiation", "Optic radiation", "tracts", "projection", False),
     "projection/AR": ("tract-acoustic-radiation", "Acoustic radiation", "tracts", "projection", False),
     "projection/F": ("tract-fornix", "Fornix (HCP)", "tracts", "limbic", False, "fornix"),
@@ -445,19 +446,32 @@ HCP = {
 }
 
 
+# The HCP1065 map called "RST" is the corticoreticular pathway, not the reticulospinal tract: its streamlines
+# run from the frontal cortex down to the pontomedullary reticular formation (z -50 to +74 mm in MNI, most of
+# it above z 0), and they stop at the upper medulla where the diffusion data end, so nothing of the tract's
+# spinal course is in it. Shipped whole under the name "Reticulospinal tract" it drew a descending brainstem
+# tract up into the cortex, which a reader reported. The map is therefore cut at the pontomesencephalic
+# junction, z = -22 mm: above it the corticoreticular tract, below it the brainstem course of the
+# reticulospinal system through the pontine and medullary tegmentum. A key with a "|tag" suffix reuses the
+# file named before the bar; the clip is a slab in RAS mm (see spaces.clip_mask).
+HCP_CLIP = {"projection/RST": {"zmin": -22.0}, "projection/RST|spinal": {"zmax": -22.0}}
+
+
 def hcp_entries() -> dict[str, MeshSpec]:
     e = {}
     for key, row in HCP.items():
         sid, name, system, sub, vis = row[:5]
+        extra = {"file": key.split("|")[0], **({"clip": HCP_CLIP[key]} if key in HCP_CLIP else {})}
         structure_id = row[5] if len(row) > 5 else sid   # some tract meshes belong to an already-authored structure
         colour = "#EFE3A8" if system == "cranial-nerves" else jitter("#EDE3D2", sid, 0.35)
         if key.startswith("commissural/") or key in ("cerebellum/MCP", "cerebellum/SCP"):
-            e[key] = MeshSpec(sid, name, system, subsystem=sub, side="midline", visible=vis, budget="tract", colour=colour, opacity=0.9, structure_id=structure_id)
+            e[key] = MeshSpec(sid, name, system, subsystem=sub, side="midline", visible=vis, budget="tract", colour=colour, opacity=0.9, structure_id=structure_id, extra=extra)
             continue
         for side, sfx in (("left", "_L"), ("right", "_R")):
             f = key + sfx
             e[f] = MeshSpec(f"{sid}-{sfx[1].lower()}", f"{name} ({sfx[1]})", system, subsystem=sub, side=side, visible=vis,
-                            budget="tract" if system == "tracts" or "peduncle" in sid else "small", colour=colour, structure_id=structure_id, opacity=0.9)
+                            budget="tract" if system == "tracts" or "peduncle" in sid else "small", colour=colour, structure_id=structure_id, opacity=0.9,
+                            extra={**extra, "file": extra["file"] + sfx})
     return e
 
 
