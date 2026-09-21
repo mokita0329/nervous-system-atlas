@@ -1,0 +1,31 @@
+{
+ "id": "pyramid",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "01463f5ac9cfd7a9",
+ "fields": {
+  "summary": "錐体（pyramid）は延髄腹側にある二本の縦走する隆起で、前正中裂の左右に一本ずつあり、それぞれ同側の運動野から来る約百万本の皮質脊髄路軸索を運ぶ。延髄の下端でこれらの線維の大部分は錐体交叉で交叉し、外側皮質脊髄路を形成する。非交叉のまま残る少数は前皮質脊髄路を形成する。錐体は前脊髄動脈と椎骨動脈の傍正中穿通枝に灌流されるため、延髄内側症候群の運動症状を担う部分である。",
+  "anatomy.location": "橋延髄移行部から延髄頸髄移行部までの延髄腹側面にあり、前正中裂の外側、舌下神経の根糸が出るオリーブ前溝の内側に位置する。錐体交叉は大後頭孔の高さにある。",
+  "function": "対側の四肢の随意的な巧緻運動の主経路である皮質脊髄路を通し、その制御が正中を越える地点を示す。",
+  "imaging.bestView[0].label": "延髄腹側で一対の前方への膨隆をなす錐体",
+  "imaging.bestView[1].label": "橋延髄移行部から錐体交叉までの錐体",
+  "imaging.normalAppearance": "錐体は軸位断 T2 強調像で延髄腹側に一対の膨隆した輪郭を与え、緻密な白質であるため T1 強調像では隣接する被蓋よりわずかに高信号である。錐体交叉は描出されない。",
+  "imaging.pathology[0].pathology": "延髄内側梗塞",
+  "imaging.pathology[0].finding": "錐体を含む延髄腹側傍正中の拡散制限。顔面を免れる対側の不全片麻痺を生じる。",
+  "imaging.pathology[1].pathology": "錐体の Waller 変性",
+  "imaging.pathology[1].finding": "大きな大脳半球梗塞の数か月後、同側の錐体と大脳脚が萎縮し T2 強調像で高信号となる。",
+  "imaging.pathology[1].timing": "およそ 4–10 週から認められ、以後は永続する",
+  "imaging.sequenceOfChoice": "DWI。矢状断・軸位断 T2 強調像。",
+  "clinical.lesionEffects[0].deficit": "顔面を免れる対側の不全片麻痺（上位運動ニューロン型）",
+  "clinical.lesionEffects[0].mechanism": "錐体交叉より上の皮質脊髄路線維",
+  "clinical.lesionEffects[1].deficit": "同側の不全片麻痺",
+  "clinical.lesionEffects[1].mechanism": "錐体交叉より下、外側皮質脊髄路の病巣",
+  "clinical.lesionEffects[2].deficit": "バビンスキー徴候と痙縮",
+  "clinical.lesionEffects[2].mechanism": "屈曲逃避反射の抑制に対する皮質脊髄路性促通の喪失",
+  "clinical.examination[0]": "回内変位（pronator drift）、手指の巧緻運動、反復拮抗運動",
+  "clinical.examination[1]": "反射と足底反応",
+  "clinical.examination[2]": "顔面を確認する。四肢の脱力があって顔面が免れる場合は、延髄または脊髄の病巣を示唆する",
+  "clinical.pearls[0]": "顔面を免れる不全片麻痺に対側の舌の麻痺を伴えば、延髄内側である",
+  "clinical.pearls[1]": "延髄の皮質脊髄路の病巣は、皮質徴候を伴わず、半盲も伴わない脱力を生じる"
+ }
+}

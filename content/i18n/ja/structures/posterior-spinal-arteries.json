@@ -1,0 +1,27 @@
+{
+ "id": "posterior-spinal-arteries",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "dd8454118e07c2b6",
+ "fields": {
+  "summary": "左右に一本ずつ、計二本ある細い動脈で、後根の進入部近くで脊髄の後外側面を下行する。椎骨動脈または後下小脳動脈から起こり、後根動脈に補強された叢状の連鎖を形成し、脊髄の後方三分の一、すなわち後索と後角の先端を灌流する。左右一対の血管は互いに豊富に吻合するため、後脊髄動脈単独の梗塞はまれである。",
+  "anatomy.location": "頭蓋内椎骨動脈または PICA から起こり、延髄と脊髄の後外側溝に沿って後根の内側を下行し、多くの高位で後根動脈枝を受ける。",
+  "function": "後索（薄束と楔状束）と後角の灰白質、すなわち当該高位より下の脊髄全体の固有感覚（深部感覚）・振動覚・識別性触覚の経路を灌流する。",
+  "imaging.bestView[0].label": "後脊髄動脈の起始部における延髄後外側",
+  "imaging.bestView[1].label": "延髄と頸髄の後面",
+  "imaging.normalAppearance": "通常の MRI ではほとんど描出されない。高分解能の軸位断 T2 強調像で脊髄後外側面の微小な点として見える。灌流域は軸位断で脊髄の後方三分の一である。",
+  "imaging.pathology[0].pathology": "脊髄後部梗塞",
+  "imaging.pathology[0].finding": "一つ以上の髄節にわたり後索に限局した T2 高信号と拡散制限。運動機能と痛覚は保たれる。",
+  "imaging.pathology[0].pitfalls": "このパターンは亜急性連合性脊髄変性症や脊髄癆と重なる。急性発症と拡散制限が梗塞を鑑別する",
+  "imaging.sequenceOfChoice": "軸位断・矢状断 T2 強調像と DWI",
+  "clinical.lesionEffects[0].deficit": "当該高位より下の振動覚と固有感覚（深部感覚）の脱失と感覚性失調",
+  "clinical.lesionEffects[0].mechanism": "後索",
+  "clinical.lesionEffects[1].deficit": "分節性の深部腱反射の消失",
+  "clinical.lesionEffects[1].mechanism": "梗塞高位の後角と反射の求心路",
+  "clinical.examination[0]": "果部での振動覚と足趾の関節位置覚",
+  "clinical.examination[1]": "Romberg 試験",
+  "clinical.examination[2]": "痛覚（ピンプリック、保たれるはず）と振動覚（脱失）を比較する",
+  "clinical.pearls[0]": "血管イベントの後に痛覚と筋力が保たれたまま後索障害を呈する場合は、後脊髄動脈を示唆する",
+  "clinical.pearls[1]": "後方の豊富な吻合の連鎖があるため、脊髄後部の梗塞は前部の梗塞よりはるかにまれである"
+ }
+}

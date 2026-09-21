@@ -1,0 +1,31 @@
+{
+  "id": "pia-mater",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "17b40921edca1c40",
+  "fields": {
+    "summary": "最内層の髄膜であり、脳と脊髄に密着してすべての溝と裂に入り込む薄い血管性の膜である。脳に入る血管を伴い、穿通動脈の周囲に血管周囲腔（Virchow–Robin 腔）を形成する。脊髄では肥厚して歯状靱帯と終糸となる。クモ膜とともに軟髄膜（leptomeninges）をなし、ここが癌性髄膜症の場であり、髄膜炎でみられる造影効果の場でもある。その下にあるグリア境界膜が脳実質そのものの外側の境界である。",
+    "anatomy.location": "脳と脊髄の表面に直接接し、溝の中へ入り込み、脳に入る血管を鞘状に包み、脊髄では歯状靱帯と終糸を形成する。",
+    "function": "脳表の血管の支持、間質液を排出する血管周囲腔の形成、脊髄の機械的な固定、そして血液脳境界面の一部をなすこと。",
+    "imaging.bestView[0].label": "大脳基底核でレンズ核線条体動脈に沿う血管周囲腔",
+    "imaging.bestView[1].label": "溝に沿う軟膜の表面",
+    "imaging.normalAppearance": "膜としては描出されない。拡大した血管周囲腔は、大脳基底核と半卵円中心で穿通動脈に沿う髄液信号の円形の点として見え（ラクナとは異なり FLAIR で抑制される）、軟髄膜病変は脳回と脳溝に沿う造影効果として現れる。",
+    "imaging.pathology[0].pathology": "拡大した血管周囲腔",
+    "imaging.pathology[0].finding": "大脳基底核と白質で血管に沿う小さな髄液信号の腔が多数みられる。良性である。",
+    "imaging.pathology[0].pitfalls": "ラクナ（FLAIR で縁取りを伴う）や嚢胞性腫瘍と鑑別する",
+    "imaging.pathology[1].pathology": "癌性髄膜症",
+    "imaging.pathology[1].finding": "脳回、小脳の葉、脳神経を覆う結節状の造影効果。",
+    "imaging.pathology[2].pathology": "軟膜動静脈瘻／表在性ヘモジデリン沈着症",
+    "imaging.pathology[2].finding": "慢性のクモ膜下出血の後、SWI で小脳と脳幹の軟膜面にヘモジデリンの沈着を認める。",
+    "imaging.sequenceOfChoice": "造影 T1、FLAIR、SWI",
+    "clinical.lesionEffects[0].deficit": "頭痛を伴う多発性の脳神経麻痺と脊髄神経根麻痺",
+    "clinical.lesionEffects[0].mechanism": "腫瘍または感染による軟髄膜浸潤",
+    "clinical.lesionEffects[1].deficit": "進行性の難聴と失調",
+    "clinical.lesionEffects[1].mechanism": "小脳と内耳神経の表在性ヘモジデリン沈着症",
+    "clinical.examination[0]": "脳神経と神経根の徴候",
+    "clinical.examination[1]": "聴力と歩行",
+    "clinical.examination[2]": "軟髄膜病変が疑われるときは髄液細胞診",
+    "clinical.pearls[0]": "癌患者における脳神経障害と神経根徴候の合併は軟髄膜病変である。髄液細胞診は 3 回まで繰り返す",
+    "clinical.pearls[1]": "血管周囲腔は正常で数多くみられる。ラクナは病的で縁取りを伴う"
+  }
+}

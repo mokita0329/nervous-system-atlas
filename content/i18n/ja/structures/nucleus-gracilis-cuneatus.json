@@ -1,0 +1,28 @@
+{
+  "id": "nucleus-gracilis-cuneatus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "ded8b8fd3e5ce9f9",
+  "fields": {
+    "summary": "薄束核と楔状束核（gracile and cuneate nuclei）は延髄下部の背側、薄束結節と楔状束結節の下にあり、後索の上行線維を受ける。薄束核は下肢と体幹下部から（薄束）、楔状束核は上肢と体幹上部から（楔状束）入力を受ける。その軸索は内弓状線維として交叉し、内側毛帯を形成する。すぐ外側にある副楔状束核は、上肢からの無意識的な固有感覚（深部感覚）を下小脳脚を通って小脳へ送る。",
+    "anatomy.location": "錐体交叉のすぐ上方の閉延髄背側にあり、第四脳室底の尾側部へ膨隆する結節の下で、薄束核が内側、楔状束核が外側に並ぶ。副楔状束核は楔状束核の外側にある。",
+    "connections.efferents[0].to": "medial-lemniscus",
+    "connections.efferents[0].via": "内弓状線維",
+    "function": "識別性触覚、振動覚、意識にのぼる固有感覚（深部感覚）の二次ニューロンによる中継。体部位局在の表象が同側から対側へ受け渡される部位である。",
+    "imaging.bestView[0].label": "薄束結節と楔状束結節の下の閉延髄背側",
+    "imaging.bestView[1].label": "延髄下部の背側面",
+    "imaging.normalAppearance": "軸位断 T2 と矢状断像では、これらの結節が延髄下部の後面を形づくる。核そのものは分離されない。亜急性連合性脊髄変性症では、後索の T2 高信号がこの高さまで連続して見られる。",
+    "imaging.pathology[0].pathology": "延髄背側の病巣（脱髄、海綿状血管腫）",
+    "imaging.pathology[0].finding": "頸髄延髄移行部の背側傍正中にある小病巣で、同側の振動覚と位置覚の脱失を伴う。",
+    "imaging.sequenceOfChoice": "頸髄延髄移行部の矢状断および軸位断 T2",
+    "clinical.lesionEffects[0].deficit": "病巣高位より下での同側の振動覚と固有感覚（深部感覚）の脱失",
+    "clinical.lesionEffects[0].mechanism": "線維も核もまだ非交叉性であること",
+    "clinical.lesionEffects[1].deficit": "感覚性失調と手の偽性アテトーゼ",
+    "clinical.lesionEffects[1].mechanism": "楔状束核の求心路遮断",
+    "clinical.examination[0]": "振動覚と関節位置覚を左右で比較する",
+    "clinical.examination[1]": "Romberg 試験と、閉眼時の偽性アテトーゼ",
+    "clinical.examination[2]": "これらのモダリティについて感覚レベルを探す",
+    "clinical.pearls[0]": "これらの核の高さかそれより下の背側の病巣では同側の固有感覚の脱失を生じ、これらより上では脱失は対側となる",
+    "clinical.pearls[1]": "孤立した「しびれてぎこちない手」は、楔状束または楔状束核に由来しうる（頸髄延髄移行部の脱髄）"
+  }
+}

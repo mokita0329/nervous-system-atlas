@@ -1,0 +1,33 @@
+{
+ "id": "pprf",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "b4e8cfb569a5c6a1",
+ "fields": {
+  "summary": "外転神経核（abducens nucleus）に隣接する橋網様体内のバースト神経細胞の集団で、水平方向の衝動性眼球運動（サッケード）を生成する。対側の前頭眼野と同側の上丘から指令を受け、同じ側の外転神経核を発火させるため、眼球は活動している PPRF の側へ跳ぶ。片側の病巣では病巣側への随意的および反射性のサッケードが消失するが、前庭系の経路はここを迂回するため、眼球頭反射では眼球をなお病巣側へ動かしうる。",
+  "anatomy.location": "橋尾側の傍正中被蓋にあり、外転神経核の腹側かつ外側に位置し、吻側へは滑車神経核の高さまで広がる。",
+  "connections.afferents[0].from": "frontal-eye-field",
+  "connections.afferents[0].note": "対側",
+  "connections.afferents[1].from": "superior-colliculus",
+  "connections.afferents[1].note": "同側",
+  "connections.efferents[0].to": "abducens-nucleus",
+  "connections.efferents[0].note": "同側",
+  "function": "水平面におけるサッケードの生成。皮質・上丘・小脳からの指令を統合し、外転神経核へ送る。",
+  "imaging.bestView[0].label": "外転神経核の前方にある橋尾側の傍正中被蓋",
+  "imaging.normalAppearance": "通常の MRI では描出されない。橋尾側の傍正中被蓋に局在する。ここの病巣は外転神経核の病巣と同じ画像所見、すなわち FLAIR や DWI での傍正中被蓋の小さな斑点を呈する。",
+  "imaging.pathology[0].pathology": "傍正中橋被蓋梗塞",
+  "imaging.pathology[0].finding": "傍正中被蓋の小さな拡散制限病巣と、同側のサッケード性注視麻痺。",
+  "imaging.sequenceOfChoice": "薄スライスの FLAIR/DWI",
+  "clinical.lesionEffects[0].deficit": "病巣側への水平サッケードの消失と、眼球の反対側への偏倚",
+  "clinical.lesionEffects[0].mechanism": "同側注視のためのバースト神経細胞",
+  "clinical.lesionEffects[1].deficit": "病巣側への前庭動眼反射は保たれる",
+  "clinical.lesionEffects[1].mechanism": "前庭入力は外転神経核へ直接到達する",
+  "clinical.lesionEffects[2].deficit": "大脳半球病巣とは逆向きの注視偏倚",
+  "clinical.lesionEffects[2].mechanism": "橋病巣では眼球は病巣と反対側、すなわち不全片麻痺の側を向く",
+  "clinical.examination[0]": "左右各方向への随意サッケードと追視",
+  "clinical.examination[1]": "PPRF の病巣と核性病巣を区別するための眼球頭反射（人形の目現象）手技",
+  "clinical.examination[2]": "安静時の注視偏倚の向きを不全片麻痺との関係で確認する",
+  "clinical.pearls[0]": "大脳半球病巣では眼球は病巣側を向き、麻痺した四肢とは反対を向く。橋病巣では眼球は病巣と反対側を向き、麻痺した四肢の側を向く",
+  "clinical.pearls[1]": "頭位変換で克服できる注視麻痺は核上性（PPRF）であり、克服できないものは核性（外転神経核）である"
+ }
+}
