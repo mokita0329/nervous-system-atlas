@@ -1,0 +1,32 @@
+{
+  "id": "hypothalamus-medial-preoptic",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "811d3e9557c5f003",
+  "fields": {
+    "summary": "内側視索前核（medial preoptic nucleus）は視床下部前端の視索前野にあり、終板の後方、視交叉の上方で第三脳室の壁の中に位置する。発生学的には終脳由来であるが、機能的には視床下部に属する。生殖行動と養育行動、弓状核の GnRH ニューロンへの投射を介した性腺刺激ホルモンの分泌、体温調節、睡眠を調節し、男性で大きい性的二形核を含む。その外側にあって覚醒系を遮断する腹外側視索前核とともに、睡眠開始の機構の一部をなす。病巣は不眠、高体温、性行動の消失を生じ、この領域は鞍上部腫瘍や前交通動脈瘤の支配域に関係する。",
+    "anatomy.location": "第三脳室の外側にある視床下部前部の視索前部で、終板と終板脈管器官の後方、視交叉の上方、視床下部前野と室傍核の前方にあり、その外側に腹外側視索前核がある。",
+    "function": "内側視索前核のニューロンは性腺ホルモンを嗅覚入力・辺縁系入力と統合して、雄の性行動と母性行動を駆動し、キスペプチンニューロンを介して排卵前の性腺刺激ホルモンサージのタイミングを決める。温感受性の視索前ニューロンは熱放散と発熱を引き起こす体温調節中枢を形成し、腹外側視索前核のニューロンはヒスタミン作動性・ノルアドレナリン作動性・コリン作動性の覚醒核へ GABA とガラニンを放出して睡眠を開始させる。この領域はまた隣接する終板脈管器官を介して浸透圧とアンジオテンシンを感知し、口渇とバソプレシンの調節を助ける。扁桃体、中隔野、脳幹から入力を受け、弓状核、中脳水道周囲灰白質、腹側被蓋野へ投射する。",
+    "imaging.bestView[0].label": "終板の後方にある内側視索前核",
+    "imaging.bestView[1].label": "視交叉の上方にある視索前野",
+    "imaging.normalAppearance": "正中矢状断で、終板のすぐ後方、視交叉の上方にある第三脳室の前壁である。脳室の視索前陥凹がここに入り込む。",
+    "imaging.pathology[0].pathology": "視索前部の損傷後の不眠",
+    "imaging.pathology[0].finding": "手術、腫瘍、脳卒中による視床下部前部の病巣で、高度の睡眠の消失と高体温を伴う。",
+    "imaging.pathology[1].pathology": "視床下部過誤腫",
+    "imaging.pathology[1].finding": "灰白隆起と視索前部にみられる灰白質と等信号で造影効果を示さない腫瘤で、笑い発作と思春期早発症を伴う。",
+    "imaging.pathology[2].pathology": "鞍上部胚細胞腫",
+    "imaging.pathology[2].finding": "第三脳室前底部の正中に造影される腫瘤で、尿崩症と思春期早発または思春期遅発を伴う。",
+    "clinical.lesionEffects[0].deficit": "不眠",
+    "clinical.lesionEffects[0].mechanism": "腹外側視索前核の睡眠スイッチの脱落",
+    "clinical.lesionEffects[1].deficit": "性行動と養育行動の消失、性腺機能低下",
+    "clinical.lesionEffects[1].mechanism": "GnRH 系と性行動に対する内側視索前核からの駆動の脱落",
+    "clinical.lesionEffects[2].deficit": "高体温",
+    "clinical.lesionEffects[2].mechanism": "温感受性の視索前部体温調節中枢の脱落",
+    "clinical.examination[0]": "視床下部病変を疑う場合の睡眠歴の聴取と睡眠検査",
+    "clinical.examination[1]": "小児では思春期の段階評価、成人では性腺ホルモンの確認",
+    "clinical.examination[2]": "体温調節と口渇",
+    "clinical.pearls[0]": "腹外側視索前核は睡眠のスイッチである。その脱落による不眠は睡眠薬ではほとんど改善しない",
+    "clinical.pearls[1]": "笑い発作を伴う思春期早発症は、この領域の視床下部過誤腫を意味する",
+    "clinical.pearls[2]": "視索前野が体温調節中枢（サーモスタット）であり、視床下部前部が放熱器である"
+  }
+}

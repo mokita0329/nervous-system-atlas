@@ -1,0 +1,30 @@
+{
+ "id": "ganglion-otic",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "8fd07b5073670c03",
+ "fields": {
+  "summary": "卵円孔のすぐ下方、下顎神経の内側にある小さな副交感神経節（otic ganglion）で、下唾液核から小錐体神経（舌咽神経が鼓室神経叢を経て送る）で到達した節前線維がここでシナプスする。節後線維は耳介側頭神経に加わって耳下腺に達する。Frey 症候群（耳下腺切除後に耳下腺部で起こる味覚性発汗）は、これらの線維が上を覆う皮膚の汗腺へ迷入再生することで生じる。",
+  "anatomy.location": "側頭下窩の卵円孔直下、下顎神経の内側、口蓋帆張筋の外側、中硬膜動脈の前方にある。",
+  "connections.afferents[0].from": "nucleus-solitarius 領域（下唾液核）",
+  "connections.afferents[0].via": "cn-09-glossopharyngeal を経由する小錐体神経",
+  "connections.efferents[0].to": "耳下腺",
+  "connections.efferents[0].via": "耳介側頭神経",
+  "function": "耳下腺への副交感性分泌促進線維の中継。中硬膜動脈神経叢からの交感神経線維と、鼓膜張筋・口蓋帆張筋への運動線維の通過路でもある。",
+  "imaging.bestView[0].label": "卵円孔の下方、V3 の内側にある側頭下窩",
+  "imaging.normalAppearance": "通常の画像では同定できない。卵円孔と下顎神経は頭蓋底の CT と MRI で描出され、V3 に沿う神経周囲進展はこの領域を通過する。",
+  "imaging.pathology[0].pathology": "V3 に沿う神経周囲進展",
+  "imaging.pathology[0].finding": "卵円孔を通る下顎神経が腫大して造影され、咀嚼筋に除神経性萎縮を伴う。",
+  "imaging.sequenceOfChoice": "脂肪抑制を用いた頭蓋底 MRI",
+  "clinical.lesionEffects[0].deficit": "耳下腺分泌の低下",
+  "clinical.lesionEffects[0].mechanism": "舌咽神経由来の副交感神経支配の消失",
+  "clinical.lesionEffects[1].deficit": "頬部の味覚性発汗と紅潮（Frey 症候群）",
+  "clinical.lesionEffects[1].mechanism": "耳下腺手術後に副交感神経線維が皮膚の汗腺へ迷入再生する",
+  "clinical.lesionEffects[2].deficit": "腫瘤に伴う咬合力低下と V3 領域のしびれ",
+  "clinical.lesionEffects[2].mechanism": "隣接する下顎神経の障害",
+  "clinical.examination[0]": "食事中の頬部の発汗を観察する",
+  "clinical.examination[1]": "咬筋・翼突筋の筋力、V3 領域の感覚",
+  "clinical.pearls[0]": "耳下腺手術後に食事で頬に汗をかくのは Frey 症候群であり、耳神経節からの出力の誤った再支配による",
+  "clinical.pearls[1]": "耳下腺の副交感神経支配は第 IX 脳神経によるものであり、腺内を顔面神経が貫くにもかかわらず第 VII 脳神経によるものではない"
+ }
+}

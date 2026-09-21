@@ -1,0 +1,32 @@
+{
+ "id": "ganglion-ciliary",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "b622e51c720814cf",
+ "fields": {
+  "summary": "眼窩後部にある針頭大の副交感神経節（ciliary ganglion）で、視神経の外側、外側直筋の内側に位置し、動眼神経（CN III）下枝を走ってきた Edinger–Westphal 核由来の節前線維がここでシナプスする。節後線維は短毛様体神経として眼球に達し、瞳孔を収縮させ、調節のために毛様体筋を収縮させる。交感神経線維と感覚線維はシナプスを作らずにこの神経節を通過する。神経節または短毛様体神経の障害（ウイルス感染、眼窩手術、外傷）は Adie 緊張性瞳孔を生じる。これは散大した瞳孔で、対光反応は乏しいが近見に対しては緩徐かつ緊張性に反応し、希釈ピロカルピンに対する除神経性過敏を示す。",
+  "anatomy.location": "眼窩尖部、上眼窩裂の約 1 cm 前方、視神経と外側直筋の間、眼動脈の外側にある。下斜筋への神経（副交感根）、鼻毛様体神経（感覚根）、内頸動脈神経叢（交感根）と連絡する。",
+  "connections.afferents[0].from": "oculomotor-nucleus（Edinger–Westphal）",
+  "connections.afferents[0].via": "cn-03-oculomotor 下枝",
+  "connections.efferents[0].to": "瞳孔括約筋と毛様体筋",
+  "connections.efferents[0].via": "短毛様体神経",
+  "function": "瞳孔括約筋と毛様体筋への副交感神経出力の中継。瞳孔散大筋への交感神経線維と、角膜・虹彩からの感覚線維の通過路でもある。",
+  "imaging.bestView[0].label": "視神経の外側、外側直筋の内側にある眼窩尖部",
+  "imaging.normalAppearance": "通常の眼窩 MRI では同定できない。部位としては視神経の外側の眼窩尖部にあたる。緊張性瞳孔に他の眼窩症状を伴う場合、腫瘤や炎症を除外する目的で眼窩 MRI を行う。",
+  "imaging.pathology[0].pathology": "眼窩尖部の病巣",
+  "imaging.pathology[0].finding": "尖部の腫瘤または炎症が、神経節と上眼窩裂を通る神経を侵す。",
+  "imaging.sequenceOfChoice": "薬理学的瞳孔検査（0.1% ピロカルピン）。他の症状があるときのみ眼窩 MRI",
+  "clinical.lesionEffects[0].deficit": "Adie 緊張性瞳孔: 散大して対光反応に乏しく、近見で緩徐かつ緊張性に縮瞳し、再散大も遅い",
+  "clinical.lesionEffects[0].mechanism": "節後副交感神経の除神経と、調節線維の瞳孔括約筋への迷入再生",
+  "clinical.lesionEffects[1].deficit": "調節障害と近見視のかすみ",
+  "clinical.lesionEffects[1].mechanism": "毛様体筋の除神経",
+  "clinical.lesionEffects[2].deficit": "緊張性瞳孔とアキレス腱反射消失（Holmes–Adie 症候群）",
+  "clinical.lesionEffects[2].mechanism": "原因不明の良性多発ニューロパチーの合併",
+  "clinical.examination[0]": "明所と暗所での瞳孔径。細隙灯で分節性（虫様）の虹彩収縮をみる",
+  "clinical.examination[1]": "対光反応と近見反応の比較（光近見解離）",
+  "clinical.examination[2]": "0.1% ピロカルピンによる縮瞳（過敏性）",
+  "clinical.examination[3]": "アキレス腱反射",
+  "clinical.pearls[0]": "光近見解離を伴う散瞳で眼瞼と眼球運動が正常なら、動眼神経麻痺ではなく Adie である",
+  "clinical.pearls[1]": "Adie 瞳孔は頻度が高く良性で、通常は若年女性にみられる。年余を経て縮小していく"
+ }
+}

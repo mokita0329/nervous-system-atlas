@@ -1,0 +1,32 @@
+{
+  "id": "hypothalamus-anterior-area",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "b2549ae4dc04f06f",
+  "fields": {
+    "summary": "視床下部前野（anterior hypothalamic area）は、前方の視索前野と後方の隆起部視床下部の間、視交叉の上方で、室傍核と視索上核の周囲を占める領域である。熱放散の中枢であり、血液が温まるとここのニューロンが活性化して発汗、皮膚血管拡張、あえぎ呼吸を促し、ふるえと熱産生を抑制する。また心拍数と血圧を低下させる副交感優位の自律神経ニューロンを含む。損傷は高体温を生じ、逆に刺激されると低体温を生じる。この領域は鞍上部腫瘍、前交通動脈瘤の手術、視床下部過誤腫によって障害される。隣接する視索前核群とともに睡眠の導入にも関与する。",
+    "anatomy.location": "視交叉の上方、第三脳室の外側にある視床下部前部で、前方の内側視索前核と後方の視床下部腹内側核・背内側核との間にあり、室傍核と視索上核を取り囲む。",
+    "function": "ここの温感受性ニューロンは血液温度と皮膚からの温度入力を統合し、交感神経性の血管拡張と発汗によって熱放散を促す一方、視床下部後部の熱産生経路を抑制する。感染時にプロスタグランジン E2 がその設定値を変更すると発熱を生じるため、解熱薬はここに作用する。この領域には迷走神経背側核と孤束核へ投射して心拍を遅くし血圧を下げる、副交感神経を促進する自律神経ニューロンが含まれる。視索前野の睡眠活動性ニューロンとともに、覚醒系を抑制して non-REM 睡眠を促す。また攻撃性を調節し、近傍のオキシトシンニューロン・バソプレシンニューロンを介して社会行動にも関与する。",
+    "imaging.bestView[0].label": "視交叉の上方にある視床下部前部",
+    "imaging.bestView[1].label": "視索前部と隆起部の間にある視床下部前野",
+    "imaging.normalAppearance": "冠状断で視交叉の上方、前交連と脳弓柱の下にある第三脳室前壁の灰白質である。個々の核は臨床用 MRI では分離できない。",
+    "imaging.pathology[0].pathology": "視床下部前部の損傷後の高体温",
+    "imaging.pathology[0].finding": "動脈瘤手術、頭蓋咽頭腫摘出、頭部外傷の後にみられる視床下部前部の信号変化または出血で、感染がないのに制御できない発熱を伴う。",
+    "imaging.pathology[1].pathology": "鞍上部腫瘤",
+    "imaging.pathology[1].finding": "頭蓋咽頭腫、胚細胞腫、グリオーマが視床下部前部へ進展し、体温調節・睡眠・内分泌の障害を伴う。",
+    "imaging.pathology[2].pathology": "Wernicke 脳症",
+    "imaging.pathology[2].finding": "内側視床、乳頭体、中脳水道周囲の対称性 FLAIR 変化が視床下部へ及び、低体温を伴うことがある。",
+    "clinical.lesionEffects[0].deficit": "高体温",
+    "clinical.lesionEffects[0].mechanism": "熱放散中枢の脱落により、熱産生が拮抗されないまま進む",
+    "clinical.lesionEffects[1].deficit": "不眠",
+    "clinical.lesionEffects[1].mechanism": "視床下部前部と視索前部の睡眠促進ニューロンの脱落",
+    "clinical.lesionEffects[2].deficit": "刺激性病変による低体温と徐脈",
+    "clinical.lesionEffects[2].mechanism": "熱放散と副交感神経出力の過活動",
+    "clinical.examination[0]": "鞍上部病変をもつ患者における、感染性の原因がない深部体温の推移",
+    "clinical.examination[1]": "睡眠歴と日中の眠気",
+    "clinical.examination[2]": "自律神経機能: 心拍変動と起立時血圧",
+    "clinical.pearls[0]": "視床下部前部は熱を逃がし、視床下部後部は熱をつくる。前部の損傷は発熱を、後部の損傷は低体温を意味する",
+    "clinical.pearls[1]": "視床下部手術後の中枢性発熱は抗菌薬には反応しないが、冷却には反応する",
+    "clinical.pearls[2]": "発熱そのものが視床下部前部の働きである。プロスタグランジンが体温の設定値を変更する"
+  }
+}

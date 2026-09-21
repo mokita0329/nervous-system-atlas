@@ -1,0 +1,32 @@
+{
+  "id": "hypoglossal-nucleus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "5491eee513921916",
+  "fields": {
+    "summary": "第四脳室底の舌下神経三角の下、延髄背側の傍正中部にある長い運動ニューロンの細胞柱である。その軸索は内側毛帯と下オリーブ核の間を腹側へ走り、オリーブ前溝から舌下神経根糸として出る。すべての内舌筋と大部分の外舌筋を支配し、この延髄内線維の走行のために、内側延髄梗塞では同側の舌麻痺を伴う。",
+    "anatomy.location": "正中のすぐ傍らの延髄背側で、第四脳室底（舌下神経三角）の下にあり、尾側では中心管の傍らを錐体交叉まで続く。迷走神経背側核の内側に位置する。",
+    "connections.efferents[0].to": "舌筋",
+    "connections.efferents[0].via": "cn-12-hypoglossal",
+    "function": "発話、咀嚼、嚥下のための舌の下位運動ニューロンである。両側の皮質延髄路入力を受けるが、オトガイ舌筋については対側優位である。",
+    "imaging.bestView[0].label": "傍正中の延髄背側。線維は腹側へ交差するように走りオリーブ前溝に至る",
+    "imaging.bestView[1].label": "尾側の第四脳室底にある舌下神経三角",
+    "imaging.normalAppearance": "MRI では描出されない。神経は薄いスライスの T2 で舌下神経管を通る経路を追うことができる。核の位置は傍正中の延髄背側から推定する。",
+    "imaging.pathology[0].pathology": "内側延髄梗塞",
+    "imaging.pathology[0].finding": "舌下神経線維束を含む傍正中の延髄腹側の拡散制限。",
+    "imaging.pathology[1].pathology": "舌下神経管の病変（転移、グロムス腫瘍、解離）",
+    "imaging.pathology[1].finding": "舌下神経管内の造影される腫瘤または肥厚した神経で、片側の舌の除神経性萎縮と脂肪変性を伴う。",
+    "imaging.sequenceOfChoice": "頭蓋底を通る薄い軸位断 T2／造影 T1、梗塞には DWI",
+    "clinical.lesionEffects[0].deficit": "舌を突出させると麻痺側へ偏位し、萎縮と線維束性収縮を伴う",
+    "clinical.lesionEffects[0].mechanism": "下位運動ニューロンの脱落。保たれた側のオトガイ舌筋が舌を麻痺側へ押す",
+    "clinical.lesionEffects[1].deficit": "舌音の構音障害",
+    "clinical.lesionEffects[1].mechanism": "舌の筋力低下",
+    "clinical.lesionEffects[2].deficit": "萎縮を伴わない、半球病巣の対側へ向かう舌の偏位",
+    "clinical.lesionEffects[2].mechanism": "核上性の皮質延髄路病変",
+    "clinical.examination[0]": "口腔内で安静時の舌を観察し、萎縮と線維束性収縮をみる",
+    "clinical.examination[1]": "突出させて偏位をみる。頬に押し当てて左右への動きをみる",
+    "clinical.examination[2]": "「ラ・ラ・ラ」の速い反復",
+    "clinical.pearls[0]": "萎縮を伴って舌が病巣側を向くなら核または神経。萎縮なしで舌が病巣と反対側を向くなら皮質または皮質延髄路である",
+    "clinical.pearls[1]": "舌の麻痺に対側の不全片麻痺と固有感覚（深部感覚）の脱失を伴えば内側延髄である"
+  }
+}

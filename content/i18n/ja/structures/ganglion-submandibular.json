@@ -1,0 +1,30 @@
+{
+ "id": "ganglion-submandibular",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "5f0912f0bfede3ce",
+ "fields": {
+  "summary": "顎下腺の深部の上方で舌神経から吊り下がる小さな副交感神経節（submandibular ganglion）。上唾液核からの節前線維は顔面神経を走り、中耳で鼓索神経として分かれ、側頭下窩で舌神経に加わってここでシナプスする。節後線維は顎下腺・舌下腺と口底の小唾液腺を支配する。鼓索神経は舌前部からの味覚も運ぶため、これより近位の顔面神経の病巣では唾液分泌と味覚の両方が低下する。",
+  "anatomy.location": "口底で、舌神経の下方の舌骨舌筋の上にあり、顎下腺の深葉の上方、顎下腺管の外側に位置する。",
+  "connections.afferents[0].from": "facial-motor-nucleus 領域（上唾液核）",
+  "connections.afferents[0].via": "舌神経を経由する鼓索神経",
+  "connections.efferents[0].to": "顎下腺と舌下腺",
+  "function": "顎下腺と舌下腺への分泌促進性支配。",
+  "imaging.bestView[0].label": "口底の領域。神経節は舌骨舌筋の上にある（脳の描出範囲外）",
+  "imaging.normalAppearance": "同定できない。顎下腺と舌神経の領域は頸部 MRI で描出される。除神経された腺は萎縮し脂肪変性を示す。",
+  "imaging.pathology[0].pathology": "顎下腺の除神経",
+  "imaging.pathology[0].finding": "鼓索神経または舌神経の損傷後に、腺が小さく脂肪化する。",
+  "imaging.sequenceOfChoice": "腫瘤を疑うときの頸部 MRI",
+  "clinical.lesionEffects[0].deficit": "顎下腺・舌下腺からの唾液分泌の低下",
+  "clinical.lesionEffects[0].mechanism": "鼓索神経または神経節の病巣",
+  "clinical.lesionEffects[1].deficit": "同じ病巣による舌前三分の二の味覚消失",
+  "clinical.lesionEffects[1].mechanism": "鼓索神経は味覚も運ぶため",
+  "clinical.lesionEffects[2].deficit": "舌前部のしびれ",
+  "clinical.lesionEffects[2].mechanism": "舌神経の損傷（歯科手術）",
+  "clinical.examination[0]": "砂糖と塩を用いた舌前部の味覚",
+  "clinical.examination[1]": "舌下への唾液の貯留",
+  "clinical.examination[2]": "舌の感覚",
+  "clinical.pearls[0]": "顔面神経麻痺に味覚消失を伴えば、病巣は鼓索神経分岐より近位、すなわち乳突部かそれより上位にある",
+  "clinical.pearls[1]": "第三大臼歯抜去後の舌神経損傷は舌をしびれさせ、唾液分泌と味覚も低下させうる"
+ }
+}
