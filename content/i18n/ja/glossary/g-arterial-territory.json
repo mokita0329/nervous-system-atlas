@@ -1,0 +1,10 @@
+{
+  "id": "g-arterial-territory",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "36826a7382377dc2",
+  "fields": {
+    "term": "動脈支配域（arterial territory）",
+    "definition": "一本の動脈が灌流する脳の領域。梗塞のパターンは支配域に従うが、本アトラスの MRI 断面に示す支配域マップは集団の平均であり、個人間で、とくに境界部で異なる。"
+  }
+}

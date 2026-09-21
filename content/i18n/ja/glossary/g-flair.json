@@ -1,0 +1,10 @@
+{
+  "id": "g-flair",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "a198ca40ee637713",
+  "fields": {
+    "term": "FLAIR",
+    "definition": "Fluid-attenuated inversion recovery（水抑制反転回復法）: 髄液の信号を抑制した T2 強調 MRI シーケンスで、脱髄斑、浮腫、グリオーシスなどの脳室周囲および皮質の病変が目立つようになる。"
+  }
+}

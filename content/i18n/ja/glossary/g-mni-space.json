@@ -1,0 +1,10 @@
+{
+  "id": "g-mni-space",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "0e9d5961590dd900",
+  "fields": {
+    "term": "MNI 空間（MNI space）",
+    "definition": "Montreal Neurological Institute の平均化 MRI テンプレートに基づく標準定位座標系で、前交連からのミリメートル単位の x（左–右）、y（後–前）、z（下–上）で表す。本アトラスは MNI152NLin2009cAsym テンプレートを用い、すべてのメッシュと断面位置はその RAS ミリメートル座標で表現されている。"
+  }
+}

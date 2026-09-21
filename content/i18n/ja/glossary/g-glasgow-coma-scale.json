@@ -1,0 +1,10 @@
+{
+  "id": "g-glasgow-coma-scale",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "a6c2d909ff2ce49c",
+  "fields": {
+    "term": "Glasgow Coma Scale（GCS）",
+    "definition": "開眼（1–4）、言語反応（1–5）、運動反応（1–6）からなる 3–15 点の尺度で、意識レベルを段階づける。8 点以下を昏睡と定義する。FOUR score は脳幹反射と呼吸を加える。"
+  }
+}

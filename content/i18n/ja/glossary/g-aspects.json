@@ -1,0 +1,10 @@
+{
+  "id": "g-aspects",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "bb7465c906044018",
+  "fields": {
+    "term": "ASPECTS",
+    "definition": "Alberta Stroke Program Early CT Score: 二つの CT レベルにおける MCA 支配域の十領域について、早期虚血性変化のある領域ごとに一点ずつ減点する。低い点数は再灌流後の転帰不良と出血を予測する。"
+  }
+}

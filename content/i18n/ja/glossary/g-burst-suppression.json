@@ -1,0 +1,10 @@
+{
+  "id": "g-burst-suppression",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "4dabeea227099fa3",
+  "fields": {
+    "term": "バーストサプレッション（burst suppression）",
+    "definition": "活動のバーストと平坦な抑制期が交互に現れる脳波パターンで、深麻酔、低体温、重度の無酸素性損傷でみられる。心停止後には予後不良の徴候である。"
+  }
+}

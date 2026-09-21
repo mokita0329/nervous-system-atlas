@@ -1,0 +1,10 @@
+{
+  "id": "g-excitotoxicity",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "41db90f13bbccfcc",
+  "fields": {
+    "term": "興奮毒性（excitotoxicity）",
+    "definition": "過剰なグルタミン酸が NMDA 受容体に作用して細胞内にカルシウムが流入することによるニューロン死。虚血、てんかん重積状態、低血糖、外傷におけるニューロン脱落の機序である。"
+  }
+}

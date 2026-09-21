@@ -1,0 +1,10 @@
+{
+  "id": "g-dopamine-transporter-imaging",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "8c37aba9f3387204",
+  "fields": {
+    "term": "ドパミントランスポーターイメージング（DaTscan）",
+    "definition": "線条体におけるシナプス前ドパミントランスポーターの SPECT 画像。被殻の取り込みが非対称に低下していれば黒質線条体変性（Parkinson 病、Lewy 小体型認知症、非定型パーキンソニズム）を示し、本態性振戦と薬剤性パーキンソニズムでは正常である。"
+  }
+}

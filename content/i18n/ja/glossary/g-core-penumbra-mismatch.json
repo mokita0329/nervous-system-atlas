@@ -1,0 +1,10 @@
+{
+  "id": "g-core-penumbra-mismatch",
+  "kind": "glossary",
+  "lang": "ja",
+  "source": "9a344e7bc285f4c7",
+  "fields": {
+    "term": "コア–ペナンブラミスマッチ（core-penumbra mismatch）",
+    "definition": "灌流画像における、不可逆的に梗塞したコア（血液量低下または拡散制限）と、それより広い低灌流だが生存可能なペナンブラとの差。ミスマッチが大きければ、遅い時間帯の血栓回収術の恩恵を受ける患者を同定できる。"
+  }
+}
