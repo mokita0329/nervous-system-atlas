@@ -1,0 +1,33 @@
+{
+  "id": "medial-longitudinal-fasciculus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "249b3f5c89d1daf7",
+  "fields": {
+    "summary": "中脳水道と第四脳室底のすぐ下を、脳幹の全長にわたって走る一対の傍正中の線維束である。臨床的に決定的なその内容は、対側の動眼神経核へ交叉する外転神経核の核間ニューロンの軸索であり、これが水平共同注視のために内側直筋を反対側の外側直筋と連動させる。また前庭からの線維を眼球運動核へ運び、内側前庭脊髄路として下行する。病巣では核間性眼筋麻痺が生じる。すなわち、病巣側の眼が内転できず、他方の眼は眼振を伴って外転する。",
+    "anatomy.location": "中脳吻側（Cajal 間質核）から橋・延髄を通って頸髄まで下行する背側傍正中の被蓋にあり、中脳水道周囲灰白質、舌下神経核および外転神経核の腹側を走る。",
+    "function": "III・IV・VI 神経核の間で水平方向と垂直方向の共同眼球運動を協調させ、それらを前庭神経核と結ぶ。頭部と眼の協調のために内側前庭脊髄路を運ぶ。",
+    "imaging.bestView[0].label": "第四脳室の前方にある傍正中の背側橋被蓋",
+    "imaging.bestView[1].label": "中脳から延髄までの背側傍正中の線維束",
+    "imaging.normalAppearance": "ルーチンの MRI では分解できない。病巣は背側被蓋の傍正中にある小さな斑点として描出される。多発性硬化症では、両側性の INO は通常、脳室底の下で正中をまたぐ小さな FLAIR 高信号病巣を伴う。",
+    "imaging.pathology[0].pathology": "脱髄性 INO",
+    "imaging.pathology[0].finding": "背側傍正中の橋被蓋にある T2/FLAIR 高信号の小病巣で、多発性硬化症ではしばしば両側性である。5 mm スライスでは描出されないことがある。",
+    "imaging.pathology[0].pitfalls": "薄いスライスの軸位断 FLAIR または矢状断 3D FLAIR を用いる。ルーチンの MRI が正常でも脱髄性 INO は否定できない",
+    "imaging.pathology[1].pathology": "虚血性 INO",
+    "imaging.pathology[1].finding": "血管危険因子のある高齢患者で、小穿通枝に由来する片側の傍正中被蓋の拡散制限。",
+    "imaging.sequenceOfChoice": "橋と中脳を通る薄いスライスの FLAIR と DWI",
+    "clinical.lesionEffects[0].deficit": "病巣側の眼の内転障害と、他方の眼の外転時眼振（INO）",
+    "clinical.lesionEffects[0].mechanism": "対側の外転神経核から同側の内側直筋亜核へ向かう核間ニューロンの軸索",
+    "clinical.lesionEffects[1].deficit": "輻輳は保たれる",
+    "clinical.lesionEffects[1].mechanism": "輻輳は別の中脳の経路を用いる",
+    "clinical.lesionEffects[2].deficit": "斜偏位と垂直性眼振",
+    "clinical.lesionEffects[2].mechanism": "MLF 内の前庭線維",
+    "clinical.lesionEffects[3].deficit": "外転神経核または PPRF の病巣を合併した場合の one-and-a-half 症候群",
+    "clinical.lesionEffects[3].mechanism": "同側への注視麻痺に INO が加わったもの",
+    "clinical.examination[0]": "患者に左右それぞれの方向へ大きく眼を動かさせ、内転する眼の遅れや内転不能をみる。外転する眼の眼振の有無をみる",
+    "clinical.examination[1]": "内側直筋そのものが働くことを示すために輻輳を検査する",
+    "clinical.examination[2]": "垂直注視と斜偏位を確認する",
+    "clinical.pearls[0]": "若年成人の INO は他が証明されるまで多発性硬化症と考える。高齢患者では通常、小さな脳卒中である",
+    "clinical.pearls[1]": "病巣側は、内転できない眼の側である"
+  }
+}
