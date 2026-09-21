@@ -1,0 +1,32 @@
+{
+  "id": "falx-cerebri",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "04b76b61762f1d93",
+  "fields": {
+    "summary": "大脳鎌（falx cerebri）は、前方の鶏冠から後方の小脳テントまで大脳縦裂の中に垂れ下がる、鎌状の髄膜性硬膜のひだである。付着する上縁には上矢状静脈洞を、遊離した下縁には下矢状静脈洞を含み、下縁は脳梁のすぐ上に位置する。大脳半球の左右方向への偏位を制限するため、テント上の腫瘤効果では帯状回がその遊離縁の下へ入り込む大脳鎌下ヘルニアが生じる。また傍矢状部髄膜腫の好発部位であり、これは下肢の脱力やけいれん発作で発症する。",
+    "anatomy.location": "大脳半球の間の正中にあり、前頭稜、頭蓋円蓋の矢状溝、小脳テントに付着する。遊離縁は脳梁の上にあり、後方ほど脳梁に近づく。",
+    "function": "大脳半球の区画化と支持、矢状静脈洞の収容、脳の左右方向への偏位の制限。",
+    "imaging.bestView[0].label": "大脳半球の間の大脳鎌と、その上端の上矢状静脈洞",
+    "imaging.bestView[1].label": "軸位断でみる大脳鎌の正中の線",
+    "imaging.normalAppearance": "軸位断 CT では正中の線としてみえ、石灰化すると高吸収となる。冠状断では上矢状静脈洞が頭頂部で三角形としてみえる。たわんだ大脳鎌の下で透明中隔が正中から偏位する量が、大脳鎌下ヘルニアの指標となる。大脳鎌部髄膜腫・傍矢状部髄膜腫は、これに沿って硬膜に基部をもつ造影される腫瘤としてみえる。",
+    "imaging.pathology[0].pathology": "大脳鎌下ヘルニア",
+    "imaging.pathology[0].finding": "透明中隔の正中偏位と、大脳鎌の下へ押し込まれた帯状回。ACA を圧迫しうる。",
+    "imaging.pathology[1].pathology": "傍矢状部／大脳鎌部髄膜腫",
+    "imaging.pathology[1].finding": "dural tail を伴う造影される硬膜性腫瘤。しばしば上矢状静脈洞に浸潤し、あるいはこれを閉塞する。",
+    "imaging.pathology[2].pathology": "大脳半球間裂の硬膜下血腫",
+    "imaging.pathology[2].finding": "外傷後、あるいは虐待による外傷で、大脳鎌に沿って血腫が広がる。",
+    "imaging.sequenceOfChoice": "偏位の評価には CT、腫瘤には造影 MRI、静脈洞への進展には MRV",
+    "clinical.lesionEffects[0].deficit": "大脳鎌の下での ACA の圧迫による対側下肢の脱力",
+    "clinical.lesionEffects[0].mechanism": "大脳鎌下ヘルニアによる脳梁周囲動脈の圧迫",
+    "clinical.lesionEffects[1].deficit": "傍矢状部腫瘤による下肢の脱力または焦点運動発作",
+    "clinical.lesionEffects[1].mechanism": "中心傍小葉の圧迫",
+    "clinical.lesionEffects[2].deficit": "静脈洞閉塞による頭痛と頭蓋内圧亢進",
+    "clinical.lesionEffects[2].mechanism": "上矢状静脈洞への浸潤",
+    "clinical.examination[0]": "下肢の筋力と歩行",
+    "clinical.examination[1]": "腫瘤効果がある場合の意識レベルと頭痛",
+    "clinical.examination[2]": "けいれん発作の病歴",
+    "clinical.pearls[0]": "両側下肢の脱力と画像上の正中の腫瘤があれば、両側の中心傍小葉を圧迫する傍矢状部髄膜腫である",
+    "clinical.pearls[1]": "CT での正中偏位は大脳鎌下ヘルニアである。鉤ヘルニアに先行する"
+  }
+}

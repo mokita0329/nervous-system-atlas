@@ -1,0 +1,31 @@
+{
+  "id": "frontal-eye-field",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "7053707ec5820d0d",
+  "fields": {
+    "summary": "前頭眼野（frontal eye field）は、中心前溝と中前頭回後部が接する部位にあり、反対側への随意的な衝動性眼球運動（サッケード）を駆動する。その出力は対側の傍正中橋網様体（PPRF）（および上丘）に達するため、刺激性の病巣では眼球は病巣と反対側へ向き、破壊性の病巣では眼球は病巣側へ偏位したままとなる。これが、急性期脳卒中とけいれん発作における注視偏位のベッドサイドの法則の基礎である。",
+    "anatomy.location": "中前頭回の後部で、運動前野の前方、中心前回の手の領域の高さにあり、MCA 上幹の支配域に含まれる。",
+    "connections.efferents[0].to": "pprf（対側）",
+    "connections.efferents[1].to": "superior-colliculus",
+    "function": "対側へ向かう随意的な衝動性眼球運動（サッケード）の生成、視覚探索、注意の移動。追視については同側への寄与をもつ。",
+    "imaging.bestView[0].label": "中心前溝に接する中前頭回の後部",
+    "imaging.normalAppearance": "構造 MRI では隣接する皮質と区別できない。サッケード課題中の fMRI で同定される。この領域を含む広範な MCA 梗塞では、画像そのもので注視偏位が確認できる（CT 上、眼球は病巣側を向く）。",
+    "imaging.pathology[0].pathology": "注視偏位を伴う MCA 梗塞",
+    "imaging.pathology[0].finding": "広範な前頭葉梗塞。眼窩の断面で、眼球が病巣側へ偏位しているのがみえる。",
+    "imaging.pathology[1].pathology": "前頭葉の発作焦点",
+    "imaging.pathology[1].finding": "前頭眼野の近傍の皮質病巣。発作時には注視と頭部が病巣と反対側へ向く。",
+    "imaging.sequenceOfChoice": "DWI。けいれん発作には EEG",
+    "clinical.lesionEffects[0].deficit": "眼球は病巣側へ偏位し、反対側へ随意的に向けることができない",
+    "clinical.lesionEffects[0].mechanism": "対側 PPRF への駆動の破壊。保たれた反対側の FEF が眼球を病巣側へ押しやる",
+    "clinical.lesionEffects[1].deficit": "けいれん発作中、眼球と頭部は病巣と反対側へ向く",
+    "clinical.lesionEffects[1].mechanism": "この領域の発作性の活動",
+    "clinical.lesionEffects[2].deficit": "数日以内に回復する",
+    "clinical.lesionEffects[2].mechanism": "反射性の経路と上丘を介する経路が代償する",
+    "clinical.examination[0]": "安静時の注視方向を観察し、患者に左右それぞれを見るよう指示する",
+    "clinical.examination[1]": "頭位眼球反射は前頭性の注視麻痺（核上性）を乗り越える",
+    "clinical.examination[2]": "発作起始時の頭部と眼球の偏向（version）の方向を記録する",
+    "clinical.pearls[0]": "脳卒中では、眼球は病巣側を向き、不全片麻痺のある側とは反対を向く。けいれん発作では、眼球は焦点と反対側を向く。橋の病巣では、眼球は病巣と反対側を向き、不全片麻痺のある側を向く",
+    "clinical.pearls[1]": "前頭性の注視偏位は数日で回復する。橋性の注視麻痺は持続する"
+  }
+}
