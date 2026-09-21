@@ -1,0 +1,32 @@
+{
+  "id": "trochlear-nucleus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "9fc2c56356e32aca",
+  "fields": {
+    "summary": "下丘の高さで中脳水道周囲灰白質の腹側、動眼神経核複合体のすぐ下方にある小さな運動核である。その軸索は、他のどの脳神経にもない経路をとる。すなわち中脳水道の周囲を背側へ回り、上髄帆で交叉し、下丘の下方で脳幹の背側面から出る。したがって滑車神経は対側の上斜筋を支配し、核あるいは神経束の病巣では反対側の麻痺が生じるのに対し、脳幹を出た後の神経の病巣では同側の麻痺が生じる。",
+    "anatomy.location": "下丘の高さの中脳水道周囲灰白質の腹側で、MLF の背側にあり、その上方の動眼神経核と一列に並ぶ。",
+    "connections.efferents[0].to": "上斜筋（対側）",
+    "connections.efferents[0].via": "cn-04-trochlear",
+    "function": "上斜筋への運動支配。上斜筋は内転位の眼を下転させ、外転位の眼を内方回旋させる。頭部を傾けたときに両眼の水平を保つ。",
+    "imaging.bestView[0].label": "下丘の高さの中脳水道周囲灰白質の腹側",
+    "imaging.bestView[1].label": "下丘の下方における神経の背側の出口",
+    "imaging.normalAppearance": "核は分解できない。神経自体は最も細い脳神経であり、迂回槽内で中脳を回り込む部分が高分解能 T2 強調像でときに描出されるにすぎない。",
+    "imaging.pathology[0].pathology": "中脳背側の梗塞または出血",
+    "imaging.pathology[0].finding": "中脳水道周囲灰白質の尾側または上髄帆の小さな病巣で、対側の上斜筋麻痺を伴う。",
+    "imaging.pathology[1].pathology": "外傷性滑車神経麻痺",
+    "imaging.pathology[1].finding": "通常は画像所見は正常である。長く細い神経が閉鎖性頭部外傷により背側の出口で断裂する。",
+    "imaging.sequenceOfChoice": "中脳尾側の薄スライス軸位断 DWI/T2。孤立性の麻痺では画像はしばしば正常である",
+    "clinical.lesionEffects[0].deficit": "下方かつ内側を見るときに悪化する垂直性複視で、眼球は外方回旋している",
+    "clinical.lesionEffects[0].mechanism": "交叉より手前の核または神経束",
+    "clinical.lesionEffects[1].deficit": "同じ麻痺が同じ側に生じる",
+    "clinical.lesionEffects[1].mechanism": "交叉して脳幹を出た後の神経",
+    "clinical.lesionEffects[2].deficit": "患眼と反対方向への代償性の頭部傾斜",
+    "clinical.lesionEffects[2].mechanism": "垂直方向と回旋方向のずれを軽減する",
+    "clinical.examination[0]": "九つの注視方向でのカバー・アンカバー試験",
+    "clinical.examination[1]": "Park の三段階テスト: 上斜視が対側注視時と同側への頭部傾斜時に増悪する",
+    "clinical.examination[2]": "古い写真を見て、長年続く頭部傾斜の有無を確認する",
+    "clinical.pearls[0]": "滑車神経核の病巣は対側の麻痺を起こす。他のすべての脳神経運動核は自らと同じ側を支配する",
+    "clinical.pearls[1]": "頭部外傷後の両側滑車神経麻痺では、読書と階段を降りることが困難になり、顎を引いた姿勢をとる"
+  }
+}
