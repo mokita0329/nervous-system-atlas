@@ -1,0 +1,32 @@
+{
+  "id": "hypothalamus-posterior",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "105f9e3cbff012e1",
+  "fields": {
+    "summary": "視床下部後核（posterior hypothalamic nucleus）は視床下部の尾側部を占め、乳頭体（mammillary bodies）の上方かつ後方、中脳の中脳水道周囲灰白質（periaqueductal gray）の前方にあり、後者と連続する。熱産生と交感神経の中枢であり、寒冷時にはふるえ、皮膚血管収縮、褐色脂肪での熱産生を起こし、防御反応やストレス時には心拍数と血圧を上げる。また隣接する結節乳頭体核やオレキシン系とともに覚醒を支える。両側性の病巣は変温症をきたし、患者の体温は室温とともに変動し、傾眠を伴う。この領域への刺激は群発頭痛の治療に用いられてきた。群発頭痛の発作はこの領域によって時刻が決められている。",
+    "anatomy.location": "視床下部尾側の内側部。乳頭体の背側、視床下部背内側核の後方にあり、視床の下で第三脳室後部に接する。後方では中脳の中脳水道周囲灰白質および腹側被蓋野と連続する。",
+    "function": "視床下部後核のニューロンは視索前野と脊髄から寒冷の信号を受け、延髄吻側腹外側部および淡蒼縫線核の交感神経プレモーターニューロンを駆動して、血管収縮、立毛、ふるえ、熱産生を起こす。また運動時、ストレス時、防御反応時に心拍出量と血圧を上げ、低酸素に対する昇圧反応にも関与する。この領域は視床と大脳皮質への投射、およびヒスタミン作動性の結節乳頭体核やオレキシンニューロンとの相互作用を介して上行性覚醒系の一部をなす。さらに海馬と乳頭体の情報を中脳へ中継し、群発頭痛発作の時刻の決定にも寄与する。",
+    "imaging.bestView[0].label": "乳頭体の上方にある視床下部後核",
+    "imaging.bestView[1].label": "中脳の前方にある視床下部尾側部",
+    "imaging.normalAppearance": "正中矢状断では乳頭体の上方、視床の下方の灰白質として見え、中脳被蓋へ移行する。臨床MRIでは独立した構造としては描出されない。",
+    "imaging.pathology[0].pathology": "視床下部後部の損傷後の変温症",
+    "imaging.pathology[0].finding": "外傷、腫瘍、手術による視床下部尾側部の病巣で、体温調節の喪失と傾眠を伴う。",
+    "imaging.pathology[1].pathology": "群発頭痛（機能画像）",
+    "imaging.pathology[1].finding": "発作中に視床下部後部の灰白質が活性化する。形態画像は正常であり、難治例ではこの領域が脳深部刺激療法の標的となる。",
+    "imaging.pathology[2].pathology": "Wernicke 脳症",
+    "imaging.pathology[2].finding": "乳頭体、中脳水道周囲灰白質、視床下部後部に左右対称のFLAIR信号変化がみられ、低体温と意識レベルの低下を伴う。",
+    "clinical.lesionEffects[0].deficit": "変温症と低体温",
+    "clinical.lesionEffects[0].mechanism": "熱産生と交感神経性の体温調節中枢の脱落",
+    "clinical.lesionEffects[1].deficit": "傾眠",
+    "clinical.lesionEffects[1].mechanism": "覚醒に対する視床下部後核の寄与の喪失",
+    "clinical.lesionEffects[2].deficit": "低血圧と循環系のストレス反応の障害",
+    "clinical.lesionEffects[2].mechanism": "交感神経プレモーターによる駆動の喪失",
+    "clinical.examination[0]": "室温との関係でみた深部体温",
+    "clinical.examination[1]": "覚醒度と睡眠覚醒パターン",
+    "clinical.examination[2]": "起立時の血圧と心拍数",
+    "clinical.pearls[0]": "視床下部後部の損傷は患者を変温動物にする。部屋を暖め、患者を温めよ",
+    "clinical.pearls[1]": "群発頭痛は視床下部の時刻を守り、毎晩同じ時刻に襲う",
+    "clinical.pearls[2]": "チアミン欠乏は乳頭体と視床下部後部を侵す。低体温は Wernicke 脳症の徴候である"
+  }
+}

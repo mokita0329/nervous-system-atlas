@@ -1,0 +1,31 @@
+{
+  "id": "interposed-nucleus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "8b3a9f4d43d72db7",
+  "fields": {
+    "summary": "球状核と栓状核は歯状核と室頂核の間にあり、両者が合わさって中位核をなす。これは傍虫部（中間帯）の出力核である。傍虫部からのプルキンエ細胞の入力と脊髄小脳路の側枝を受け、上小脳脚を通って対側の赤核（赤核脊髄路）と視床へ投射する。進行中の四肢運動と四肢筋の緊張を調節するため、その病巣は、室頂核病巣の体幹失調と歯状核病巣の測定障害との中間的な性質をもつ四肢失調を生じる。",
+    "anatomy.location": "各半球の白質内で、歯状核門の内側、室頂核の外側にあり、第四脳室の天井の上方に位置する。",
+    "connections.afferents[0].from": "傍虫部皮質",
+    "connections.afferents[0].note": "プルキンエ細胞の軸索",
+    "connections.afferents[1].from": "spinal-cord",
+    "connections.afferents[1].via": "脊髄小脳路の側枝",
+    "connections.efferents[0].to": "red-nucleus（対側）",
+    "connections.efferents[0].via": "superior-cerebellar-peduncle",
+    "function": "赤核脊髄路と視床皮質路を介する、進行中の四肢運動の修正と、主動筋・拮抗筋のバランスおよび四肢の筋緊張の制御。",
+    "imaging.bestView[0].label": "深部白質で歯状核門の内側",
+    "imaging.normalAppearance": "日常のMRIでは歯状核と分けて描出されない。SWIでは歯状核の帯が内側へ延びた部分としてみえる。",
+    "imaging.pathology[0].pathology": "深部小脳核の梗塞",
+    "imaging.pathology[0].finding": "深部白質と核に達する SCA 支配域の拡散制限。",
+    "imaging.sequenceOfChoice": "DWIとSWI",
+    "clinical.lesionEffects[0].deficit": "同側の四肢失調と動作時振戦",
+    "clinical.lesionEffects[0].mechanism": "傍虫部からの出力",
+    "clinical.lesionEffects[1].deficit": "筋緊張低下",
+    "clinical.lesionEffects[1].mechanism": "伸張反射の促通の喪失",
+    "clinical.examination[0]": "踵膝試験と指鼻試験",
+    "clinical.examination[1]": "筋緊張と振子様反射",
+    "clinical.pearls[0]": "中間帯は、小脳が皮質脊髄路の指令を（橋核の側枝を介して）脊髄小脳路のフィードバックと比較する場である",
+    "clinical.pearls[1]": "中位核の病巣が単独でみられることはまれである。実際には、上小脳動脈梗塞や、外側へ広がる正中部腫瘍における四肢症状の成分を担う",
+    "pitfalls[0]": "深部小脳核による失調と上小脳脚による失調はベッドサイドでは区別できない。核、脚、橋からの入力のいずれによるかは画像が決める"
+  }
+}

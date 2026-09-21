@@ -1,0 +1,29 @@
+{
+  "id": "nerve-axillary",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "407ae81db040f8d6",
+  "fields": {
+    "summary": "後神経束（posterior cord）の終枝（C5–C6）で、後上腕回旋動脈とともに四辺形間隙を通って腋窩から後方へ出て、上腕骨外科頸を回り、三角筋と小円筋、および三角筋上の皮膚（regimental badge 領域）を支配する。外科頸で走行が固定されているため、肩関節前方脱臼と上腕骨近位部骨折で最も損傷を受けやすい神経である。その結果、肩は平坦となって外転できず、肩の外側にしびれを生じる。",
+    "anatomy.location": "腋窩動脈の後方で後神経束から分かれ、四辺形間隙（小円筋、大円筋、上腕三頭筋長頭、上腕骨に囲まれる）を通り、三角筋の深層で上腕骨外科頸を回る。",
+    "function": "三角筋（15 度から 90 度までの外転）と小円筋（外旋）への運動支配、および三角筋下部を覆う皮膚への感覚支配（上外側上腕皮神経）。",
+    "imaging.bestView[0].label": "頸髄。線維は C5–C6 に由来する",
+    "imaging.normalAppearance": "四肢の末梢神経は MNI 脳ボリュームの外にあり、アトラスのメッシュは表示されない。超音波と MR ニューログラフィーは神経を直接描出し、電気診断は病巣を機能的に局在させる。肩関節 MRI では三角筋と小円筋の脱神経性浮腫、および四辺形間隙内の神経が描出される。単純 X 線では原因となった脱臼や骨折が確認できる。",
+    "imaging.pathology[0].pathology": "肩関節脱臼後の腋窩神経障害",
+    "imaging.pathology[0].finding": "三角筋と小円筋が STIR で高信号を呈し、外科頸で神経の腫大を認める。",
+    "imaging.pathology[1].pathology": "四辺形間隙症候群",
+    "imaging.pathology[1].finding": "四辺形間隙での絞扼による小円筋の孤立性萎縮。投球動作を行う競技者にしばしばみられる。",
+    "imaging.sequenceOfChoice": "単純 X 線、肩関節 MRI、三角筋と小円筋の EMG",
+    "clinical.lesionEffects[0].deficit": "三角筋の輪郭が平坦化し、肩の外転が弱い",
+    "clinical.lesionEffects[0].mechanism": "三角筋の麻痺",
+    "clinical.lesionEffects[1].deficit": "上腕外側のしびれ（regimental badge 領域）",
+    "clinical.lesionEffects[1].mechanism": "上外側上腕皮神経",
+    "clinical.lesionEffects[2].deficit": "外旋の筋力低下",
+    "clinical.lesionEffects[2].mechanism": "小円筋",
+    "clinical.examination[0]": "脱臼を整復する前に、抵抗に抗した外転を評価し、三角筋の収縮を触知する",
+    "clinical.examination[1]": "三角筋上の感覚",
+    "clinical.examination[2]": "C5 神経根症（上腕二頭筋と菱形筋も障害される）や上神経幹病巣（棘上筋、上腕二頭筋）と比較する",
+    "clinical.pearls[0]": "肩関節脱臼の整復では、その前後で必ず三角筋の機能と肩外側の感覚を記録する",
+    "clinical.pearls[1]": "上腕二頭筋と棘上筋が保たれた三角筋の筋力低下は腋窩神経であり、C5 ではない"
+  }
+}

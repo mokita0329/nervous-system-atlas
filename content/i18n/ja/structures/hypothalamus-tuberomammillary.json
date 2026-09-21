@@ -1,0 +1,32 @@
+{
+  "id": "hypothalamus-tuberomammillary",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "751721769d5c263a",
+  "fields": {
+    "summary": "結節乳頭体核（tuberomammillary nucleus）は、後部視床下部の腹側面で乳頭体（mammillary bodies）の周囲と外側結節部に散在する大型ニューロンの集団であり、脳内で唯一のヒスタミンの供給源である。その軸索は大脳皮質全体、視床、前脳基底部、脳幹に達し、覚醒、注意、食欲抑制を促す。睡眠中は沈黙し、視索前野の睡眠活動性ニューロンにより抑制され、オレキシンにより興奮する。血液脳関門を通過する抗ヒスタミン薬が起こす鎮静、ナルコレプシーに用いられるヒスタミンH3受容体拮抗薬の覚醒作用、および視床下部後部の病巣による傾眠は、いずれもこの核で説明される。",
+    "anatomy.location": "後部視床下部の腹外側部で乳頭体を取り囲み、外側は外側視床下部野まで広がり、前方は結節部に沿って伸びる。脚間槽と後大脳動脈の直上にある。",
+    "function": "ヒスタミン作動性ニューロンは覚醒中に持続的に発火し、注意を伴う覚醒時に最も速く発火して、大脳皮質と視床のH1受容体にヒスタミンを放出して覚醒を促し、前脳基底部と脳幹の覚醒核にも放出してこれらを増強する。入眠時には腹外側視索前核からのGABAとガラニンにより抑制され、外側視床下部からのオレキシンにより興奮して、睡眠覚醒のフリップフロップスイッチの一方の腕をなす。ヒスタミンはまた食欲を抑制し、体液バランスと下垂体ホルモンの分泌を調節し、前庭系の信号伝達を減弱させる。これが動揺病に対する抗ヒスタミン薬治療の基礎である。本核は前頭前野、中隔、脳幹からの入力を受ける。",
+    "imaging.bestView[0].label": "乳頭体の周囲にある結節乳頭体核",
+    "imaging.bestView[1].label": "脚間槽の上方にある腹側後部視床下部",
+    "imaging.normalAppearance": "脚間窩を通る冠状断でみられる、乳頭体周囲の腹側後部視床下部の灰白質。核としては分離して描出されない。",
+    "imaging.pathology[0].pathology": "視床下部後部の病巣による過眠",
+    "imaging.pathology[0].finding": "後部視床下部の腫瘍、脳卒中、炎症で、過剰な睡眠と注意の低下を伴う。",
+    "imaging.pathology[1].pathology": "Wernicke 脳症",
+    "imaging.pathology[1].finding": "乳頭体と脳室周囲の信号変化に意識レベルの低下を伴い、その一部はヒスタミン作動系および視床下部後部の覚醒系の脱落を反映する。",
+    "imaging.pathology[2].pathology": "薬剤性の鎮静（機能性）",
+    "imaging.pathology[2].finding": "第一世代抗ヒスタミン薬および抗コリン薬による徐波化と傾眠。構造的病巣はない。",
+    "clinical.lesionEffects[0].deficit": "過眠と注意の低下",
+    "clinical.lesionEffects[0].mechanism": "ヒスタミン作動性の皮質覚醒の喪失",
+    "clinical.lesionEffects[1].deficit": "食欲の亢進",
+    "clinical.lesionEffects[1].mechanism": "ヒスタミンによる摂食抑制の喪失",
+    "clinical.lesionEffects[2].deficit": "睡眠からの覚醒の障害",
+    "clinical.lesionEffects[2].mechanism": "睡眠覚醒スイッチの一方の腕の喪失",
+    "clinical.examination[0]": "日中の眠気の尺度と覚醒度（vigilance）検査",
+    "clinical.examination[1]": "鎮静性の抗ヒスタミン薬およびH1受容体遮断作用をもつ抗精神病薬の薬歴",
+    "clinical.examination[2]": "体重と食欲の変化",
+    "clinical.pearls[0]": "眠気と空腹を起こす薬はすべてH1受容体を遮断している。結節乳頭体核を沈黙させているのである",
+    "clinical.pearls[1]": "ヒスタミンは脳の目覚まし時計であり、視索前核が夜にこれを切る",
+    "clinical.pearls[2]": "H3受容体拮抗薬はヒスタミンの放出を増やしてナルコレプシー患者を覚醒させる"
+  }
+}

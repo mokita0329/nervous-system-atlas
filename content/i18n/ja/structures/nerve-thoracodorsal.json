@@ -1,0 +1,32 @@
+{
+ "id": "nerve-thoracodorsal",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "16823f5ce79814bf",
+ "fields": {
+  "summary": "胸背神経（thoracodorsal nerve）は腕神経叢の後神経束（C6、C7、C8）から肩甲下神経の間で起こり、胸背動脈とともに腋窩後壁に沿って下行して広背筋に入り、これを支配する。腋窩リンパ節郭清や肩後方の手術で危険にさらされ、再建に用いられる広背筋皮弁の神経であり、その EMG は病巣を後神経束に局在させる: 広背筋の筋力低下が橈骨神経と腋窩神経の徴候を伴えば後神経束の病巣であり、広背筋が保たれていれば個々の神経の病巣を示唆する。",
+  "anatomy.location": "腋窩で上肩甲下神経と下肩甲下神経の間で後神経束から分かれ、胸背動脈とともに肩甲下筋と大円筋の表面を腋窩後壁に沿って下行し、広背筋の腱の近くでその深層面に入る。",
+  "function": "広背筋への運動支配を担い、上腕を内転・伸展・内旋させ、登はん動作や車椅子からの移乗で体を引き上げ、努力性呼気と咳嗽にも関与する。その脱落は抵抗に抗した内転を弱め（患者は診察者の手に抗して上腕を押し下げることができない）、競技者や、移乗を広背筋に頼る対麻痺の患者で最も自覚される。後神経束から起こるため、神経叢病変では神経束を示す指標となる。外科医は腋窩郭清の際にこれを温存し、あるいはその動脈とともに広背筋皮弁の血管柄として、乳房や胸壁の再建、腕神経叢損傷後の肘屈曲の再建に用いる。",
+  "imaging.bestView[0].label": "腋窩後壁に沿って広背筋へ向かう胸背神経",
+  "imaging.bestView[1].label": "肩甲下筋の上を胸背動脈とともに走る神経",
+  "imaging.normalAppearance": "超音波と MRI では、腋窩後壁で胸背血管に伴走する神経として描出される。脱神経は STIR での信号変化と広背筋の萎縮として現れる。",
+  "imaging.pathology[0].pathology": "後神経束の神経叢障害",
+  "imaging.pathology[0].finding": "広背筋が三角筋、小円筋、橈骨神経支配筋とともに脱神経され、病巣を後神経束に局在させる。",
+  "imaging.pathology[1].pathology": "腋窩郭清における医原性損傷",
+  "imaging.pathology[1].finding": "腋窩手術の後に広背筋の脱神経浮腫、のちに萎縮を認め、内転の筋力低下を伴う。",
+  "imaging.pathology[2].pathology": "広背筋皮弁の採取",
+  "imaging.pathology[2].finding": "再建後は背部の広背筋が欠如し、筋は胸背動脈の血管柄で胸壁へ移動している。",
+  "clinical.lesionEffects[0].deficit": "上腕の内転と伸展の筋力低下",
+  "clinical.lesionEffects[0].mechanism": "広背筋の脱神経",
+  "clinical.lesionEffects[1].deficit": "登はん、引き上げ、車椅子移乗の困難",
+  "clinical.lesionEffects[1].mechanism": "体を持ち上げる際の広背筋の寄与の消失",
+  "clinical.lesionEffects[2].deficit": "後神経束の障害を示す指標",
+  "clinical.lesionEffects[2].mechanism": "腋窩神経・橈骨神経とともに後神経束から起こる",
+  "clinical.examination[0]": "外転した上腕を抵抗に抗して内転させ、腋窩後壁で広背筋を触診する",
+  "clinical.examination[1]": "両側が障害された患者での咳嗽力",
+  "clinical.examination[2]": "後神経束の病巣を疑う場合の広背筋の EMG",
+  "clinical.pearls[0]": "広背筋は登はんと移乗の筋であり、その神経は腋窩の術者が保護する神経である",
+  "clinical.pearls[1]": "広背筋と三角筋の筋力低下に下垂手が加われば後神経束の病巣である",
+  "clinical.pearls[2]": "胸背動脈の血管柄は、再建において広背筋を胸壁へ運ぶ"
+ }
+}

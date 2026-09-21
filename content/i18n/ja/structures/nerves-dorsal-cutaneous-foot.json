@@ -1,0 +1,32 @@
+{
+ "id": "nerves-dorsal-cutaneous-foot",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "b3a08a75b6e86921",
+ "fields": {
+  "summary": "内側足背皮神経と中間足背皮神経（medial and intermediate dorsal cutaneous nerves of the foot）は浅腓骨神経の終枝で、下腿外側の遠位部で深筋膜を貫いて現れ、足関節を越えて足背と趾の皮膚を支配する。ただし第1趾間（深腓骨神経）、足の外側縁（腓腹神経）、内側縁（伏在神経）は除く。これらは浅腓骨神経の、また足背における L5 デルマトームの知覚の地図であり、筋膜を貫く部位と、きつい靴による足関節の部位で圧迫され、足関節鏡や足関節手術で損傷されて、足背のしびれと神経腫による痛みを生じる。",
+  "anatomy.location": "浅腓骨神経は下腿外側の遠位3分の1で深筋膜を貫き、内側足背皮神経と中間足背皮神経に分かれる。内側足背皮神経は外果の前方で足関節を越えて足背内側、母趾、第2趾と第3趾へ向かい、中間足背皮神経はより外側を走って足背外側と第3趾から第5趾へ向かう。両者とも伸筋支帯の上を皮下に走る。",
+  "function": "純粋に知覚性で、足背と趾からの感覚を浅腓骨神経を介して L5（内側）と S1（外側）の後根神経節へ伝える。第1趾間（深腓骨神経）、足外側（腓腹神経）、足内側（伏在神経）が保たれることにより、診察者は足背のしびれを浅腓骨神経または L5 神経根に帰することができ、浅腓骨神経の知覚神経電位が両者を区別する（神経根の病巣では正常）。浅腓骨神経が筋膜を貫く部位で絞扼され（底屈と内反で痛みを生じる）、足関節では靴により圧迫され、足関節鏡の前外側ポータルや外反母趾手術で切断されて、しびれた足背や疼痛性の神経腫を残す。",
+  "imaging.bestView[0].label": "足関節を越えて足背へ向かう内側足背皮神経と中間足背皮神経",
+  "imaging.bestView[1].label": "伸筋支帯の上を走る浅腓骨神経の終枝",
+  "imaging.normalAppearance": "超音波では足関節前面の皮下を走る神経として、足を底屈・内反させると描出される。通常の MRI では分解できない。支配域は第1趾間と足の辺縁を除く足背である。",
+  "imaging.pathology[0].pathology": "浅腓骨神経の絞扼",
+  "imaging.pathology[0].finding": "下腿外側の遠位部で下腿筋膜を貫く部位に限局性の神経の腫大を認め、内反により足背の異常感覚を生じる。",
+  "imaging.pathology[1].pathology": "足関節鏡における医原性損傷",
+  "imaging.pathology[1].finding": "前外側ポータルの瘢痕の下に足背皮枝の神経腫を生じ、疼痛性の Tinel 徴候を伴う。",
+  "imaging.pathology[2].pathology": "L5 神経根症（比較のため）",
+  "imaging.pathology[2].finding": "足背がしびれているにもかかわらず浅腓骨神経の知覚神経電位は正常であり、病巣を神経根に局在させる。",
+  "clinical.lesionEffects[0].deficit": "第1趾間が保たれる足背のしびれ",
+  "clinical.lesionEffects[0].mechanism": "浅腓骨神経またはその足背皮枝の病巣",
+  "clinical.lesionEffects[1].deficit": "足関節手術後の足背の疼痛性神経腫",
+  "clinical.lesionEffects[1].mechanism": "足背皮枝の切断",
+  "clinical.lesionEffects[2].deficit": "知覚神経電位が正常であるのに足背がしびれる",
+  "clinical.lesionEffects[2].mechanism": "神経節より近位の L5 神経根症",
+  "clinical.examination[0]": "第1趾間（深腓骨神経）を足背の他の部位（浅腓骨神経）と分けて調べる",
+  "clinical.examination[1]": "神経が筋膜を貫く下腿外側の遠位部と、足関節の瘢痕上での Tinel 徴候",
+  "clinical.examination[2]": "浅腓骨神経の知覚神経伝導検査",
+  "clinical.pearls[0]": "第1趾間が正常で足背がしびれるのは浅腓骨神経である。趾間のみがしびれるなら深腓骨神経である",
+  "clinical.pearls[1]": "足関節鏡の前に足背皮神経を描いておく: これらは前外側ポータルの下にある",
+  "clinical.pearls[2]": "足がしびれているのに浅腓骨神経の知覚神経反応が正常なら、病巣は L5 神経根である"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "id": "nerve-superficial-radial",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "5c3474efa19b38c7",
+ "fields": {
+  "summary": "橈骨神経浅枝（superficial branch of the radial nerve）は、肘で分岐したのちの橈骨神経（radial nerve）の知覚性の続きである。腕橈骨筋の深部を前腕を下行し、前腕遠位でその腱と長橈側手根伸筋の間から現れ、解剖学的嗅ぎタバコ入れを越えて、手背橈側の皮膚と母指・示指・中指の背側を遠位の関節まで支配する。きつい腕時計のバンドや手錠で圧迫され（Wartenberg 症候群あるいは cheiralgia paresthetica）、手関節の手術、静脈留置、de Quervain 病の解離術で損傷される。その知覚神経電位は標準的な橈骨知覚神経検査であり、橈骨神経の病巣と C6-C7 神経根症を区別する。",
+  "anatomy.location": "上腕骨外側上顆の前方で橈骨神経から分かれ、橈骨動脈の外側を腕橈骨筋の下を下行し、手関節の約8 cm 近位で腕橈骨筋腱と長橈側手根伸筋腱の間で深筋膜を貫き、嗅ぎタバコ入れの浅層を越えて、手背で母指・示指・中指および環指の半分に向かう背側指神経に分かれる。",
+  "function": "純粋に知覚性で、手背橈側と手指外側の背側からの感覚を、橈骨神経と後神経束を介して C6 と C7 の後根神経節へ伝える。その支配域は後骨間神経症候群（肘でこの枝と分かれる）では保たれ、より上位の橈骨神経病巣では失われる。また C6-C7 神経根症では病巣が神経節より近位にあるため、伝導検査は正常である。腕橈骨筋と長橈側手根伸筋の間で筋膜を貫く部位で絞扼され、回内や手関節を締めつけるもので増悪する手背の痛みと異常感覚を生じる。",
+  "imaging.bestView[0].label": "腕橈骨筋の下を嗅ぎタバコ入れへ下行する橈骨神経浅枝",
+  "imaging.bestView[1].label": "手関節より上位で筋膜を貫く神経",
+  "imaging.normalAppearance": "超音波では腕橈骨筋の下で橈骨動脈の傍らを走る細い神経として描出され、手関節より上位で皮下に現れる。支配域は手背橈側と母指である。",
+  "imaging.pathology[0].pathology": "Wartenberg 症候群（cheiralgia paresthetica）",
+  "imaging.pathology[0].finding": "腕橈骨筋腱と長橈側手根伸筋腱の間から現れる部位で橈骨神経浅枝が限局性に腫大し、Tinel 徴候と手背の異常感覚を伴う。",
+  "imaging.pathology[1].pathology": "橈骨神経溝での橈骨神経障害",
+  "imaging.pathology[1].finding": "下垂手を伴い、橈骨神経浅枝の知覚神経電位が低下する。後骨間神経症候群ではこの電位は保たれる。",
+  "imaging.pathology[2].pathology": "手関節部での医原性損傷",
+  "imaging.pathology[2].finding": "de Quervain 病の解離術、静脈留置、創外固定の後に神経腫を生じ、嗅ぎタバコ入れ上に疼痛性の Tinel 徴候を認める。",
+  "clinical.lesionEffects[0].deficit": "手背橈側と母指のしびれと異常感覚",
+  "clinical.lesionEffects[0].mechanism": "橈骨神経浅枝またはより上位の橈骨神経の病巣",
+  "clinical.lesionEffects[1].deficit": "回内時ときつい手首のバンドによる痛み",
+  "clinical.lesionEffects[1].mechanism": "神経が前腕の筋膜を貫く部位での絞扼",
+  "clinical.lesionEffects[2].deficit": "筋力低下はない",
+  "clinical.lesionEffects[2].mechanism": "純粋に知覚性の枝である。筋力低下があれば病巣は肘またはそれより上位にある",
+  "clinical.examination[0]": "手背第1指間と母指背側の感覚",
+  "clinical.examination[1]": "後骨間神経あるいはより上位の橈骨神経の病巣を除外するための手指と手関節の伸展",
+  "clinical.examination[2]": "橈骨知覚神経伝導検査。神経根症では正常、末梢神経の病巣では低下する",
+  "clinical.pearls[0]": "手指の伸展が正常で手背がしびれるのは橈骨神経浅枝である。下垂指が加われば橈骨神経本幹の病巣である",
+  "clinical.pearls[1]": "手錠や腕時計のバンドは、手関節より上位で表在化するこの神経を圧迫する",
+  "clinical.pearls[2]": "母指がしびれているのに橈骨知覚神経反応が正常なら、病巣は C6 神経根である"
+ }
+}

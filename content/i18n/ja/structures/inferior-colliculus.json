@@ -1,0 +1,32 @@
+{
+  "id": "inferior-colliculus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "a858414fe8be2ac3",
+  "fields": {
+    "summary": "四丘体のうち下方の一対の隆起であり、上行性聴覚路の必須の中継核である。すべての外側毛帯線維はここで終わり、その後信号は下丘腕を経て内側膝状体および聴覚皮質へ伝えられる。その中心核は周波数局在的に構成されており、また上丘との連絡を介して聴覚性驚愕反応と、音の方向へ眼球と頭部を反射的に向ける運動を仲介する。",
+    "anatomy.location": "背側の尾側中脳にあり、上丘の下方、滑車神経の出る部位の上方で、正中の両側に位置する。下丘腕が吻外側へ走って内側膝状体に至る。",
+    "connections.afferents[0].from": "superior-olivary-complex",
+    "connections.afferents[0].via": "外側毛帯",
+    "connections.efferents[0].to": "medial-geniculate-nucleus",
+    "connections.efferents[0].via": "下丘腕",
+    "function": "周波数分析、音源定位、および単耳性経路と両耳性経路の統合。視床への中継と、音に対する反射的な定位。",
+    "imaging.bestView[0].label": "滑車神経の高さの尾側四丘体板",
+    "imaging.bestView[1].label": "上丘の下方にある下丘",
+    "imaging.normalAppearance": "矢状断では四丘体の二つの隆起のうち下方のもの。下丘の高さの軸位断では中脳水道がそのすぐ前方にある。低酸素性の病変や Wernicke 脳症の病変では、ここに左右対称のT2高信号が生じうる。",
+    "imaging.pathology[0].pathology": "Wernicke 脳症／低酸素性脳損傷",
+    "imaging.pathology[0].finding": "下丘に、中脳水道周囲灰白質および視床内側部とともにみられる左右対称のFLAIR高信号。",
+    "imaging.pathology[1].pathology": "四丘体の腫瘤",
+    "imaging.pathology[1].finding": "尾側四丘体の腫大と中脳水道の圧迫。",
+    "imaging.sequenceOfChoice": "軸位断FLAIRと矢状断T2強調像",
+    "clinical.lesionEffects[0].deficit": "音源定位の障害と、難聴を伴わない中枢性の聴覚障害",
+    "clinical.lesionEffects[0].mechanism": "聴覚情報の両側性の中継",
+    "clinical.lesionEffects[1].deficit": "聴覚性驚愕反応の減弱",
+    "clinical.lesionEffects[1].mechanism": "四丘体の反射回路",
+    "clinical.examination[0]": "聴力閾値（正常）と、閉眼での音源定位との対比",
+    "clinical.examination[1]": "問診における騒音下での語音聴取の困難",
+    "clinical.examination[2]": "聴性脳幹誘発電位",
+    "clinical.pearls[0]": "蝸牛神経核より上位の中枢性聴覚病巣は、片耳の難聴を起こさない",
+    "clinical.pearls[1]": "低栄養またはアルコール依存の患者でFLAIRにて両側の下丘が高信号を示せば、チアミンを投与せよ"
+  }
+}

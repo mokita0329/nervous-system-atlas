@@ -1,0 +1,30 @@
+{
+  "id": "inferior-cerebellar-peduncle",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "bfa76132d7b2b58c",
+  "fields": {
+    "summary": "延髄を小脳に結ぶ太い線維束で、上部延髄の後外側縁と第四脳室の下部外側壁をなす。運ぶ線維の大部分は求心性であり、後脊髄小脳路と楔状束小脳路（同側の身体からの意識にのぼらない固有感覚）、オリーブ小脳路の登上線維（対側の下オリーブ核から）、および前庭と網様体からの入力を含む。より小さい傍索状体部は、前庭神経核と小脳の間を双方向に走る線維を運ぶ。",
+    "anatomy.location": "後外側の延髄で、オリーブと三叉神経脊髄路核複合体の後方にあり、上方かつ後方へ向かい、中小脳脚の内側を通って小脳に入る。",
+    "function": "固有感覚、オリーブ核、前庭の情報を小脳へ運び、室頂核の出力を前庭神経核へ返す。その病巣は同側の四肢失調を起こす。小脳は身体の同じ側を制御するためである。",
+    "imaging.bestView[0].label": "後外側の延髄と、小脳へ入る下小脳脚",
+    "imaging.bestView[1].label": "延髄から小脳白質への走行",
+    "imaging.normalAppearance": "軸位断T2強調像で上部延髄の後外側隅にみられる密な白質、および本アトラスの線維束メッシュ。拡散トラクトグラフィでは小脳への主要な延髄性入力である。",
+    "imaging.pathology[0].pathology": "失調を伴う延髄外側梗塞",
+    "imaging.pathology[0].finding": "下小脳脚を含む延髄背外側の拡散制限。",
+    "imaging.pathology[1].pathology": "下小脳脚の多発性硬化症病巣",
+    "imaging.pathology[1].finding": "後外側の延髄または下小脳脚にT2／FLAIRで高信号を示すプラークがあり、同側の四肢失調を伴う。",
+    "imaging.sequenceOfChoice": "延髄と小脳を通るDWIとFLAIR",
+    "clinical.lesionEffects[0].deficit": "同側の四肢失調と測定障害",
+    "clinical.lesionEffects[0].mechanism": "同側の小脳への固有感覚性入力およびオリーブ核からの入力の遮断",
+    "clinical.lesionEffects[1].deficit": "側方突進と歩行失調",
+    "clinical.lesionEffects[1].mechanism": "傍索状体の前庭小脳線維",
+    "clinical.lesionEffects[2].deficit": "眼振",
+    "clinical.lesionEffects[2].mechanism": "前庭小脳の連絡",
+    "clinical.examination[0]": "左右それぞれの指鼻試験と踵膝試験",
+    "clinical.examination[1]": "継ぎ足歩行と Romberg 試験",
+    "clinical.examination[2]": "眼振と倒れる方向の観察",
+    "clinical.pearls[0]": "延髄外側症候群の失調はこの下小脳脚と小脳に由来するものであり、大脳皮質に由来するものではない",
+    "clinical.pearls[1]": "同側の失調に、対側の身体の痛覚脱失と同側の顔面の痛覚脱失を伴えば、病巣は延髄外側である"
+  }
+}

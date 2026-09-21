@@ -1,0 +1,32 @@
+{
+ "id": "nerve-posterior-antebrachial-cutaneous",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "f2751884cea7c61e",
+ "fields": {
+  "summary": "後前腕皮神経（posterior antebrachial cutaneous nerve）は橈骨神経（radial nerve）の知覚枝で、上腕骨の橈骨神経溝で下外側上腕皮神経とともに分枝し、三角筋より下方の上腕後面と手関節までの前腕後面の皮膚を支配する。その障害は橈骨神経病巣の高位を示す: 肘部と前腕での後骨間神経および橈骨神経浅枝の病巣では保たれ、Saturday night palsy や上腕骨骨折のような橈骨神経溝またはそれより上位の病巣では失われる。したがって下垂手を伴う前腕後面のしびれは、損傷部位を上腕に局在させる。",
+  "anatomy.location": "橈骨神経溝で橈骨神経から起こり、下外側上腕皮神経とともに上腕三頭筋外側頭と深筋膜を貫き、上腕骨外側上顆の後方を通って上腕外側を下行し、肘から手関節までの前腕後面の皮膚を支配する。上腕枝は上腕外側の下部を支配する。",
+  "function": "純粋に知覚性で、前腕後面と上腕外側下部の感覚を、橈骨神経と後神経束を介して C5-C8 の後根神経節へ伝える。橈骨神経溝で橈骨神経から分かれるため、その支配域は高位の橈骨神経病巣（腋窩、橈骨神経溝、上腕骨骨折）では感覚脱失となり、肘より下位の病巣（後骨間神経の絞扼、橈骨神経浅枝の損傷）では保たれる。これは橈骨神経に沿って病巣を局在させるベッドサイドの手がかりとなる。また上腕骨外側上顆炎の鑑別すべき病態（mimic）や肘の手術後に痛むのも、この神経の支配域である。",
+  "imaging.bestView[0].label": "橈骨神経溝で橈骨神経から分かれる後前腕皮神経",
+  "imaging.bestView[1].label": "上腕外側を下行して前腕後面へ向かう神経",
+  "imaging.normalAppearance": "超音波では橈骨神経溝で橈骨神経から分かれる枝として描出される。支配域は前腕後面と上腕外側下部である。",
+  "imaging.pathology[0].pathology": "橈骨神経溝での橈骨神経障害",
+  "imaging.pathology[0].finding": "後前腕皮神経の反応を含む橈骨知覚神経電位の低下を認め、腕橈骨筋と手関節伸筋群の脱神経を伴うが、上腕三頭筋は保たれる。",
+  "imaging.pathology[1].pathology": "橈骨神経損傷を伴う上腕骨骨幹部骨折",
+  "imaging.pathology[1].finding": "橈骨神経溝の骨折部における神経の断裂または嵌入を認め、前腕後面の感覚脱失と下垂手を伴う。",
+  "imaging.pathology[2].pathology": "後骨間神経症候群（比較のため）",
+  "imaging.pathology[2].finding": "Frohse のアーケードでの絞扼により下垂指をきたすが、感覚障害はない。後前腕皮神経の支配域は保たれる。",
+  "clinical.lesionEffects[0].deficit": "前腕後面と上腕外側下部のしびれ",
+  "clinical.lesionEffects[0].mechanism": "橈骨神経溝またはそれより上位の橈骨神経病巣",
+  "clinical.lesionEffects[1].deficit": "下垂指を伴うが前腕後面は保たれる",
+  "clinical.lesionEffects[1].mechanism": "この枝より下位の橈骨神経病巣（後骨間神経）",
+  "clinical.lesionEffects[2].deficit": "この枝自体による運動の脱落症状はない",
+  "clinical.lesionEffects[2].mechanism": "純粋に知覚性の枝である",
+  "clinical.examination[0]": "前腕後面と手背の感覚障害を別々に分布図にする",
+  "clinical.examination[1]": "上腕三頭筋の筋力（橈骨神経溝の病巣では保たれる）と腕橈骨筋の筋力",
+  "clinical.examination[2]": "後前腕皮神経の反応を含む橈骨知覚神経伝導検査",
+  "clinical.pearls[0]": "下垂手を伴う前腕後面のしびれは橈骨神経病巣を上腕に局在させる。前腕後面が正常なら病巣は肘より下位にある",
+  "clinical.pearls[1]": "Saturday night palsy は前腕後面をしびれさせるが、後骨間神経症候群はどこもしびれさせない",
+  "clinical.pearls[2]": "上腕三頭筋が保たれ前腕後面がしびれる: 橈骨神経溝の病巣である"
+ }
+}

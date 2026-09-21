@@ -1,0 +1,32 @@
+{
+ "id": "nerve-superior-gluteal",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "92ecfc7a6e511cda",
+ "fields": {
+  "summary": "上殿神経（superior gluteal nerve、L4、L5、S1）は、梨状筋より上方で大坐骨孔を通って骨盤を出る唯一の神経で、上殿動脈とともに中殿筋と小殿筋の間を走り、この2筋と大腿筋膜張筋を支配する。これらは股関節の外転筋・内旋筋であり、片脚立位で骨盤を水平に保つ。その脱落は Trendelenburg 徴候と動揺性歩行を生じる。外側アプローチによる人工股関節置換術、誤った四分円への筋肉内注射、L5 神経根症で損傷される。L5 の病巣における外転筋の筋力低下は、中殿筋が保たれる腓骨神経障害と神経根の病巣とを区別する徴候である。",
+  "anatomy.location": "骨盤内の仙骨神経叢から、上殿血管とともに大坐骨孔の梨状筋上孔を通り、次いで外側へ中殿筋と小殿筋の間を走って両筋を支配し、前方へ進んで大腿筋膜張筋に終わる。",
+  "function": "中殿筋、小殿筋、大腿筋膜張筋への運動支配を担う。これらの筋は大腿を外転・内旋させ、さらに重要なこととして、歩行中に立脚側で骨盤を安定させる。これらが弱いと骨盤は遊脚側へ下がり（Trendelenburg 徴候）、体幹は立脚側へ傾き、両側性であれば動揺性歩行となる。本神経は主に L5 の線維を運ぶため、外転筋の筋力低下は L5 神経根症と腰仙骨神経叢障害の像の一部をなし、腓骨頸部での総腓骨神経麻痺では欠如する。これが下垂足におけるベッドサイドでの重要な鑑別点である。また股関節への外側および前外側アプローチでも危険にさらされ、そのため神経を保護するよう筋の切開は制限される。殿部への注射が内側すぎたり高位すぎたりした場合にも損傷される。",
+  "imaging.bestView[0].label": "梨状筋より上方で大坐骨孔を出る上殿神経",
+  "imaging.bestView[1].label": "中殿筋と小殿筋の間を走る神経",
+  "imaging.normalAppearance": "MR ニューログラフィでは、梨状筋より上方と殿筋の間を上殿動脈とともに走る神経として描出される。脱神経は STIR での信号変化と、中殿筋・小殿筋・大腿筋膜張筋の脂肪性萎縮として現れる。",
+  "imaging.pathology[0].pathology": "人工股関節置換術における医原性損傷",
+  "imaging.pathology[0].finding": "外側アプローチの後に中殿筋と小殿筋の脱神経浮腫、のちに脂肪性萎縮を認め、Trendelenburg 歩行を伴う。",
+  "imaging.pathology[1].pathology": "L5 神経根症",
+  "imaging.pathology[1].finding": "L4-5 の椎間板病変または椎間孔病変を認める。EMG では前脛骨筋に加えて中殿筋と大腿筋膜張筋の脱神経を認め、病巣を腓骨神経ではなく神経根に局在させる。",
+  "imaging.pathology[2].pathology": "殿部への注射による損傷",
+  "imaging.pathology[2].finding": "上内側への注射の後に神経損傷を生じ、股関節外転筋の筋力低下を伴う。安全な外側上方の四分円に注射すればこれを避けられる。",
+  "clinical.lesionEffects[0].deficit": "Trendelenburg 徴候と動揺性歩行",
+  "clinical.lesionEffects[0].mechanism": "中殿筋と小殿筋の筋力低下",
+  "clinical.lesionEffects[1].deficit": "股関節外転と内旋の筋力低下",
+  "clinical.lesionEffects[1].mechanism": "外転筋群と大腿筋膜張筋の脱神経",
+  "clinical.lesionEffects[2].deficit": "下垂足において L5 神経根または神経叢の障害を示す指標",
+  "clinical.lesionEffects[2].mechanism": "本神経は、腓骨神経では評価されない L5 線維を運ぶ",
+  "clinical.examination[0]": "片脚立位: 反対側の股関節が下がるのを観察する",
+  "clinical.examination[1]": "側臥位での股関節外転の筋力",
+  "clinical.examination[2]": "下垂足では必ず外転筋の筋力と背屈の筋力を比較する",
+  "clinical.pearls[0]": "股関節外転の筋力低下を伴う下垂足は L5 神経根の病巣であって、腓骨神経の病巣ではない",
+  "clinical.pearls[1]": "Trendelenburg 徴候は上殿神経の特徴的な徴候である",
+  "clinical.pearls[2]": "注射は外側上方の四分円に行う: 上殿神経は梨状筋より上方にある"
+ }
+}

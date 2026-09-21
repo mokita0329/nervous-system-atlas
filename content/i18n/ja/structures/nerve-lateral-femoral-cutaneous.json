@@ -1,0 +1,25 @@
+{
+  "id": "nerve-lateral-femoral-cutaneous",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "3d09e9a8ac7c8d2a",
+  "fields": {
+    "summary": "腰神経叢の純粋に感覚性の枝（L2–L3）で、腸骨筋を横切り、上前腸骨棘のすぐ内側で鼠径靱帯の下またはその中を通り、大腿前外側の皮膚を支配する。肥満、妊娠、きついベルト、長時間の股関節屈曲による鼠径靱帯部での絞扼は、感覚異常性大腿痛（meralgia paresthetica）をきたす。すなわち大腿外側の灼熱感、ぴりぴり感、しびれであり、筋力低下はなく反射の変化もない。",
+    "anatomy.location": "大腰筋の外側縁から、その筋膜の深層で腸骨筋を横切り、上前腸骨棘の約 1 cm 内側で鼠径靱帯の外側端の下を通り、縫工筋の上を越えて大腿に入り、前枝と後枝に分かれる。",
+    "function": "大転子から膝までの大腿前外側の感覚。運動線維はない。",
+    "imaging.bestView[0].label": "頸髄。本神経は L2–L3 から起こる",
+    "imaging.normalAppearance": "四肢の末梢神経は MNI 脳ボリュームの外にあり、アトラスのメッシュは表示されない。超音波と MR ニューログラフィーは神経を直接描出し、電気診断は病巣を機能的に局在させる。超音波は診断的ブロックのために鼠径靱帯部で神経を同定する。骨盤内腫瘤を疑う場合を除き、それ以外の画像検査は不要である。",
+    "imaging.pathology[0].pathology": "感覚異常性大腿痛",
+    "imaging.pathology[0].finding": "鼠径靱帯部で神経の腫大を認める。診断的な局所麻酔薬のブロックで症状が軽減する。",
+    "imaging.sequenceOfChoice": "臨床診断、神経ブロック、可能であれば感覚神経伝導検査",
+    "clinical.lesionEffects[0].deficit": "大腿外側の灼熱痛、ぴりぴり感、しびれ。立位と歩行で増悪する",
+    "clinical.lesionEffects[0].mechanism": "鼠径靱帯部での絞扼",
+    "clinical.lesionEffects[1].deficit": "筋力低下はなく、膝蓋腱反射は正常",
+    "clinical.lesionEffects[1].mechanism": "純粋に感覚性の神経",
+    "clinical.examination[0]": "大腿外側の感覚障害の範囲を描く（大腿の正中を越えず、膝関節にも達しない）",
+    "clinical.examination[1]": "L3 神経根や大腿神経の病巣を除外するため、大腿四頭筋の筋力と膝蓋腱反射が正常であることを確認する",
+    "clinical.examination[2]": "鼠径靱帯部の圧痛または Tinel 徴候",
+    "clinical.pearls[0]": "筋力と反射が正常で大腿外側に限局したしびれがあれば感覚異常性大腿痛であり、神経根症ではない",
+    "clinical.pearls[1]": "体重増加、妊娠、ベルト、股関節手術について問診する"
+  }
+}

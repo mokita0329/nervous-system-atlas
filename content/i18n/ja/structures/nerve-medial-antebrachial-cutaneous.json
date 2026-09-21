@@ -1,0 +1,32 @@
+{
+  "id": "nerve-medial-antebrachial-cutaneous",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "aa62d54f179398a1",
+  "fields": {
+    "summary": "内側前腕皮神経（medial antebrachial cutaneous nerve）は腕神経叢内側神経束（C8、T1）の感覚枝で、尺側皮静脈とともに上腕内側を下行し、上腕の中央で深筋膜を貫き、前枝と後枝に分かれて肘から手関節までの前腕内側の皮膚を支配する。下神経幹または内側神経束の腕神経叢病巣を尺骨神経障害と区別する感覚支配域である。すなわち尺骨神経は前腕の皮膚を支配しないため、手の筋力低下としびれに前腕内側のしびれを伴えば、病巣は肘ではなく神経叢（Klumpke 麻痺、神経原性胸郭出口症候群、Pancoast 腫瘍）にある。その感覚電位はこの鑑別の電気生理学的な指標である。",
+    "anatomy.location": "腋窩で内側神経束から起こり、上腕動脈の内側を下行し、次いで尺側皮静脈とともに走る。肘の上方で静脈とともに深筋膜を貫き、内側上顆の上で前枝と後枝に分かれ、手関節までの前腕内側半の皮膚を支配する。",
+    "function": "純粋に感覚性で、前腕内側の触覚・痛覚・温度覚を内側神経束と下神経幹を介して C8・T1 の後根神経節へ伝える。その支配域は下位腕神経叢の病巣と尺骨神経障害とを区別する鍵である。尺骨神経の感覚支配は手関節までで止まるため、内側前腕皮神経の感覚電位が正常で尺骨神経の電位が異常であれば病巣は尺骨神経にあり、両者とも異常であれば病巣は内側神経束または下神経幹にある。腋窩の手術や尺側皮静脈への穿刺・留置で損傷されて有痛性の神経腫を生じ、また移植用の神経として採取される。",
+    "imaging.bestView[0].label": "上腕内側を走る内側前腕皮神経",
+    "imaging.bestView[1].label": "肘の上方で尺側皮静脈の傍らを走る神経",
+    "imaging.normalAppearance": "超音波では上腕内側で尺側皮静脈に伴走する細い神経として描出される。通常の画像検査では描出されない。その支配域は前腕内側の皮膚である。",
+    "imaging.pathology[0].pathology": "下神経幹または内側神経束の腕神経叢障害",
+    "imaging.pathology[0].finding": "内側前腕皮神経の感覚電位が消失または低下し、尺骨神経の検査も異常で、複数の神経に属する C8-T1 支配筋に脱神経を認める。",
+    "imaging.pathology[1].pathology": "神経原性胸郭出口症候群",
+    "imaging.pathology[1].finding": "線維性の索状物や頸肋が下神経幹を圧迫する。内側前腕皮神経の電位が特徴的に低下する。",
+    "imaging.pathology[2].pathology": "静脈穿刺による医原性損傷",
+    "imaging.pathology[2].finding": "尺側皮静脈の傍らで神経に神経腫を生じ、肘窩に有痛性の Tinel 徴候を認める。",
+    "clinical.lesionEffects[0].deficit": "前腕内側のしびれ",
+    "clinical.lesionEffects[0].mechanism": "本神経、または内側神経束・下神経幹の途絶",
+    "clinical.lesionEffects[1].deficit": "静脈穿刺後の有痛性神経腫",
+    "clinical.lesionEffects[1].mechanism": "尺側皮静脈に伴走する部位での神経の損傷",
+    "clinical.lesionEffects[2].deficit": "運動障害はない",
+    "clinical.lesionEffects[2].mechanism": "本神経は純粋に感覚性である",
+    "clinical.examination[0]": "尺骨神経パターンの手の症状がある患者では、小指だけでなく前腕内側の触覚も必ず検査する",
+    "clinical.examination[1]": "内側前腕皮神経の感覚反応の神経伝導検査",
+    "clinical.examination[2]": "手とともに前腕がしびれる場合は、頸肋と Horner 症候群を探す",
+    "clinical.pearls[0]": "前腕のしびれに小指のしびれを伴えば神経叢、小指のしびれのみなら尺骨神経である",
+    "clinical.pearls[1]": "内側前腕皮神経の電位は、電気生理学者にとっての神経叢の検査である",
+    "clinical.pearls[2]": "採血部位の有痛性の腫瘤は、この神経の神経腫でありうる"
+  }
+}

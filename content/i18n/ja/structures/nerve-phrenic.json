@@ -1,0 +1,30 @@
+{
+ "id": "nerve-phrenic",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "531a1cc985d66a08",
+ "fields": {
+  "summary": "横隔神経（phrenic nerve）は主に C4 から、C3 と C5 の枝を加えて前斜角筋の外側縁で形成され、同筋の上を下行し、鎖骨下動脈と鎖骨下静脈の間を通って胸腔に入り、肺根の前方を心膜の上に沿って走って横隔膜に達する。横隔膜には運動線維を送り、同時に知覚線維も与える（さらに心膜、縦隔胸膜、横隔膜下の腹膜にも）。その遮断は一側の横隔膜を麻痺させ、安静時には耐えられるが起坐呼吸を生じる。高位頸髄損傷、Guillain–Barré 症候群、神経痛性筋萎縮症のような両側性の脱落では呼吸不全をきたす。",
+  "anatomy.location": "C3–C5 の神経根から前斜角筋の上を横切り、胸鎖乳突筋と鎖骨下静脈の後方を通り、肺門の前方を心膜に沿って横隔膜へ至る。右側の神経はより短く、より垂直に走る。",
+  "function": "横隔膜への唯一の運動支配。横隔膜中央部、心膜、縦隔胸膜への知覚支配（C4 を介した肩尖部への関連痛）。",
+  "imaging.bestView[0].label": "上位頸髄。横隔神経の運動ニューロンは C3–C5 にある",
+  "imaging.normalAppearance": "四肢の末梢神経は MNI 脳容積の外にあり、アトラスのメッシュは表示されない。超音波と MR ニューログラフィは神経を直接描出し、電気生理学的検査は機能的に病巣を局在させる。胸部 X 線での横隔膜挙上と、透視または超音波の sniff test での奇異性運動が横隔神経麻痺の画像所見である。",
+  "imaging.pathology[0].pathology": "横隔神経麻痺",
+  "imaging.pathology[0].finding": "sniff test の超音波で横隔膜の可動が消失または奇異性となる。X 線では横隔膜挙上を認める。",
+  "imaging.pathology[1].pathology": "縦隔腫瘍または心臓手術による損傷",
+  "imaging.pathology[1].finding": "神経の走行に沿った腫瘤、あるいは横隔膜挙上を伴う術後変化。",
+  "imaging.sequenceOfChoice": "胸部 X 線と横隔膜超音波。横隔神経伝導検査と横隔膜 EMG",
+  "clinical.lesionEffects[0].deficit": "横隔膜挙上を伴う起坐呼吸と労作時呼吸困難",
+  "clinical.lesionEffects[0].mechanism": "一側の横隔膜の麻痺",
+  "clinical.lesionEffects[1].deficit": "人工呼吸を要する呼吸不全",
+  "clinical.lesionEffects[1].mechanism": "両側の横隔神経の脱落: C3 より上位の高位頸髄損傷、Guillain–Barré、運動ニューロン疾患",
+  "clinical.lesionEffects[2].deficit": "肩尖部痛",
+  "clinical.lesionEffects[2].mechanism": "横隔膜の刺激に由来する C4 を介した関連性の知覚線維",
+  "clinical.examination[0]": "仰臥位で腹部の奇異運動（吸気時に腹部が陥凹する）を観察する",
+  "clinical.examination[1]": "座位と仰臥位での肺活量（20% を超える低下は横隔膜の筋力低下を示唆する）",
+  "clinical.examination[2]": "横隔膜の高さを打診する",
+  "clinical.pearls[0]": "仰臥位になれないが肺に異常のない患者では横隔膜麻痺を考えうる",
+  "clinical.pearls[1]": "C3 より上位の脊髄損傷は人工呼吸を要する。C4 以下では通常自発呼吸が保たれる",
+  "pitfalls[0]": "派生メッシュ（DERIVED MESH）: 横隔神経を含む元アトラスは存在しないため、表示されている二本のチューブは構成したものである。走行は、名前のついた Z-Anatomy オブジェクト（C4 脊髄神経節、前斜角筋の前面、鎖骨下静脈と動脈の間隙、腕頭静脈、左では大動脈弓、右では上大静脈、心臓の心膜面、横隔膜）から読み取った通過点をなめらかな折れ線としてつなぎ、1.5 mm のチューブとして掃引して作成した。通過点は pipeline/config/derived_nerves.yaml に記載されている。これは経路を示すものであって、この標本の神経そのものではない。また副横隔神経はモデル化されていない。"
+ }
+}

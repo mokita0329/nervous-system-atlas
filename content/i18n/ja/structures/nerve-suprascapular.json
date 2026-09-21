@@ -1,0 +1,27 @@
+{
+ "id": "nerve-suprascapular",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "299c791443fd21a1",
+ "fields": {
+  "summary": "肩甲上神経（suprascapular nerve）は上神経幹（C5–C6）の枝で、後方へ走り上肩甲横靱帯の下を肩甲切痕を通って棘上筋を支配し、次いで肩甲棘関節窩切痕を回って棘下筋を支配する。肩関節への知覚線維をもつが皮枝はない。いずれの切痕でも圧迫され（ガングリオン嚢腫、競技者のくり返す頭上動作）、上神経幹の病巣や神経痛性筋萎縮症で損傷され、無痛性あるいは鈍痛を伴う肩と、外転の開始および外旋の筋力低下、棘上筋・棘下筋の目に見える萎縮を生じる。",
+  "anatomy.location": "後頸三角で上神経幹から起こり、僧帽筋の下を外側へ肩甲切痕まで走り、棘上窩に入り、次いで肩甲棘の外側縁（肩甲棘関節窩切痕）を回って棘下窩に入る。",
+  "function": "棘上筋（外転の開始）と棘下筋（外旋）への運動支配。肩甲上腕関節と肩鎖関節への固有感覚の支配。",
+  "imaging.bestView[0].label": "頸髄。線維は C5–C6 に由来する",
+  "imaging.normalAppearance": "四肢の末梢神経は MNI 脳容積の外にあり、アトラスのメッシュは表示されない。超音波と MR ニューログラフィは神経を直接描出し、電気生理学的検査は機能的に病巣を局在させる。肩 MRI は、肩甲棘関節窩切痕で神経を圧迫する関節唇傍嚢腫と、棘上筋・棘下筋の脱神経浮腫または脂肪性萎縮を示す。",
+  "imaging.pathology[0].pathology": "肩甲上神経の絞扼",
+  "imaging.pathology[0].finding": "肩甲切痕または肩甲棘関節窩切痕のガングリオン嚢腫により、棘上筋および／または棘下筋が STIR で高信号となり、のちに萎縮する。",
+  "imaging.sequenceOfChoice": "肩 MRI。棘上筋と棘下筋の EMG",
+  "clinical.lesionEffects[0].deficit": "外転の開始と外旋の筋力低下、棘上筋・棘下筋の萎縮",
+  "clinical.lesionEffects[0].mechanism": "肩甲切痕の病巣（両筋が障害される）",
+  "clinical.lesionEffects[1].deficit": "棘下筋のみの萎縮と外旋の筋力低下",
+  "clinical.lesionEffects[1].mechanism": "肩甲棘関節窩切痕の病巣（棘下筋のみ）",
+  "clinical.lesionEffects[2].deficit": "皮膚の感覚障害を伴わない肩後方の深部痛",
+  "clinical.lesionEffects[2].mechanism": "関節の知覚線維による",
+  "clinical.examination[0]": "背後から棘上窩と棘下窩を視診し、萎縮の有無をみる",
+  "clinical.examination[1]": "肘を体側につけた状態での抵抗に抗した外旋",
+  "clinical.examination[2]": "棘上筋に対する empty can test",
+  "clinical.pearls[0]": "棘下筋のみの萎縮は肩甲棘関節窩切痕を示唆し、棘上筋と棘下筋の両方の萎縮は肩甲切痕を示唆する",
+  "clinical.pearls[1]": "腱板断裂と肩甲上神経障害はいずれも外旋を弱める。MRI で腱板が正常であるのに萎縮があれば、神経の病変を示唆する"
+ }
+}

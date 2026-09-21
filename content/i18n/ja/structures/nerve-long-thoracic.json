@@ -1,0 +1,27 @@
+{
+  "id": "nerve-long-thoracic",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "a874ca4fa6a808a9",
+  "fields": {
+    "summary": "長胸神経（long thoracic nerve）は C5、C6、C7 の神経根が神経幹を形成する前に直接これらから起こり、腕神経叢の背側を下行して前鋸筋の外面を走り、この筋を分節的に支配する。長く表在を走るため、牽引（重い荷物の運搬、スポーツ）、腋窩の手術、神経痛性筋萎縮症で障害されやすい。生じた前鋸筋麻痺は、上肢を前方に押し出したときの翼状肩甲をきたす。神経幹より近位で神経根から分かれるため、その障害は神経幹や神経束の病巣ではなく、神経根またはきわめて近位の病巣を示す。",
+    "anatomy.location": "頸部で C5–C7 神経根の後面から起こり、中斜角筋の中またはその背側を通り、前鋸筋上を胸壁外側に沿って下行し、その下部の筋束に達する。",
+    "function": "前鋸筋への運動支配。肩甲骨の前方突出と上方回旋、および上肢挙上時に肩甲骨を胸壁に固定する働きを担う。",
+    "imaging.bestView[0].label": "頸髄。本神経は C5–C7 神経根から起こる",
+    "imaging.normalAppearance": "四肢の末梢神経は MNI 脳ボリュームの外にあり、アトラスのメッシュは表示されない。超音波と MR ニューログラフィーは神経を直接描出し、電気診断は病巣を機能的に局在させる。MR ニューログラフィーは胸壁に沿う神経を描出し、STIR での前鋸筋の脱神経性浮腫が間接的な所見となる。",
+    "imaging.pathology[0].pathology": "長胸神経障害",
+    "imaging.pathology[0].finding": "前鋸筋に T2 高信号がみられ、後に脂肪性萎縮となる。神経は正常または肥厚する。",
+    "imaging.sequenceOfChoice": "前鋸筋の EMG、MR ニューログラフィー",
+    "clinical.lesionEffects[0].deficit": "壁を前方に押したときの内側型の翼状肩甲",
+    "clinical.lesionEffects[0].mechanism": "前鋸筋の麻痺",
+    "clinical.lesionEffects[1].deficit": "上肢を 90 度より上へ挙上することの困難",
+    "clinical.lesionEffects[1].mechanism": "肩甲骨の上方回旋の消失",
+    "clinical.lesionEffects[2].deficit": "感覚障害はない",
+    "clinical.lesionEffects[2].mechanism": "純粋に運動性の神経",
+    "clinical.examination[0]": "翼状肩甲をみる壁押し試験",
+    "clinical.examination[1]": "外転で現れる僧帽筋麻痺（副神経）の外側型翼状肩甲と比較する",
+    "clinical.examination[2]": "腕神経叢の他の部分と C5–C7 神経根も評価する",
+    "clinical.pearls[0]": "前方に押したときに強まる翼状肩甲は前鋸筋（長胸神経）、外転で強まるものは僧帽筋（副神経）である",
+    "clinical.pearls[1]": "数週間前の肩の痛みに続く前鋸筋の障害は神経痛性筋萎縮症である"
+  }
+}

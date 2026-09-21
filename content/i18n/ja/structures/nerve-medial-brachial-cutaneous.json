@@ -1,0 +1,32 @@
+{
+  "id": "nerve-medial-brachial-cutaneous",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "ec3b40239414c892",
+  "fields": {
+    "summary": "内側上腕皮神経（medial brachial cutaneous nerve）は内側神経束の最も細い枝（T1 に、肋間上腕神経を介して T2 の線維が加わる）で、上腕内側と腋窩の皮膚を支配する。臨床的には T1 神経根と下位腕神経叢の指標である。上腕内側のしびれは Pancoast 腫瘍、下神経幹の損傷、神経原性胸郭出口症候群に伴う。また本神経に合流する肋間上腕神経は乳癌の腋窩郭清で切断され、術後に患者が気づく上腕内側のしびれを残す。",
+    "anatomy.location": "腋窩で内側神経束から起こり、腋窩静脈の内側を走り、第2肋間神経から出る肋間上腕神経と交通し、上腕の中央で深筋膜を貫いて、腋窩から肘までの上腕内側の皮膚を支配する。",
+    "function": "純粋に感覚性で、上腕内側と腋窩底の感覚を内側神経束と下神経幹を介して T1（および肋間上腕神経を介して T2）の後根神経節へ伝える。したがってその支配域は腕神経叢の最下位の神経根のデルマトームの指標となる。この部位の感覚脱失に手の筋萎縮と Horner 症候群を伴えば、肺尖部の Pancoast 腫瘍が下神経幹と交感神経幹に浸潤していることを示す。腋窩の手術後の感覚脱失は肋間上腕神経の切断によるもので、良性ではあるが永続するしびれである。T1-T2 は心臓からの入力も受けるため、この支配域の痛みは心臓からの関連痛でありうる。",
+    "imaging.bestView[0].label": "腋窩と上腕内側の内側上腕皮神経",
+    "imaging.bestView[1].label": "腋窩静脈の内側を走る神経",
+    "imaging.normalAppearance": "腋窩静脈の内側を走るきわめて細い神経で、通常の画像検査では同定できない。支配域は上腕内側と腋窩である。",
+    "imaging.pathology[0].pathology": "Pancoast 腫瘍",
+    "imaging.pathology[0].finding": "肺尖部の腫瘍が腕神経叢下神経幹、T1 神経根、星状神経節に浸潤し、上腕内側のしびれ、手の筋萎縮、Horner 症候群をきたす。",
+    "imaging.pathology[1].pathology": "乳房切除術後のしびれ（肋間上腕神経の損傷）",
+    "imaging.pathology[1].finding": "画像所見はない。腋窩郭清の後に上腕内側と腋窩のしびれをきたし、超音波で神経腫がみられることがある。",
+    "imaging.pathology[2].pathology": "神経原性胸郭出口症候群",
+    "imaging.pathology[2].finding": "T1 神経根と下神経幹の部位に頸肋や索状物があり、上腕内側と前腕内側のしびれをきたす。",
+    "clinical.lesionEffects[0].deficit": "上腕内側と腋窩のしびれ",
+    "clinical.lesionEffects[0].mechanism": "T1 神経根、下神経幹、内側神経束の病巣、または肋間上腕神経の切断",
+    "clinical.lesionEffects[1].deficit": "手の筋萎縮と Horner 症候群の合併",
+    "clinical.lesionEffects[1].mechanism": "肺尖部腫瘍の下位腕神経叢と交感神経幹への浸潤",
+    "clinical.lesionEffects[2].deficit": "運動障害はない",
+    "clinical.lesionEffects[2].mechanism": "純粋に感覚性の神経",
+    "clinical.examination[0]": "下位腕神経叢の病巣の範囲を決めるため、上腕内側、前腕内側、小指の感覚を調べる",
+    "clinical.examination[1]": "上腕内側にしびれのある患者では必ず眼瞼下垂と縮瞳を探す",
+    "clinical.examination[2]": "T1 支配域にしびれがあり手が萎縮している場合は、肺尖部の胸部画像検査を行う",
+    "clinical.pearls[0]": "上腕内側のしびれに縮瞳を伴えば、胸部 X 線で否定されるまでは Pancoast 腫瘍と考える",
+    "clinical.pearls[1]": "腋窩郭清では肋間上腕神経が犠牲にされる。上腕内側のしびれについて患者に説明しておく",
+    "clinical.pearls[2]": "T1 は上腕内側と心臓を支配する。上腕の痛みが狭心症でありうる"
+  }
+}

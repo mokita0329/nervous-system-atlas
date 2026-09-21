@@ -1,0 +1,32 @@
+{
+  "id": "nerve-iliohypogastric",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "a29c22a0f36cfbcd",
+  "fields": {
+    "summary": "腸骨下腹神経（iliohypogastric nerve）は腰神経叢の最初の枝（L1 に T12 からの線維が加わる）で、大腰筋の外側縁から現れ、腰方形筋を越え、腸骨稜の部位を腹横筋と内腹斜筋の間で走り、殿部上部の皮膚へ向かう外側皮枝と恥骨上の皮膚へ向かう前皮枝に分かれる。腸骨鼠径神経とともに下腹壁の筋を支配する。虫垂切除術、ヘルニア修復術、腸骨稜からの骨採取、Pfannenstiel 切開で損傷され、その絞扼は内臓性や脊椎性の原因と誤られる下腹壁の痛みをきたす。",
+    "anatomy.location": "大腰筋の外側縁上部から出て、腎臓の背側で腰方形筋を横切り、腸骨稜の上方で腹横筋を貫き、腹横筋と内腹斜筋の間を走る。腸骨稜の上で外側皮枝を出して殿部の皮膚に分布し、さらに前方へ進んで浅鼠径輪の上方で内腹斜筋と外腹斜筋を貫き、前皮枝として恥骨上の皮膚に分布する。",
+    "function": "混合性の神経で、鼠径部を保護する結合腱を形成する腹横筋と内腹斜筋の下部線維を支配し、殿部の上外側と恥骨上の下腹部の皮膚の感覚を担う。その障害は下腹壁を弱め（直接鼠径ヘルニアの一因となる）、鼠径部の上方に帯状のしびれや灼熱感を生じる。また、腹壁内の縫合糸・メッシュ・瘢痕による絞扼は、体幹伸展と股関節伸展で増悪する慢性の痛みをきたし、上前腸骨棘の内側にトリガーポイントを認める。腸骨鼠径神経と神経根および支配域を共有し、ヘルニア手術や下腹部手術ではこの神経とともにブロックされる。",
+    "imaging.bestView[0].label": "腰方形筋を横切って腹壁へ向かう腸骨下腹神経",
+    "imaging.bestView[1].label": "腸骨稜の上方で腹横筋と内腹斜筋の間を走る神経",
+    "imaging.normalAppearance": "超音波では上前腸骨棘の上方で腹横筋と内腹斜筋の間を走る神経として描出される。通常の MRI では描出されない。支配域は殿部上部と恥骨上の皮膚である。",
+    "imaging.pathology[0].pathology": "術後の腹壁神経絞扼",
+    "imaging.pathology[0].finding": "虫垂切除術、ヘルニア修復術、Pfannenstiel 切開の後に、上前腸骨棘付近で神経周囲に神経腫や瘢痕を認める。ブロックで疼痛が軽減する。",
+    "imaging.pathology[1].pathology": "腸骨稜からの骨移植による損傷",
+    "imaging.pathology[1].finding": "腸骨稜の上で外側皮枝が損傷され、殿部上部のしびれをきたす。",
+    "imaging.pathology[2].pathology": "T12-L1 神経根症または後腹膜疾患",
+    "imaging.pathology[2].finding": "上位腰神経根の病巣、または大腰筋縁の後腹膜の病巣により、下腹壁の痛みと、筋力低下による側腹部の膨隆をきたす。",
+    "clinical.lesionEffects[0].deficit": "恥骨上と殿部上部のしびれまたは灼熱痛",
+    "clinical.lesionEffects[0].mechanism": "神経の絞扼または損傷",
+    "clinical.lesionEffects[1].deficit": "下腹壁の筋力低下",
+    "clinical.lesionEffects[1].mechanism": "腹横筋と内腹斜筋の下部の脱神経",
+    "clinical.lesionEffects[2].deficit": "直接鼠径ヘルニアの一因となること",
+    "clinical.lesionEffects[2].mechanism": "結合腱領域の脆弱化",
+    "clinical.examination[0]": "恥骨上と殿部上部の皮膚の感覚",
+    "clinical.examination[1]": "上前腸骨棘の内側の圧痛と Tinel 徴候",
+    "clinical.examination[2]": "術後慢性の鼠径部痛・腹壁痛に対する診断的神経ブロック",
+    "clinical.pearls[0]": "下腹部の瘢痕の縁の慢性痛は神経によるものであり、腸によるものではない",
+    "clinical.pearls[1]": "腸骨下腹神経と腸骨鼠径神経は、ヘルニア修復術に際してともにブロックされ、その手術でともに損傷される",
+    "clinical.pearls[2]": "側腹部の膨隆に鼠径部上方の帯状のしびれを伴えば T12-L1 の病巣である"
+  }
+}
