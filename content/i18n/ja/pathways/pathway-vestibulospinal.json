@@ -1,0 +1,27 @@
+{
+ "id": "pathway-vestibulospinal",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "26ba7a3300f599bb",
+ "fields": {
+  "summary": "二つの路が前庭情報を脊髄に運ぶ。外側（Deiters）核からの外側前庭脊髄路は非交叉のまま脊髄の全長を前索（anterior funiculus）内に下行し、伸筋（抗重力筋）運動ニューロンを興奮させる。これは耳石器と、小脳虫部および室頂核（fastigial nucleus）に駆動される。内側核からの内側前庭脊髄路は MLF 内を頸髄まで両側性に下行し、頭と頸の位置を眼球運動と協調させる。網様体脊髄路とともに姿勢のための内側（腹内側）下行系を構成し、その拮抗を失った伸筋駆動が除脳硬直を生む。",
+  "origin.note": "外側前庭神経核（外側路）と内側前庭神経核（内側路）。前庭神経と小脳からの入力を受ける。",
+  "neuronChain[0].cellBody": "前庭神経核ニューロン",
+  "neuronChain[0].synapse": "脊髄介在ニューロンに、また伸筋運動ニューロンに直接",
+  "neuronChain[1].cellBody": "運動ニューロン",
+  "neuronChain[1].synapse": "抗重力筋",
+  "waypoints[0].note": "橋延髄移行部の外側核と内側核",
+  "waypoints[1].note": "外側路は延髄腹外側部、内側路は MLF",
+  "waypoints[2].note": "前索。内側路は頸髄で終わり、外側路は仙髄まで走る",
+  "waypoints[3].note": "伸筋運動ニューロンと介在ニューロン",
+  "termination": "体幹と四肢の伸筋運動ニューロン（外側路）と頸部の運動ニューロン（内側路、両側性）。",
+  "lesionEffectsByLevel[0].level": "前庭神経または前庭神経核（片側）",
+  "lesionEffectsByLevel[0].effects": "病巣側への転倒と指示試験の偏倚、側方突進",
+  "lesionEffectsByLevel[1].level": "前庭神経核と赤核の間での脳幹離断",
+  "lesionEffectsByLevel[1].effects": "除脳硬直: 拮抗を失った伸筋駆動",
+  "lesionEffectsByLevel[2].level": "小脳虫部（前葉）",
+  "lesionEffectsByLevel[2].effects": "外側前庭神経核への抑制の喪失: 伸筋緊張の亢進と歩行失調",
+  "clinical.pearls[0]": "外側前庭脊髄路は除脳肢位の伸筋エンジンである",
+  "clinical.pearls[1]": "急性前庭病巣の患者は病巣側へ倒れる。その側では路が押す力を失っている"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "pathway-rubrospinal",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "18fa8569377767b0",
+ "fields": {
+  "summary": "赤核（red nucleus）大細胞部のニューロンは、中脳の腹側被蓋交叉（ventral tegmental decussation）で直ちに交叉する軸索を送り、脊髄側索（lateral funiculus）を外側皮質脊髄路のすぐ前方で下行して、主に上肢の屈筋運動ニューロンを興奮させ伸筋運動ニューロンを抑制する介在ニューロンに終止する。ヒトでは小さいが、臨床的に二つの点で重要である: 小脳と赤核の病巣が四肢の運動に影響する一因であること、そして赤核より上の病巣後に上肢への屈筋駆動が保たれることが除皮質肢位を生じ、一方で赤核より下の病巣ではそれが失われて伸筋性（除脳）肢位が残ることである。",
+  "origin.note": "赤核の大細胞部。運動野と小脳の中位核に駆動される。",
+  "neuronChain[0].cellBody": "赤核ニューロン",
+  "neuronChain[0].synapse": "頸髄中間質の脊髄介在ニューロン",
+  "neuronChain[1].cellBody": "介在ニューロン",
+  "neuronChain[1].synapse": "屈筋運動ニューロン",
+  "decussation.level": "腹側被蓋交叉、中脳",
+  "decussation.note": "赤核の直下で直ちに交叉する。",
+  "waypoints[0].note": "起始",
+  "waypoints[1].note": "腹側被蓋交叉",
+  "waypoints[2].note": "外側被蓋",
+  "waypoints[3].note": "側索、皮質脊髄路の前方、主に頸髄節",
+  "termination": "上肢の屈筋を促通する頸髄の介在ニューロン。",
+  "lesionEffectsByLevel[0].level": "赤核より上（半球の腫瘤、視床）",
+  "lesionEffectsByLevel[0].effects": "除皮質肢位: 上肢屈曲、下肢伸展（赤核脊髄路の屈筋駆動は保たれる）",
+  "lesionEffectsByLevel[1].level": "赤核より下（橋）",
+  "lesionEffectsByLevel[1].effects": "除脳肢位: 上肢と下肢の伸展（前庭脊髄路と網様体脊髄路の伸筋駆動のみが残る）",
+  "clinical.pearls[0]": "昏睡患者の肢位は赤核がなお脊髄とつながっているかを教える: 上肢屈曲なら赤核より上、上肢伸展なら赤核より下",
+  "clinical.pearls[1]": "ヒトでは、ネコで赤核脊髄路が担う機能の大部分を皮質脊髄路が引き継いでいる"
+ }
+}

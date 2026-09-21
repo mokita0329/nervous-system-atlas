@@ -1,0 +1,32 @@
+{
+ "id": "pathway-corticobulbar",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "44f5df13d2cee5c7",
+ "fields": {
+  "summary": "皮質延髄路線維は運動野の顔面・口の領域から起こり、皮質脊髄路とともに内包膝（genu of the internal capsule）と大脳脚（crus cerebri）内側部を下行し、脳幹で分かれて V、VII、IX、X、XI、XII の運動核に至る。投射は大部分の核に対して両側性だが、下部顔面亜核と舌下神経核（オトガイ舌筋）に対しては主に対側性である。半球の脳卒中で前額が保たれた下部顔面の脱力と、病巣と反対側へ偏位する舌が生じるのはこのためであり、一方で両側病巣は下顎反射亢進、痙性構音障害、嚥下障害、情動失禁を伴う偽性球麻痺を生じる。",
+  "origin.note": "中心前回の下部（顔面、舌、喉頭の領域）と前頭弁蓋部。",
+  "neuronChain[0].cellBody": "外側運動野の錐体細胞",
+  "neuronChain[0].synapse": "脳神経運動核の周囲と核内の介在ニューロンに終止する",
+  "neuronChain[1].cellBody": "脳神経運動ニューロン",
+  "neuronChain[1].synapse": "神経筋接合部",
+  "decussation.level": "各核の高さで",
+  "decussation.note": "V、上部 VII、IX、X、XI へは両側性。下部 VII と XII へは主に対側性。",
+  "waypoints[0].note": "Sylvius 裂の上の顔面領域",
+  "waypoints[1].note": "内包膝",
+  "waypoints[2].note": "皮質脊髄路線維の内側",
+  "waypoints[3].note": "三叉神経運動核",
+  "waypoints[4].note": "上部顔面は両側性、下部顔面は対側性",
+  "waypoints[6].note": "オトガイ舌筋へは主に対側性",
+  "termination": "三叉神経、顔面神経、舌咽神経、迷走神経、副神経、舌下神経の運動核。",
+  "lesionEffectsByLevel[0].level": "片側の半球または内包の病巣",
+  "lesionEffectsByLevel[0].effects": "前額が保たれた対側の下部顔面の脱力。舌は病巣と反対側へ偏位する。軽度の構音障害。嚥下障害なし",
+  "lesionEffectsByLevel[1].level": "両側病巣（両側の脳卒中、ALS、MS）",
+  "lesionEffectsByLevel[1].effects": "偽性球麻痺: 痙性構音障害、嚥下障害、下顎反射と咽頭反射の亢進、情動失禁",
+  "lesionEffectsByLevel[2].level": "顔面神経核より下の橋病巣",
+  "lesionEffectsByLevel[2].effects": "皮質延髄路ではない: 下位運動ニューロン性の顔面神経麻痺と対側の四肢脱力",
+  "clinical.pearls[0]": "前額が保たれることは皮質延髄路（上位運動ニューロン）性顔面神経麻痺の指紋である",
+  "clinical.pearls[1]": "偽性球麻痺には二つの病巣が必要: 両側の内包または橋の脳卒中、あるいは運動ニューロン疾患を探す",
+  "clinical.pearls[2]": "情動性の顔面運動は皮質延髄路病巣でも保たれる。別の辺縁系–脳幹経路を使うためである"
+ }
+}

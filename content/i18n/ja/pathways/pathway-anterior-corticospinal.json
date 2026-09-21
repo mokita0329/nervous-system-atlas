@@ -1,0 +1,26 @@
+{
+ "id": "pathway-anterior-corticospinal",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "4817e1c338b9c0f5",
+ "fields": {
+  "summary": "延髄で交叉しない錐体路線維の10–15%は、前正中裂（anterior median fissure）に接して前索（anterior funiculus）を前皮質脊髄路（腹側皮質脊髄路）として下行する。その大部分は終止する髄節で前白交連（anterior white commissure）を通って交叉し、体幹と四肢近位筋の運動ニューロンに達し、一部は両側性に終止するため、体軸筋は両側の皮質支配を受ける。片麻痺で体幹と頸部の筋力が比較的保たれるのはこのためであり、体幹を麻痺させるには両側の皮質脊髄路病巣が必要なのもこのためである。",
+  "origin.note": "主に運動野の体幹・四肢近位部領域と補足運動野（supplementary motor area）から起こる。",
+  "neuronChain[0].cellBody": "運動野の錐体細胞",
+  "neuronChain[0].synapse": "前白交連で交叉した後、脊髄介在ニューロンと内側運動ニューロンに終止する",
+  "neuronChain[1].cellBody": "前角細胞（内側運動柱）",
+  "neuronChain[1].synapse": "神経筋接合部",
+  "decussation.level": "髄節レベルの前白交連",
+  "decussation.note": "延髄では非交叉性。髄節ごとに交叉し、一部の線維は非交叉のまま残る。",
+  "waypoints[2].note": "錐体交叉を非交叉のまま通過する",
+  "waypoints[3].note": "前正中裂に接する前索。主に頸髄と上部胸髄",
+  "waypoints[4].note": "前白交連を経て内側運動柱へ",
+  "termination": "頸髄と上部胸髄の内側運動ニューロンと介在ニューロン。頸部・体幹・四肢近位筋を両側性に支配する。",
+  "lesionEffectsByLevel[0].level": "どの高さでも片側病巣",
+  "lesionEffectsByLevel[0].effects": "両側性投射のため、検出できる脱落症状はほとんどない",
+  "lesionEffectsByLevel[1].level": "両側病巣（両側の脳卒中、頸髄症）",
+  "lesionEffectsByLevel[1].effects": "体幹の脱力を伴う体幹制御と姿勢安定性の喪失",
+  "clinical.pearls[0]": "体軸筋は両側の皮質支配を受ける。片側の脳卒中では体幹と頸部の筋力は保たれる",
+  "clinical.pearls[1]": "この路の大部分は頸髄と上部胸髄で終わり、それより下ではしばしば欠如する"
+ }
+}

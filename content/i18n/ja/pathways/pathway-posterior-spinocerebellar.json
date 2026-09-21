@@ -1,0 +1,24 @@
+{
+ "id": "pathway-posterior-spinocerebellar",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "814456768b286e31",
+ "fields": {
+  "summary": "下肢と体幹の筋紡錘、腱器官、関節からの固有感覚線維は Clarke 柱（Clarke's column。胸髄核 nucleus dorsalis、C8–L3）に終止する。そのニューロンは非交叉の軸索を側索（lateral funiculus）を通って後脊髄小脳路として上行させ、下小脳脚（inferior cerebellar peduncle）から虫部と傍虫部に入る。上肢に相当するのは副楔状束核（accessory cuneate nucleus）からの楔状束小脳路（cuneocerebellar tract）である。この経路は非交叉性で、小脳が同じ側の肢を協調させるために用いる情報を運ぶため、病巣は意識にのぼる感覚脱失を伴わない同側の失調を生じる。",
+  "origin.note": "下肢と下部体幹からの筋紡錘および Golgi 腱器官の求心線維。二次ニューロンは Clarke 柱（第 VII 層）にある。",
+  "neuronChain[0].cellBody": "後根神経節細胞",
+  "neuronChain[0].synapse": "Clarke 柱（胸髄核）",
+  "neuronChain[1].cellBody": "Clarke 柱ニューロン",
+  "neuronChain[1].synapse": "苔状線維として虫部と中間帯の小脳皮質へ",
+  "waypoints[1].note": "後角基部の Clarke 柱、C8–L3（L3 より下からの線維はまず薄束を上行する）",
+  "waypoints[2].note": "側索の後部、表層",
+  "waypoints[4].note": "前葉と傍虫部",
+  "termination": "同側の虫部と中間帯（脊髄小脳）の小脳皮質に苔状線維として終止し、側枝を小脳核に送る。",
+  "lesionEffectsByLevel[0].level": "脊髄側索（Friedreich 失調症、脊髄半側病巣）",
+  "lesionEffectsByLevel[0].effects": "意識にのぼる感覚脱失を伴わない同側の四肢失調（Friedreich 失調症では後索も失われる）",
+  "lesionEffectsByLevel[1].level": "下小脳脚または延髄",
+  "lesionEffectsByLevel[1].effects": "同側の四肢失調と歩行失調（延髄外側症候群の一部）",
+  "clinical.pearls[0]": "脊髄小脳路は非交叉性である: 脊髄または延髄の病巣による失調は同側である",
+  "clinical.pearls[1]": "Friedreich 失調症は脊髄小脳路と後索の両方を破壊し、小脳性と感覚性の混合した失調を生じる"
+ }
+}

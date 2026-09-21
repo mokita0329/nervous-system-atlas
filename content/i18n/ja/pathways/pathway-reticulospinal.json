@@ -1,0 +1,29 @@
+{
+ "id": "pathway-reticulospinal",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "7ecc8d33112bcece",
+ "fields": {
+  "summary": "橋と延髄の網様体（reticular formation）は脊髄に二つの路を送る: 橋（内側）網様体脊髄路は前索（anterior funiculus）を非交叉のまま下行して伸筋と体軸筋を促通し、延髄（外側）網様体脊髄路は側索（lateral funiculus）を一部交叉して下行し、伸筋緊張を抑制して反射と痛覚伝達を調節する。皮質に駆動されるこれらの路は、姿勢調節、予測的姿勢制御、歩行指令の主要な経路であり、上位運動ニューロン病巣後の不均衡（抑制性の延髄路への皮質駆動の喪失）は、皮質脊髄路そのものの喪失以上に痙縮に寄与する。",
+  "origin.note": "橋網様核（吻側部・尾側部）と延髄の巨大細胞性網様核。運動前野に駆動される。",
+  "neuronChain[0].cellBody": "網様体ニューロン",
+  "neuronChain[0].synapse": "多数の髄節にわたる脊髄介在ニューロンと γ・α 運動ニューロン",
+  "neuronChain[1].cellBody": "運動ニューロン",
+  "neuronChain[1].synapse": "体軸筋と近位筋",
+  "decussation.level": "一部交叉（延髄路）",
+  "decussation.note": "橋路は非交叉性。延髄路は両側性。",
+  "waypoints[0].note": "橋と延髄の網様核",
+  "waypoints[1].note": "延髄路は外側被蓋を下行する",
+  "waypoints[2].note": "橋路は前索、延髄路は側索",
+  "waypoints[3].note": "体軸筋と近位筋の介在ニューロンと運動ニューロン。自律神経ニューロンも",
+  "termination": "脊髄全長の介在ニューロンと運動ニューロン、特に体軸筋と近位筋のもの。交感神経節前ニューロン。後角（痛覚調節）。",
+  "lesionEffectsByLevel[0].level": "皮質または内包の病巣（延髄の抑制路への駆動の喪失）",
+  "lesionEffectsByLevel[0].effects": "病巣より下の痙縮、折りたたみナイフ現象、反射亢進",
+  "lesionEffectsByLevel[1].level": "橋被蓋病巣",
+  "lesionEffectsByLevel[1].effects": "予測的姿勢調節の喪失。前庭脊髄路の解放と組み合わさると除脳肢位に寄与する",
+  "lesionEffectsByLevel[2].level": "延髄病巣",
+  "lesionEffectsByLevel[2].effects": "下行性痛覚抑制と自律神経調節の喪失（血圧の不安定）",
+  "clinical.pearls[0]": "痙縮は主として網様体脊髄路の問題である: 皮質脊髄路単独では脱力と拙劣さを生じ、筋緊張亢進は生じない",
+  "clinical.pearls[1]": "皮質脊髄路病巣のある患者がなお硬い歩容で歩けるのは網様体脊髄路で説明される: 内側下行系が歩行を駆動する"
+ }
+}

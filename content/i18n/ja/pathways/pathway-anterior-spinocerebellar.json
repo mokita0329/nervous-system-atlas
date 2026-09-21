@@ -1,0 +1,28 @@
+{
+ "id": "pathway-anterior-spinocerebellar",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "68d456bf5851fa02",
+ "fields": {
+  "summary": "腰仙髄の後角（dorsal horn）基部と中間質のニューロンは、大部分が前白交連（anterior white commissure）で交叉する軸索を送る。これは後脊髄小脳路（posterior spinocerebellar tract）の前方で前側索（anterolateral funiculus）を上行し、延髄と橋を通過して上小脳脚（superior cerebellar peduncle）から小脳に入り、そこで大部分が再び交叉して戻るため、小脳の各側はなお自分の側の身体からの情報を受ける。この路が運ぶのは純粋な固有感覚（深部感覚）というより脊髄介在ニューロンの活動に関する情報であり、下行性の指令に対して脊髄回路が何をしているかを小脳に伝える。",
+  "origin.note": "腰仙髄節の脊髄辺縁細胞（spinal border cells）と中間質。Golgi 腱器官、屈曲反射求心線維、下行路からの入力を受ける。",
+  "neuronChain[0].cellBody": "後根神経節細胞",
+  "neuronChain[0].synapse": "脊髄辺縁細胞",
+  "neuronChain[1].cellBody": "脊髄辺縁細胞",
+  "neuronChain[1].synapse": "上小脳脚を経て前葉の小脳皮質（虫部と傍虫部）へ、二度交叉する",
+  "decussation.level": "前白交連（交叉）と上小脳脚（再交叉）",
+  "decussation.note": "二重交叉により、正味の投射は同側性となる。",
+  "waypoints[0].note": "脊髄辺縁細胞、L1–S2",
+  "waypoints[1].note": "前側索、後脊髄小脳路の前方",
+  "waypoints[2].note": "延髄外側部",
+  "waypoints[3].note": "上部橋で上小脳脚から入る",
+  "waypoints[4].note": "前葉、再交叉後",
+  "termination": "小脳前葉の虫部と中間帯。二回目の交叉の後、起始と同側に終止する。",
+  "lesionEffectsByLevel[0].level": "脊髄前側索",
+  "lesionEffectsByLevel[0].effects": "同側下肢の失調（二重交叉後の正味の効果）。通常は脊髄視床路徴候と混在する",
+  "lesionEffectsByLevel[1].level": "上小脳脚",
+  "lesionEffectsByLevel[1].effects": "小脳遠心路の徴候が優位な失調",
+  "clinical.pearls[0]": "上小脳脚から小脳に入る唯一の脊髄小脳路である",
+  "clinical.pearls[1]": "関節ではなく脊髄介在ニューロンを監視する: 脊髄が何をしているかの写しである"
+ }
+}

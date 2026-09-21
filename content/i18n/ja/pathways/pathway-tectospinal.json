@@ -1,0 +1,27 @@
+{
+ "id": "pathway-tectospinal",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "4cc996f953a168b9",
+ "fields": {
+  "summary": "上丘（superior colliculus）深層のニューロンは、中脳水道周囲灰白質（periaqueductal gray）のすぐ下の背側被蓋交叉（dorsal tegmental decussation）で交叉する軸索を送り、脳幹を MLF の近くを下行して頸髄に終止し、そこで頸部の運動ニューロンを駆動して視覚・聴覚・体性感覚刺激の方向へ頭を向けさせる。定位反応の脊髄成分であり、眼を同じ標的へ向ける視蓋延髄線維と協働して、注視と頭の回転が同時に到達し、注意を引いたものに中心窩が向くようにする。",
+  "origin.note": "上丘の深層と中間層。網膜、聴覚、皮質からの入力に駆動される。",
+  "neuronChain[0].cellBody": "上丘ニューロン",
+  "neuronChain[0].synapse": "頸髄の介在ニューロンと運動ニューロン",
+  "neuronChain[1].cellBody": "運動ニューロン",
+  "neuronChain[1].synapse": "頸部の筋",
+  "decussation.level": "背側被蓋交叉、中脳",
+  "decussation.note": "丘の高さで中脳水道周囲灰白質の下を交叉する。",
+  "waypoints[0].note": "起始",
+  "waypoints[1].note": "背側被蓋交叉",
+  "waypoints[2].note": "MLF に沿って下行する",
+  "waypoints[3].note": "前索、頸髄節のみ",
+  "termination": "頸部の筋のための上部頸髄の運動ニューロンと介在ニューロン。",
+  "lesionEffectsByLevel[0].level": "上丘",
+  "lesionEffectsByLevel[0].effects": "対側への頭と眼の反射性定位の障害。単独で生じることはまれ",
+  "lesionEffectsByLevel[1].level": "中脳背側部の圧迫",
+  "lesionEffectsByLevel[1].effects": "定位の障害は Parinaud 症候群の垂直注視麻痺に紛れる",
+  "clinical.pearls[0]": "突然の音で、理由が分かる前に頭が向くのはこの路のためである",
+  "clinical.pearls[1]": "孤立した視蓋脊髄路病巣は臨床的な実体というより教科書上の概念である。中脳背側部の一部として考える"
+ }
+}

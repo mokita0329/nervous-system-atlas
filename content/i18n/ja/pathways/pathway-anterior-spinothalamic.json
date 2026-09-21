@@ -1,0 +1,27 @@
+{
+ "id": "pathway-anterior-spinothalamic",
+ "kind": "pathways",
+ "lang": "ja",
+ "source": "fb00dd0e26b51ddb",
+ "fields": {
+  "summary": "精密な局在を要しない触覚と圧覚を運ぶ線維は後角（dorsal horn）に終止し、前白交連（anterior white commissure）で交叉して前索（anterior funiculus）を前脊髄視床路として上行し、脳幹で外側脊髄視床路（lateral spinothalamic tract）と合流して脊髄毛帯（spinal lemniscus）となる。粗大触覚はここと後索（posterior columns）の両方を通るため、単一の脊髄病巣で触覚が完全に失われることはまれであり、脊髄の診察で鑑別に役立つ感覚様式が温痛覚（経路は一つ）と振動覚・位置覚（経路は一つ）である理由はここにある。",
+  "origin.note": "低閾値機械受容器。二次ニューロンは固有核（nucleus proprius）にある。",
+  "neuronChain[0].cellBody": "後根神経節細胞",
+  "neuronChain[0].synapse": "後角（固有核）",
+  "neuronChain[1].cellBody": "後角ニューロン",
+  "neuronChain[1].synapse": "交叉後、視床 VPL へ",
+  "neuronChain[2].cellBody": "VPL ニューロン",
+  "neuronChain[2].synapse": "中心後回",
+  "decussation.level": "前白交連、数髄節にわたって",
+  "decussation.note": "痛覚線維ほど急峻には交叉しない。",
+  "waypoints[2].note": "前索",
+  "waypoints[3].note": "脊髄毛帯に合流し、脳幹では内側毛帯（medial lemniscus）に沿って走る",
+  "termination": "視床後外側腹側核（VPL）と体性感覚野。",
+  "lesionEffectsByLevel[0].level": "脊髄半側病巣",
+  "lesionEffectsByLevel[0].effects": "二重経路のため、粗大触覚は両側でおおむね保たれる",
+  "lesionEffectsByLevel[1].level": "脊髄前部梗塞",
+  "lesionEffectsByLevel[1].effects": "病巣レベル以下の温痛覚と粗大触覚の脱失。後索機能は保たれる",
+  "clinical.pearls[0]": "脊髄病巣の局在には、触覚ではなく痛覚と振動覚を調べる: 触覚は経路が二つあるため失われない",
+  "clinical.pearls[1]": "脊髄病巣後の「感覚脱失」が完全になることがまれなのは、前脊髄視床路のためである"
+ }
+}
