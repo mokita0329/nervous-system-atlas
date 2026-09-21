@@ -1,0 +1,30 @@
+{
+  "id": "medial-geniculate-nucleus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "5678933cbd4665c9",
+  "fields": {
+    "summary": "聴覚の視床であり、視床枕の下面で外側膝状体の内側にある小さな卵円形の核である。下丘腕を受け、内包レンズ核下部を通る聴放線を介して Heschl 回へ投射する。聴覚路は蝸牛神経核から上方では両側性であるため、片側の膝状体病巣では対側の聴力と音源定位にわずかな障害を生じるにとどまり、難聴になることは決してない。",
+    "anatomy.location": "視床の後下部で、外側膝状体の下内側、上丘の外側にあり、中脳外側に沿って走る下丘腕を受ける。",
+    "connections.afferents[0].from": "inferior-colliculus",
+    "connections.afferents[0].via": "下丘腕",
+    "connections.efferents[0].to": "gyrus-heschl",
+    "connections.efferents[0].via": "tract-acoustic-radiation",
+    "function": "一次聴覚野への聴覚の視床中継で、周波数局在性に配列している。恐怖条件づけのために聴覚情報を扁桃体へも中継する。",
+    "imaging.bestView[0].label": "LGN の内側にある内側膝状体",
+    "imaging.bestView[1].label": "中脳の外側で視床の下部にある MGN",
+    "imaging.normalAppearance": "薄いスライスの冠状断T2で外側膝状体の内側にみえる小さな核。このアトラスでは MASSP のメッシュで表現されている。",
+    "imaging.pathology[0].pathology": "MGN を含む視床梗塞",
+    "imaging.pathology[0].finding": "視床後部の拡散制限。対側の軽度の聴力障害を生じ、LGN が含まれれば半盲を伴う。",
+    "imaging.sequenceOfChoice": "DWI。中枢聴覚検査を含む聴力検査",
+    "clinical.lesionEffects[0].deficit": "対側の軽度の聴力低下と音源定位の不良",
+    "clinical.lesionEffects[0].mechanism": "主として交叉性である聴覚路の部分的な遮断",
+    "clinical.lesionEffects[1].deficit": "両側病巣における聴覚失認",
+    "clinical.lesionEffects[1].mechanism": "両側の膝状体または放線の障害",
+    "clinical.examination[0]": "聴力閾値（ほぼ正常）と音源定位",
+    "clinical.examination[1]": "可能であれば両耳分離聴検査",
+    "clinical.pearls[0]": "中枢性の聴覚病巣は片耳の難聴を起こさない。片側の難聴がある患者では、神経か蝸牛をみる",
+    "clinical.pearls[1]": "内側膝状体は皮質へ至る前の最後の中継核である。内側膝状体または聴放線の両側病巣は、脳幹聴覚反応が保たれたままの皮質性（中枢性）難聴を生じる",
+    "pitfalls[0]": "ベッドサイドでの音源定位の検査は粗雑である。聴力図が正常でも騒がしい部屋での聞き取りに困難があると病歴が示唆する場合は、中枢聴覚検査へ紹介する"
+  }
+}

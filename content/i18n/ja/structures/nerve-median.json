@@ -22,7 +22,7 @@
     "imaging.pathology[0].pathology": "手根管症候群",
     "imaging.pathology[0].finding": "手根管入口部で正中神経の横断面積が増大し（約 10–12 mm² を超える）、その遠位では扁平化する。神経伝導検査では手関節を挟んだ感覚伝導の遅延と遠位運動潜時の延長を認める。",
     "imaging.pathology[1].pathology": "前骨間神経障害",
-    "imaging.pathology[1].finding": "感覚の変化を伴わず、長母指屈筋、方形回内筋、深指屈筋の橈側半分に脱神経性浮腫を認める。",
+    "imaging.pathology[1].finding": "長母指屈筋、方形回内筋、深指屈筋の橈側半分に脱神経性浮腫を認め、感覚の変化は伴わない。",
     "imaging.pathology[2].pathology": "円回内筋症候群",
     "imaging.pathology[2].finding": "円回内筋の部位で正中神経が近位で圧迫され、前腕屈筋群と母指球筋の障害、前腕の痛みをきたす。",
     "imaging.sequenceOfChoice": "神経伝導検査と EMG、手関節の超音波、近位の病巣には MRI",
