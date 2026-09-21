@@ -34,7 +34,7 @@
     "clinical.lesionEffects[1].mechanism": "REM スイッチの破綻",
     "clinical.lesionEffects[2].deficit": "情動脱力発作（カタプレキシー）様のエピソード",
     "clinical.lesionEffects[2].mechanism": "覚醒中に同じ筋緊張消失回路が不適切に活性化すること",
-    "clinical.examination[0]": "睡眠中に蹴る・殴る・叫ぶかどうかは、患者本人ではなくベッドパートナーに尋ねる",
+    "clinical.examination[0]": "睡眠中に蹴る・殴る・叫ぶかどうかは、患者本人には尋ねず、ベッドパートナーに尋ねる",
     "clinical.examination[1]": "シヌクレイノパチーの他の前駆症状をスクリーニングする: 嗅覚低下、便秘、起立性症状",
     "clinical.examination[2]": "オトガイ筋と四肢の筋電図を併用した睡眠ポリグラフ検査で、筋緊張消失を伴わない REM を記録する",
     "clinical.pearls[0]": "夢の行動化は振戦の何年も前に現れる脳幹の徴候である",
