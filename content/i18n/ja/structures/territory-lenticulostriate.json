@@ -1,0 +1,33 @@
+{
+ "id": "territory-lenticulostriate",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "d2481f04278f3947",
+ "fields": {
+  "summary": "M1 部と A1 部の穿通枝が支配する深部領域。すなわち被殻、淡蒼球、尾状核、および内包の前脚・膝・後脚上部である。ラクナ梗塞と高血圧性出血が最も多い部位であり、皮質症候を伴わない運動性の症候群を来す。",
+  "anatomy.location": "側脳室前角と体部の高さにおける半球の中心部。レンズ核、尾状核の頭部と体部、およびその間の内包。外側は島皮質に、内側は視床（PCA/PComm の支配域）に境される。",
+  "function": "内包を通る皮質脊髄路・皮質延髄路と視床皮質投射を通し、運動ループの線条体と淡蒼球を容れる。",
+  "bloodSupply.note": "本アトラスの支配域の境界は確率的な脳卒中病巣アトラス（Liu et al. 2023）に基づいており、Willis 動脈輪の解剖に応じて個人差がある。",
+  "imaging.bestView[0].label": "側脳室前角の高さのレンズ核と内包",
+  "imaging.bestView[1].label": "島と視床の間の穿通枝支配域",
+  "imaging.normalAppearance": "大脳基底核の高さの軸位断でみえる中心部の領域。ラクナはここに小さな円形の拡散高信号の点としてみえ、陳旧性のものは髄液と同じ信号の空洞としてみえる。",
+  "imaging.pathology[0].pathology": "ラクナ梗塞",
+  "imaging.pathology[0].finding": "被殻、内包、放線冠にみられる 15–20 mm 未満の円形または楕円形の拡散制限。",
+  "imaging.pathology[1].pathology": "線条体内包梗塞",
+  "imaging.pathology[1].finding": "一過性の M1 閉塞の後に、皮質が保たれたまま深部支配域の全体に生じるコンマ状の梗塞。",
+  "imaging.pathology[2].pathology": "高血圧性被殻出血",
+  "imaging.pathology[2].finding": "被殻の高吸収の血腫で、内包への進展と、脳室穿破を来しうる。",
+  "imaging.sequenceOfChoice": "DWI、単純 CT、微小出血には SWI",
+  "clinical.lesionEffects[0].deficit": "純粋運動性不全片麻痺",
+  "clinical.lesionEffects[0].mechanism": "内包の皮質脊髄路の線維",
+  "clinical.lesionEffects[1].deficit": "感覚運動性脳卒中",
+  "clinical.lesionEffects[1].mechanism": "視床に接する内包後脚",
+  "clinical.lesionEffects[2].deficit": "片側バリズムまたはジストニア",
+  "clinical.lesionEffects[2].mechanism": "線条体と淡蒼球の病巣",
+  "clinical.examination[0]": "顔面・上肢・下肢が同程度の脱力",
+  "clinical.examination[1]": "失語、半側空間無視、視野欠損がないこと",
+  "clinical.examination[2]": "血圧と眼底",
+  "clinical.pearls[0]": "ラクナ症候群は、皮質症候を伴わない運動性・感覚性の症候群である",
+  "clinical.pearls[1]": "高血圧はこの支配域の病である。SWI でみられる微小出血が小血管の動脈病変を裏づける"
+ }
+}

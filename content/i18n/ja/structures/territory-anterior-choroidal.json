@@ -1,0 +1,24 @@
+{
+ "id": "territory-anterior-choroidal",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "bf0c914bedc9e472",
+ "fields": {
+  "summary": "前脈絡叢動脈（anterior choroidal artery）と、これに隣接する後交通動脈からの前視床穿通枝が支配する細長い領域。すなわち内包後脚、外側膝状体と視索、内側側頭葉、および大脳脚と視床の一部である。容積は小さいが、皮質脊髄路、視床皮質性の感覚線維、視覚路がいずれもここを通るため、その帰結は大きい。",
+  "anatomy.location": "内包後脚とレンズ核後部、淡蒼球内節、外側膝状体、視索、鉤・扁桃体・海馬前部、側脳室下角の脈絡叢、および大脳脚の内側部。",
+  "function": "内包後脚の皮質脊髄路の線維と体性感覚性の視床皮質線維を通し、視索と外側膝状体を介して視覚情報を伝える。",
+  "bloodSupply.note": "本アトラスの支配域の境界は確率的な脳卒中病巣アトラス（Liu et al. 2023）に基づいており、Willis 動脈輪の解剖に応じて個人差がある。",
+  "imaging.bestView[0].label": "視床に接する内包後脚",
+  "imaging.bestView[1].label": "外側膝状体と側脳室下角",
+  "imaging.normalAppearance": "軸位断でレンズ核と視床の間にみえる細い帯で、下後方へ側脳室下角に向かって続く。",
+  "imaging.pathology[0].pathology": "前脈絡叢動脈梗塞",
+  "imaging.pathology[0].finding": "内包後脚の拡散制限が膝状体部と内側側頭葉にまで及ぶ。",
+  "imaging.sequenceOfChoice": "DWI、内頸動脈終末部の病変を除外するための CTA",
+  "clinical.lesionEffects[0].deficit": "不全片麻痺・半身の感覚障害・半盲（三徴）",
+  "clinical.lesionEffects[0].mechanism": "内包後脚、視床皮質線維、外側膝状体",
+  "clinical.examination[0]": "顔面・上肢・下肢の筋力と感覚",
+  "clinical.examination[1]": "対座法による視野検査",
+  "clinical.pearls[0]": "失語も半側空間無視も伴わない完全な三徴は前脈絡叢動脈を示唆する",
+  "clinical.pearls[1]": "扇形の領域が保たれる半盲は、外側膝状体が二重に血管支配を受けることを反映している"
+ }
+}

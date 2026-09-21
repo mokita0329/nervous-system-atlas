@@ -1,0 +1,31 @@
+{
+ "id": "territory-sca",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "ac0615e475daac19",
+ "fields": {
+  "summary": "上小脳動脈が灌流する小脳上部、歯状核、上小脳脚、橋吻側部の背外側部である。歯状核と、上小脳脚を通るその出力路がこの中にあるため、最も純粋な四肢の失調を生じる小脳の支配域であり、その梗塞は脳底動脈先端部に詰まる心原性塞栓に由来することが最も多い支配域でもある。",
+  "anatomy.location": "水平裂より上の小脳半球と小脳虫部（前葉と後葉の上部）、歯状核とその他の小脳核、中脳へ向かって上行する上小脳脚、および脊髄視床路と下行性交感神経線維が走る橋上部の背外側被蓋。",
+  "function": "歯状核と、上小脳脚を通る歯状核赤核視床路の出力による同側四肢の協調；橋吻側被蓋における温痛覚の中継（脊髄視床路）と頭部への交感神経出力。",
+  "bloodSupply.note": "本アトラスの支配域の境界は確率的脳卒中病巣アトラス（Liu et al. 2023）に基づいており、Willis 動脈輪の解剖に応じて個人間で変動する。",
+  "imaging.bestView[0].label": "小脳テント下の小脳半球上部",
+  "imaging.bestView[1].label": "水平裂より上の支配域",
+  "imaging.normalAppearance": "軸位断では小脳テントのすぐ下の小脳上部である。PICA 支配域との境界は水平裂に沿って走る。",
+  "imaging.pathology[0].pathology": "SCA 梗塞",
+  "imaging.pathology[0].finding": "小脳上部でテント面に達する楔状の拡散制限で、橋吻側部の障害の程度はさまざまである。",
+  "imaging.sequenceOfChoice": "DWI；CTA",
+  "clinical.lesionEffects[0].deficit": "同側四肢の失調と企図振戦",
+  "clinical.lesionEffects[0].mechanism": "歯状核と上小脳脚",
+  "clinical.lesionEffects[1].deficit": "対側の温痛覚障害",
+  "clinical.lesionEffects[1].mechanism": "橋吻側部の脊髄視床路",
+  "clinical.lesionEffects[2].deficit": "Horner 症候群",
+  "clinical.lesionEffects[2].mechanism": "被蓋を走る交感神経線維",
+  "clinical.examination[0]": "指鼻試験と踵膝試験",
+  "clinical.examination[1]": "身体の痛覚（ピンプリック）",
+  "clinical.examination[2]": "瞳孔",
+  "clinical.pearls[0]": "前庭神経核はより下方にあるため、SCA 梗塞では回転性めまいは軽度か欠如する",
+  "clinical.pearls[1]": "大きな SCA 梗塞は上方へ腫脹して小脳テントを、下方へは第四脳室を圧迫するため、2–3 日目に傾眠となった患者には CT の再検が必要である",
+  "clinical.pearls[2]": "小脳上部の梗塞は PICA 梗塞より塞栓性であることが多く、PICA 梗塞は椎骨動脈の病変によることが多い",
+  "pitfalls[0]": "対側の感覚障害を伴う失調は視床または内包の病巣と誤られうる。同側の Horner 症候群と小脳症候が橋と小脳を示唆する"
+ }
+}

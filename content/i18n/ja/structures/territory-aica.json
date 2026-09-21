@@ -1,0 +1,33 @@
+{
+ "id": "territory-aica",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "17dffce17d6616fd",
+ "fields": {
+  "summary": "前下小脳動脈（anterior inferior cerebellar artery）が灌流する橋尾側の外側部、中小脳脚、内耳、および小脳前下部。梗塞では橋外側の症候に難聴と回転性めまいが加わり、迷路動脈は終動脈であるため蝸牛が最初の犠牲となることが多い。この支配域は小さく変異に富む。AICA が低形成であれば PICA が小脳の部分を肩代わりし、PICA が低形成であれば AICA が下方へ広がるため、PICA 支配域との境界は後頭蓋窩で最も予測しにくい。",
+  "anatomy.location": "橋尾側の外側被蓋と底部（顔面神経核、三叉神経脊髄路核、前庭神経核と蝸牛神経核、脊髄視床路）、中小脳脚、片葉、および小脳の錐体面。迷路動脈を介する蝸牛と迷路。",
+  "function": "顔面の運動、顔面の温痛覚、聴覚、前庭入力、および橋小脳性の協調。",
+  "bloodSupply.note": "本アトラスの支配域の境界は確率的な脳卒中病巣アトラス（Liu et al. 2023）に基づいており、Willis 動脈輪の解剖に応じて個人差がある。",
+  "imaging.bestView[0].label": "橋尾側の外側部と中小脳脚",
+  "imaging.bestView[1].label": "錐体骨に近い小脳前下部",
+  "imaging.normalAppearance": "内耳道の高さの軸位断でみえる橋外側部と、これに隣接する小脳脚および小脳前下面。本アトラスで用いた病巣アトラスでは、AICA と PICA の小脳領域は小脳下部支配域としてまとめられている。",
+  "imaging.pathology[0].pathology": "AICA 梗塞",
+  "imaging.pathology[0].finding": "橋尾側の外側部、中小脳脚、小脳前下部の拡散制限。しばしば急性の片側性難聴を伴う。",
+  "imaging.sequenceOfChoice": "DWI、聴力検査、CTA",
+  "clinical.lesionEffects[0].deficit": "同側の難聴と回転性めまい",
+  "clinical.lesionEffects[0].mechanism": "迷路動脈と前庭神経核・蝸牛神経核",
+  "clinical.lesionEffects[1].deficit": "下位運動ニューロン型の顔面神経麻痺",
+  "clinical.lesionEffects[1].mechanism": "顔面神経核",
+  "clinical.lesionEffects[2].deficit": "交叉性の温痛覚障害",
+  "clinical.lesionEffects[2].mechanism": "三叉神経脊髄路核と脊髄視床路",
+  "clinical.lesionEffects[3].deficit": "失調",
+  "clinical.lesionEffects[3].mechanism": "中小脳脚",
+  "clinical.examination[0]": "聴力検査",
+  "clinical.examination[1]": "顔面の運動",
+  "clinical.examination[2]": "角膜反射",
+  "clinical.examination[3]": "協調運動",
+  "clinical.pearls[0]": "延髄外側症候群に似た所見に難聴と顔面神経麻痺が加われば橋外側（AICA）である",
+  "clinical.pearls[1]": "血管リスクを有する高齢の患者に生じた、回転性めまいを伴う突発性の片側難聴は、耳鼻科への紹介のみで済ませず DWI を撮るに値する",
+  "pitfalls[0]": "前庭神経炎と AICA 梗塞はいずれも眼振を伴う急性の回転性めまいを来す。難聴、顔面の筋力低下、起立不能があれば梗塞を支持する"
+ }
+}

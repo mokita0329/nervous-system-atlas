@@ -1,0 +1,33 @@
+{
+ "id": "territory-watershed",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "ece5c09b0bae679a",
+ "fields": {
+  "summary": "隣接する動脈支配域の間の境界域は、脳の中で最後に灌流され、灌流圧が低下したときに最初に破綻する部分である。皮質性（外側）の分水嶺は凸面上で ACA と MCA の間、および MCA と PCA の間にある。内側（皮質下）の分水嶺は、深部のレンズ核線条体動脈の穿通枝と表在性の MCA 分枝の間で、放線冠と半卵円中心にある。分水嶺梗塞は塞栓ではなく、低血圧または近位部の狭窄を示唆する。",
+  "anatomy.location": "前方の皮質性分水嶺：前頭極から頭頂部まで上前頭溝に沿う帯状の領域；後方の皮質性分水嶺：MCA・ACA・PCA が接する頭頂後頭領域；内側分水嶺：側脳室の外側にある放線冠と半卵円中心の深部白質。",
+  "function": "機能的なまとまりではない。これらの領域には、上肢近位部と肩の運動野・感覚野（前方分水嶺）、頭頂葉の視覚連合野（後方分水嶺）、放線冠を下行する運動線維（内側分水嶺）が含まれる。",
+  "bloodSupply.note": "本アトラスの支配域の境界は確率的脳卒中病巣アトラス（Liu et al. 2023）に基づいており、Willis 動脈輪の解剖に応じて個人間で変動する。",
+  "imaging.bestView[0].label": "上前頭溝に沿う前方の皮質性分水嶺",
+  "imaging.bestView[1].label": "後方の頭頂後頭部の分水嶺",
+  "imaging.bestView[2].label": "放線冠における内側分水嶺",
+  "imaging.normalAppearance": "正常 MRI では見える構造ではない。梗塞のパターンによって認識される。内側分水嶺の梗塞は側脳室と平行に並ぶ小病巣の連なり（「数珠状」）を形成し、皮質性分水嶺の梗塞は支配域の境界に楔状の病巣を形成する。",
+  "imaging.pathology[0].pathology": "皮質性分水嶺梗塞",
+  "imaging.pathology[0].finding": "ACA と MCA の間、または MCA と PCA の支配域の間の楔状の拡散制限で、全身性の低血圧後にはしばしば両側性、高度の頸動脈狭窄の末梢側では片側性となる。",
+  "imaging.pathology[1].pathology": "内側分水嶺梗塞",
+  "imaging.pathology[1].finding": "頸動脈狭窄のある側の半卵円中心と放線冠における、拡散強調画像で高信号を示す小病巣の線状の連なり。",
+  "imaging.pathology[1].pitfalls": "皮質下病巣の連なりはしばしば多発塞栓と誤って解釈される。頸動脈を調べること",
+  "imaging.sequenceOfChoice": "DWI；狭窄の評価には頸部の CTA；血圧の経過",
+  "clinical.lesionEffects[0].deficit": "「man-in-a-barrel」：両側の上肢近位部と肩の脱力で、顔面と下肢は保たれる",
+  "clinical.lesionEffects[0].mechanism": "ACA と MCA の間の両側の前方皮質性分水嶺",
+  "clinical.lesionEffects[1].deficit": "皮質性の視覚障害、Bálint 症候群の要素",
+  "clinical.lesionEffects[1].mechanism": "後方の頭頂後頭部の分水嶺",
+  "clinical.lesionEffects[2].deficit": "皮質下病巣を伴う不全片麻痺",
+  "clinical.lesionEffects[2].mechanism": "放線冠における内側分水嶺",
+  "clinical.examination[0]": "上肢の近位筋力と遠位筋力の比較",
+  "clinical.examination[1]": "視野と視覚性注意",
+  "clinical.examination[2]": "頸動脈雑音と血圧",
+  "clinical.pearls[0]": "心停止後や手術後の両側の分水嶺梗塞は低血圧を意味し、片側のものは近位部の狭窄を意味する",
+  "clinical.pearls[1]": "内側分水嶺は皮質性のものより頸動脈狭窄に鋭敏である"
+ }
+}
