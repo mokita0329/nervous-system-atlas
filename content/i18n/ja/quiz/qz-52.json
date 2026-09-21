@@ -1,0 +1,16 @@
+{
+ "id": "qz-52",
+ "kind": "quiz",
+ "lang": "ja",
+ "source": "8de5c40803ff07fa",
+ "fields": {
+  "vignette": "60 歳女性。右小脳の脳卒中を起こした。診察では軽度の歩行不安定のみが目立つが、夫によれば、段取りが悪くなり、一日の計画が立てられず、質問に平板で脱抑制的な答え方をするようになった。",
+  "stem": "梗塞している可能性が最も高い小葉はどれか。",
+  "options[0].text": "前葉（I-V 小葉）",
+  "options[1].text": "後葉の Crus I と Crus II",
+  "options[2].text": "小節と片葉",
+  "options[3].text": "虫部 VI-VII 小葉",
+  "options[4].text": "VIIIA 小葉と VIIIB 小葉",
+  "explanation": "遂行機能と情動の変化を伴い、運動障害が乏しい小脳病巣は、後葉の半球（Crus I と II）、すなわち前頭前皮質と連絡する認知性小脳を含む。前葉と VIII 小葉は身体地図を担い、失調を生じる。"
+ }
+}
