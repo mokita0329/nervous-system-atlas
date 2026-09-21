@@ -1,0 +1,33 @@
+{
+  "id": "dorsal-motor-nucleus-vagus",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "cd1a214d3a3a7280",
+  "fields": {
+    "summary": "脳幹で最大の副交感神経核で、第四脳室底の迷走神経三角の下、舌下神経核の外側にある。その節前ニューロンは迷走神経を通って胸腹部の内臓に達し、気管支収縮、胃液分泌、腸管運動を駆動する。機能的には、そのすぐ外側にある孤束核と対をなしており、孤束核がこの核の反射に必要な内臓求心性の情報を届ける。",
+    "anatomy.location": "延髄背側、第四脳室底の迷走神経三角の下にあり、舌下神経核の外側、孤束核の内側に位置する。閂（obex）から上方へ、開放延髄部を通って伸びる。",
+    "connections.efferents[0].to": "胸腹部の内臓",
+    "connections.efferents[0].via": "cn-10-vagus",
+    "connections.efferents[0].note": "節前副交感線維",
+    "function": "心臓（一部）、肺、食道、胃、小腸、近位結腸への節前副交感性の遠心路。消化管への分泌運動性・運動性の駆動を担う。",
+    "imaging.bestView[0].label": "第四脳室底の下の延髄背側部",
+    "imaging.bestView[1].label": "第四脳室底の尾側にある迷走神経三角",
+    "imaging.normalAppearance": "MRI では分離して描出されない。迷走神経三角と舌下神経三角が第四脳室底の尾側部を形づくる。ここの延髄背側の病巣は、脳室直下の小さな T2 または DWI 病巣としてみえる。",
+    "imaging.pathology[0].pathology": "最後野／延髄背側の病巣（視神経脊髄炎）",
+    "imaging.pathology[0].finding": "第四脳室に接する延髄背側の T2／FLAIR 高信号病巣で、難治性の吃逆（しゃっくり）と嘔吐で発症する。",
+    "imaging.pathology[1].pathology": "延髄背側梗塞",
+    "imaging.pathology[1].finding": "PICA または椎骨動脈穿通枝による、延髄背側の小さな拡散制限病巣。",
+    "imaging.sequenceOfChoice": "軸位断 FLAIR と DWI。病巣が第四脳室に接する場合はアクアポリン 4 抗体を測定する",
+    "clinical.lesionEffects[0].deficit": "頻脈と迷走神経緊張の低下",
+    "clinical.lesionEffects[0].mechanism": "心臓への副交感性の駆動の脱落（疑核とともに）",
+    "clinical.lesionEffects[1].deficit": "胃不全麻痺と腸管運動の低下",
+    "clinical.lesionEffects[1].mechanism": "胃と腸への迷走神経の運動性遠心路の脱落",
+    "clinical.lesionEffects[2].deficit": "難治性の吃逆、悪心、嘔吐",
+    "clinical.lesionEffects[2].mechanism": "隣接する最後野と孤束核複合体の障害",
+    "clinical.examination[0]": "心拍変動と起立時の反応",
+    "clinical.examination[1]": "早期満腹感、悪心、吃逆について問診する",
+    "clinical.examination[2]": "疑核の合併病変をみるため、軟口蓋と咽頭反射を評価する",
+    "clinical.pearls[0]": "延髄背側の病巣を伴う持続する吃逆と嘔吐では、視神経脊髄炎を疑う",
+    "clinical.pearls[1]": "心臓に向かう迷走神経の副交感ニューロンは主に疑核に由来し、この核からは出ない"
+  }
+}
