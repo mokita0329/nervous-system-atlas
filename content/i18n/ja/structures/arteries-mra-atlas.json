@@ -1,0 +1,33 @@
+{
+  "id": "arteries-mra-atlas",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "c54f22be668a5608",
+  "fields": {
+    "summary": "このメッシュは集団のMR血管撮影（MRA）アトラスから抽出した頭蓋内動脈樹である。平均血管確率マップの等値面を脳内で閾値処理したもので、人によらず一定して存在する血管、すなわち内頸動脈サイフォン、Willis 動脈輪、前・中・後大脳動脈の近位部とその最初の皮質枝、脳底動脈と椎骨動脈、小脳動脈を示す。全身モデルから位置合わせした名前付き動脈メッシュに対する、画像由来の対応物である。MNIテンプレート上に正確に載っているため位置合わせ誤差なしにMRIスライスに重なり、脳表と脳槽に対して動脈が実際にどこを走るかを示す。",
+    "anatomy.location": "錐体部内頸動脈と椎骨脳底動脈接合部から第二・第三次の皮質枝までの頭蓋内動脈で、脳底槽、シルビウス裂、半球間裂、迂回槽に沿い、MNI空間で脳マスクを限界とする。",
+    "connections.afferents[0].from": "内頸動脈と椎骨動脈",
+    "connections.afferents[0].via": "流入",
+    "connections.efferents[0].to": "皮質枝、穿通枝、小脳枝",
+    "connections.efferents[0].via": "流出",
+    "function": "この動脈樹は、各動脈が養う脳実質、および横切る脳神経と脳槽との空間的関係を示す。レンズ核線条体動脈が分岐する前有孔質に沿うM1区域、視交叉の上のA1と前交通動脈複合体、動眼神経の傍らで大脳脚を回るP2区域、橋の前の脳底動脈本幹、延髄の高さの椎骨動脈である。平均であるため個人の血管より太く滑らかで、変異（胎児型PCA、A1低形成）は含まれないが、アトラスMRI上で動脈瘤の部位、血栓回収術の標的、穿通枝の起始部を特定するための正しい参照である。",
+    "imaging.bestView[0].label": "鞍上槽の Willis 動脈輪",
+    "imaging.bestView[1].label": "脳幹の前方の内頸動脈サイフォンと脳底動脈",
+    "imaging.normalAppearance": "time-of-flight MRAでは頭蓋内動脈は明るい流れの信号として見える。アトラスの等値面はそのような多数の血管撮影の平均を再現しており、血管の太さはその血管がどれだけ一貫して存在するかに比例する。",
+    "imaging.pathology[0].pathology": "Willis 動脈輪の分岐部の動脈瘤",
+    "imaging.pathology[0].finding": "前交通動脈、後交通動脈、MCA分岐部という最も多い三つの部位における嚢状の膨隆で、いずれもアトラスの動脈樹上で見える。",
+    "imaging.pathology[1].pathology": "主幹動脈閉塞",
+    "imaging.pathology[1].finding": "M1、脳底動脈、内頸動脈終末部の急な途絶で、遠位の造影が欠如する。アトラスの動脈樹は欠けた区域の予想される走行を示す。",
+    "imaging.pathology[2].pathology": "もやもや病",
+    "imaging.pathology[2].finding": "内頸動脈終末部と近位ACA・MCAの進行性狭窄で、もやもやとした側副血行網を伴う。",
+    "clinical.lesionEffects[0].deficit": "脱落症状なし: 参照用メッシュ",
+    "clinical.lesionEffects[0].mechanism": "これは画像由来の参照であり、病巣症候群を持つ構造ではない",
+    "clinical.lesionEffects[1].deficit": "動脈瘤と閉塞の部位を特定する",
+    "clinical.lesionEffects[1].mechanism": "動脈樹は血管の局在診断に用いる分岐部と区域を示す",
+    "clinical.examination[0]": "患者の血管撮影をアトラスの動脈樹と比べて区域と分岐部の名前を同定する",
+    "clinical.examination[1]": "支配域オーバーレイとともに動脈樹を用い、閉塞と予想される梗塞を対応づける",
+    "clinical.pearls[0]": "MRAの動脈樹はアトラスMRIの上に正確に載る。位置合わせした全身モデルの動脈は数ミリメートルの誤差を持つ",
+    "clinical.pearls[1]": "動脈瘤は分岐部にできる。アトラスの動脈樹は最も多い三つの部位を示す",
+    "clinical.pearls[2]": "平均した動脈は実際のものより太い。動脈樹は走行の参照に用い、太さの参照には用いない"
+  }
+}

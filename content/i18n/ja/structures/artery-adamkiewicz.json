@@ -1,0 +1,29 @@
+{
+  "id": "artery-adamkiewicz",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "072660782c72dcd0",
+  "fields": {
+    "summary": "前脊髄動脈（anterior spinal artery）を補強する前根動脈のうち最大のもの。通常はT9からT12の間の左肋間動脈または腰動脈から起こり、神経根とともに入り、前脊髄動脈に合流する際に特徴的なヘアピン状の屈曲を作る。下部胸髄、腰膨大、脊髄円錐の主要な血液供給源であり、大動脈手術、解離、塞栓術での喪失は対麻痺を起こす。",
+    "anatomy.location": "後肋間動脈または腰動脈（約四分の三の人で左側、大多数でT9–T12）から起こり、前根とともに椎間孔を通り、短く上行してからヘアピン状に下行して前正中裂で前脊髄動脈に合流する。",
+    "function": "脊髄下方三分の二に対する前脊髄動脈の主要な供給源。胸腰髄の前角と側索、および脊髄円錐を灌流する。",
+    "imaging.bestView[0].label": "MNI脳容積内にはない: この動脈は下部胸髄の高さで脊髄に合流する",
+    "imaging.bestView[1].label": "脊髄CTAで左のT9–T12神経根とともに入るヘアピン状ループ",
+    "imaging.normalAppearance": "脳容積内には存在しない。脊髄CTAや造影MRAでは、下部胸髄の前面にヘアピン状の形態を持つ小血管として見え、胸腹部大動脈手術の前にマッピングされる。",
+    "imaging.pathology[0].pathology": "Adamkiewicz 動脈の供給喪失による脊髄梗塞",
+    "imaging.pathology[0].finding": "大動脈手術、解離、低血圧の後に、中部胸髄の高さから脊髄円錐までの脊髄前部のT2高信号と急性期の拡散制限。後索は保たれる。",
+    "imaging.pathology[0].timing": "T2の変化は初日のうちに出現する。DWIはより早い",
+    "imaging.sequenceOfChoice": "胸腰髄の矢状断T2とDWI。大動脈のCTA",
+    "clinical.lesionEffects[0].deficit": "温痛覚の胸髄レベルの感覚レベルを伴う対麻痺",
+    "clinical.lesionEffects[0].mechanism": "胸腰髄の前方三分の二",
+    "clinical.lesionEffects[1].deficit": "尿閉、便失禁",
+    "clinical.lesionEffects[1].mechanism": "脊髄円錐と下行性自律神経路",
+    "clinical.lesionEffects[2].deficit": "振動覚と位置覚は保たれる",
+    "clinical.lesionEffects[2].mechanism": "後脊髄動脈により灌流される後索",
+    "clinical.examination[0]": "体幹でのピンプリックによる感覚レベル",
+    "clinical.examination[1]": "温存を示すための足関節内果・外果での振動覚",
+    "clinical.examination[2]": "膀胱エコー。肛門括約筋の緊張を確認する",
+    "clinical.pearls[0]": "大動脈修復後の術後対麻痺は Adamkiewicz 動脈支配域の脊髄虚血である。髄液圧を下げるための腰椎ドレナージが対応の一部である",
+    "clinical.pearls[1]": "中部胸髄（T4–T8）は頸髄側と Adamkiewicz 動脈側の供給の分水嶺（境界域）であり、低血圧性脊髄梗塞の最も多い部位である"
+  }
+}

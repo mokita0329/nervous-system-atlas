@@ -1,0 +1,31 @@
+{
+  "id": "artery-acom",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "8f4d739fb7d31a38",
+  "fields": {
+    "summary": "視交叉（optic chiasm）の前で両側の前大脳動脈（anterior cerebral artery）を結ぶ短い正中の血管。Willis 動脈輪の前方を完成させ、一側の内頸動脈が両側の内側半球を養うことを可能にする。頭蓋内嚢状動脈瘤の最も多い単一の部位であり、その小さな穿通枝は視交叉、視床下部、脳弓、中隔野を養うため、動脈瘤の破裂や修復の後に健忘と人格変化が生じうる理由となる。",
+    "anatomy.location": "視交叉の上、脳梁吻の下の終板槽にあり、両側の前大脳動脈のA1–A2接合部を結ぶ。典型的にはわずか2–3 mmの長さで、しばしば有窓または重複している。",
+    "function": "両側の内頸動脈系の間の側副路。その穿通枝は視床下部前部、脳弓柱、中隔核、視交叉を養う。",
+    "imaging.bestView[0].label": "視交叉の上のA1–A2接合部の間の正中",
+    "imaging.bestView[1].label": "半球間裂の前交通動脈複合体",
+    "imaging.normalAppearance": "ルーチンのMRIでは確実には見えない。CTAとMRAではA1–A2接合部を結ぶ短い横走血管であり、前後方向の投影で最もよく分かる。A1区域の非対称はよくあり、一側が優位となる。",
+    "imaging.pathology[0].pathology": "前交通動脈瘤の破裂",
+    "imaging.pathology[0].finding": "半球間裂、鞍上槽、前角に集中したくも膜下血腫で、しばしば直回の血腫を伴う。CTAは前方、上方または後方に向く瘤を示す。",
+    "imaging.pathology[0].timing": "単純CTは最初の6–12時間で最も感度が高い。数日経つと血液が除去されて感度は低下する",
+    "imaging.pathology[1].pathology": "クリッピングまたは血管攣縮後の前脳基底部梗塞",
+    "imaging.pathology[1].finding": "中隔野、脳弓柱、視床下部前部の小さな拡散制限病巣で、前向性健忘と作話を呈する。",
+    "imaging.sequenceOfChoice": "くも膜下出血が疑われれば単純CT、次いでCTA。CTが陰性で疑いが残れば腰椎穿刺",
+    "clinical.lesionEffects[0].deficit": "作話を伴う前向性健忘",
+    "clinical.lesionEffects[0].mechanism": "破裂、血管攣縮、手術の後に前脳基底部と脳弓への穿通枝が失われる",
+    "clinical.lesionEffects[1].deficit": "両側下肢の脱力と無為",
+    "clinical.lesionEffects[1].mechanism": "動脈瘤性くも膜下出血後の両側A2区域の血管攣縮",
+    "clinical.lesionEffects[2].deficit": "両耳側または接合部の視野欠損",
+    "clinical.lesionEffects[2].mechanism": "下方に向く大きな動脈瘤による視交叉の直接圧迫",
+    "clinical.examination[0]": "くも膜下出血後の遅延再生を含むベッドサイドの記憶検査",
+    "clinical.examination[1]": "離床後の下肢筋力と歩行",
+    "clinical.examination[2]": "対座法による視野",
+    "clinical.pearls[0]": "半球間裂に血液を伴う雷鳴頭痛は前交通動脈瘤を示唆する",
+    "clinical.pearls[1]": "健忘と人格変化が前交通動脈瘤の合併症の特徴的な脱落症状であり、不全片麻痺ではない"
+  }
+}

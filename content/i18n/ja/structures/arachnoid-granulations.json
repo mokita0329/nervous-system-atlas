@@ -1,0 +1,29 @@
+{
+  "id": "arachnoid-granulations",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "6144edcd9c9864a2",
+  "fields": {
+    "summary": "硬膜を貫いて静脈洞、主に上矢状静脈洞（superior sagittal sinus）とその外側裂孔へ突出するくも膜の房で、髄液圧が静脈圧を数センチメートル水柱上回ると髄液を血液へ戻す一方向弁として働く。くも膜下出血や髄膜炎後の瘢痕化は交通性水頭症の古典的な原因であり、静脈洞血栓症による静脈圧の上昇は髄液吸収を滞らせて頭蓋内圧亢進をもたらす。大きな顆粒はよくみられる偶発所見で、画像上は静脈洞血栓症や腫瘤と紛らわしい。",
+    "anatomy.location": "傍矢状部の硬膜で上矢状静脈洞とその外側裂孔に沿って存在し、横静脈洞・S状静脈洞や脊髄神経根の周囲にもある。加齢とともに大きくなって石灰化し、頭蓋骨内板を侵食しうる。",
+    "function": "髄液の静脈系への大量吸収。圧依存性で弁のように働き、リンパ路と神経周囲の排出路により補われる。",
+    "imaging.bestView[0].label": "頭頂部の上矢状静脈洞と外側裂孔",
+    "imaging.bestView[1].label": "横静脈洞へ突出する顆粒",
+    "imaging.normalAppearance": "造影MR静脈造影またはCT静脈造影で硬膜静脈洞内の円形の髄液信号の陰影欠損として見え、全てのシーケンスで髄液に一致し、しばしば小血管が入り込む。血栓と間違えてはならない。血栓はCTでより高吸収で、T1/T2で異なる信号を示す。",
+    "imaging.pathology[0].pathology": "交通性水頭症",
+    "imaging.pathology[0].finding": "くも膜下出血、髄膜炎、髄膜癌腫症の後に、第四脳室を含む四つの脳室全てが拡大し、経上衣性浮腫を伴う。",
+    "imaging.pathology[1].pathology": "巨大くも膜顆粒",
+    "imaging.pathology[1].finding": "横静脈洞内の境界明瞭な髄液信号の陰影欠損で、拡散制限なし、静脈洞の拡張もない。",
+    "imaging.pathology[1].pitfalls": "顆粒から静脈洞血栓症と診断してはならない。T1信号とMR静脈造影での形状を確認する",
+    "imaging.sequenceOfChoice": "MR静脈造影またはCT静脈造影",
+    "clinical.lesionEffects[0].deficit": "くも膜下出血または髄膜炎後の交通性水頭症",
+    "clinical.lesionEffects[0].mechanism": "顆粒での吸収の閉塞",
+    "clinical.lesionEffects[1].deficit": "静脈洞血栓症に伴う頭蓋内圧亢進",
+    "clinical.lesionEffects[1].mechanism": "静脈圧亢進が髄液吸収を妨げる",
+    "clinical.examination[0]": "うっ血乳頭",
+    "clinical.examination[1]": "くも膜下出血後数週間の歩行と認知",
+    "clinical.examination[2]": "頭痛の性状と一過性視覚障害（visual obscurations）",
+    "clinical.pearls[0]": "四つの脳室全てが拡大している水頭症は交通性である。問題は吸収であって閉塞ではない",
+    "clinical.pearls[1]": "静脈洞血栓症は髄液の再吸収を妨げて頭蓋内圧を上げるため、特発性頭蓋内圧亢進症として発症しうる"
+  }
+}

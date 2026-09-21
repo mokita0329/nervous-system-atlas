@@ -1,0 +1,33 @@
+{
+  "id": "artery-anterior-choroidal",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "236f1c671127efbc",
+  "fields": {
+    "summary": "内頸動脈（internal carotid artery）の細いが戦略的に重要な枝で、終末分岐の直前に起こり、視索に沿って後方へ走り、側脳室下角の脈絡叢で終わる。その途中で内包後脚、視索と外側膝状体、側頭葉内側部、大脳脚の一部を養うため、ごく細い血管が半盲を伴う高度の片麻痺を生じうる。",
+    "anatomy.location": "後交通動脈起始部より遠位で床上部内頸動脈の後外側壁から分かれ、視索の下を後内側へ走り、次いで大脳脚を回って外側へ曲がり、脈絡裂から側脳室下角に入る。",
+    "anatomy.subdivisions[0].name": "槽部（cisternal segment）",
+    "anatomy.subdivisions[0].note": "脚槽と迂回槽で視索に沿って走る。視索、大脳脚、鉤、扁桃体への枝",
+    "anatomy.subdivisions[1].name": "叢部（plexal segment）",
+    "anatomy.subdivisions[1].note": "側脳室下角内で脈絡叢を養い、外側後脈絡叢動脈と吻合する",
+    "function": "内包後脚（皮質脊髄線維と視床皮質線維）、視放線のレンズ核後部線維、外側膝状体、視索、大脳脚、鉤、海馬と扁桃体の一部、淡蒼球を養う。",
+    "imaging.bestView[0].label": "視索の外側の起始部から側脳室下角へ後方に走る",
+    "imaging.bestView[1].label": "古典的な梗塞部位である内包後脚",
+    "imaging.normalAppearance": "ルーチンのMRIでは描出されない。CTAでは内頸動脈終末部と側脳室下角の間で視索に沿う糸状の血管である。支配域は軸位断で内包後脚と隣接する側頭葉内側構造として現れる。",
+    "imaging.pathology[0].pathology": "前脈絡叢動脈梗塞",
+    "imaging.pathology[0].finding": "内包後脚の拡散制限が大脳脚に向かって下方へ、また外側膝状体領域へ広がり、側頭葉内側部の成分は様々である。通常は小血管性または塞栓性。",
+    "imaging.pathology[0].timing": "DWIは数分〜数時間以内に陽性。ADCは約1–2週間後に偽正常化する",
+    "imaging.sequenceOfChoice": "ADCを伴うDWI。内頸動脈終末部の病変を除外するCTA",
+    "clinical.lesionEffects[0].deficit": "顔面、上肢、下肢の不全片麻痺",
+    "clinical.lesionEffects[0].mechanism": "内包後脚の皮質脊髄線維",
+    "clinical.lesionEffects[1].deficit": "半身感覚脱失",
+    "clinical.lesionEffects[1].mechanism": "後脚を通る視床皮質線維",
+    "clinical.lesionEffects[2].deficit": "同名半盲。ときに水平のセクターが保たれる",
+    "clinical.lesionEffects[2].mechanism": "視索、外側膝状体、視放線の起始部",
+    "clinical.examination[0]": "均一な不全片麻痺を確認するため顔面、上肢、下肢の筋力を検査する",
+    "clinical.examination[1]": "同名性の欠損を対座法で視野検査する",
+    "clinical.examination[2]": "両側でピンプリックと振動覚を比較する",
+    "clinical.pearls[0]": "皮質徴候（失語なし、半側空間無視なし）を伴わない片麻痺、半身感覚脱失、半盲の三徴は前脈絡叢動脈を示唆する",
+    "clinical.pearls[1]": "半盲における楔状のセクター温存は、外側膝状体が前脈絡叢動脈と外側後脈絡叢動脈の二重支配を受けることを反映する"
+  }
+}
