@@ -33,7 +33,7 @@
     "clinical.lesionEffects[1].deficit": "理解不良を伴う流暢性失語への関与（左）",
     "clinical.lesionEffects[1].mechanism": "聴覚的語形から意味へ向かう腹側経路の断絶",
     "clinical.lesionEffects[2].deficit": "情動的プロソディの理解の消失（右）",
-    "clinical.lesionEffects[2].mechanism": "右の前部上側頭皮質が話し言葉の情動的な抑揚を解読しなくなる",
+    "clinical.lesionEffects[2].mechanism": "右の前部上側頭皮質が話し言葉の情動的な抑揚をもはや解読しない",
     "clinical.examination[0]": "単語と命令の理解。呼称された物品を指さすよう患者に求める",
     "clinical.examination[1]": "よく知っている声と環境音（鍵の触れ合う音、咳）の認知",
     "clinical.examination[2]": "異なる抑揚で読まれた文の情動的なトーンの判断",

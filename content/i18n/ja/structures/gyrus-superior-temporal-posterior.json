@@ -33,7 +33,7 @@
     "clinical.lesionEffects[1].deficit": "対側上四分盲",
     "clinical.lesionEffects[1].mechanism": "隣接する側頭葉白質における視放線下部線維の障害",
     "clinical.lesionEffects[2].deficit": "音の定位とプロソディ知覚の障害（右）",
-    "clinical.lesionEffects[2].mechanism": "右の上側頭回後部皮質が音の空間的・情動的な次元を処理しなくなる",
+    "clinical.lesionEffects[2].mechanism": "右の上側頭回後部皮質が音の空間的・情動的な次元をもはや処理しない",
     "clinical.examination[0]": "複雑さを増していく命令の理解、句の復唱、呼称",
     "clinical.examination[1]": "錯語と新造語、およびそれに対する患者の病識の欠如を聴き取る",
     "clinical.examination[2]": "対座法による四分野すべての視野検査",
