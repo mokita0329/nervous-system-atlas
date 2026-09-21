@@ -31,6 +31,7 @@
 //    has no source or licence fields at all, so an id can only appear there as a word in prose.
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { resolve, join, relative, sep } from 'node:path';
+import { TRANSLATED_BUNDLES } from './content/languages.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const DIR = resolve(ROOT, process.argv[2] ?? 'dist');
@@ -39,7 +40,7 @@ const DATA = join(DIR, 'data');
 /** Dataset names that must not survive in the manifest or volume metadata. Mirrors NAME_STRINGS in manifest.py. */
 const NAME_STRINGS = ['Brainstem Navigator', 'BrainstemNavigator', 'Harvard-Oxford', 'Diedrichsen', 'PAM50'];
 const TEXT_EXT = ['.json', '.js', '.mjs', '.css', '.html', '.txt', '.map'];
-const PROSE_FILES = ['data/content.json', 'data/content.tr.json', 'data/search-index.json'];
+const PROSE_FILES = ['data/content.json', 'data/search-index.json', ...TRANSLATED_BUNDLES.map((f) => `data/${f}`)];
 
 const fail: string[] = [];
 const note: string[] = [];
@@ -120,7 +121,7 @@ for (const [k, v] of Object.entries(man.volumes)) {
   if (v.kind === 'subject' && !v.defaced) bad(`volume ${k} is an individual's scan that was not defaced`);
 }
 
-const allowed = new Set<string>(['manifest.json', 'content.json', 'content.tr.json', 'search-index.json', 'LICENSE']);
+const allowed = new Set<string>(['manifest.json', 'content.json', 'search-index.json', 'LICENSE', ...TRANSLATED_BUNDLES]);
 for (const m of man.meshes) { allowed.add(m.file); if (m.lod) allowed.add(m.lod.file); }
 for (const v of Object.values(man.volumes)) { allowed.add(v.file); if (v.lut) allowed.add(v.lut); }
 for (const l of Object.values(man.licenses)) allowed.add(l.text);
@@ -132,10 +133,10 @@ const entryIds = new Set<string>();
 if (content) for (const k of ['structures', 'pathways', 'syndromes', 'glossary', 'quiz', 'topics']) for (const id of Object.keys(content[k] ?? {})) entryIds.add(id);
 const sharedIds = new Set(Array.from(exMeshIds).filter((id) => entryIds.has(id)));
 
-// content.json (and the Turkish bundle, the same entries translated) must not *point* at an excluded mesh from any field that holds mesh ids
-const trPath = join(DATA, 'content.tr.json');
-const contentTr = existsSync(trPath) ? JSON.parse(readFileSync(trPath, 'utf8')) as Record<string, Record<string, unknown>> : null;
-for (const [bundleName, bundle] of [['content.json', content], ['content.tr.json', contentTr]] as const) if (bundle) {
+// content.json (and the translated bundles, the same entries translated) must not *point* at an excluded mesh from any field that holds mesh ids
+const bundles: [string, Record<string, Record<string, unknown>> | null][] = [['content.json', content]];
+for (const f of TRANSLATED_BUNDLES) { const p = join(DATA, f); bundles.push([f, existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) as Record<string, Record<string, unknown>> : null]); }
+for (const [bundleName, bundle] of bundles) if (bundle) {
   const content = bundle;
   const named = new Set<string>();
   const walk = (v: unknown): void => {

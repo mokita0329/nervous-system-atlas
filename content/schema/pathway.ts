@@ -6,10 +6,11 @@ export const Pathway = z.object({
   id: Id,
   name: z.string(),
   synonyms: z.array(z.string()).default([]),
-  // Turkish edition: display names per locale (tr = the FIPAT Latin term, as in Turkish medical teaching) and
+  // Translated editions: display names per locale (tr = the FIPAT Latin term, as in Turkish medical teaching; ja = the
+  // Japanese anatomical term, normally supplied by content/i18n/ja/names.json at build time rather than here) and
   // per-locale search synonyms (Wikidata Turkish label, Turkish Wikipedia title and redirects); written by tools/i18n/terms.py apply
-  names: z.object({ tr: z.string().min(2).optional() }).optional(),
-  synonymsByLang: z.object({ tr: z.array(z.string()).default([]) }).optional(),
+  names: z.object({ tr: z.string().min(2).optional(), ja: z.string().min(1).optional() }).optional(),
+  synonymsByLang: z.object({ tr: z.array(z.string()).default([]), ja: z.array(z.string()).default([]) }).optional(),
   type: z.enum(['ascending', 'descending', 'cerebellar', 'basal-ganglia', 'visual', 'auditory', 'vestibular', 'olfactory', 'gustatory',
     'limbic', 'autonomic', 'oculomotor', 'reflex', 'association', 'commissural']),
   modality: z.string(),

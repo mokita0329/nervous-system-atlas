@@ -1,4 +1,6 @@
-:root { color-scheme: dark; --bg: #14161a; --panel: #1d2026; --panel2: #23272e; --border: #2e333b; --fg: #e6e6e6; --muted: #9aa3ad; --accent: #ffe066; --accent2: #7fb3d5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; }
+:root { color-scheme: dark; --bg: #14161a; --panel: #1d2026; --panel2: #23272e; --border: #2e333b; --fg: #e6e6e6; --muted: #9aa3ad; --accent: #ffe066; --accent2: #7fb3d5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif; font-size: 13px; }
+/* Japanese: long runs without spaces must still wrap inside the detail panels (not the bars, whose flex items would collapse) */
+:root:lang(ja) #right .prose, :root:lang(ja) #right .tbl td, :root:lang(ja) #right li { overflow-wrap: anywhere; line-break: strict; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); overflow: hidden; }

@@ -424,7 +424,7 @@ test('every structure panel shows a Source line that opens the credits', async (
   await expect(page.locator('#right .content:not([hidden]) h2').first()).toContainText('About and credits', { timeout: 30_000 * SLOW });
 });
 
-// ---- interface language (English / Türkçe) ---------------------------------------
+// ---- interface language (English / Türkçe / 日本語) ---------------------------------
 /** boot() only waits for the manifest; the Turkish names live in the content bundle. */
 async function bootWithContent(page: Page, hash: string): Promise<void> {
   await boot(page, hash);
@@ -456,6 +456,26 @@ test('#/...?lang=tr renders the interface and the structure names in Turkish', a
   await expect(page.locator('#right .content:not([hidden]) .tag.lang-en')).toHaveCount(0, { timeout: 20_000 * SLOW });
   await expect(page.locator('#toolbar')).toContainText('Glossary');
   await expect.poll(() => page.evaluate(() => location.hash)).not.toMatch(/lang=/);
+});
+
+test('#/...?lang=ja renders the interface and the structure names in Japanese, English underneath', async ({ page }) => {
+  test.setTimeout(180_000 * SLOW);
+  await bootWithContent(page, '#/structure/brainstem?lang=ja');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ja');
+  const panel = page.locator('#right .content:not([hidden])');
+  // Japanese teaching names structures in Japanese (content/i18n/ja/names.json), never in Latin
+  await expect(panel.locator('h2').first()).toContainText('脳幹', { timeout: 30_000 * SLOW });
+  await expect(panel.locator('h2 .name-secondary').first()).toHaveText('Brainstem');
+  await expect(page.locator('#toolbar')).toContainText('用語集');
+  await expect(page.locator('#left .panel-head')).toHaveText('構造');
+  await expect(page.locator('#locale-switch')).toHaveText('EN');
+  // an entry without a Japanese overlay keeps its English prose and says so
+  await expect(page.locator('#tr-notice')).toBeVisible();
+  // from English, the switch offers the edition used last
+  await page.locator('#locale-switch').click();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.locator('#locale-switch')).toHaveText('JA');
+  await page.evaluate(() => { localStorage.removeItem('atlas.locale.alt'); localStorage.setItem('atlas.locale', 'en'); });
 });
 
 test('the L shortcut switches language and the choice survives a reload', async ({ page }) => {

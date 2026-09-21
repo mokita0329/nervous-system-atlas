@@ -10,11 +10,12 @@
 // --private bundles against public/data/manifest.private.json instead and writes content.private.json,
 // search-index.private.json and content.tr.private.json. It only means anything on a machine that has built
 // the restricted data. The authored files under content/ are never touched by either.
-import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { marked } from 'marked';
 import { Entry, KIND_DIRS, BibEntry } from '../../content/schema/index.ts';
 import { checkPlagiarism } from './plagiarism.ts';
+import { LANGS } from './languages.ts';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const DATA_DIR = join(ROOT, 'content/data');
@@ -186,22 +187,41 @@ const htmlFields: Record<string, string[]> = {
 };
 const get = (o: Record<string, unknown>, path: string): unknown => path.split('.').reduce<unknown>((v, k) => (v && typeof v === 'object' ? (v as Record<string, unknown>)[k] : undefined), o);
 
-// ---- Turkish prose: overlays in content/i18n/tr/<kind>/<id>.json map a flattened path ("deficits[0].sign") of the
-// English entry to its translation (tools/i18n/prose.py writes and checks them). Each translated entry is emitted
-// in full, English fields replaced, into content.tr.json, which the app fetches only in Turkish mode.
-const TR_DIR = join(ROOT, 'content/i18n/tr');
-const overlays = new Map<string, Record<string, string>>();
-if (existsSync(TR_DIR)) for (const dir of readdirSync(TR_DIR)) {
-  const kdir = join(TR_DIR, dir);
-  if (!existsSync(join(DATA_DIR, dir))) { err(`content/i18n/tr/${dir}`, 'not a content kind'); continue; }
-  for (const f of readdirSync(kdir).filter((x) => x.endsWith('.json'))) {
-    const file = `content/i18n/tr/${dir}/${f}`;
-    try {
-      const ov = JSON.parse(readFileSync(join(kdir, f), 'utf8')) as { id: string; lang: string; fields: Record<string, string> };
-      if (ov.id !== f.replace(/\.json$/, '') || ov.lang !== 'tr' || !ov.fields) { err(file, 'overlay must carry id (= file name), lang "tr" and fields'); continue; }
-      overlays.set(ov.id, ov.fields);
-    } catch (e) { err(file, `invalid JSON: ${(e as Error).message}`); }
+// ---- Translated prose: overlays in content/i18n/<lang>/<kind>/<id>.json map a flattened path ("deficits[0].sign")
+// of the English entry to its translation (tools/i18n/prose.py writes and checks them). Each translated entry is
+// emitted in full, English fields replaced, into content.<lang>.json, which the app fetches only in that language.
+// Every directory under content/i18n/ except review/ is a language.
+const I18N_DIR = join(ROOT, 'content/i18n');
+const overlays = new Map<string, Map<string, Record<string, string>>>();   // lang -> id -> fields
+for (const lang of LANGS) {
+  const byId = new Map<string, Record<string, string>>();
+  overlays.set(lang, byId);
+  for (const dir of readdirSync(join(I18N_DIR, lang))) {
+    const kdir = join(I18N_DIR, lang, dir);
+    if (!statSync(kdir).isDirectory()) continue;                       // names.json and the like sit next to the kinds
+    if (!existsSync(join(DATA_DIR, dir))) { err(`content/i18n/${lang}/${dir}`, 'not a content kind'); continue; }
+    for (const f of readdirSync(kdir).filter((x) => x.endsWith('.json'))) {
+      const file = `content/i18n/${lang}/${dir}/${f}`;
+      try {
+        const ov = JSON.parse(readFileSync(join(kdir, f), 'utf8')) as { id: string; lang: string; fields: Record<string, string> };
+        if (ov.id !== f.replace(/\.json$/, '') || ov.lang !== lang || !ov.fields) { err(file, `overlay must carry id (= file name), lang "${lang}" and fields`); continue; }
+        byId.set(ov.id, ov.fields);
+      } catch (e) { err(file, `invalid JSON: ${(e as Error).message}`); }
+    }
   }
+}
+// ---- Display names per language: content/i18n/<lang>/names.json is { id: { name, synonyms? } } and lands on the
+// entry as names.<lang> / synonymsByLang.<lang> (the Turkish edition writes those into the entry files instead;
+// a table keeps a new language out of 400 upstream files).
+const nameTables = new Map<string, Record<string, { name: string; synonyms?: string[] }>>();
+for (const lang of LANGS) {
+  const f = join(I18N_DIR, lang, 'names.json');
+  if (!existsSync(f)) continue;
+  try {
+    const table = JSON.parse(readFileSync(f, 'utf8')) as Record<string, { name: string; synonyms?: string[] }>;
+    for (const id of Object.keys(table)) if (!byId.has(id)) err(`content/i18n/${lang}/names.json`, `no entry ${id}`);
+    nameTables.set(lang, table);
+  } catch (e) { err(`content/i18n/${lang}/names.json`, `invalid JSON: ${(e as Error).message}`); }
 }
 /** Set a flattened path ("anatomy.subdivisions[2].note") on an object; false when it does not lead to a string. */
 function setPath(o: unknown, path: string, value: string): boolean {
@@ -214,8 +234,9 @@ function setPath(o: unknown, path: string, value: string): boolean {
   (cur as Record<string, unknown>)[last] = value;
   return true;
 }
-const bundleTr = { generated: '', lang: 'tr', structures: {} as Record<string, unknown>, pathways: {} as Record<string, unknown>, syndromes: {} as Record<string, unknown>, glossary: {} as Record<string, unknown>, quiz: {} as Record<string, unknown>, topics: {} as Record<string, unknown> };
-let translated = 0;
+type Bundle = { generated: string; lang: string; structures: Record<string, unknown>; pathways: Record<string, unknown>; syndromes: Record<string, unknown>; glossary: Record<string, unknown>; quiz: Record<string, unknown>; topics: Record<string, unknown> };
+const bundlesByLang = new Map<string, Bundle>(LANGS.map((lang) => [lang, { generated: '', lang, structures: {}, pathways: {}, syndromes: {}, glossary: {}, quiz: {}, topics: {} }]));
+const translated = new Map<string, number>(LANGS.map((lang) => [lang, 0]));
 let mniRefsStripped = 0, meshIdsDropped = 0;
 const emptied: string[] = [];
 /** Every field that holds manifest mesh ids: arrays of them, and the single-id form on waypoints / MniRefs. */
@@ -245,7 +266,7 @@ function collectMeshIds(v: unknown, out: Set<string>): void {
   for (const x of Object.values(o)) collectMeshIds(x, out);
 }
 const bundle = { generated: new Date().toISOString(), bibliography, structures: {} as Record<string, unknown>, pathways: {} as Record<string, unknown>, syndromes: {} as Record<string, unknown>, glossary: {} as Record<string, unknown>, quiz: {} as Record<string, unknown>, topics: {} as Record<string, unknown>, meshToStructure: {} as Record<string, string>, wordCounts: wc };
-const searchDocs: { id: string; kind: string; name: string; names?: { tr?: string }; latin?: string; aliases: string[]; summary: string }[] = [];
+const searchDocs: { id: string; kind: string; name: string; names?: Record<string, string>; latin?: string; aliases: string[]; summary: string }[] = [];
 for (const { e } of entries) {
   const html: Record<string, string> = {};
   for (const f of htmlFields[e.kind] ?? []) { const v = get(e as unknown as Record<string, unknown>, f); if (typeof v === 'string') html[f] = render(v); }
@@ -272,21 +293,31 @@ for (const { e } of entries) {
       (resolved as { meshesDropped?: boolean }).meshesDropped = true;
     }
   }
+  // display names from the per-language tables land on the English entry too: the app reads names.<lang> from it
+  const localNames: Record<string, string> = { ...((resolved as { names?: Record<string, string> }).names ?? {}) };
+  const localSynonyms: Record<string, string[]> = { ...((resolved as { synonymsByLang?: Record<string, string[]> }).synonymsByLang ?? {}) };
+  for (const [lang, table] of nameTables) { const row = table[e.id]; if (row) { localNames[lang] = row.name; if (row.synonyms?.length) localSynonyms[lang] = row.synonyms; } }
+  if (Object.keys(localNames).length) (resolved as { names?: Record<string, string> }).names = localNames;
+  if (Object.keys(localSynonyms).length) (resolved as { synonymsByLang?: Record<string, string[]> }).synonymsByLang = localSynonyms;
   const entry = { ...resolved, html };
   const target = e.kind === 'structure' || e.kind === 'cranial-nerve' ? bundle.structures : e.kind === 'pathway' ? bundle.pathways : e.kind === 'syndrome' ? bundle.syndromes : e.kind === 'glossary' ? bundle.glossary : e.kind === 'topic' ? bundle.topics : bundle.quiz;
   target[e.id] = entry;
-  const ov = overlays.get(e.id);
-  let trName: string | undefined;
-  if (ov) {
+  // a translated name of a syndrome / topic / glossary term (kinds whose `name` is in the overlay) is searchable and displayed
+  const translatedNames: Record<string, string> = {};
+  for (const [lang, byId] of overlays) {
+    const ov = byId.get(e.id);
+    if (!ov) continue;
+    const b = bundlesByLang.get(lang)!;
     const tr = JSON.parse(JSON.stringify(resolved)) as Record<string, unknown>;
-    for (const [p, v] of Object.entries(ov)) if (!setPath(tr, p, v)) err(`content/i18n/tr/${KIND_DIRS[e.kind]}/${e.id}.json`, `no string at ${p}`);
+    for (const [p, v] of Object.entries(ov)) if (!setPath(tr, p, v)) err(`content/i18n/${lang}/${KIND_DIRS[e.kind]}/${e.id}.json`, `no string at ${p}`);
     const htmlTr: Record<string, string> = {};
     for (const f of htmlFields[e.kind] ?? []) { const v = get(tr, f); if (typeof v === 'string') htmlTr[f] = render(v); }
     if (e.kind === 'topic') htmlTr['sections'] = JSON.stringify((tr['sections'] as { body: string }[]).map((sec) => render(sec.body)));
-    const targetTr = e.kind === 'structure' || e.kind === 'cranial-nerve' ? bundleTr.structures : e.kind === 'pathway' ? bundleTr.pathways : e.kind === 'syndrome' ? bundleTr.syndromes : e.kind === 'glossary' ? bundleTr.glossary : e.kind === 'topic' ? bundleTr.topics : bundleTr.quiz;
-    targetTr[e.id] = { ...tr, html: htmlTr, lang: 'tr' };
-    translated++;
-    trName = ov['name'] ?? ov['term'];
+    const targetTr = e.kind === 'structure' || e.kind === 'cranial-nerve' ? b.structures : e.kind === 'pathway' ? b.pathways : e.kind === 'syndrome' ? b.syndromes : e.kind === 'glossary' ? b.glossary : e.kind === 'topic' ? b.topics : b.quiz;
+    targetTr[e.id] = { ...tr, html: htmlTr, lang };
+    translated.set(lang, translated.get(lang)! + 1);
+    const n = ov['name'] ?? ov['term'];
+    if (n) translatedNames[lang] = n;
   }
   // mesh -> entry: the manifest's own structureId wins when that entry exists (a mesh may be listed by several
   // entries, e.g. an aseg cerebellar hemisphere by every lobule entry); otherwise the first entry listing it
@@ -297,42 +328,48 @@ for (const { e } of entries) {
   }
   const name = 'name' in e ? e.name : (e as { term?: string }).term ?? e.id;
   const latin = 'latin' in e ? e.latin : undefined;
-  const names = 'names' in e && e.names && Object.keys(e.names).length ? e.names : trName ? { tr: trName } : undefined;
-  // the Latin term and the Turkish synonyms are searchable in every locale; the locale only changes what is displayed
-  const aliases = [...('synonyms' in e ? e.synonyms : 'eponyms' in e ? e.eponyms : []), ...(latin ? [latin] : []), ...('synonymsByLang' in e ? e.synonymsByLang?.tr ?? [] : []), ...(trName ? [trName] : [])];
+  const namesAll: Record<string, string> = { ...localNames, ...translatedNames };
+  const names = Object.keys(namesAll).length ? namesAll : undefined;
+  // the Latin term and every language's synonyms are searchable in every locale; the locale only changes what is displayed
+  const aliases = [...('synonyms' in e ? e.synonyms : 'eponyms' in e ? e.eponyms : []), ...(latin ? [latin] : []), ...Object.values(localSynonyms).flat(), ...Object.values(translatedNames)];
   const summary = 'summary' in e ? e.summary : 'presentation' in e ? (e as { presentation: string }).presentation : 'definition' in e ? (e as { definition: string }).definition : '';
   searchDocs.push({ id: e.id, kind: e.kind, name, ...(names ? { names } : {}), ...(latin ? { latin } : {}), aliases, summary: summary.slice(0, 200) });
 }
 // structures referenced by syndromes get a back-link
 for (const s of Object.values(bundle.syndromes) as { id: string; localisation: { structures: string[] } }[]) {
-  for (const sid of s.localisation.structures) for (const b of [bundle, bundleTr]) { const st = b.structures[sid] as { clinical?: { syndromes: string[] } } | undefined; if (st?.clinical && !st.clinical.syndromes.includes(s.id)) st.clinical.syndromes.push(s.id); }
+  for (const sid of s.localisation.structures) for (const b of [bundle, ...bundlesByLang.values()]) { const st = b.structures[sid] as { clinical?: { syndromes: string[] } } | undefined; if (st?.clinical && !st.clinical.syndromes.includes(s.id)) st.clinical.syndromes.push(s.id); }
 }
 mkdirSync(OUT, { recursive: true });
 const contentName = privateEdition ? 'content.private.json' : 'content.json';
 const searchName = privateEdition ? 'search-index.private.json' : 'search-index.json';
-bundleTr.generated = bundle.generated;
+for (const b of bundlesByLang.values()) b.generated = bundle.generated;
 const bundleText = JSON.stringify(bundle);
-const bundleTrText = JSON.stringify(bundleTr);
+const bundleTexts = new Map<string, string>(Array.from(bundlesByLang, ([lang, b]) => [lang, JSON.stringify(b)]));
 const searchText = JSON.stringify(searchDocs);
 if (!privateEdition) {
   // hard gate, structural first: no field that holds a mesh id may name one this edition does not ship
   const named = new Set<string>();
   collectMeshIds(bundle, named);
   for (const id of Object.keys(bundle.meshToStructure)) named.add(id);
-  collectMeshIds(bundleTr, named);
+  for (const b of bundlesByLang.values()) collectMeshIds(b, named);
   const structural = Array.from(named).filter((id) => !ships(id));
   if (structural.length) { console.error(`excluded mesh ids: ${structural.length} of them still named mesh id(s) still named by the bundle: ${structural.slice(0, 12).join(', ')}`); process.exit(1); }
   // then as text, so a stray mention in prose or a rendered link is caught too. A handful of ids are shared by a
   // mesh and the content entry that describes it (filum-terminale, the cord segment blocks); those entries keep
   // their own id — the structural pass above already proved no mesh field points at them.
   const alsoAnEntryId = new Set(Array.from(droppedIds).filter((id) => byId.has(id)));
-  const leaked = Array.from(droppedIds).filter((id) => !alsoAnEntryId.has(id) && (bundleText.includes(`"${id}"`) || bundleText.includes(`/${id}`) || bundleTrText.includes(`"${id}"`) || bundleTrText.includes(`/${id}`) || searchText.includes(`"${id}"`)));
+  const inTranslated = (id: string): boolean => Array.from(bundleTexts.values()).some((t) => t.includes(`"${id}"`) || t.includes(`/${id}`));
+  const leaked = Array.from(droppedIds).filter((id) => !alsoAnEntryId.has(id) && (bundleText.includes(`"${id}"`) || bundleText.includes(`/${id}`) || inTranslated(id) || searchText.includes(`"${id}"`)));
   if (leaked.length) { console.error(`excluded mesh ids: ${leaked.length} of them survive mesh id(s) survive in the bundle text: ${leaked.slice(0, 12).join(', ')}`); process.exit(1); }
   if (alsoAnEntryId.size) console.log(`public edition: ${alsoAnEntryId.size} ids are both an excluded mesh and an authored entry, kept as entry ids: ${Array.from(alsoAnEntryId).sort().join(', ')}`);
 }
 writeFileSync(join(OUT, contentName), bundleText);
 writeFileSync(join(OUT, searchName), searchText);
-const trName_ = privateEdition ? 'content.tr.private.json' : 'content.tr.json';
-writeFileSync(join(OUT, trName_), bundleTrText);
-console.log(`wrote public/data/${contentName} (${(bundleText.length / 1024).toFixed(0)} KB), ${searchName} (${searchDocs.length} docs) and ${trName_} (${translated} translated entries, ${(bundleTrText.length / 1024).toFixed(0)} KB)`);
+const written: string[] = [];
+for (const [lang, text] of bundleTexts) {
+  const name = privateEdition ? `content.${lang}.private.json` : `content.${lang}.json`;
+  writeFileSync(join(OUT, name), text);
+  written.push(`${name} (${translated.get(lang)} translated entries, ${(text.length / 1024).toFixed(0)} KB)`);
+}
+console.log(`wrote public/data/${contentName} (${(bundleText.length / 1024).toFixed(0)} KB), ${searchName} (${searchDocs.length} docs) and ${written.join(', ')}`);
 if (droppedIds.size) console.log(`${privateEdition ? 'private' : 'public'} edition: ${droppedIds.size} meshes not shipped; ${meshIdsDropped} mesh references dropped from the bundle, ${mniRefsStripped} MNI refs kept their coordinate without a mesh id, ${emptied.length} entries left with no mesh`);

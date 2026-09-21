@@ -14,6 +14,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, rmSync, mkdirSync, copyFileSync } from 'node:fs';
 import { gunzipSync, gzipSync } from 'node:zlib';
 import { resolve, join, relative, sep, dirname } from 'node:path';
+import { TRANSLATED_BUNDLES } from './content/languages.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SRC = join(ROOT, 'public/data');
@@ -22,6 +23,10 @@ const DATA = join(OUT, 'data');
 const args = new Set(process.argv.slice(2));
 const step = (s: string) => console.log(`\n── ${s}`);
 const run = (cmd: string, argv: string[]) => execFileSync(cmd, argv, { cwd: ROOT, stdio: 'inherit', env: process.env });
+// a package binary: node_modules/.bin/<name> is a shell script; on Windows the runnable one is <name>.cmd, through the shell
+const runBin = (name: string, argv: string[]) => process.platform === 'win32'
+  ? execFileSync(join(ROOT, `node_modules/.bin/${name}.cmd`), argv, { cwd: ROOT, stdio: 'inherit', env: process.env, shell: true })
+  : run(join(ROOT, `node_modules/.bin/${name}`), argv);
 const hasData = existsSync(join(SRC, 'manifest.json'));
 if (!hasData) console.log('note: public/data/ has no manifest yet — building the app bundle only (run the pipeline for the data)');
 
@@ -41,7 +46,7 @@ if (!args.has('--skip-content')) {
 // ---- 3. vite
 if (!args.has('--skip-vite')) {
   step('vite build --outDir dist');
-  run(join(ROOT, 'node_modules/.bin/vite'), ['build', '--outDir', 'dist', '--emptyOutDir']);
+  runBin('vite', ['build', '--outDir', 'dist', '--emptyOutDir']);
 }
 if (!hasData) { console.log('\nbuilt dist/ without data — nothing to filter or gate'); process.exit(0); }
 const manifest = JSON.parse(readFileSync(join(SRC, 'manifest.json'), 'utf8')) as Manifest;
@@ -64,7 +69,7 @@ if (!prefiltered) {
   mkdirSync(DATA, { recursive: true });
 
   // LICENSE is the data folder's own licence (CC BY-SA 4.0), written by atlas-manifest; it ships with the data.
-  const keep = new Set<string>(['manifest.json', 'content.json', 'content.tr.json', 'search-index.json', 'LICENSE']);
+  const keep = new Set<string>(['manifest.json', 'content.json', 'search-index.json', 'LICENSE', ...TRANSLATED_BUNDLES]);
   for (const m of manifest.meshes) { keep.add(m.file); if (m.lod) keep.add(m.lod.file); }
   for (const v of Object.values(manifest.volumes)) { keep.add(v.file); if (v.lut) keep.add(v.lut); }
   for (const l of Object.values(manifest.licenses)) keep.add(l.text);

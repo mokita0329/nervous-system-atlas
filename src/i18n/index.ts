@@ -39,6 +39,8 @@ function resolve(): Locale {
 
 let current: Locale = resolve();
 try { document.documentElement.lang = current; } catch { /* no document */ }
+// a link that opens in a translated edition makes that edition the one the switch offers from English
+try { if (current !== 'en') localStorage.setItem(ALT_LOCALE_KEY, current); } catch { /* private mode */ }
 
 const listeners = new Set<(l: Locale) => void>();
 

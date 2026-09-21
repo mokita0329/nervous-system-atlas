@@ -11,6 +11,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, copyFileSync, rmSync, readFileSync } from 'node:fs';
 import { resolve, join } from 'node:path';
+import { TRANSLATED_BUNDLES } from './content/languages.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SRC = join(ROOT, 'public/data');
@@ -40,7 +41,7 @@ if (!args.has('--skip-vite')) { step('vite build --outDir dist-private'); run(jo
 // ---- 4. the private bundles take the plain names the app asks for
 step('swap in the private bundles');
 for (const [from, to] of [['manifest.private.json', 'manifest.json'], ['content.private.json', 'content.json'],
-  ['search-index.private.json', 'search-index.json'], ['content.tr.private.json', 'content.tr.json']] as const) {
+  ['search-index.private.json', 'search-index.json'], ...TRANSLATED_BUNDLES.map((f) => [f.replace(/\.json$/, '.private.json'), f] as const)]) {
   if (!existsSync(join(DATA, from))) { console.error(`build:private: ${from} is not in the build`); process.exit(1); }
   copyFileSync(join(DATA, from), join(DATA, to));
   rmSync(join(DATA, from));
