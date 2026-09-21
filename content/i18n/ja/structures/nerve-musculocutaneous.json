@@ -1,0 +1,27 @@
+{
+  "id": "nerve-musculocutaneous",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "6115e1aa05632be4",
+  "fields": {
+    "summary": "外側神経束の終枝（C5–C7）で、烏口腕筋を貫き、上腕二頭筋と上腕筋の間を走ってこれら3筋すべてを支配し、上腕二頭筋腱の外側に外側前腕皮神経として現れる。単独で損傷されることはまれで（重量物の挙上、肩の手術、激しい運動）、その病巣では肘の屈曲と回外の筋力低下、上腕二頭筋反射の消失、前腕外側のしびれをきたす。腕橈骨筋（橈骨神経）が残るため、ある程度の屈曲は可能である。",
+    "anatomy.location": "腋窩で外側神経束から起こり、烏口腕筋を貫き、上腕二頭筋と上腕筋の間を下行し、前腕の橈側縁に沿って外側前腕皮神経として続く。",
+    "function": "烏口腕筋、上腕二頭筋、上腕筋への運動支配（肘の屈曲、前腕の回外、肩関節の屈曲）、および前腕外側への感覚支配。",
+    "imaging.bestView[0].label": "頸髄。線維は C5–C7 に由来する",
+    "imaging.normalAppearance": "四肢の末梢神経は MNI 脳ボリュームの外にあり、アトラスのメッシュは表示されない。超音波と MR ニューログラフィーは神経を直接描出し、電気診断は病巣を機能的に局在させる。上腕の MRI は上腕二頭筋と上腕筋の脱神経を示し、超音波は烏口腕筋を貫く神経を追跡できる。",
+    "imaging.pathology[0].pathology": "筋皮神経障害",
+    "imaging.pathology[0].finding": "激しい運動や手術の後に、上腕二頭筋、上腕筋、烏口腕筋が STIR で高信号を呈する。",
+    "imaging.sequenceOfChoice": "EMG、超音波",
+    "clinical.lesionEffects[0].deficit": "上腕二頭筋反射が消失し、肘の屈曲と回外の筋力が低下する",
+    "clinical.lesionEffects[0].mechanism": "上腕二頭筋と上腕筋の麻痺。腕橈骨筋は保たれる",
+    "clinical.lesionEffects[1].deficit": "前腕外側のしびれ",
+    "clinical.lesionEffects[1].mechanism": "外側前腕皮神経",
+    "clinical.lesionEffects[2].deficit": "三角筋と棘上筋は保たれる",
+    "clinical.lesionEffects[2].mechanism": "上神経幹（Erb）の病巣との鑑別点となる",
+    "clinical.examination[0]": "前腕回外位での肘屈曲（上腕二頭筋）と中間位での肘屈曲（腕橈骨筋）の比較",
+    "clinical.examination[1]": "上腕二頭筋反射",
+    "clinical.examination[2]": "前腕外側の感覚と、上腕外側（腋窩神経）・母指（C6）の感覚との比較",
+    "clinical.pearls[0]": "三角筋と腕橈骨筋が正常で上腕二頭筋の筋力が低下していれば筋皮神経、三角筋の筋力低下も加われば上神経幹または C5–C6 である",
+    "clinical.pearls[1]": "母指の感覚が保たれた前腕外側のしびれは、本神経と C6 神経根とを区別する"
+  }
+}

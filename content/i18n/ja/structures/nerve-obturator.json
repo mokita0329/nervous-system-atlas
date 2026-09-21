@@ -1,0 +1,27 @@
+{
+  "id": "nerve-obturator",
+  "kind": "structures",
+  "lang": "ja",
+  "source": "68b037b70fca705b",
+  "fields": {
+    "summary": "閉鎖神経（obturator nerve）は大腰筋内で L2–L4 の前枝から形成され、骨盤側壁に沿って走り、閉鎖管を通って骨盤を出て、大腿の内転筋群（長内転筋、短内転筋、大内転筋、薄筋、外閉鎖筋）と大腿内側の限局した皮膚を支配する。骨盤内腫瘍、分娩外傷、骨盤内手術で損傷され、その病巣では内転の筋力低下と大腿内側のしびれを伴う開脚した分回し歩行をきたす。股関節の痛みが膝へ関連するのは、その関節枝を介してである。",
+    "anatomy.location": "大腰筋の内側縁を走り、骨盤上口より下で骨盤側壁に沿い、閉鎖孔の閉鎖管を通り、短内転筋の周囲で前枝と後枝に分かれる。",
+    "function": "股関節の内転と内旋の一部、大腿内側の感覚、股関節と膝関節への感覚線維。",
+    "imaging.bestView[0].label": "頸髄。閉鎖神経は L2–L4 から起こる",
+    "imaging.normalAppearance": "四肢の末梢神経は MNI 脳ボリュームの外にあり、アトラスのメッシュは表示されない。超音波と MR ニューログラフィーは神経を直接描出し、電気診断は病巣を機能的に局在させる。骨盤 MRI は骨盤側壁や閉鎖管の腫瘤・子宮内膜症を描出し、内転筋群の脱神経を伴う。",
+    "imaging.pathology[0].pathology": "閉鎖神経障害",
+    "imaging.pathology[0].finding": "内転筋群が STIR で高信号を呈し、骨盤側壁の腫瘤や術後変化を伴う。",
+    "imaging.sequenceOfChoice": "内転筋群の EMG、骨盤 MRI",
+    "clinical.lesionEffects[0].deficit": "分回し歩行を伴う股関節内転の筋力低下",
+    "clinical.lesionEffects[0].mechanism": "内転筋群の麻痺",
+    "clinical.lesionEffects[1].deficit": "大腿内側のしびれ",
+    "clinical.lesionEffects[1].mechanism": "皮枝",
+    "clinical.lesionEffects[2].deficit": "股関節疾患による膝への関連痛",
+    "clinical.lesionEffects[2].mechanism": "股関節と膝関節への関節枝",
+    "clinical.examination[0]": "仰臥位で抵抗に抗した股関節内転",
+    "clinical.examination[1]": "大腿内側の感覚",
+    "clinical.examination[2]": "大腿神経の評価と組み合わせる。両者とも弱ければ神経根か神経叢である",
+    "clinical.pearls[0]": "骨盤内手術後の内転筋群に限局した筋力低下は閉鎖神経による",
+    "clinical.pearls[1]": "膝は正常で股関節の可動域が制限されている膝痛は、閉鎖神経を介した股関節疾患の関連痛である"
+  }
+}
