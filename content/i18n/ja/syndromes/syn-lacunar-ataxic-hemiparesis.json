@@ -1,0 +1,33 @@
+{
+  "id": "syn-lacunar-ataxic-hemiparesis",
+  "kind": "syndromes",
+  "lang": "ja",
+  "source": "b4ec0467224128ca",
+  "fields": {
+    "name": "失調性不全片麻痺",
+    "presentation": "患者には軽度の不全片麻痺があり、通常は下肢で強いが、際立った特徴は脱力に不釣り合いな同じ側の協調運動障害である。踵膝試験は拙劣で、上肢は測定過大を示し、歩行は脱力側へよろめいて不安定である。感覚と言語は正常である。体の一側に錐体路徴候と小脳徴候が併存することは、小さな深部病巣を示唆する。",
+    "deficits[0].distribution": "上肢より下肢",
+    "deficits[0].sign": "軽度の上位運動ニューロン性不全片麻痺",
+    "deficits[1].distribution": "脱力と同じ四肢",
+    "deficits[1].sign": "脱力に不釣り合いな四肢の失調",
+    "deficits[2].distribution": "下肢",
+    "deficits[2].sign": "脱力側へよろめく不安定な歩行",
+    "reasoning": "内包後脚（posterior limb of the internal capsule）、放線冠（corona radiata）または橋底部（basis pontis）の単一穿通枝梗塞は、そこで並走する 2 つの系、すなわち皮質脊髄路（corticospinal tract）と皮質橋小脳連絡を遮断する。皮質脊髄路線維はまだ交叉していないため、脱力は対側である。小脳徴候が脱力と同じ側に出るのは、小脳ループが 2 回交叉するからである。皮質橋線維は橋で交叉して反対側の小脳半球に至り、歯状核視床出力は中脳で交叉して元の半球とその運動野に戻る。したがって内包または橋で一側のループを断つと対側の四肢に失調が生じ、これは皮質脊髄路病巣で脱力した四肢と同じである。病巣は小さいため、感覚脱失や皮質徴候はない。橋の部位のほうが多い。下肢優位の脱力が特徴的なのは、下肢の線維が内包では後方に、橋では背外側に位置するためである。",
+    "imagingFindings[0].pathology": "急性期ラクナ梗塞",
+    "imagingFindings[0].finding": "内包後脚、放線冠または橋底部の小さな（15 mm 未満）拡散制限巣。初日の CT はしばしば正常である。",
+    "imagingFindings[1].pathology": "慢性期ラクナ梗塞",
+    "imagingFindings[1].finding": "FLAIR で高信号の縁を伴う髄液と同信号の小さな空洞で、しばしば多発し、小血管病によるびまん性の白質高信号を伴う。",
+    "commonCauses[0]": "単一穿通動脈の高血圧性リポヒアリノーシス",
+    "commonCauses[1]": "穿通枝起始部の微小アテローム",
+    "mimics[0].name": "皮質枝梗塞",
+    "mimics[0].howToDistinguish": "皮質徴候（失語、半側空間無視、視野欠損、注視偏位）があればラクナ梗塞は否定される",
+    "mimics[1].name": "小出血",
+    "mimics[1].howToDistinguish": "CT で高吸収。部位は同じ",
+    "mimics[2].name": "腫瘤効果を伴う小脳梗塞",
+    "mimics[2].howToDistinguish": "小脳病巣と同側の失調で錐体路性の脱力を伴わない。頭痛と嘔吐",
+    "management[0]": "抗血小板療法、スタチン、血圧管理",
+    "management[1]": "時間枠内の受診で症状が生活に支障をきたす場合は血栓溶解療法",
+    "management[2]": "早期離床。回復の予後は良好",
+    "imagingHint.label": "傍正中の橋底部"
+  }
+}

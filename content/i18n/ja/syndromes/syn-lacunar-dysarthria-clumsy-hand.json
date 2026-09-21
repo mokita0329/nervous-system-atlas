@@ -1,0 +1,31 @@
+{
+  "id": "syn-lacunar-dysarthria-clumsy-hand",
+  "kind": "syndromes",
+  "lang": "ja",
+  "source": "32c2c9355f5e7791",
+  "fields": {
+    "name": "構音障害–手の拙劣症候群",
+    "presentation": "発語が不明瞭になり、患者は一側の手が不器用になったと訴える。書字が下手になり細かい作業でしくじるが、筋力はほぼ正常である。診察では下部顔面の顔面筋脱力、舌の偏位、反射亢進と拙劣さを伴う軽度の手の脱力、ときに伸展性足底反応を認める。感覚は保たれる。",
+    "deficits[0].distribution": "顔面と舌",
+    "deficits[0].sign": "下部顔面の脱力と舌の偏位を伴う構音障害",
+    "deficits[1].distribution": "手",
+    "deficits[1].sign": "反射亢進を伴う手の拙劣さと軽度の脱力",
+    "deficits[2].distribution": "手",
+    "deficits[2].sign": "巧緻運動の障害と測定障害",
+    "reasoning": "これは傍正中の橋底部（basis pontis）または内包膝（genu of the internal capsule）の小血管梗塞であり、そこでは顔面神経核と舌下神経核への皮質延髄路（corticobulbar）線維が手への皮質脊髄路（corticospinal）線維と並走している。皮質延髄路線維は橋と延髄の核の高さで交叉し、皮質脊髄路線維は錐体交叉で交叉するため、顔面の脱力と手の徴候はいずれも病巣の対側に出る。すべての小脳ループと同様に 2 回交叉する皮質橋小脳路が巻き込まれると、脱力と同じ側に拙劣さが加わる。病巣は小さすぎて橋被蓋や内包後方の感覚経路には及ばず、皮質は保たれているため、感覚脱失、失語、視野欠損はない。これは実際には純粋運動症候群の一部分であり、内包で最も前方、大脳脚と橋で最も内側に位置する顔面と手の線維が、さらに小さな梗塞によって選択的に侵されたものである。",
+    "imagingFindings[0].pathology": "急性期ラクナ梗塞",
+    "imagingFindings[0].finding": "傍正中の橋底部または内包膝の小さな（15 mm 未満）拡散制限巣。初日の CT はしばしば正常である。",
+    "imagingFindings[1].pathology": "慢性期ラクナ梗塞",
+    "imagingFindings[1].finding": "FLAIR で高信号の縁を伴う髄液と同信号の小さな空洞で、しばしば多発し、小血管病によるびまん性の白質高信号を伴う。",
+    "commonCauses[0]": "単一穿通動脈の高血圧性リポヒアリノーシス",
+    "commonCauses[1]": "穿通枝起始部の微小アテローム",
+    "mimics[0].name": "皮質枝梗塞",
+    "mimics[0].howToDistinguish": "皮質徴候（失語、半側空間無視、視野欠損、注視偏位）があればラクナ梗塞は否定される",
+    "mimics[1].name": "小出血",
+    "mimics[1].howToDistinguish": "CT で高吸収。部位は同じ",
+    "management[0]": "抗血小板療法、スタチン、血圧管理",
+    "management[1]": "時間枠内の受診で症状が生活に支障をきたす場合は血栓溶解療法",
+    "management[2]": "早期離床。回復の予後は良好",
+    "imagingHint.label": "傍正中の橋"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "syn-lacunar-pure-sensory",
+  "kind": "syndromes",
+  "lang": "ja",
+  "source": "a4eabc74816a8393",
+  "fields": {
+    "name": "純粋感覚性ラクナ梗塞",
+    "presentation": "患者は数分のうちに出現したしびれやチクチク感を訴え、それは一側の顔面・上肢・体幹・下肢に及び、ときに正中線で正確に分かれる。筋力、協調運動、視覚、言語は侵されない。診察では訴えに比べて意外なほど他覚的な脱失が乏しいこともあれば、その側の全感覚様式の明らかな低下を認めることもある。",
+    "deficits[0].distribution": "顔面、上肢、体幹、下肢",
+    "deficits[0].sign": "触覚・痛覚・振動覚の半身感覚低下で、しばしば正中線で分かれる",
+    "deficits[1].distribution": "半身",
+    "deficits[1].sign": "異常感覚と痛覚の低下",
+    "deficits[2].distribution": "なし",
+    "deficits[2].sign": "脱力なし。反射は左右対称",
+    "reasoning": "視床（thalamus）の後腹側核群は、すべての上行性体性感覚経路を交叉後に受け取る。延髄で交叉した内側毛帯（medial lemniscus）、脊髄で交叉した脊髄視床路（spinothalamic tract）、顔面からの三叉神経毛帯である。したがって視床膝状体動脈穿通枝の灌流域のラクナ梗塞は、顔面を含む対側半身全体からすべての感覚様式を除去する。この組み合わせは脊髄病巣では生じえず、脳幹病巣では交叉性の顔面障害を伴ってのみ生じる。皮質脊髄路（corticospinal tract）は隣接する内包にあって保たれるため、脱力はない。そこに達するほど大きい梗塞は感覚運動性脳卒中となる。中心後回の小さな皮質梗塞も同様の限局した半身感覚障害を生じうるが、通常はいずれかの感覚様式を免れ、体幹を正中線で分けることはまれである。一部の患者は後に中枢性脳卒中後疼痛を生じ、その場合は Dejerine–Roussy 症候群と呼び直される。",
+    "imagingFindings[0].pathology": "急性期ラクナ梗塞",
+    "imagingFindings[0].finding": "視床後外側腹側核の小さな（15 mm 未満）拡散制限巣。初日の CT はしばしば正常である。",
+    "imagingFindings[1].pathology": "慢性期ラクナ梗塞",
+    "imagingFindings[1].finding": "FLAIR で高信号の縁を伴う髄液と同信号の小さな空洞で、しばしば多発し、小血管病によるびまん性の白質高信号を伴う。",
+    "commonCauses[0]": "単一穿通動脈の高血圧性リポヒアリノーシス",
+    "commonCauses[1]": "穿通枝起始部の微小アテローム",
+    "mimics[0].name": "皮質枝梗塞",
+    "mimics[0].howToDistinguish": "皮質徴候（失語、半側空間無視、視野欠損、注視偏位）があればラクナ梗塞は否定される",
+    "mimics[1].name": "小出血",
+    "mimics[1].howToDistinguish": "CT で高吸収。部位は同じ",
+    "mimics[2].name": "頭頂葉皮質梗塞",
+    "mimics[2].howToDistinguish": "一次感覚様式は保たれ、識別性感覚（皮膚書字覚、立体覚）が障害される。DWI は皮質に陽性",
+    "management[0]": "抗血小板療法、スタチン、血圧管理",
+    "management[1]": "時間枠内の受診で症状が生活に支障をきたす場合は血栓溶解療法",
+    "management[2]": "早期離床。回復の予後は良好",
+    "imagingHint.label": "視床外側部"
+  }
+}
