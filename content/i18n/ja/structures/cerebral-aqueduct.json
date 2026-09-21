@@ -1,0 +1,30 @@
+{
+ "id": "cerebral-aqueduct",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "c9f70a22e51fdbab",
+ "fields": {
+  "summary": "中脳を貫いて第三脳室から第四脳室へ走る長さ15 mm、幅約1 mm の管で、中脳水道周囲灰白質に囲まれ、後方に視蓋、前方に被蓋がある。脳室系の最も狭い部位であり、閉塞の最も多い部位である。先天性狭窄、視蓋グリオーマ、松果体腫瘤、出血後のグリオーシスはいずれも、第四脳室が正常で側脳室と第三脳室が拡大する水頭症を生じ、このパターンは三脳室性水頭症として知られる。",
+  "anatomy.location": "中脳正中部。後交連の下方で第三脳室の後端から始まり、上髄帆の下で第四脳室に開く。丘の高さでわずかに屈曲する。",
+  "function": "第三脳室から第四脳室への唯一の髄液の通路。心拍ごとに髄液が拍動して流れ、T2 強調像で flow void を生じる。",
+  "imaging.bestView[0].label": "視蓋と被蓋の間で中脳を貫く中脳水道",
+  "imaging.bestView[1].label": "中脳の中心にある髄液の点",
+  "imaging.normalAppearance": "矢状断では中脳正中部の T2 強調像で低信号の flow void として、軸位断では中心の小さな点として見える。強い T2 強調の CISS はその内腔を示し、phase-contrast MRI は流れを定量する。三脳室拡大を伴う flow void の消失は狭窄を示唆する。",
+  "imaging.pathology[0].pathology": "中脳水道狭窄",
+  "imaging.pathology[0].finding": "側脳室と第三脳室の拡大と正常な第四脳室、矢状断 CISS で狭小化または膜（web）で閉塞した中脳水道、flow void の消失。成人で発症しうる。",
+  "imaging.pathology[1].pathology": "視蓋グリオーマ",
+  "imaging.pathology[1].finding": "中脳水道を圧迫する T2 高信号の球状に膨隆した視蓋。",
+  "imaging.pathology[2].pathology": "出血または髄膜炎後の中脳水道閉塞",
+  "imaging.pathology[2].finding": "同じ三脳室性パターンを伴うグリオーシスによる狭窄。",
+  "imaging.sequenceOfChoice": "正中を通る矢状断 T2/CISS。phase-contrast 髄液流動検査",
+  "clinical.lesionEffects[0].deficit": "三脳室性水頭症: 頭痛、うっ血乳頭、歩行障害",
+  "clinical.lesionEffects[0].mechanism": "中脳水道での閉塞では第四脳室は保たれる",
+  "clinical.lesionEffects[1].deficit": "Parinaud 症候群",
+  "clinical.lesionEffects[1].mechanism": "拡大した第三脳室と松果体上陥凹、または原因となる視蓋腫瘤が背側中脳を圧迫する",
+  "clinical.examination[0]": "うっ血乳頭",
+  "clinical.examination[1]": "上方注視と瞳孔の光–近見反応解離",
+  "clinical.examination[2]": "歩行と認知",
+  "clinical.pearls[0]": "側脳室と第三脳室が大きく第四脳室が小さければ、閉塞は中脳水道にある",
+  "clinical.pearls[1]": "成人発症の中脳水道狭窄は正常圧水頭症を装うことがある"
+ }
+}

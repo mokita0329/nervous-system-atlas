@@ -1,0 +1,29 @@
+{
+ "id": "claustrum",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "d2678f3e7b8d0649",
+ "fields": {
+  "summary": "被殻と島皮質の間にある薄い灰白質の板で、外包によって被殻と、最外包によって島と隔てられる。ほぼ全皮質と相互に連絡し、皮質活動と意識の調整役として提唱されてきたが、その臨床的特徴は乏しい。自己免疫性および熱性の脳炎（前障サイン）や一部のてんかん重積状態で侵され、その刺激は意識を中断させうる。",
+  "anatomy.location": "島の深部、被殻の外側にある垂直な灰白質の板で、前交連の高さからレンズ核の後端まで広がる。内側に外包、外側に最外包がある。",
+  "connections.afferents[0].from": "広範な皮質",
+  "connections.efferents[0].to": "広範な皮質",
+  "function": "広範な皮質との相互連絡は、多感覚統合、注意、意識体験の統合（binding）における役割を示唆する。腹側の前障は扁桃体と辺縁皮質と連絡する。",
+  "imaging.bestView[0].label": "被殻と島の間の薄い灰白質の板",
+  "imaging.bestView[1].label": "外包と最外包の間の前障",
+  "imaging.normalAppearance": "軸位断 T1/T2 強調像で外包と最外包の間の薄い垂直な灰白質の線で、高分解能の 3 T 画像で最も見やすい。対称性の FLAIR 高信号は脳炎の前障サインである。",
+  "imaging.pathology[0].pathology": "熱性感染関連てんかん症候群／自己免疫性脳炎",
+  "imaging.pathology[0].finding": "難治性てんかん重積状態を伴う、両側対称性の前障 FLAIR 高信号（「前障サイン」）。",
+  "imaging.pathology[1].pathology": "島・弁蓋部梗塞",
+  "imaging.pathology[1].finding": "MCA 分枝閉塞における島と前障の拡散制限。",
+  "imaging.sequenceOfChoice": "軸位断 FLAIR",
+  "clinical.lesionEffects[0].deficit": "脳炎に伴う難治性けいれん発作と意識変容",
+  "clinical.lesionEffects[0].mechanism": "両側の前障の炎症",
+  "clinical.lesionEffects[1].deficit": "一貫した局所症候群はない",
+  "clinical.lesionEffects[1].mechanism": "びまん性の連絡。脱落症状は隣接する島と被殻に帰される",
+  "clinical.examination[0]": "脳炎における意識レベルとけいれん発作の症候",
+  "clinical.examination[1]": "島の徴候: 味覚、自律神経の変化",
+  "clinical.pearls[0]": "難治性けいれん発作のある発熱患者で FLAIR 上両側の前障が高信号を示すのは、知られた脳炎のパターンである",
+  "clinical.pearls[1]": "前障は臨床的知見を先回りした解剖である。期待は控えめにしておくこと"
+ }
+}

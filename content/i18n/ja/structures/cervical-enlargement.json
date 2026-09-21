@@ -1,0 +1,29 @@
+{
+ "id": "cervical-enlargement",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "883b8feaa99c8c5b",
+ "fields": {
+  "summary": "脊髄は四肢を支配する部位で最も太い。すなわち頸膨大（C5–T1、腕神経叢の髄節）と腰仙膨大（L2–S3、腰仙骨神経叢の髄節）であり、外側運動細胞柱と四肢の感覚中継が灰白質を膨らませる。ここの病巣はその高位の四肢の下位運動ニューロン徴候と、それより下の上位運動ニューロン徴候を合わせもち、その動脈支配は最大の根動脈、すなわち上方では C5–C6 根動脈、下方では Adamkiewicz 動脈に依存する。",
+  "anatomy.location": "頸膨大は C4 から T1 髄節で、C3–T1 椎体に対応する高さにある。腰仙膨大は L1 から S3 髄節で、脊髄円錐の直上、T10–L1 椎体に対応する高さにある。",
+  "function": "上肢と下肢の運動と感覚の統合。脊髄で最大の運動ニューロンプールと最も幅広い後角。",
+  "imaging.bestView[0].label": "頸膨大より上の上部頸髄。膨大部は MNI ボリュームより下にある",
+  "imaging.normalAppearance": "矢状断脊椎 MRI で脊髄は C4–T1 で太くなり、T10–L1 で再び太くなる。頸膨大の病巣は頸椎症性脊髄症の最も多い部位であり、腰仙膨大は大動脈手術後の前脊髄動脈症候群の標的である。",
+  "imaging.pathology[0].pathology": "頸椎症性脊髄症",
+  "imaging.pathology[0].finding": "椎間板骨棘と黄色靱帯による C4–C6 での脊髄圧迫で、脊髄内に T2 信号変化を伴う。",
+  "imaging.pathology[1].pathology": "過伸展損傷後の中心性脊髄損傷（central cord syndrome）",
+  "imaging.pathology[1].finding": "頸膨大の中心部の T2 高信号。上肢が下肢より弱い。",
+  "imaging.sequenceOfChoice": "頸椎および胸腰椎の矢状断・軸位断 T2 強調像",
+  "clinical.lesionEffects[0].deficit": "手または上肢の下位運動ニューロン性の脱力と萎縮、下肢の上位運動ニューロン徴候",
+  "clinical.lesionEffects[0].mechanism": "頸膨大の病巣",
+  "clinical.lesionEffects[1].deficit": "上肢が下肢より弱い（中心性脊髄損傷）",
+  "clinical.lesionEffects[1].mechanism": "頸膨大の中心灰白質と皮質脊髄路の内側線維",
+  "clinical.lesionEffects[2].deficit": "括約筋障害を伴う下肢の下位運動ニューロン性脱力",
+  "clinical.lesionEffects[2].mechanism": "腰仙膨大と脊髄円錐",
+  "clinical.examination[0]": "手内在筋の筋量と筋力を、下肢の筋緊張と反射と比較する",
+  "clinical.examination[1]": "反射: C5–C6 での倒錯性回外筋反射（inverted supinator reflex）",
+  "clinical.examination[2]": "感覚レベルと括約筋",
+  "clinical.pearls[0]": "手の萎縮と痙性の下肢: 膨大部の高さの頸髄（頸椎症、空洞症、運動ニューロン病）",
+  "clinical.pearls[1]": "倒錯性腕橈骨筋反射は頸髄病巣を C5–C6 に局在させる"
+ }
+}

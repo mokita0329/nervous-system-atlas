@@ -1,0 +1,30 @@
+{
+ "id": "choroid-plexus",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "63fb66d87e66bb16",
+ "fields": {
+  "summary": "脈絡叢（choroid plexus）は特殊化した上衣に覆われた葉状の血管組織で、側脳室、第三脳室、第四脳室に垂れ下がり、一日に産生される約500 mL の髄液の大部分を産生する。その毛細血管は有窓性だが、脈絡上皮細胞間のタイト結合が血液–髄液関門を形成する。側脳室の脈絡叢は前脈絡叢動脈と後脈絡叢動脈によって灌流され、Monro 孔を通って第三脳室の天井に連続する。第四脳室の脈絡叢は Luschka 孔から突出する。加齢とともに石灰化し、強く造影され、脈絡叢乳頭腫と黄色肉芽腫の発生部位である。",
+  "anatomy.location": "各側脳室の体部、三角部（脈絡叢糸球）、側頭角、第三脳室の天井、および外側陥凹へ広がる第四脳室天井の下半分。前角、後頭角、中脳水道にはみられない。",
+  "function": "能動輸送による髄液の分泌、血液–髄液関門の維持、代謝産物の除去、成長因子とトランスサイレチンの髄液中への分泌。",
+  "imaging.bestView[0].label": "三角部の脈絡叢糸球",
+  "imaging.bestView[1].label": "第三脳室の天井と側脳室体部の脈絡叢",
+  "imaging.normalAppearance": "CT と MRI で造影後に強く造影される。三角部の糸球は成人ではしばしば石灰化する。糸球の嚢胞（黄色肉芽腫）は良性で、高齢者によくみられる。",
+  "imaging.pathology[0].pathology": "脈絡叢乳頭腫／癌",
+  "imaging.pathology[0].finding": "分葉状で強く造影される脳室内腫瘤。小児では三角部、成人では第四脳室に生じ、髄液の過剰産生と閉塞による水頭症を伴う。",
+  "imaging.pathology[1].pathology": "脈絡叢炎",
+  "imaging.pathology[1].finding": "クリプトコッカスまたは結核感染における、造影される腫大した脈絡叢。",
+  "imaging.pathology[2].pathology": "過剰産生による交通性水頭症",
+  "imaging.pathology[2].finding": "乳頭腫を伴い、閉塞のない全般性の脳室拡大。",
+  "imaging.sequenceOfChoice": "造影 T1 強調 MRI。石灰化には CT",
+  "clinical.lesionEffects[0].deficit": "過剰産生または閉塞による水頭症",
+  "clinical.lesionEffects[0].mechanism": "脈絡叢腫瘍",
+  "clinical.lesionEffects[1].deficit": "髄膜刺激徴候と髄液組成の変化",
+  "clinical.lesionEffects[1].mechanism": "髄膜炎における脈絡叢の炎症",
+  "clinical.examination[0]": "頭蓋内圧亢進の徴候",
+  "clinical.examination[1]": "感染や悪性腫瘍が疑われる場合の髄液検査（蛋白、細胞、糖）",
+  "clinical.pearls[0]": "脈絡叢の造影効果と石灰化は正常である。非対称な腫大や腫瘤は正常ではない",
+  "clinical.pearls[1]": "髄液は毎時約20 mL 産生されるため、全量が一日に三〜四回入れ替わる",
+  "pitfalls[0]": "派生メッシュ: 第四脳室の脈絡叢（choroid-plexus-fourth-ventricle）は構築されたものであり、セグメンテーションされたものではない。aseg の第四脳室ラベルの尾側半分の後方（天井）境界を1 mm 拡張し、Luschka 孔に向かって外側陥凹に沿う二つの短い延長を付けたもので、脈絡叢の葉ではなくその位置を示す。側脳室の脈絡叢メッシュは Z-Anatomy 由来で、実際の表面である。"
+ }
+}
