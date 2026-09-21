@@ -1,0 +1,25 @@
+{
+ "id": "artery-pcom",
+ "kind": "structures",
+ "lang": "ja",
+ "source": "abe55d973a4f3c90",
+ "fields": {
+  "summary": "床上部内頸動脈から後方へ走って後大脳動脈に合流する短い血管で、各側で前方循環と後方循環を連絡する。動眼神経の直上を走るため、その起始部の動脈瘤は散瞳を伴う有痛性の動眼神経麻痺を起こす。その穿通枝は視床前部、視床下部、内包の一部を灌流する。",
+  "anatomy.location": "床上部内頸動脈の後壁から出て、脚間槽内を動眼神経の上、乳頭体の外側で後内側へ走り、P1–P2 移行部で後大脳動脈に合流する。",
+  "function": "頸動脈系と椎骨脳底動脈系の間の側副路。胎児型では後大脳動脈の主たる供給血管である。その視床穿通枝（前視床穿通枝）は視床前部、視床下部、内包後脚を灌流する。",
+  "imaging.bestView[0].label": "動眼神経の上を内頸動脈から P1–P2 移行部へ後方に走る",
+  "imaging.bestView[1].label": "脚間槽内での動眼神経との関係",
+  "imaging.normalAppearance": "鞍上槽を通る軸位断 T2 で、内頸動脈の後方の小さな flow void としてしばしば見える。CTA/MRA では内頸動脈と PCA の間の短い血管である。胎児型 PComm はそれが灌流する PCA と同じ太さで、同側の P1 は細い。",
+  "imaging.pathology[0].pathology": "動眼神経麻痺を伴う PComm 動脈瘤",
+  "imaging.pathology[0].finding": "内頸動脈–PComm 接合部の嚢状動脈瘤が動眼神経へ向かって後外側へ突出する。破裂すれば鞍上槽と迂回槽にくも膜下出血を認める。",
+  "imaging.sequenceOfChoice": "瞳孔障害を伴う有痛性の動眼神経麻痺があれば、緊急に CTA（またはカテーテル血管撮影）",
+  "clinical.lesionEffects[0].deficit": "散瞳を伴う有痛性の動眼神経麻痺",
+  "clinical.lesionEffects[0].mechanism": "副交感神経性の瞳孔線維が表層を走る動眼神経の軟膜面の圧迫",
+  "clinical.lesionEffects[1].deficit": "動脈瘤治療後の対側の不全片麻痺と健忘",
+  "clinical.lesionEffects[1].mechanism": "視床と内包への前視床穿通枝の喪失",
+  "clinical.examination[0]": "眼瞼下垂と外眼筋運動とともに瞳孔の大きさと反応を診察する",
+  "clinical.examination[1]": "麻痺に伴う突然の激しい頭痛について問診する",
+  "clinical.pearls[0]": "瞳孔を侵す動眼神経麻痺は圧迫性病変であり、PComm 動脈瘤は見逃してはならないものである",
+  "clinical.pearls[1]": "胎児型 PComm では、頸動脈閉塞が後頭葉も梗塞させうる"
+ }
+}
