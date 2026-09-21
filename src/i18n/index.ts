@@ -1,17 +1,30 @@
 import type { App } from '../app.ts';
 import type { ContentBundle, ContentEntryBase } from '../types/content.ts';
 import { en } from './en.ts';
+import { ja } from './ja.ts';
 import { tr } from './tr.ts';
 
-export type Locale = 'en' | 'tr';
-export const LOCALES: Locale[] = ['en', 'tr'];
-/** Every interface string key; `tr.ts` is typed against it, so a missing translation fails typecheck. */
+export type Locale = 'en' | 'tr' | 'ja';
+/** English first, then the translated editions in the order they were added. */
+export const LOCALES: Locale[] = ['en', 'tr', 'ja'];
+/** Every interface string key; `tr.ts` and `ja.ts` are typed against it, so a missing translation fails typecheck. */
 export type Key = keyof typeof en;
 
-const TABLES: Record<Locale, Record<string, string>> = { en, tr };
+const TABLES: Record<Locale, Record<string, string>> = { en, tr, ja };
 export const LOCALE_KEY = 'atlas.locale';
+/** The translated edition the toolbar switch offers next to English: the one used last. */
+export const ALT_LOCALE_KEY = 'atlas.locale.alt';
 
-function isLocale(v: unknown): v is Locale { return v === 'en' || v === 'tr'; }
+export function isLocale(v: unknown): v is Locale { return typeof v === 'string' && (LOCALES as string[]).includes(v); }
+
+/** The translated edition the browser asks for, if there is one. */
+function browserLocale(): Locale | null {
+  try {
+    const lang = navigator.language.toLowerCase();
+    for (const l of LOCALES) if (l !== 'en' && lang.startsWith(l)) return l;
+  } catch { /* no navigator */ }
+  return null;
+}
 
 /** hash `lang` > localStorage > browser language > English. */
 function resolve(): Locale {
@@ -21,8 +34,7 @@ function resolve(): Locale {
     if (isLocale(fromHash)) return fromHash;
   } catch { /* no location (unit tests) */ }
   try { const s = localStorage.getItem(LOCALE_KEY); if (isLocale(s)) return s; } catch { /* private mode */ }
-  try { if (navigator.language.toLowerCase().startsWith('tr')) return 'tr'; } catch { /* no navigator */ }
-  return 'en';
+  return browserLocale() ?? 'en';
 }
 
 let current: Locale = resolve();
@@ -53,7 +65,7 @@ export function setLocale(l: Locale): void {
   if (!isLocale(l)) return;
   const changed = l !== current;
   current = l;
-  try { localStorage.setItem(LOCALE_KEY, l); } catch { /* private mode */ }
+  try { localStorage.setItem(LOCALE_KEY, l); if (l !== 'en') localStorage.setItem(ALT_LOCALE_KEY, l); } catch { /* private mode */ }
   try { document.documentElement.lang = l; } catch { /* no document */ }
   writeHashLang(l);
   if (changed) for (const cb of Array.from(listeners)) cb(l);
@@ -70,51 +82,67 @@ export function t(key: Key, vars?: Record<string, string | number>): string {
   return vars ? s.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m)) : s;
 }
 
-/** The other locale — what the toolbar switch offers. */
-export function otherLocale(l: Locale = current): Locale { return l === 'en' ? 'tr' : 'en'; }
+/**
+ * The other locale — what the toolbar switch offers. From a translated edition it is always English; from
+ * English it is the translated edition used last, else the browser's, else Turkish (the first one added).
+ * `?lang=ja` in the hash still selects any edition directly.
+ */
+export function otherLocale(l: Locale = current): Locale {
+  if (l !== 'en') return 'en';
+  try { const s = localStorage.getItem(ALT_LOCALE_KEY); if (isLocale(s) && s !== 'en') return s; } catch { /* private mode */ }
+  return browserLocale() ?? 'tr';
+}
 
 export interface DisplayName {
   /** what to print as the name */
   primary: string;
-  /** the English name, when the primary is not it (Turkish mode only); null otherwise */
+  /** the English name, when the primary is not it (translated editions only); null otherwise */
   secondary: string | null;
 }
 
-export interface NamedEntry { name: string; latin?: string; names?: { tr?: string } }
+export interface NamedEntry { name: string; latin?: string; names?: Partial<Record<Locale, string>> }
 
 /**
- * Display name of a content entry. Turkish medical teaching names structures in Latin, so in `tr`
- * the primary line is `names.tr ?? latin ?? name` and the English name goes underneath; in `en`
- * nothing changes (the panels keep showing `latin` in the crumbs).
+ * Display name of a content entry. In `en` nothing changes (the panels keep showing `latin` in the crumbs).
+ * Turkish medical teaching names structures in Latin, so in `tr` the primary line is
+ * `names.tr ?? latin ?? name`; Japanese teaching uses the Japanese anatomical term, so in `ja` it is
+ * `names.ja ?? name`. In both the English name goes underneath when it differs.
  */
 export function entryName(e: NamedEntry | undefined | null, fallback = '', locale: Locale = current): DisplayName {
   const name = (e?.name ?? '') || fallback;
-  if (locale !== 'tr') return { primary: name, secondary: null };
-  const primary = e?.names?.tr ?? e?.latin ?? name;
+  if (locale === 'en') return { primary: name, secondary: null };
+  const primary = e?.names?.[locale] ?? (locale === 'tr' ? e?.latin : undefined) ?? name;
   return { primary, secondary: name && name !== primary ? name : null };
 }
 
 export type EntryKind = 'structures' | 'pathways' | 'syndromes' | 'glossary' | 'quiz' | 'topics';
 export type Rec = ContentEntryBase & Record<string, unknown>;
 
-/** One content entry in the current language: the translated copy when the locale is Turkish and content.tr.json has it, else the English one. */
+/** The translated bundle of the current locale (content.<lang>.json), once main.ts has fetched it. */
+function translatedBundle(app: App): ContentBundle | null {
+  return current === 'en' ? null : app.contentByLang[current] ?? null;
+}
+
+/** One content entry in the current language: the translated copy when the locale's bundle has it, else the English one. */
 export function entryOf(app: App, kind: EntryKind, id: string): Rec | undefined {
-  if (current === 'tr') { const tr = (app.contentTr?.[kind] as Record<string, Rec> | undefined)?.[id]; if (tr) return tr; }
+  const tb = translatedBundle(app);
+  if (tb) { const e = (tb[kind] as Record<string, Rec> | undefined)?.[id]; if (e) return e; }
   return (app.content?.[kind] as Record<string, Rec> | undefined)?.[id];
 }
 
 /** Every entry of a kind in the current language (English entries stand in for the untranslated ones). */
 export function entriesOf(app: App, kind: EntryKind): Record<string, Rec> {
   const base = (app.content?.[kind] as Record<string, Rec> | undefined) ?? {};
-  if (current !== 'tr' || !app.contentTr) return base;
-  const tr = (app.contentTr[kind] as Record<string, Rec> | undefined) ?? {};
+  const tb = translatedBundle(app);
+  if (!tb) return base;
+  const tr = (tb[kind] as Record<string, Rec> | undefined) ?? {};
   const out: Record<string, Rec> = {};
   for (const [id, e] of Object.entries(base)) out[id] = tr[id] ?? e;
   return out;
 }
 
-/** True when this entry's prose is in the interface language (English mode, or a translated entry). */
-export function isTranslated(e: { lang?: string } | undefined | null): boolean { return current !== 'tr' || e?.lang === 'tr'; }
+/** True when this entry's prose is in the interface language (English mode, or an entry translated into the current locale). */
+export function isTranslated(e: { lang?: string } | undefined | null): boolean { return current === 'en' || e?.lang === current; }
 export type { ContentBundle };
 
 /**

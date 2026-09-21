@@ -1,10 +1,10 @@
 /**
  * English interface strings.
  *
- * Every user-visible string the interface itself owns lives here; `tr.ts` mirrors it key for key
+ * Every user-visible string the interface itself owns lives here; `tr.ts` and `ja.ts` mirror it key for key
  * (`Record<keyof typeof en, string>`, so a forgotten key fails `npm run typecheck`).
  * Text that comes from the content bundle or the mesh manifest — structure names, prose, system
- * names — is NOT here: it is data, and its Turkish display name arrives through `names.tr`.
+ * names — is NOT here: it is data, and its translated display name arrives through `names.<lang>`.
  *
  * `{name}`-style placeholders are filled in by `t(key, vars)`.
  */
@@ -36,8 +36,10 @@ export const en = {
   // ---- locale switch
   'locale.short.en': 'EN',
   'locale.short.tr': 'TR',
+  'locale.short.ja': 'JA',
   'locale.name.en': 'English',
   'locale.name.tr': 'Türkçe',
+  'locale.name.ja': '日本語',
 
   // ---- toolbar
   'toolbar.panelLeft': 'Structures',
@@ -86,7 +88,7 @@ export const en = {
   'help.search': 'search',
   'help.quiz': 'answer quiz',
   'help.escape': 'clear selection / exit syndrome',
-  'help.language': 'switch language (English / Türkçe)',
+  'help.language': 'switch language (English / Türkçe / 日本語)',
   'help.shiftClick': '+click: select without moving slices',
   'help.altClick': '+click a system or group in the tree: show only that group',
 
@@ -364,7 +366,7 @@ export const en = {
   'kind.glossary': 'glossary',
   'kind.mesh': 'mesh',
 
-  // ---- untranslated-prose marker (only ever shown in Turkish)
+  // ---- untranslated-prose marker (only ever shown in a translated edition; each edition's table words it for itself)
   'trNotice.body': 'The Turkish clinical text is a machine-assisted translation and is still under specialist review. Where the two differ, the English text is the reference.',
   'trNotice.dismiss': 'Dismiss',
   'tag.langEn': 'English',

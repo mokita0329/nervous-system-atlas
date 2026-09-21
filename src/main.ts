@@ -29,7 +29,7 @@ import { applyCameraPreset, contrasts, setContrast, setSliceVisible, setPeel } f
 import { sameSet } from './state/actions.ts';
 import { bindRouter, paramsOf, routeOf, serialize, viewParams, type Route, type RouteParams } from './router/hashRouter.ts';
 import type { ContentBundle } from './types/content.ts';
-import { getLocale, onLocaleChange, otherLocale, setLocale, t } from './i18n/index.ts';
+import { getLocale, onLocaleChange, otherLocale, setLocale, t, type Locale } from './i18n/index.ts';
 
 const msg = document.getElementById('overlay-msg')!;
 function showMsg(text: string | null): void { msg.hidden = !text; msg.textContent = text ?? ''; }
@@ -145,22 +145,22 @@ async function boot(): Promise<void> {
     else location.hash = `#/structure/${doc.id}`;
   }, app);
   // the locale lives in the store: setLocale tells us, every panel re-renders from its own subscription
-  // the Turkish bundle (translated prose) is fetched the first time Turkish is wanted, before the panels re-render
-  async function ensureTr(): Promise<void> {
-    if (app.contentTr) return;
-    try { const r = await fetch('data/content.tr.json'); if (r.ok) app.contentTr = (await r.json()) as ContentBundle; } catch (e) { console.warn('no Turkish bundle', e); }
+  // a translated bundle (the prose of one edition) is fetched the first time its language is wanted, before the panels re-render
+  async function ensureBundle(l: Locale): Promise<void> {
+    if (l === 'en' || app.contentByLang[l]) return;
+    try { const r = await fetch(`data/content.${l}.json`); if (r.ok) app.contentByLang[l] = (await r.json()) as ContentBundle; } catch (e) { console.warn(`no ${l} bundle`, e); }
   }
-  onLocaleChange((l) => { if (l === 'tr' && !app.contentTr) void ensureTr().then(() => app.store.set({ locale: l })); else app.store.set({ locale: l }); });
+  onLocaleChange((l) => { if (l !== 'en' && !app.contentByLang[l]) void ensureBundle(l).then(() => app.store.set({ locale: l })); else app.store.set({ locale: l }); });
   app.store.subscribe((s) => s.locale, () => renderHelp());
-  // The Turkish clinical prose is a machine-assisted translation: say so where it cannot be missed, until
-  // the reader dismisses it. The same sentence is repeated, undismissable, in the About panel.
+  // The translated clinical prose (Turkish, Japanese) is machine-assisted: say so where it cannot be missed,
+  // until the reader dismisses it. The same sentence is repeated, undismissable, in the About panel.
   const trNotice = h('div', { class: 'tr-notice', id: 'tr-notice' });
   document.getElementById('viewport')!.append(trNotice);
   function renderTrNotice(): void {
     clear(trNotice);
     let dismissed = false;
     try { dismissed = localStorage.getItem('atlas.trNotice.dismissed') === '1'; } catch { /* storage blocked */ }
-    trNotice.hidden = getLocale() !== 'tr' || dismissed;
+    trNotice.hidden = getLocale() === 'en' || dismissed;
     if (trNotice.hidden) return;
     trNotice.append(h('span', {}, t('trNotice.body')),
       h('button', { class: 'mini', onclick: () => { try { localStorage.setItem('atlas.trNotice.dismissed', '1'); } catch { /* storage blocked */ } renderTrNotice(); } }, t('trNotice.dismiss')));
@@ -276,7 +276,7 @@ async function boot(): Promise<void> {
     const r = await fetch('data/content.json');
     if (r.ok) { app.content = (await r.json()) as ContentBundle; app.store.set({ loaded: { ...app.store.get().loaded, content: true } }); toolbar.setCounts(manifest.meshes.length, Object.keys(app.content.structures).length); }
   } catch (e) { console.warn('no content bundle', e); }
-  if (getLocale() === 'tr') await ensureTr();
+  await ensureBundle(getLocale());
   void search.load('data/search-index.json', manifest.meshes.filter((m) => !app.content?.structures[m.structureId]).map((m) => ({ id: m.id, kind: 'mesh', name: m.name, aliases: [], summary: t('search.unauthored', { system: m.system, side: m.side }) })));
   // "Share view" links carry the camera, the visible systems and overrides, the slice visibility and the peels;
   // they are applied after the route so that nothing the route does (a preset, a fit) overrides them

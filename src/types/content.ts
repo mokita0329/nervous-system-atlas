@@ -6,20 +6,20 @@ export interface BibEntry {
   container: string; publisher?: string; url: string; nbk?: string; doi?: string; pmid?: string; pmcid?: string;
   license?: string; accessed: string; verified: true; tags: string[];
 }
-export type Locale = 'en' | 'tr';
-/** Per-locale display names: `tr` is the Latin term (Turkish medical teaching names structures in Latin); absent = fall back to `name`. */
-export interface LocalNames { tr?: string }
+export type Locale = 'en' | 'tr' | 'ja';
+/** Per-locale display names: `tr` is the Latin term (Turkish medical teaching names structures in Latin), `ja` the Japanese anatomical term; absent = fall back to `name`. */
+export interface LocalNames { tr?: string; ja?: string }
 export interface ContentEntryBase {
-  kind: string; id: string; name: string; synonyms?: string[]; latin?: string; names?: LocalNames; synonymsByLang?: { tr?: string[] };
+  kind: string; id: string; name: string; synonyms?: string[]; latin?: string; names?: LocalNames; synonymsByLang?: { tr?: string[]; ja?: string[] };
   summary?: string; citations: Citation[]; status?: string; html?: Record<string, string>;
-  /** 'tr' when the entry comes from the translated bundle */
+  /** the locale ('tr', 'ja') when the entry comes from a translated bundle */
   lang?: string;
   /** the entry had meshes, and this edition's licence filter dropped every one of them */
   meshesDropped?: boolean;
 }
 export interface ContentBundle {
   generated: string;
-  /** 'tr' on the translated bundle; entries in it carry `lang: 'tr'` too */
+  /** the locale on a translated bundle; entries in it carry the same `lang` */
   lang?: string;
   bibliography: Record<string, BibEntry>;
   structures: Record<string, ContentEntryBase & Record<string, unknown>>;

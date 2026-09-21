@@ -10,6 +10,7 @@ import { makeGrid, type VolumeGrid } from './volume/coords.ts';
 import { Flags, Lut } from './volume/textures.ts';
 import { createSliceUniforms, SlicePlane, type SliceUniforms } from './volume/SlicePlane.ts';
 import type { SpineLabels } from './volume/spineLabels.ts';
+import type { Locale } from './i18n/index.ts';
 import type { ContentBundle } from './types/content.ts';
 
 /** Everything the actions and UI need to reach. Created once in main.ts. */
@@ -29,8 +30,8 @@ export interface App {
   /** PAM50 spinal levels on the cord grid; loaded next to the cord MRI, null until then */
   spine: SpineLabels | null;
   content: ContentBundle | null;
-  /** the Turkish bundle (public/data/content.tr.json): the same entries with their prose translated, fetched in Turkish mode */
-  contentTr: ContentBundle | null;
+  /** the translated bundles (public/data/content.<lang>.json): the same entries with their prose translated, each fetched the first time its language is wanted */
+  contentByLang: Partial<Record<Locale, ContentBundle>>;
   lesion: THREE.Mesh;
 }
 
@@ -51,7 +52,7 @@ export function createApp(canvas: HTMLCanvasElement, manifest: Manifest): App {
   for (const s of Object.values(slices)) { sm.sliceRoot.add(s.mesh); s.setVisible(false); }
   const lesion = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 24), new THREE.MeshStandardMaterial({ color: 0xff3030, transparent: true, opacity: 0.45, depthWrite: false, emissive: 0x550000 }));
   lesion.visible = false; lesion.renderOrder = 20; sm.overlayRoot.add(lesion);
-  const app: App = { store, sm, manifest, labels: null, registry, picker: null as unknown as Picker, grid, cordGrid, grids, uniforms, slices, luts, spine: null, content: null, contentTr: null, lesion };
+  const app: App = { store, sm, manifest, labels: null, registry, picker: null as unknown as Picker, grid, cordGrid, grids, uniforms, slices, luts, spine: null, content: null, contentByLang: {}, lesion };
   return app;
 }
 

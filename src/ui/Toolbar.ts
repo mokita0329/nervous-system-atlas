@@ -78,8 +78,8 @@ export class Toolbar {
     }
     for (const { el, label, title } of this.buttons) { el.textContent = t(label); el.title = t(title); }
     this.qualityBtn.title = t('toolbar.quality.title');
-    this.localeBtn.textContent = t(other === 'tr' ? 'locale.short.tr' : 'locale.short.en');
-    this.localeBtn.title = t(other === 'tr' ? 'locale.name.tr' : 'locale.name.en');
+    this.localeBtn.textContent = t(`locale.short.${other}` as Key);
+    this.localeBtn.title = t(`locale.name.${other}` as Key);
     this.helpBtn.title = t('toolbar.help.title');
     this.setQuality(this.app.store.get().quality);
     this.renderStatus();

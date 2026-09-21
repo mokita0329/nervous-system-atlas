@@ -17,13 +17,13 @@ export function h<K extends keyof HTMLElementTagNameMap>(tag: K, attrs: Record<s
 }
 export function clear(el: Element): void { while (el.firstChild) el.removeChild(el.firstChild); }
 
-/** In Turkish mode, the pill that marks a prose block still shown in English: null in English mode and for an entry that is translated. */
+/** In a translated edition, the pill that marks a prose block still shown in English: null in English mode and for an entry that is translated. */
 export function enTag(entry?: { lang?: string } | null): HTMLElement | null {
-  if (getLocale() !== 'tr' || (entry && isTranslated(entry))) return null;
+  if (getLocale() === 'en' || (entry && isTranslated(entry))) return null;
   return h('span', { class: 'tag lang-en', title: t('tag.langEn.title') }, t('tag.langEn'));
 }
 
-/** The muted English name printed under a Latin/Turkish primary name (null when there is nothing to add). */
+/** The muted English name printed under a translated primary name (null when there is nothing to add). */
 export function secondaryName(n: DisplayName): HTMLElement | null {
   return n.secondary ? h('span', { class: 'name-secondary' }, n.secondary) : null;
 }

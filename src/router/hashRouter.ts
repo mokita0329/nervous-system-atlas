@@ -38,7 +38,7 @@ export function parseHash(hash: string): { route: Route; params: RouteParams } {
   const params: RouteParams = { ax: num('ax'), cor: num('cor'), sag: num('sag') };
   const c = q.get('c'); if (isContrast(c)) params.c = c;
   const side = q.get('side'); if (side === 'l' || side === 'r') params.side = side;
-  const lang = q.get('lang'); if (lang === 'en' || lang === 'tr') params.lang = lang;
+  const lang = q.get('lang'); if (lang === 'en' || lang === 'tr' || lang === 'ja') params.lang = lang;
   const cam = q.get('cam'); if (cam) { const n = cam.split(',').map(Number); if (n.length === 6 && n.every(Number.isFinite)) params.cam = n as ViewParams['cam']; }
   for (const k of ['sys', 'show', 'hide'] as const) { const v = q.get(k); if (v !== null) params[k] = v.split(',').filter((x) => ID.test(x)); }
   const sl = q.get('sl'); if (sl !== null && /^(-|[acs]{0,3})$/.test(sl)) params.sl = sl;

@@ -8,7 +8,7 @@ const KIND_KEY: Record<string, Key> = {
   syndrome: 'kind.syndrome', topic: 'kind.topic', glossary: 'kind.glossary', mesh: 'kind.mesh',
 };
 
-export interface SearchDoc { id: string; kind: string; name: string; names?: { tr?: string }; latin?: string; aliases: string[]; summary: string }
+export interface SearchDoc { id: string; kind: string; name: string; names?: { tr?: string; ja?: string }; latin?: string; aliases: string[]; summary: string }
 
 /** Toolbar search over the prebuilt content index (structures, cranial nerves, pathways, syndromes). */
 export class SearchBox {

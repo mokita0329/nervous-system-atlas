@@ -14,7 +14,7 @@ import { createHash } from 'node:crypto';
 import { createWriteStream, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
-import { join, resolve } from 'node:path';
+import { join, relative, resolve } from 'node:path';
 
 const RELEASE = {
   repo: 'aycibatuhan/nervous-system-atlas',
@@ -80,7 +80,8 @@ if (RELEASE.sha256.startsWith('__')) {
 // ---- 3. unpack into public/data/
 mkdirSync(DEST, { recursive: true });
 console.log(`unpacking into public/data/`);
-execFileSync('tar', ['-xzf', file, '-C', DEST], { stdio: 'inherit' });
+// relative paths from ROOT: GNU tar (Git for Windows puts it on PATH) reads a Windows drive letter as a remote host
+execFileSync('tar', ['-xzf', relative(ROOT, file) || file, '-C', relative(ROOT, DEST)], { stdio: 'inherit', cwd: ROOT });
 if (!local && !has('--keep-archive')) rmSync(archive, { force: true });
 
 // An archive packed on macOS without COPYFILE_DISABLE=1 carries a ._<name> AppleDouble twin for every entry.

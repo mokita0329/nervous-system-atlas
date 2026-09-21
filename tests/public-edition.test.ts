@@ -166,7 +166,8 @@ describe('public edition — the content bundle', () => {
   };
 
   it('names no mesh that the public manifest does not ship', () => {
-    if (!bundle || !pub) return;
+    // the private manifest only exists where the pipeline ran; a checkout that fetched the release has just the public data
+    if (!bundle || !pub || !priv) return;
     const shipped = new Set(pub.meshes.map((m) => m.id));
     const known = new Set(priv!.meshes.map((m) => m.id));
     const named = meshIdsNamedBy(bundle);
@@ -178,7 +179,7 @@ describe('public edition — the content bundle', () => {
   });
 
   it('keeps the entries whose mesh was dropped, with their prose', () => {
-    if (!bundle) return;
+    if (!bundle || !pub || !exclusions) return;
     const structures = bundle['structures'] as Record<string, { meshIds?: string[]; summary?: string }>;
     const shippedIds = new Set(pub!.meshes.map((m) => m.id));
     const restricted = new Set(exclusions!.meshes.map((m) => m.id));

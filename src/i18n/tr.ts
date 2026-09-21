@@ -33,8 +33,10 @@ export const tr: Record<keyof typeof en, string> = {
   // ---- dil değiştirme
   'locale.short.en': 'EN',
   'locale.short.tr': 'TR',
+  'locale.short.ja': 'JA',
   'locale.name.en': 'English',
   'locale.name.tr': 'Türkçe',
+  'locale.name.ja': '日本語',
 
   // ---- araç çubuğu
   'toolbar.panelLeft': 'Yapılar',

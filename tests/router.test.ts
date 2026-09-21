@@ -42,6 +42,7 @@ describe('hash router', () => {
     const { route, params } = parseHash('#/structure/brainstem?lang=tr');
     expect(route).toEqual({ kind: 'structure', id: 'brainstem' });
     expect(params.lang).toBe('tr');
+    expect(parseHash('#/structure/brainstem?lang=ja').params.lang).toBe('ja');
     expect(parseHash('#/structure/brainstem?lang=de').params.lang).toBeUndefined();
     expect(parseHash('#/structure/brainstem').params.lang).toBeUndefined();
     const h = serialize({ kind: 'structure', id: 'brainstem' }, { lang: 'tr' });

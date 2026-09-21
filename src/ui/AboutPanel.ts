@@ -64,7 +64,7 @@ export class AboutPanel {
             t('about.counts', { meshes: man.meshes.length, sources: sourceIds.length })))),
 
       h('p', { class: 'prose disclaimer', id: 'about-disclaimer' }, h('b', {}, t('about.disclaimer.lead')), t('about.disclaimer.body')),
-      getLocale() === 'tr' ? h('p', { class: 'prose small', id: 'about-tr-notice' }, t('trNotice.body')) : null,
+      getLocale() !== 'en' ? h('p', { class: 'prose small', id: 'about-tr-notice' }, t('trNotice.body')) : null,
       h('p', { class: 'prose' }, t('about.intro')),
 
       h('h3', {}, t('about.licences')),
