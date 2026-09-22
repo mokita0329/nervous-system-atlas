@@ -366,6 +366,9 @@ export const ja: Record<keyof typeof en, string> = {
   'kind.mesh': 'メッシュ',
 
   // ---- untranslated-prose marker (only ever shown in a translated edition)
+  // ---- schematic tract curves (src/tracts/)
+  'tract.schematic': '3D に描かれた線は学習用の模式図である。通る部位・順番・左右は本文のとおりだが、その間の形は描いたものであり、実際の線維を描出したトラクトグラフィではない。',
+
   'trNotice.body': '日本語の臨床本文は AI による機械翻訳で、専門家の校閲は完了していません。英語版と食い違う場合は英語版が正です。',
   'trNotice.dismiss': '閉じる',
   'tag.langEn': '英語',

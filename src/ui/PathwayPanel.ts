@@ -3,9 +3,11 @@ import { h, clear, enTag, secondaryName } from './dom.ts';
 import { entryName, t, type NamedEntry, entryOf } from '../i18n/index.ts';
 import { citeNode } from './cite.ts';
 import type { Citation } from '../types/content.ts';
-import { selectStructure, showForMode } from '../state/actions.ts';
+import { selectStructure, setSlices, showForMode } from '../state/actions.ts';
 import { applyVisualState } from '../scene/materials.ts';
 import { sourceLine } from './sourceLine.ts';
+import { TractLayer } from '../scene/TractLayer.ts';
+import { tractFor } from '../tracts/index.ts';
 
 type Rec = Record<string, unknown>;
 
@@ -14,6 +16,8 @@ export class PathwayPanel {
   private cleanup: (() => void) | null = null;
   private currentId: string | null = null;
   private current: Rec | undefined;
+  /** built the first time a pathway with a curve is opened */
+  private tracts: TractLayer | null = null;
   constructor(private app: App, private container: HTMLElement) {
     // a language switch re-renders the open pathway in place
     app.store.subscribe((s) => s.locale, () => { if (this.currentId && !this.container.hidden) this.show(this.currentId); });
@@ -48,8 +52,23 @@ export class PathwayPanel {
     // highlight waypoint meshes
     const meshIds = new Set<string>([...((p['meshIds'] as string[]) ?? []), ...wps.map((w) => this.meshForStructure(String(w['structureId']), w['meshId'] as string | undefined)).filter((x): x is string => !!x)]);
     const restoreShown = showForMode(this.app, meshIds);
-    void this.app.registry.ensure(meshIds).then((meshes) => { for (const m of meshes) applyVisualState(m, 'involved'); this.app.sm.requestRender(); });
-    this.cleanup = () => { restoreShown(); for (const mid of meshIds) { const m = this.app.registry.get(mid); if (m) applyVisualState(m, 'normal'); } this.app.sm.requestRender(); };
+    // A pathway that has a drawn curve takes the scene over: the curve, its own structures lit, and everything
+    // else at 3 % through the existing `involved` machinery (applyStates). `involved` is claimed from the
+    // promise below, not here: the route switches the panel right after this call, and showPanel() ends with
+    // quizPanel.exit(), which clears a non-syndrome `involved` set (it owns one for its reveal).
+    const tract = tractFor(id);
+    if (tract) { this.tracts ??= new TractLayer(this.app); this.tracts.show(tract); }
+    void this.app.registry.ensure(meshIds).then((meshes) => {
+      for (const m of meshes) applyVisualState(m, 'involved');
+      if (tract && this.currentId === id && !this.app.store.get().syndrome) this.app.store.set({ involved: new Set(meshIds), shell: new Set(meshIds) });
+      this.app.sm.requestRender();
+    });
+    this.cleanup = () => {
+      restoreShown();
+      for (const mid of meshIds) { const m = this.app.registry.get(mid); if (m) applyVisualState(m, 'normal'); }
+      if (tract) { this.tracts?.clear(); if (!this.app.store.get().syndrome) this.app.store.set({ involved: new Set(), shell: new Set() }); }
+      this.app.sm.requestRender();
+    };
 
     const stepList = h('ol', { class: 'waypoints' }, ...wps.map((w, i) => {
       const sid = String(w['structureId']); const st = entryOf(this.app, 'structures', sid);
@@ -57,8 +76,19 @@ export class PathwayPanel {
       const side = String(w['sideRelativeToOrigin']);
       const n = entryName(st, sid);
       // a real button, so the step can be reached with Tab and taken with Enter or Space
+      const order = Number(w['order'] ?? i + 1);
       return h('li', { class: `wp side-${side}` },
-        h('button', { type: 'button', class: 'wp-pick', disabled: mid ? null : 'true', onclick: () => { if (mid) selectStructure(this.app, mid, { moveSlices: true }); } },
+        h('button', {
+          type: 'button', class: 'wp-pick', disabled: mid || tract ? null : 'true',
+          onclick: () => {
+            // with a curve open the station itself is the place to look, so the slices go to the curve's own
+            // point (the centroid of a whole-brainstem mesh is not where the tract passes through it)
+            const at = this.tracts?.positionOf(order) ?? null;
+            this.tracts?.highlight(order);
+            if (at) setSlices(this.app, { sagittal: Math.round(at.x), coronal: Math.round(at.y), axial: Math.round(at.z) });
+            if (mid) selectStructure(this.app, mid, { moveSlices: !at });
+          },
+        },
           h('span', { class: 'wp-n' }, String(i + 1)), h('b', {}, n.primary, secondaryName(n)), h('span', { class: 'tag' }, side)),
         w['note'] ? h('div', { class: 'muted small' }, String(w['note'])) : null);
     }));
@@ -74,7 +104,7 @@ export class PathwayPanel {
       sourceLine(this.app, meshIds),
       h('h3', {}, enTag(this.current), t('pathway.neuronChain')), h('ol', {}, ...(p['neuronChain'] as Rec[]).map((n) => h('li', {}, h('b', {}, String(n['cellBody'])), ` → ${n['synapse']}`))),
       h('h3', {}, enTag(this.current), t('pathway.decussation')), dec ? h('p', {}, h('b', {}, String(dec['level'])), `: ${dec['note']}`) : h('p', { class: 'muted' }, t('pathway.uncrossed')),
-      h('h3', {}, t('pathway.course')), stepList,
+      h('h3', {}, t('pathway.course')), tract ? h('p', { class: 'muted small tract-note' }, t('tract.schematic')) : null, stepList,
       h('h3', {}, t('pathway.termination')), this.html(html['termination'] ?? p['termination']),
       p['somatotopy'] ? h('div', {}, h('h3', {}, t('pathway.somatotopy')), this.html(html['somatotopy'] ?? p['somatotopy'])) : null,
       h('h3', {}, enTag(this.current), t('pathway.lesionByLevel')), h('table', { class: 'tbl' }, h('tr', {}, h('th', {}, t('th.level')), h('th', {}, t('th.effects')), h('th', {}, t('th.side'))),

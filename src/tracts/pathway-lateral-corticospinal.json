@@ -1,0 +1,17 @@
+{
+  "pathway": "pathway-lateral-corticospinal",
+  "side": "l",
+  "colour": "#e0453f",
+  "note": "左半球から出て錐体交叉で右へ渡る一本。w は content/data/pathways の waypoints の order。",
+  "points": [
+    { "w": 1, "mesh": "dkt-precentral-l", "offset": [8, 0, 6], "r": 3.0 },
+    { "w": 2, "mni": [-26, -14, 30], "r": 2.8 },
+    { "w": 3, "mni": [-22, -14, 8], "r": 2.6 },
+    { "w": 4, "mesh": "cerebral-peduncle-crus-l", "offset": [-1, 0, 0], "r": 2.6 },
+    { "w": 5, "mni": [-8, -25, -32], "r": 2.4 },
+    { "w": 6, "mni": [-6, -36, -52], "r": 2.4 },
+    { "w": 7, "mni": [0, -42, -66], "r": 2.6, "cross": true },
+    { "w": 8, "mni": [5, -47, -86], "r": 2.2 },
+    { "w": 9, "mni": [3, -80, -150], "r": 2.0 }
+  ]
+}

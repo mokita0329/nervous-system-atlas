@@ -366,6 +366,9 @@ export const en = {
   'kind.glossary': 'glossary',
   'kind.mesh': 'mesh',
 
+  // ---- schematic tract curves (src/tracts/)
+  'tract.schematic': 'The line drawn in 3D is a teaching figure: the stations, their order and the side they are on come from the text, the shape between them is drawn. It is not a tractography of real fibres.',
+
   // ---- untranslated-prose marker (only ever shown in a translated edition; each edition's table words it for itself)
   'trNotice.body': 'The Turkish clinical text is a machine-assisted translation and is still under specialist review. Where the two differ, the English text is the reference.',
   'trNotice.dismiss': 'Dismiss',

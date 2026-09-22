@@ -364,6 +364,9 @@ export const tr: Record<keyof typeof en, string> = {
   'kind.mesh': 'mesh',
 
   // ---- çevrilmemiş metin işareti (yalnızca Türkçe kipte görünür)
+  // ---- schematic tract curves (src/tracts/)
+  'tract.schematic': '3B çizilen çizgi bir ders şemasıdır: istasyonlar, sıraları ve bulundukları taraf metinden gelir, aradaki biçim çizilmiştir. Gerçek liflerin traktografisi değildir.',
+
   'trNotice.body': 'Türkçe klinik metinler makine destekli çeviridir ve uzman incelemesi sürmektedir. İki metin ayrıldığında İngilizce metin esastır.',
   'trNotice.dismiss': 'Kapat',
   'tag.langEn': 'English',

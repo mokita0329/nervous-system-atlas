@@ -25,7 +25,8 @@ export interface AppState {
   overlay: { opacity: number; showAllLabels: boolean; territory: boolean; tracts: boolean };
   peel: Partial<Record<Axis, 'positive' | 'negative'>>;
   syndrome: { id: string; step: number } | null;
-  involved: ReadonlySet<string>;             // meshes involved in the active syndrome
+  involved: ReadonlySet<string>;             // meshes involved in the active syndrome or pathway
+  shell: ReadonlySet<string>;                // meshes kept translucent so a drawn tract can be followed through them
   stepHighlight: ReadonlySet<string>;        // meshes spotlighted for the current deficit step
   lesionSide: 'l' | 'r' | null;              // demo side for lateralised syndromes
   panel: { kind: 'quiz'; index: number } | { kind: 'glossary'; id: string | null } | { kind: 'topic'; id: string | null } | { kind: 'about' } | { kind: 'pathway'; id: string } | null;
@@ -54,6 +55,7 @@ export function initialState(): AppState {
     peel: {},
     syndrome: null,
     involved: new Set(),
+    shell: new Set(),
     stepHighlight: new Set(),
     lesionSide: null,
     panel: null,

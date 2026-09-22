@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { ManifestMesh } from '../types/manifest.ts';
 import { lookFor } from './palette.ts';
 
-export type VisualState = 'normal' | 'hover' | 'selected' | 'dimmed' | 'involved';
+export type VisualState = 'normal' | 'hover' | 'selected' | 'dimmed' | 'involved' | 'shell';
 
 export interface AtlasMaterial extends THREE.MeshPhysicalMaterial {
   userData: {
@@ -70,6 +70,13 @@ export function applyVisualState(mesh: THREE.Mesh, state: VisualState): void {
     case 'dimmed':
       // 2–3 % so stacked parcels never build up into grey fog
       mat.opacity = Math.min(op, 0.03); mat.transparent = true; mat.depthWrite = false; mesh.renderOrder = 5;
+      break;
+    case 'shell':
+      // a structure a drawn tract passes through: lit at the edges like 'involved' but see-through, so the
+      // curve inside it can be followed (an opaque internal capsule or hemisphere hides the very thing to read)
+      mat.userData.rim.value.set(RIM_INVOLVED.r, RIM_INVOLVED.g, RIM_INVOLVED.b, 1.0); mat.userData.rimPower.value = 1.8;
+      mat.emissive.copy(base).multiplyScalar(0.10);
+      mat.opacity = Math.min(op, 0.22); mat.transparent = true; mat.depthWrite = false; mesh.renderOrder = 6;
       break;
     case 'involved':
       mat.userData.rim.value.set(RIM_INVOLVED.r, RIM_INVOLVED.g, RIM_INVOLVED.b, 1.2); mat.userData.rimPower.value = 1.8;

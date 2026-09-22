@@ -35,7 +35,7 @@ export class QuizPanel {
   private clearHighlight(): void {
     this.restoreShown?.(); this.restoreShown = null;
     const st = this.app.store.get();
-    if (!st.syndrome && st.involved.size) this.app.store.set({ involved: new Set(), stepHighlight: new Set() });
+    if (!st.syndrome && st.involved.size) this.app.store.set({ involved: new Set(), shell: new Set(), stepHighlight: new Set() });
     if (!st.syndrome) applyStates(this.app);
   }
   exit(): void { this.clearHighlight(); }
