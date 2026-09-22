@@ -31,6 +31,11 @@ export function regionBox(app: App, u: FunctionalUnit): THREE.Box3 | null {
   return box.isEmpty() ? null : box;
 }
 
+/** An unbounded region, for callers that want the plain "does the sphere reach this mesh" question. */
+export function windowBoxAll(): THREE.Box3 {
+  return new THREE.Box3(new THREE.Vector3(-OPEN, -OPEN, -OPEN), new THREE.Vector3(OPEN, OPEN, OPEN));
+}
+
 /** Units whose box the lesion's own box overlaps. Manifest-only, so this is safe before anything is loaded. */
 export function unitsNear(app: App, lesion: Lesion): FunctionalUnit[] {
   const c = new THREE.Vector3(...lesion.mni);
@@ -52,16 +57,27 @@ export async function ensureUnitMeshes(app: App): Promise<void> {
 const tmp = new THREE.Vector3();
 const ray = new THREE.Raycaster();
 
-/** Odd number of surface crossings along +x means the point is inside the mesh. */
-function insideMesh(mesh: THREE.Mesh, p: THREE.Vector3): boolean {
+/**
+ * Is the point inside this mesh? Odd number of surface crossings along +x.
+ *
+ * The bounding box is checked first, and not only to save the raycast: these meshes are not all watertight,
+ * and a parity test on an open surface can answer "inside" for a point nowhere near it. Refusing to ask the
+ * question outside the box keeps that mistake local.
+ */
+export function pointInMesh(mesh: THREE.Mesh, p: THREE.Vector3): boolean {
+  const box = mesh.geometry.boundingBox;
+  if (box && !box.containsPoint(p)) return false;
   ray.set(p, new THREE.Vector3(1, 0, 0));
   ray.far = OPEN;
   (ray as THREE.Raycaster & { firstHitOnly?: boolean }).firstHitOnly = false;
   return ray.intersectObject(mesh, false).length % 2 === 1;
 }
 
-/** True when the sphere reaches the part of the mesh that lies inside the region. */
-function sphereMeetsMesh(mesh: THREE.Mesh, centre: THREE.Vector3, r: number, region: THREE.Box3): boolean {
+/**
+ * True when the sphere reaches the part of the mesh that lies inside the region.
+ * Pass an unbounded region to ask the plain question "does this lesion reach this structure at all".
+ */
+export function sphereMeetsMesh(mesh: THREE.Mesh, centre: THREE.Vector3, r: number, region: THREE.Box3): boolean {
   const tree = mesh.geometry.boundsTree;
   if (!tree) return false;
   const sphere = new THREE.Sphere(centre, r);
@@ -73,7 +89,7 @@ function sphereMeetsMesh(mesh: THREE.Mesh, centre: THREE.Vector3, r: number, reg
     },
   });
   if (surface) return true;
-  return region.containsPoint(centre) && insideMesh(mesh, centre);   // lesion swallowed by a thick structure
+  return region.containsPoint(centre) && pointInMesh(mesh, centre);   // lesion swallowed by a thick structure
 }
 
 export interface ProbeResult {
@@ -96,7 +112,10 @@ export function probe(app: App, lesion: Lesion): ProbeResult {
     if (!u.where.mesh) { hit.push(u); continue; }               // a plain coordinate box needs no geometry
     const mesh = app.registry.get(u.where.mesh);
     if (!mesh) { unresolved.push(u); continue; }
-    if (sphereMeetsMesh(mesh, centre, lesion.radiusMm, region)) hit.push(u);
+    const reach = u.where.strict ? lesion.radiusMm * 0.5 : lesion.radiusMm;
+    const meets = sphereMeetsMesh(mesh, centre, reach, region)
+      || (u.where.strict ? region.containsPoint(centre) && pointInMesh(mesh, centre) : false);
+    if (meets) hit.push(u);
   }
   const groups = new Set(hit.map((u) => u.group.en));
   const sides = new Set(hit.map((u) => u.side));

@@ -12,6 +12,7 @@ import type { App } from '../app.ts';
 import { applyStates, setSlices, showForMode } from '../state/actions.ts';
 import { ensureUnitMeshes, probe, type Lesion, type ProbeResult } from './probe.ts';
 import { symptomsOf, type Symptoms } from './symptoms.ts';
+import { anatomyAt, ensureAnatomy, type AnatomyResult } from './anatomy.ts';
 import type { FunctionalUnit } from './units.ts';
 
 export const DEFAULT_RADIUS_MM = 8;
@@ -23,7 +24,7 @@ export class LesionController {
   private wire: THREE.Mesh;
   private loading: Promise<void> | null = null;
   /** the panel subscribes to this; it is the only way results leave the controller */
-  onResult: (s: Symptoms, res: ProbeResult) => void = () => {};
+  onResult: (s: Symptoms, res: ProbeResult, anat: AnatomyResult) => void = () => {};
 
   constructor(private app: App) {
     // A 45 %-opaque red ball is a smudge against a scene dimmed to 3 %. The second, wireframe copy is what
@@ -71,8 +72,12 @@ export class LesionController {
 
   /** Spotlight the structure one symptom row came from, while the pointer is on it. */
   hover(unit: FunctionalUnit | null): void {
-    const mesh = unit?.where.mesh;
-    this.app.store.set({ stepHighlight: mesh ? new Set([mesh]) : new Set() });
+    this.hoverMesh(unit?.where.mesh ?? null);
+  }
+
+  /** The same, for a row that names a mesh directly (the anatomy list). */
+  hoverMesh(meshId: string | null): void {
+    this.app.store.set({ stepHighlight: meshId ? new Set([meshId]) : new Set() });
     applyStates(this.app);
   }
 
@@ -89,26 +94,30 @@ export class LesionController {
     this.wire.visible = true;
 
     const res = probe(this.app, l);
+    const anat = anatomyAt(this.app, l);
 
-    // Units whose mesh has not arrived yet cannot be decided. Load them once, then answer again — the first
+    // Meshes that have not arrived yet cannot be decided. Load them once, then answer again — the first
     // answer is still shown meanwhile, so the panel never sits empty waiting for geometry.
-    if (res.unresolved.length && !this.loading) {
-      this.loading = ensureUnitMeshes(this.app).then(() => {
+    if ((res.unresolved.length || anat.pending) && !this.loading) {
+      this.loading = Promise.all([ensureUnitMeshes(this.app), ensureAnatomy(this.app, l)]).then(() => {
         this.loading = null;
         if (this.lesion) this.refresh();
       });
     }
 
-    const meshes = [...new Set(res.hit.map((u) => u.where.mesh).filter((m): m is string => !!m))];
+    const unitMeshes = [...new Set(res.hit.map((u) => u.where.mesh).filter((m): m is string => !!m))];
+    const meshes = [...new Set([...anat.hits.map((a) => a.meshId), ...unitMeshes])];
     this.restore?.();
     this.restore = showForMode(this.app, meshes);
-    // `involved` is what switches the whole scene into "everything else is 3 %" mode (`actions.ts:36`);
-    // `shell` then keeps these same meshes translucent so the red ball stays visible inside them.
-    this.app.store.set({ involved: new Set(meshes), shell: new Set(meshes), stepHighlight: new Set() });
+    // `involved` is what switches the whole scene into "everything else is 3 %" mode (`actions.ts:36`) and
+    // draws these solid. `shell` keeps the ones the lesion sits *inside* translucent, so the red ball is
+    // still visible in there rather than swallowed by the structure it is destroying.
+    const inside = new Set([...anat.hits.filter((a) => a.contains).map((a) => a.meshId), ...unitMeshes]);
+    this.app.store.set({ involved: new Set(meshes), shell: inside, stepHighlight: new Set() });
     void this.app.registry.ensure(meshes).then(() => applyStates(this.app));
     applyStates(this.app);
 
-    this.onResult(symptomsOf(res), res);
+    this.onResult(symptomsOf(res), res, anat);
     this.app.sm.requestRender();
   }
 }

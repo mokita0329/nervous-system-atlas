@@ -39,8 +39,9 @@ test('a capsular lacune names the body parts it takes, and the ones it spares', 
   await expect(row.locator('td.lost').first()).toHaveText('右');
   await expect(p.locator('.sim-table')).not.toContainText('左');
 
-  // the sensory fibres sit behind the motor ones: a 5 mm lesion must not reach them
-  await expect(p.locator('.sim-table tr', { hasText: '手' }).first().locator('td')).toContainText(['手', '右', '—', '—']);
+  // the optic radiation runs behind the sensory fibres: a lacune this far forward cannot reach it
+  await expect(p).toContainText('視放線');          // in the spared list
+  await expect(p).not.toContainText('同名半盲');
 });
 
 test('growing the lesion brings in the structures behind it', async ({ page }) => {
@@ -105,4 +106,26 @@ test('a click on the axial slice puts the lesion at that level, not on the corte
   await expect.poll(() => page.evaluate(() => (window as unknown as { atlas: { store: { get(): { lesion: { mni: number[] } | null } } } }).atlas.store.get().lesion?.mni[2] ?? null),
     { timeout: 20_000 * SLOW }).toBe(10);
   await expect(panel(page)).toContainText('病巣が達した部位', { timeout: 30_000 * SLOW });
+});
+
+test('a thalamic bleed names the nuclei it is in, and grows into the capsule as the radius rises', async ({ page }) => {
+  await boot(page, '#/lesion/-12,-20,8,8?lang=ja');
+  const p = panel(page);
+  await expect(p).toContainText('病巣が噛んでいる構造', { timeout: 30_000 * SLOW });
+  await expect(p).toContainText('視床');
+
+  // sensory loss over the whole opposite side, and — the point of the spared list — no weakness
+  const touch = p.locator('.sim-table tr', { hasText: '手' }).first().locator('td').nth(2);
+  await expect(touch).toHaveText('右');
+  await expect(p.locator('.sim-table tr', { hasText: '手' }).first().locator('td').nth(1)).toHaveText('—');
+  await expect(p).toContainText('皮質脊髄路');            // listed under 保たれた部位
+  await expect(p).toContainText('視床痛');
+
+  // widen it: the internal capsule comes in, and with it the weakness
+  await page.locator('[data-testid=lesion-radius]').fill('16');
+  await page.locator('[data-testid=lesion-radius]').dispatchEvent('input');
+  await expect(p).toContainText('内包', { timeout: 20_000 * SLOW });
+  await expect.poll(
+    () => p.locator('.sim-table tr', { hasText: '手' }).first().locator('td').nth(1).innerText(),
+    { timeout: 20_000 * SLOW }).toBe('右');
 });

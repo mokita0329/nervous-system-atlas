@@ -1,10 +1,11 @@
 import type { App } from '../app.ts';
 import { h, clear } from './dom.ts';
-import { getLocale, t } from '../i18n/index.ts';
+import { getLocale, meshLabel, t } from '../i18n/index.ts';
 import type { LesionController } from '../sim/controller.ts';
 import { rowsOf, type Side, type Symptoms } from '../sim/symptoms.ts';
 import { TABLE_MODALITIES, type FunctionalUnit, type Text } from '../sim/units.ts';
 import type { ProbeResult } from '../sim/probe.ts';
+import type { AnatomyResult } from '../sim/anatomy.ts';
 
 /**
  * What the lesion costs the patient.
@@ -20,13 +21,13 @@ const sideWord = (s: Side): string | null =>
   s === 'none' ? null : t(s === 'both' ? 'sim.side.both' : s === 'l' ? 'side.left' : 'side.right');
 
 export class SimPanel {
-  private last: { sym: Symptoms; res: ProbeResult } | null = null;
+  private last: { sym: Symptoms; res: ProbeResult; anat: AnatomyResult } | null = null;
 
   constructor(private app: App, private container: HTMLElement, private ctl: LesionController) {
     app.store.subscribe((s) => s.locale, () => this.render());
     // Clearing the lesion, or a link that drops it, has no result to report — the panel has to notice by itself.
     app.store.subscribe((s) => s.lesion === null, (gone) => { if (gone) { this.last = null; this.render(); } });
-    ctl.onResult = (sym, res) => { this.last = { sym, res }; this.render(); };
+    ctl.onResult = (sym, res, anat) => { this.last = { sym, res, anat }; this.render(); };
     this.render();
   }
 
@@ -78,17 +79,37 @@ export class SimPanel {
 
     const never = h('div', { class: 'sim-never' },
       h('b', {}, t('sim.notModelled.title')),
-      h('p', {}, t('sim.notModelled.body')));
+      h('p', {}, t('sim.notModelled.body')),
+      h('p', { style: 'margin-top:6px' }, t('sim.sphereNote')));
 
     if (!lesion || !this.last) {
       this.container.append(h('div', {}, head, h('p', { class: 'sim-hint' }, t('sim.hint')), never));
       return;
     }
 
-    const { sym, res } = this.last;
+    const { sym, res, anat } = this.last;
     const body = h('div', {}, head);
 
-    if (sym.empty) body.append(h('p', { class: 'sim-hint' }, t(res.unresolved.length ? 'sim.checking' : 'sim.none')));
+    if (anat.hits.length) {
+      body.append(h('h3', { class: 'sim-h' }, t('sim.structures')));
+      for (const a of anat.hits) {
+        const n = meshLabel(this.app, a.meshId);
+        body.append(h('div', {
+          class: a.contains ? 'sim-unit' : 'sim-unit clipped',
+          onmouseenter: () => this.ctl.hoverMesh(a.meshId),
+          onmouseleave: () => this.ctl.hoverMesh(null),
+        },
+          h('span', { class: 'dot' }),
+          h('span', { class: 'nm' }, n.primary),
+          a.contains ? h('span', { class: 'src' }, t('sim.inside')) : null));
+      }
+      if (anat.territories.length) {
+        body.append(h('div', { class: 'sim-terr' }, h('b', {}, `${t('sim.territories')}: `),
+          anat.territories.map((a) => meshLabel(this.app, a.meshId).primary).join('・')));
+      }
+    }
+
+    if (sym.empty) body.append(h('p', { class: 'sim-hint' }, t(res.unresolved.length || anat.pending ? 'sim.checking' : 'sim.none')));
     else {
       body.append(h('h3', { class: 'sim-h' }, t('sim.cut')));
       for (const u of res.hit) body.append(this.unitRow(u, false));

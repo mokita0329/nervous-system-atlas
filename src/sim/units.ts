@@ -54,6 +54,15 @@ export interface Where {
   x?: Range;
   y?: Range;
   z?: Range;
+  /**
+   * Grazing this mesh is not enough: the lesion must sit inside it, or reach it with half its radius.
+   *
+   * Set on the HCP1065 tract maps. Those are population probability maps, fatter than any one person's
+   * tract, so their fringe touches everything nearby — a 5 mm lacune in the posterior limb would otherwise
+   * be reported as cutting the cerebellar outflow and the whole sensory radiation, and read as a much worse
+   * stroke than it is. Sitting inside one still means something; brushing its edge does not.
+   */
+  strict?: boolean;
 }
 
 /** The window a unit declares, as a box; an axis it does not constrain is left wide open. */

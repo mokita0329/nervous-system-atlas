@@ -237,3 +237,7 @@ table.sim-table { width: 100%; border-collapse: collapse; }
 .sim-never { margin-top: 18px; border-top: 1px dashed var(--border); padding-top: 10px; color: var(--muted); font-size: 11px; line-height: 1.8; }
 .sim-never b { color: var(--fg); display: block; margin-bottom: 3px; }
 .sim-never p { margin: 0; }
+
+.sim-unit.clipped .dot { background: #f0883e; }
+.sim-terr { color: var(--muted); font-size: 11px; margin: 8px 0 2px; }
+.sim-terr b { color: #c9d1d9; font-weight: 600; }

@@ -2,9 +2,11 @@ import { expand, type FunctionalUnit } from '../units.ts';
 import { CENTRAL } from './central.ts';
 import { INTERNAL_CAPSULE } from './internal-capsule.ts';
 import { PARIETAL } from './parietal.ts';
+import { THALAMUS } from './thalamus.ts';
+import { WHITE_MATTER } from './white-matter.ts';
 
 /** Every functional unit, left-sided authoring expanded to both hemispheres. */
-export const UNITS: readonly FunctionalUnit[] = expand([...CENTRAL, ...INTERNAL_CAPSULE, ...PARIETAL]);
+export const UNITS: readonly FunctionalUnit[] = expand([...CENTRAL, ...INTERNAL_CAPSULE, ...PARIETAL, ...THALAMUS, ...WHITE_MATTER]);
 
 export const UNIT_BY_ID: ReadonlyMap<string, FunctionalUnit> = new Map(UNITS.map((u) => [u.id, u]));
 
