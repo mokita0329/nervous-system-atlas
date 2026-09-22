@@ -23,6 +23,7 @@ import { makeIntensityTexture, makeLabelTexture } from './volume/textures.ts';
 import { gridBoxMm, mmToVoxel } from './volume/coords.ts';
 import { indexSpineLut, loadSpineLut, spineLevelAt, spineLevelLabel, spineMask } from './volume/spineLabels.ts';
 import type { SystemId } from './types/manifest.ts';
+import { ensureUnitMeshes, probe, type Lesion } from './sim/probe.ts';
 import type { AppState, Axis, Contrast } from './types/state.ts';
 import { PRESETS } from './scene/cameraPresets.ts';
 import { applyCameraPreset, contrasts, setContrast, setSliceVisible, setPeel } from './state/actions.ts';
@@ -58,6 +59,10 @@ async function boot(): Promise<void> {
   const canvas = document.getElementById('gl') as HTMLCanvasElement;
   const app = createApp(canvas, manifest);
   (window as unknown as { atlas: App }).atlas = app;
+  // The lesion engine, reachable from the console while the panel that will drive it is still being built:
+  // `await atlas.sim.ready(); atlas.sim.probe({ mni: [-22, -7, 10], radiusMm: 5 })`
+  (window as unknown as { atlas: App & { sim: unknown } }).atlas.sim =
+    { probe: (l: Lesion) => probe(app, l), ready: () => ensureUnitMeshes(app) };
   app.picker = new Picker(app.sm, app.registry, {
     onHover: (hit) => { setHover(app, hit.id); canvas.style.cursor = hit.id || hit.onSlice ? 'pointer' : ''; hud(hit.onSlice ? hit.point : null, hit.point); },
     onSelect: (hit, ev) => {
