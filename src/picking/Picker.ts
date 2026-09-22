@@ -16,6 +16,12 @@ export class Picker {
   enabled = true;
   /** extra pickable objects (slice planes); a hit reports point only */
   extra: THREE.Object3D[] = [];
+  /**
+   * Take the slice plane whenever the ray crosses one, even though the anatomy is in front of it.
+   * The lesion simulator needs the point the reader is aiming at *on the MRI*; without this, every click
+   * lands on whatever cortex happens to be between the camera and the slice.
+   */
+  preferSlices = false;
   /** BVH raycasts run since boot (a drag must not add any) — read by the e2e interaction budget test */
   picks = 0;
 
@@ -76,8 +82,12 @@ export class Picker {
     const objs: THREE.Object3D[] = [...this.reg.pickables(), ...this.extra.filter((o) => o.visible)];
     const hits = this.ray.intersectObjects(objs, false);
     if (!hits.length) return { id: null, point: null, onSlice: false };
-    // prefer an opaque mesh over a translucent one hit first along the same ray
     let hit = hits[0]!;
+    if (this.preferSlices) {
+      const slice = hits.find((h) => this.extra.includes(h.object));
+      if (slice) return { id: null, point: slice.point.clone(), onSlice: true };
+    }
+    // prefer an opaque mesh over a translucent one hit first along the same ray
     const mat = (hit.object as THREE.Mesh).material as THREE.Material | undefined;
     if (mat && mat.transparent && mat.opacity < 0.5 && hits.length > 1) {
       const better = hits.find((h) => { const m = (h.object as THREE.Mesh).material as THREE.Material | undefined; return !m || !m.transparent || m.opacity >= 0.5; });

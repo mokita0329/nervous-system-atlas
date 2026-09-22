@@ -88,7 +88,7 @@ export class SimPanel {
     const { sym, res } = this.last;
     const body = h('div', {}, head);
 
-    if (sym.empty) body.append(h('p', { class: 'sim-hint' }, t('sim.none')));
+    if (sym.empty) body.append(h('p', { class: 'sim-hint' }, t(res.unresolved.length ? 'sim.checking' : 'sim.none')));
     else {
       body.append(h('h3', { class: 'sim-h' }, t('sim.cut')));
       for (const u of res.hit) body.append(this.unitRow(u, false));

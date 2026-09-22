@@ -9,7 +9,10 @@ async function boot(page: Page, hash = '#/'): Promise<void> {
   // `lang` is read from the hash query, not the page query — so it goes after the route, not before it
   await page.goto(`/${hash}${hash.includes('?') ? '&' : '?'}lang=ja`);
   await page.waitForFunction(
-    () => (window as unknown as { atlas?: { store: { get(): { loaded: { content: boolean } } } } }).atlas?.store.get().loaded.content === true,
+    () => {
+      const l = (window as unknown as { atlas?: { store: { get(): { loaded: { content: boolean; volume: boolean } } } } }).atlas?.store.get().loaded;
+      return l?.content === true && l.volume === true;
+    },
     null, { timeout: 60_000 * SLOW });
 }
 
@@ -84,4 +87,22 @@ test('clearing puts the anatomy back', async ({ page }) => {
   await page.locator('[data-testid=lesion-clear]').click();
   await expect.poll(() => page.evaluate(() => (window as unknown as { atlas: { store: { get(): { lesion: unknown; involved: Set<string> } } } }).atlas.store.get().involved.size)).toBe(0);
   await expect(panel(page)).toContainText('クリック');
+});
+
+test('a click on the axial slice puts the lesion at that level, not on the cortex in front of it', async ({ page }) => {
+  await boot(page);
+  // the simulator opens looking down at one axial slice, with everything above it peeled away
+  const view = await page.evaluate(() => {
+    const s = (window as unknown as { atlas: { store: { get(): { slices: { axial: number; visible: Record<string, boolean> }; peel: Record<string, string> } } } }).atlas.store.get();
+    return { z: s.slices.axial, axialOn: s.slices.visible['axial'], coronalOn: s.slices.visible['coronal'], peel: s.peel['axial'] };
+  });
+  expect(view).toEqual({ z: 10, axialOn: true, coronalOn: false, peel: 'positive' });
+
+  const box = (await page.locator('#gl').boundingBox())!;
+  await page.mouse.click(box.x + box.width * 0.46, box.y + box.height * 0.47);
+
+  // the z of the lesion is the z of the slice: the click cannot land on the brain surface above it
+  await expect.poll(() => page.evaluate(() => (window as unknown as { atlas: { store: { get(): { lesion: { mni: number[] } | null } } } }).atlas.store.get().lesion?.mni[2] ?? null),
+    { timeout: 20_000 * SLOW }).toBe(10);
+  await expect(panel(page)).toContainText('病巣が達した部位', { timeout: 30_000 * SLOW });
 });

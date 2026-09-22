@@ -73,7 +73,12 @@ async function boot(): Promise<void> {
   app.picker = new Picker(app.sm, app.registry, {
     onHover: (hit) => { setHover(app, hit.id); canvas.style.cursor = hit.id || hit.onSlice ? 'pointer' : ''; hud(hit.onSlice ? hit.point : null, hit.point); },
     onSelect: (hit, ev) => {
-      if (mode === 'sim' && hit.point) { lesionCtl.place([hit.point.x, hit.point.y, hit.point.z]); showPanel('sim'); return; }
+      if (mode === 'sim') {
+        // Only the MRI. Peeling hides the anatomy above the slice but does not stop the raycaster hitting it,
+        // so accepting a mesh here would put the lesion on cortex that is not even on screen.
+        if (hit.onSlice && hit.point) { lesionCtl.place([hit.point.x, hit.point.y, hit.point.z]); showPanel('sim'); }
+        return;
+      }
       if (hit.onSlice && hit.point) { const id = structureAt(app, hit.point); if (id) { selectStructure(app, id, { moveSlices: false }); return; } }
       if (hit.id) selectStructure(app, hit.id, { moveSlices: !ev.shiftKey });
       else if (!ev.shiftKey) selectStructure(app, null);
@@ -86,6 +91,7 @@ async function boot(): Promise<void> {
     },
   });
   app.picker.extra = Object.values(app.slices).map((s) => s.mesh);
+  app.picker.preferSlices = mode === 'sim';
 
   // ---- UI
   const left = document.getElementById('left')!; const right = document.getElementById('right')!; const bottom = document.getElementById('bottom')!; const top = document.getElementById('toolbar')!;
@@ -293,7 +299,16 @@ async function boot(): Promise<void> {
   }
   app.store.set({ visibleSystems: defaults, hiddenStructures: hiddenAtStart, loaded: { ...app.store.get().loaded, manifest: true } });
   showMsg(null);
-  applyCameraPreset(app, 'lateral-l');
+  if (mode === 'sim') {
+    // Open the way a lesion is actually chosen: one axial slice, seen from directly above, with everything
+    // above it peeled away so the MRI is what the pointer meets. The level is the slider in the footer.
+    const sl = app.store.get().slices;
+    app.store.set({
+      slices: { ...sl, axial: 10, visible: { axial: true, coronal: false, sagittal: false } },
+      peel: { axial: 'positive' },
+    });
+    applyCameraPreset(app, 'superior');
+  } else applyCameraPreset(app, 'lateral-l');
   toolbar.setCounts(manifest.meshes.length);
 
   // ---- content bundle (optional until authored) then router
