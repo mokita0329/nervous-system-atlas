@@ -11,8 +11,8 @@ import type { Tract, TractPoint } from '../tracts/index.ts';
  * is exactly the part a reader wants to follow. Everything else in the scene is at 3 % opacity in this mode,
  * so there is nothing else for the curve to sit wrongly in front of.
  */
-const DEFAULT_RADIUS = 2.4;
-const STATION_RADIUS = 3.2;
+const DEFAULT_RADIUS = 1.3;
+const STATION_RADIUS = 1.9;
 
 export class TractLayer {
   private group = new THREE.Group();
