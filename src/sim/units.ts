@@ -37,8 +37,8 @@ export interface Carries {
   body?: BodyPart;
   /** free text, for deficits that do not fit the body × modality table */
   sign?: Text;
-  /** default 'contra' */
-  side?: 'contra' | 'ipsi' | 'both';
+  /** default 'contra'; 'none' for a deficit that has no side at all, such as abulia or incontinence */
+  side?: 'contra' | 'ipsi' | 'both' | 'none';
   /** the deficit only appears when the lesion is in this hemisphere (language left, neglect right) */
   onlyHemisphere?: 'l' | 'r';
 }
@@ -119,8 +119,9 @@ export function expand(sources: readonly UnitSource[]): FunctionalUnit[] {
  * Which side of the *body* a unit's deficit shows on, or null when this hemisphere does not produce it.
  * `unitSide` is the hemisphere the unit sits in; a midline unit reports both sides.
  */
-export function bodySide(c: Carries, unitSide: FunctionalUnit['side']): 'l' | 'r' | 'both' | null {
+export function bodySide(c: Carries, unitSide: FunctionalUnit['side']): 'l' | 'r' | 'both' | 'none' | null {
   if (c.onlyHemisphere && unitSide !== c.onlyHemisphere) return null;
+  if (c.side === 'none') return 'none';
   if (unitSide === 'midline' || c.side === 'both') return 'both';
   if (c.side === 'ipsi') return unitSide;
   return unitSide === 'l' ? 'r' : 'l';                       // contralateral, the default

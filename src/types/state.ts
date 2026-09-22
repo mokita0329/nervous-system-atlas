@@ -29,6 +29,8 @@ export interface AppState {
   shell: ReadonlySet<string>;                // meshes kept translucent so a drawn tract can be followed through them
   stepHighlight: ReadonlySet<string>;        // meshes spotlighted for the current deficit step
   lesionSide: 'l' | 'r' | null;              // demo side for lateralised syndromes
+  /** the simulated lesion: a sphere in MNI mm. Its own route, so a lesion can be sent to someone as a link. */
+  lesion: { mni: [number, number, number]; r: number } | null;
   panel: { kind: 'quiz'; index: number } | { kind: 'glossary'; id: string | null } | { kind: 'topic'; id: string | null } | { kind: 'about' } | { kind: 'pathway'; id: string } | null;
   camera: PresetName | 'custom';
   showNc: boolean;
@@ -58,6 +60,7 @@ export function initialState(): AppState {
     shell: new Set(),
     stepHighlight: new Set(),
     lesionSide: null,
+    lesion: null,
     panel: null,
     camera: 'lateral-l',
     showNc: true,

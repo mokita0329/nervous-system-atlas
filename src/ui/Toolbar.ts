@@ -47,13 +47,16 @@ export class Toolbar {
       this.searchHost,
       h('div', { class: 'tools' },
         // only rendered below 900px, where the panels float over the 3D view and start closed
-        btn('toolbar.panelLeft', 'toolbar.panelLeft.title', { class: 'panel-toggle', 'data-testid': 'panel-left', onclick: () => opts.onTogglePanel('left') }),
+        btn('toolbar.panelLeft', 'toolbar.panelLeft.title', { class: 'panel-toggle atlas-only', 'data-testid': 'panel-left', onclick: () => opts.onTogglePanel('left') }),
         btn('toolbar.panelRight', 'toolbar.panelRight.title', { class: 'panel-toggle', 'data-testid': 'panel-right', onclick: () => opts.onTogglePanel('right') }),
-        btn('toolbar.treeFilter', 'toolbar.treeFilter.title', { class: 'tree-btn', onclick: () => opts.onSearchFocus() }),
-        btn('toolbar.quiz', 'toolbar.quiz.title', { onclick: () => { location.hash = '#/quiz'; } }),
-        btn('toolbar.topics', 'toolbar.topics.title', { onclick: () => { location.hash = '#/topic'; } }),
-        btn('toolbar.glossary', 'toolbar.glossary.title', { onclick: () => { location.hash = '#/glossary'; } }),
+        btn('toolbar.treeFilter', 'toolbar.treeFilter.title', { class: 'tree-btn atlas-only', onclick: () => opts.onSearchFocus() }),
+        btn('toolbar.quiz', 'toolbar.quiz.title', { class: 'atlas-only', onclick: () => { location.hash = '#/quiz'; } }),
+        btn('toolbar.topics', 'toolbar.topics.title', { class: 'atlas-only', onclick: () => { location.hash = '#/topic'; } }),
+        btn('toolbar.glossary', 'toolbar.glossary.title', { class: 'atlas-only', onclick: () => { location.hash = '#/glossary'; } }),
         btn('toolbar.about', 'toolbar.about.title', { class: 'about-btn', onclick: () => { location.hash = '#/about'; } }),
+        // In lesion mode this is the one way through to the atlas underneath; ?mode is a query parameter so
+        // it survives every later hash navigation (see sim/mode.ts).
+        btn('toolbar.atlas', 'toolbar.atlas.title', { class: 'sim-only', onclick: () => { const u = new URL(location.href); u.searchParams.set('mode', 'atlas'); location.href = u.toString(); } }),
         this.qualityBtn,
         btn('toolbar.screenshot', 'toolbar.screenshot.title', { class: 'shot-btn', onclick: () => this.shot() }),
         btn('toolbar.share', 'toolbar.share.title', { class: 'share-btn', 'data-testid': 'share-view', onclick: () => this.onShareView() }),

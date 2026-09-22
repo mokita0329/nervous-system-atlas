@@ -9,7 +9,7 @@ const SLOW = process.env['CI'] ? 4 : 1;
 // both ends, because it is invisible at the 1400x900 the rest of the suite runs at.
 
 const boot = async (page: Page): Promise<void> => {
-  await page.goto('/');
+  await page.goto('/?mode=atlas');
   await page.waitForFunction(
     () => (window as unknown as { atlas?: { store: { get(): { loaded: { manifest: boolean } } } } }).atlas?.store.get().loaded.manifest === true,
     null, { timeout: 60_000 * SLOW });
@@ -66,7 +66,7 @@ test('narrow: selecting a structure opens the detail panel', async ({ page }) =>
   await page.setViewportSize({ width: 768, height: 900 });
   await boot(page);
   expect((await metrics(page)).rightVisible).toBe(false);
-  await page.goto('/#/structure/putamen');
+  await page.goto('/?mode=atlas#/structure/putamen');
   await expect(page.locator('#right .content:not([hidden]) h2').first()).toContainText(/Putamen/i, { timeout: 30_000 * SLOW });
   expect((await metrics(page)).rightVisible).toBe(true);
 });

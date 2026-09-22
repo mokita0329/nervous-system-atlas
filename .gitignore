@@ -30,3 +30,4 @@ pipeline/qa/fudan_spine/
 pipeline/qa/cord_public/
 qa/shots/
 pipeline/qa/report.json
+.claude/diagrams/

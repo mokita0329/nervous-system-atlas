@@ -24,6 +24,11 @@ import { gridBoxMm, mmToVoxel } from './volume/coords.ts';
 import { indexSpineLut, loadSpineLut, spineLevelAt, spineLevelLabel, spineMask } from './volume/spineLabels.ts';
 import type { SystemId } from './types/manifest.ts';
 import { ensureUnitMeshes, probe, type Lesion } from './sim/probe.ts';
+import { currentMode } from './sim/mode.ts';
+import { MISPLACED_MESHES, SIM_HIDDEN_SYSTEMS } from './config/hidden.ts';
+import { LesionController } from './sim/controller.ts';
+import { SimPanel } from './ui/SimPanel.ts';
+import { LesionBar } from './ui/LesionBar.ts';
 import type { AppState, Axis, Contrast } from './types/state.ts';
 import { PRESETS } from './scene/cameraPresets.ts';
 import { applyCameraPreset, contrasts, setContrast, setSliceVisible, setPeel } from './state/actions.ts';
@@ -59,6 +64,8 @@ async function boot(): Promise<void> {
   const canvas = document.getElementById('gl') as HTMLCanvasElement;
   const app = createApp(canvas, manifest);
   (window as unknown as { atlas: App }).atlas = app;
+  const mode = currentMode();
+  document.documentElement.dataset['mode'] = mode;
   // The lesion engine, reachable from the console while the panel that will drive it is still being built:
   // `await atlas.sim.ready(); atlas.sim.probe({ mni: [-22, -7, 10], radiusMm: 5 })`
   (window as unknown as { atlas: App & { sim: unknown } }).atlas.sim =
@@ -66,6 +73,7 @@ async function boot(): Promise<void> {
   app.picker = new Picker(app.sm, app.registry, {
     onHover: (hit) => { setHover(app, hit.id); canvas.style.cursor = hit.id || hit.onSlice ? 'pointer' : ''; hud(hit.onSlice ? hit.point : null, hit.point); },
     onSelect: (hit, ev) => {
+      if (mode === 'sim' && hit.point) { lesionCtl.place([hit.point.x, hit.point.y, hit.point.z]); showPanel('sim'); return; }
       if (hit.onSlice && hit.point) { const id = structureAt(app, hit.point); if (id) { selectStructure(app, id, { moveSlices: false }); return; } }
       if (hit.id) selectStructure(app, hit.id, { moveSlices: !ev.shiftKey });
       else if (!ev.shiftKey) selectStructure(app, null);
@@ -93,8 +101,13 @@ async function boot(): Promise<void> {
   const glossaryHost = h('div', { class: 'content', hidden: true }); right.append(glossaryHost); const glossaryPanel = new GlossaryPanel(app, glossaryHost);
   const topicHost = h('div', { class: 'content', hidden: true }); right.append(topicHost); const topicPanel = new TopicPanel(app, topicHost);
   const aboutHost = h('div', { class: 'content', hidden: true }); right.append(aboutHost); const aboutPanel = new AboutPanel(app, aboutHost);
+  const simHost = h('div', { class: 'content sim', hidden: true }); right.append(simHost);
+  const lesionCtl = new LesionController(app);
+  new LesionBar(app, simHost, lesionCtl);
+  const simBody = h('div', {}); simHost.append(simBody);
+  new SimPanel(app, simBody, lesionCtl);
   const mainPanel = right.firstElementChild as HTMLElement;
-  const showPanel = (which: 'main' | 'pathway' | 'syndrome' | 'quiz' | 'glossary' | 'topic' | 'about') => { mainPanel.hidden = which !== 'main'; pathwayHost.hidden = which !== 'pathway'; syndromeHost.hidden = which !== 'syndrome'; quizHost.hidden = which !== 'quiz'; glossaryHost.hidden = which !== 'glossary'; topicHost.hidden = which !== 'topic'; aboutHost.hidden = which !== 'about'; if (which !== 'quiz') quizPanel.exit(); if (which !== 'topic') topicPanel.exit(); if (which !== 'quiz' && which !== 'glossary' && which !== 'topic' && which !== 'about' && which !== 'pathway' && app.store.get().panel) app.store.set({ panel: null }); };
+  const showPanel = (which: 'main' | 'pathway' | 'syndrome' | 'quiz' | 'glossary' | 'topic' | 'about' | 'sim') => { mainPanel.hidden = which !== 'main'; simHost.hidden = which !== 'sim'; pathwayHost.hidden = which !== 'pathway'; syndromeHost.hidden = which !== 'syndrome'; quizHost.hidden = which !== 'quiz'; glossaryHost.hidden = which !== 'glossary'; topicHost.hidden = which !== 'topic'; aboutHost.hidden = which !== 'about'; if (which !== 'quiz') quizPanel.exit(); if (which !== 'topic') topicPanel.exit(); if (which !== 'quiz' && which !== 'glossary' && which !== 'topic' && which !== 'about' && which !== 'pathway' && app.store.get().panel) app.store.set({ panel: null }); };
   // the open pathway lives in the store so the router keeps #/pathway/<id> while the reader moves slices or selects a waypoint
   const showPathway = (id: string | null) => { if (id) { pathwayPanel.show(id); showPanel('pathway'); app.store.set({ panel: { kind: 'pathway', id } }); } else { pathwayPanel.exit(); if (app.store.get().panel?.kind === 'pathway') app.store.set({ panel: null }); if (!pathwayHost.hidden) showPanel('main'); } };
   void contentPanel;
@@ -271,7 +284,14 @@ async function boot(): Promise<void> {
 
   // ---- initial visibility: systems flagged defaultVisible
   const defaults = new Set<SystemId>(manifest.systems.filter((s) => s.defaultVisible).map((s) => s.id));
-  app.store.set({ visibleSystems: defaults, loaded: { ...app.store.get().loaded, manifest: true } });
+  // In lesion mode the vessels, peripheral nerves and meninges come off: ninety meshes dimmed to 3 % still
+  // stack into an opaque wall, and the lesion has to be visible inside the brain. See config/hidden.ts.
+  const hiddenAtStart = new Set<string>();
+  if (mode === 'sim') {
+    for (const sys of SIM_HIDDEN_SYSTEMS) defaults.delete(sys);
+    for (const id of MISPLACED_MESHES) if (app.registry.byId.has(id)) hiddenAtStart.add(id);
+  }
+  app.store.set({ visibleSystems: defaults, hiddenStructures: hiddenAtStart, loaded: { ...app.store.get().loaded, manifest: true } });
   showMsg(null);
   applyCameraPreset(app, 'lateral-l');
   toolbar.setCounts(manifest.meshes.length);
@@ -326,6 +346,14 @@ async function boot(): Promise<void> {
       if (route.kind === 'glossary') { if (app.store.get().syndrome) exitSyndrome(app); pathwayPanel.exit(); showPanel('glossary'); app.store.set({ panel: { kind: 'glossary', id: route.id ?? null } }); glossaryPanel.show(route.id); return; }
       if (route.kind === 'topic') { if (app.store.get().syndrome) exitSyndrome(app); pathwayPanel.exit(); showPanel('topic'); app.store.set({ panel: { kind: 'topic', id: route.id ?? null } }); topicPanel.show(route.id); return; }
       if (route.kind === 'about') { if (app.store.get().syndrome) exitSyndrome(app); pathwayPanel.exit(); showPanel('about'); app.store.set({ panel: { kind: 'about' } }); aboutPanel.show(); return; }
+      if (route.kind === 'lesion') {
+        showPathway(null);
+        if (app.store.get().syndrome) exitSyndrome(app);
+        const cur = app.store.get().lesion;
+        if (!cur || cur.r !== route.r || cur.mni.some((v, i) => v !== route.mni[i])) lesionCtl.place(route.mni, route.r);
+        showPanel('sim');
+        return;
+      }
       if (route.kind === 'syndrome') { showPathway(null); enterSyndrome(app, route.id, route.step ?? 0, params.side); if (params.side) app.store.set({ lesionSide: params.side }); syndromePanel.show(route.id); showPanel('syndrome'); return; }
       if (app.store.get().syndrome) { exitSyndrome(app); showPanel('main'); }
       if (route.kind === 'pathway') { showPathway(route.id); return; }

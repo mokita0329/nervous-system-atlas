@@ -24,6 +24,7 @@ export const INTERNAL_CAPSULE: UnitSource[] = [
     carries: [
       {
         mod: 'cognitive',
+        side: 'none',
         sign: { en: 'Abulia, loss of initiative (frontopontine fibres)', ja: '自発性の低下・無為（前頭橋路）' },
       },
     ],
@@ -81,7 +82,7 @@ export const INTERNAL_CAPSULE: UnitSource[] = [
   {
     id: 'ic-retrolenticular-l',
     group: POST_LIMB,
-    name: { en: 'Retrolenticular part (optic radiation)', ja: '内包 レンズ核後部（視放線）' },
+    name: { en: 'Posterior limb, retrolenticular part (optic radiation)', ja: '内包 後脚 レンズ核後部（視放線）' },
     where: { mesh: 'internal-capsule-l', y: [-25, -20] },
     carries: [
       { mod: 'vision', sign: { en: 'Homonymous hemianopia', ja: '同名半盲' } },

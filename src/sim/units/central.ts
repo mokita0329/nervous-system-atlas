@@ -62,7 +62,7 @@ export const CENTRAL: UnitSource[] = [
       { mod: 'pain-temp', body: 'foot' },
       {
         mod: 'autonomic',
-        side: 'both',
+        side: 'none',
         sign: { en: 'Urinary incontinence (cortical micturition area)', ja: '尿失禁（皮質性排尿中枢）' },
       },
     ],

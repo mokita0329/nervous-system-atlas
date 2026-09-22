@@ -8,7 +8,7 @@ const errors: string[] = [];
 async function boot(page: Page, hash = ''): Promise<void> {
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(`/${hash}`);
+  await page.goto(`/?mode=atlas${hash}`);
   await page.waitForFunction(() => (window as unknown as { atlas?: { store: { get(): { loaded: { manifest: boolean } } } } }).atlas?.store.get().loaded.manifest === true, null, { timeout: 60_000 * SLOW });
 }
 const atlas = (page: Page) => page.evaluate(() => { const a = (window as unknown as { atlas: { store: { get(): Record<string, unknown> }; manifest: { meshes: unknown[] }; registry: { loaded(): Iterable<unknown> } } }).atlas; const st = a.store.get(); return { state: st, involved: [...(st['involved'] as Set<string>)], meshes: a.manifest.meshes.length, loaded: [...a.registry.loaded()].length }; });
@@ -46,7 +46,7 @@ test('quiz answers and glossary render', async ({ page }) => {
   await expect(page.locator('#right .content:not([hidden]) h2').first()).toContainText('Clinical vignette 1');
   await page.keyboard.press('b');
   await expect(page.locator('.reveal')).toBeVisible();
-  await page.goto('/#/glossary/g-decussation');
+  await page.goto('/?mode=atlas#/glossary/g-decussation');
   await expect(page.locator('.gterm.active h3')).toContainText('Decussation');
 });
 
@@ -445,7 +445,7 @@ test('#/...?lang=tr renders the interface and the structure names in Turkish', a
   await expect(page.locator('#locale-switch')).toHaveText('EN');
 
   // the clinical prose comes from content.tr.json: the syndrome is named and written in Turkish and carries no English flag
-  await page.goto('/#/syndrome/syn-wallenberg-lateral-medullary?lang=tr');
+  await page.goto('/?mode=atlas#/syndrome/syn-wallenberg-lateral-medullary?lang=tr');
   await expect(page.locator('#right .content:not([hidden]) h2').first()).toContainText('Lateral medüller sendrom', { timeout: 30_000 * SLOW });
   await expect(page.locator('#right .content:not([hidden])')).toContainText('Klinik tablo');
   await expect(page.locator('#right .content:not([hidden]) .tag.lang-en')).toHaveCount(0);
@@ -487,7 +487,7 @@ test('the L shortcut switches language and the choice survives a reload', async 
   await expect(page.locator('#toolbar')).toContainText('Sözlük');
   await expect.poll(() => page.evaluate(() => localStorage.getItem('atlas.locale'))).toBe('tr');
   // no hash: localStorage decides
-  await page.goto('/');
+  await page.goto('/?mode=atlas');
   await page.waitForFunction(() => (window as unknown as { atlas?: { store: { get(): { loaded: { manifest: boolean } } } } }).atlas?.store.get().loaded.manifest === true, null, { timeout: 60_000 * SLOW });
   await expect(page.locator('html')).toHaveAttribute('lang', 'tr');
   await page.evaluate(() => localStorage.setItem('atlas.locale', 'en'));

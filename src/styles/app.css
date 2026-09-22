@@ -199,3 +199,41 @@ ul.cites li { margin: 3px 0; line-height: 1.35; }
 .name-secondary { display: block; color: var(--muted); font-size: 11px; font-weight: 400; line-height: 1.35; letter-spacing: 0; text-transform: none; }
 .tree-row .name-secondary, .chip .name-secondary, .wp .name-secondary { display: inline; margin-left: 6px; }
 .tag.lang-en { display: inline-block; margin-right: 6px; cursor: help; border-color: var(--accent2); color: var(--accent2); vertical-align: 1px; }
+
+/* ---- lesion simulator. The mode is an attribute on <html> (sim/mode.ts); nothing is removed, only hidden. */
+[data-mode="sim"] #left { display: none; }
+[data-mode="sim"] #app { grid-template-columns: 0 1fr 430px; }
+[data-mode="sim"] #app.no-right { grid-template-columns: 0 1fr 0; }
+[data-mode="sim"] .atlas-only, [data-mode="sim"] .slice-opts { display: none !important; }
+html:not([data-mode="sim"]) .sim-only { display: none !important; }
+
+.lesion-bar { display: flex; align-items: center; gap: 10px; padding: 6px 0 10px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.lesion-bar label { display: flex; align-items: center; gap: 7px; color: var(--muted); }
+.lesion-bar input[type=range] { width: 140px; }
+.lesion-bar .val { font-variant-numeric: tabular-nums; color: var(--fg); width: 46px; }
+
+.sim-h { font-size: 12px; letter-spacing: .05em; color: var(--muted); margin: 15px 0 6px; font-weight: 600; }
+.sim-hint { color: var(--muted); padding: 14px 2px; line-height: 1.9; }
+.sim-unit { display: flex; align-items: center; gap: 7px; padding: 3px 0; line-height: 1.5; }
+.sim-unit .dot { width: 8px; height: 8px; border-radius: 50%; background: #e0453f; flex: none; }
+.sim-unit .src { margin-left: auto; font-size: 11px; color: var(--muted); padding-left: 10px; text-align: right; }
+.sim-unit.spared { color: var(--muted); }
+.sim-unit.spared .dot { background: #39414c; }
+.sim-unit:hover { background: var(--panel2); }
+
+table.sim-table { width: 100%; border-collapse: collapse; }
+.sim-table th, .sim-table td { border: 1px solid var(--border); padding: 5px 6px; text-align: center; }
+.sim-table th { color: var(--muted); font-weight: 600; font-size: 11px; background: var(--panel2); }
+.sim-table td.rowhead { text-align: left; white-space: nowrap; }
+.sim-table td.lost { color: #ff7b72; font-weight: 700; }
+.sim-table td.lost:hover { background: #3a2220; }
+.sim-table td.none { color: #4a525d; }
+
+.sim-other { border: 1px solid var(--border); border-left: 3px solid #e0453f; border-radius: 5px; padding: 6px 9px; margin: 5px 0; background: var(--panel2); }
+.sim-other:hover { border-left-color: var(--accent); }
+.sim-other .side { color: #ff7b72; font-weight: 700; }
+.sim-other .meta { color: var(--muted); font-size: 11px; margin-top: 2px; display: flex; gap: 8px; justify-content: space-between; }
+
+.sim-never { margin-top: 18px; border-top: 1px dashed var(--border); padding-top: 10px; color: var(--muted); font-size: 11px; line-height: 1.8; }
+.sim-never b { color: var(--fg); display: block; margin-bottom: 3px; }
+.sim-never p { margin: 0; }

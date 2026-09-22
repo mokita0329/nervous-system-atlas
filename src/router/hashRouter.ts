@@ -11,6 +11,7 @@ export type Route =
   | { kind: 'glossary'; id?: string }
   | { kind: 'topic'; id?: string }
   | { kind: 'about' }
+  | { kind: 'lesion'; mni: [number, number, number]; r: number }
   | { kind: 'slice' };
 
 /**
@@ -53,7 +54,10 @@ export function parseHash(hash: string): { route: Route; params: RouteParams } {
   else if (seg[0] === 'glossary') route = { kind: 'glossary', id: seg[1] };
   else if (seg[0] === 'topic') route = { kind: 'topic', id: seg[1] };
   else if (seg[0] === 'about') route = { kind: 'about' };
-  else if (seg[0] === 'slice') route = { kind: 'slice' };
+  else if (seg[0] === 'lesion' && seg[1]) {
+    const n = seg[1].split(',').map(Number);
+    if (n.length === 4 && n.every(Number.isFinite) && n[3]! > 0) route = { kind: 'lesion', mni: [n[0]!, n[1]!, n[2]!], r: n[3]! };
+  } else if (seg[0] === 'slice') route = { kind: 'slice' };
   return { route, params };
 }
 
@@ -66,6 +70,7 @@ export function serialize(route: Route, params: RouteParams): string {
   else if (route.kind === 'glossary') path = route.id ? `glossary/${route.id}` : 'glossary';
   else if (route.kind === 'topic') path = route.id ? `topic/${route.id}` : 'topic';
   else if (route.kind === 'about') path = 'about';
+  else if (route.kind === 'lesion') path = `lesion/${[...route.mni, route.r].map((v) => Math.round(v * 10) / 10).join(',')}`;
   else if (route.kind === 'slice') path = 'slice';
   const q = new URLSearchParams();
   if (route.kind === 'syndrome' && route.step !== undefined) q.set('step', String(route.step));
@@ -90,6 +95,7 @@ export function serialize(route: Route, params: RouteParams): string {
 export function routeOf(s: AppState): Route {
   const syn = s.syndrome; const panel = s.panel; const sel = s.selectedId ?? s.selectedStructureId;
   if (syn) return { kind: 'syndrome', id: syn.id, step: syn.step >= 0 ? syn.step : undefined };
+  if (s.lesion) return { kind: 'lesion', mni: s.lesion.mni, r: s.lesion.r };
   if (panel?.kind === 'quiz') return { kind: 'quiz', index: panel.index };
   if (panel?.kind === 'glossary') return { kind: 'glossary', id: panel.id ?? undefined };
   if (panel?.kind === 'topic') return { kind: 'topic', id: panel.id ?? undefined };
@@ -120,7 +126,7 @@ export function bindRouter(store: Store<AppState>, handlers: { onRoute(route: Ro
   // a navigation drops any rewrite still queued from the state before it, which would otherwise land on top of the new hash
   const apply = () => { clearTimeout(timer); applying = true; try { const { route, params } = parseHash(location.hash); handlers.onRoute(route, params); } finally { applying = false; } };
   window.addEventListener('hashchange', apply);
-  const unsub = store.subscribe((s) => [s.selectedId ?? s.selectedStructureId, s.syndrome?.id ?? null, s.syndrome?.step ?? -1, s.slices.axial, s.slices.coronal, s.slices.sagittal, s.contrast, s.syndrome ? s.lesionSide : null, s.panel, s.locale] as const, (v) => {
+  const unsub = store.subscribe((s) => [s.selectedId ?? s.selectedStructureId, s.syndrome?.id ?? null, s.syndrome?.step ?? -1, s.slices.axial, s.slices.coronal, s.slices.sagittal, s.contrast, s.syndrome ? s.lesionSide : null, s.panel, s.locale, s.lesion] as const, (v) => {
     if (applying) return;
     clearTimeout(timer);
     // `location.hash = x` changes the URL at once but delivers hashchange later; a rewrite that fires in
