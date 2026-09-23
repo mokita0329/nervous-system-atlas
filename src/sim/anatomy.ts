@@ -12,8 +12,17 @@
  */
 import * as THREE from 'three';
 import type { App } from '../app.ts';
-import type { SystemId } from '../types/manifest.ts';
+import type { ManifestMesh, SystemId } from '../types/manifest.ts';
 import { pointInMesh, sphereMeetsMesh, windowBoxAll, type Lesion } from './probe.ts';
+
+/**
+ * All these two questions need of the app: the manifest, and whatever geometry has been loaded so far.
+ * `App` satisfies it, and so does a test that loads the same glb files from disk — which is how the
+ * 51 authored lesions are scored without a browser (`tests/sim-anatomy.test.ts`).
+ */
+export interface MeshSource {
+  registry: { byId: ReadonlyMap<string, ManifestMesh>; get(id: string): THREE.Mesh | undefined };
+}
 
 /** Vessels and wrappings are not what a lesion "involves" in any useful sense; the envelope is scenery. */
 const NOT_STRUCTURE: ReadonlySet<SystemId> = new Set<SystemId>(['arteries', 'venous', 'envelope', 'meninges', 'arterial-territories']);
@@ -35,7 +44,7 @@ export interface AnatomyResult {
 }
 
 /** Meshes whose bounding box the lesion's own box overlaps. Manifest only — nothing is loaded to answer this. */
-function candidates(app: App, lesion: Lesion): string[] {
+export function candidates(app: MeshSource, lesion: Lesion): string[] {
   const c = new THREE.Vector3(...lesion.mni);
   const lo = c.clone().subScalar(lesion.radiusMm), hi = c.clone().addScalar(lesion.radiusMm);
   const out: string[] = [];
@@ -52,7 +61,7 @@ export async function ensureAnatomy(app: App, lesion: Lesion): Promise<void> {
   await app.registry.ensure(candidates(app, lesion));
 }
 
-export function anatomyAt(app: App, lesion: Lesion): AnatomyResult {
+export function anatomyAt(app: MeshSource, lesion: Lesion): AnatomyResult {
   const centre = new THREE.Vector3(...lesion.mni);
   const all = windowBoxAll();
   const hits: AnatomyHit[] = [], territories: AnatomyHit[] = [];
