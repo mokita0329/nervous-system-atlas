@@ -142,12 +142,14 @@ before a release. Run the whole list before anything is published.
   machine. Re-run it alone before believing it.
 - **CI's browser job is several times slower than a laptop** (no GPU: WebGL through SwiftShader; 22 minutes
   for the 7-minute suite). Every timeout in the specs and in `playwright.config.ts` is multiplied by `SLOW`
-  (4 when `CI` is set), so write new waits as `{ timeout: N * SLOW }`. And a test may only read files the
-  released bundle ships — `cord_levels*.json` is pipeline output and is not in it, which is why the cord test
+  (4 when `CI` is set), so write new waits as `{ timeout: N * SLOW }`. And a test may only read pipeline output
+  the released bundle ships — `cord_levels*.json` is pipeline output and is not in it, which is why the cord test
   computes level centres from the label volume the app loads.
 - **`npm run e2e` needs a dev server with data**, except `e2e/no-data.spec.ts`, which fakes the missing
-  manifest. CI's `integration` job fetches the *last released* bundle with `npm run data` and runs the whole
-  suite on it, so a browser test that depends on data not yet released passes locally and fails there.
+  manifest. CI's `integration` job fetches the *last released* bundle with `npm run data`, rebuilds the content
+  bundles from the commit with `npm run content`, and runs the whole suite on that. A test may rely on content
+  the commit authors (names, prose, a new language), but one that depends on pipeline data not yet released
+  passes locally and fails there.
 - **A teaching mode shows meshes through `showForMode`, never `setStructureVisible`.** The lease touches only
   meshes that are not visible at the time and puts each back to the override it had (shown, hidden or
   neither). The old pattern — "not in shownStructures, so I showed it, so I hide it on exit" — hid anatomy

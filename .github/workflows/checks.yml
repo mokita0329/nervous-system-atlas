@@ -111,8 +111,9 @@ jobs:
   # (pinned SHA-256, 47 MB), so this job exercises the app against real data: teaching-mode exit, Mirror, a
   # slower selection, links that survive slice moves and reloads, the share link. It takes 20–30 minutes
   # (no GPU, so WebGL is software-rendered), so it runs on pushes and on demand rather than on every pull
-  # request; the specs scale their timeouts by 4 when CI is set. The bundle is the last release's,
-  # not this commit's: a change to the pipeline is only covered once its data has been released.
+  # request; the specs scale their timeouts by 4 when CI is set. The meshes, volumes and manifest are the
+  # last release's, not this commit's: a change to the pipeline is only covered once its data has been
+  # released. The content bundles are this commit's: they are rebuilt from content/ before the suite runs.
   integration:
     name: smoke tests on the pinned public bundle
     runs-on: ubuntu-latest
@@ -132,6 +133,13 @@ jobs:
 
       - name: fetch the pinned public data bundle
         run: npm run data
+
+      # The release's content.json, content.<lang>.json and search-index.json were built from the content/ of
+      # the release commit. Rebuild them from this commit's content/, the step `npm run build` runs before every
+      # Pages deploy, so the suite reads the names, prose and translations this commit would publish. Without
+      # it a test of anything authored since the release (a new language, a names table) fails here only.
+      - name: rebuild the content bundles from this commit
+        run: npm run content
 
       - name: install chromium
         run: npx playwright install --with-deps chromium
@@ -192,8 +200,9 @@ jobs:
 #       the smoke tests in e2e/smoke.spec.ts boot the app against `npm run dev`
 #       and wait for the manifest to load; with no public/data/ every one times
 #       out in boot(). The `integration` job above runs them against the LAST
-#       RELEASED bundle (`npm run data`); only a local run covers data that has
-#       not been released yet. e2e/no-data.spec.ts needs no data at all.
+#       RELEASED bundle (`npm run data`) with the content bundles rebuilt from
+#       this commit (`npm run content`); only a local run covers pipeline data
+#       that has not been released yet. e2e/no-data.spec.ts needs no data at all.
 #
 #   uv run --project pipeline atlas-qa
 #       the pipeline's own data gates (registration residuals, mesh budgets);
