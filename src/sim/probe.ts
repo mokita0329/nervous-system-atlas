@@ -7,7 +7,7 @@
  * entirely inside a thick structure — no surface within reach — is caught by a parity raycast.
  */
 import * as THREE from 'three';
-import { INTERSECTED, NOT_INTERSECTED } from 'three-mesh-bvh';
+import { INTERSECTED, NOT_INTERSECTED, type MeshBVH } from 'three-mesh-bvh';
 import type { App } from '../app.ts';
 import { windowBox, OPEN, type FunctionalUnit } from './units.ts';
 import { UNITS, UNIT_MESHES } from './units/index.ts';
@@ -63,14 +63,26 @@ const ray = new THREE.Raycaster();
  * The bounding box is checked first, and not only to save the raycast: these meshes are not all watertight,
  * and a parity test on an open surface can answer "inside" for a point nowhere near it. Refusing to ask the
  * question outside the box keeps that mistake local.
+ *
+ * Every crossing has to count, the way out as well as the way in, so the faces are tested from both sides here
+ * whatever side the mesh's material is drawn with at the moment. That changes with the view: peeling turns the
+ * scene double-sided and the see-through view turns it back to front faces only, and a parity count that
+ * follows the material answered "the lesion is in the thalamus" in one view and not in the other.
  */
 export function pointInMesh(mesh: THREE.Mesh, p: THREE.Vector3): boolean {
   const box = mesh.geometry.boundingBox;
   if (box && !box.containsPoint(p)) return false;
-  ray.set(p, new THREE.Vector3(1, 0, 0));
-  ray.far = OPEN;
-  (ray as THREE.Raycaster & { firstHitOnly?: boolean }).firstHitOnly = false;
-  return ray.intersectObject(mesh, false).length % 2 === 1;
+  const tree = mesh.geometry.boundsTree as MeshBVH | undefined;
+  if (tree) return tree.raycast(new THREE.Ray(p.clone(), new THREE.Vector3(1, 0, 0)), THREE.DoubleSide, 0, OPEN).length % 2 === 1;
+  const mat = mesh.material as THREE.Material;
+  const side = mat.side;
+  mat.side = THREE.DoubleSide;
+  try {
+    ray.set(p, new THREE.Vector3(1, 0, 0));
+    ray.far = OPEN;
+    (ray as THREE.Raycaster & { firstHitOnly?: boolean }).firstHitOnly = false;
+    return ray.intersectObject(mesh, false).length % 2 === 1;
+  } finally { mat.side = side; }
 }
 
 /**

@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { ManifestMesh } from '../types/manifest.ts';
 import { lookFor } from './palette.ts';
 
-export type VisualState = 'normal' | 'hover' | 'selected' | 'dimmed' | 'involved' | 'shell';
+export type VisualState = 'normal' | 'hover' | 'selected' | 'dimmed' | 'context' | 'involved' | 'shell';
 
 export interface AtlasMaterial extends THREE.MeshPhysicalMaterial {
   userData: {
@@ -70,6 +70,12 @@ export function applyVisualState(mesh: THREE.Mesh, state: VisualState): void {
     case 'dimmed':
       // 2–3 % so stacked parcels never build up into grey fog
       mat.opacity = Math.min(op, 0.03); mat.transparent = true; mat.depthWrite = false; mesh.renderOrder = 5;
+      break;
+    case 'context':
+      // a landmark in a see-through view (brainstem, cerebellum, ventricles, the brain's outline): far fainter than
+      // anything lit, but not the 3 % of 'dimmed', which leaves nothing to tell up from down by. Half the mesh's own
+      // opacity, capped at 10 %: solid structures end at 10 %, the already-faint outline at 6 %.
+      mat.opacity = Math.min(op * 0.5, 0.10); mat.transparent = true; mat.depthWrite = false; mesh.renderOrder = 5;
       break;
     case 'shell':
       // a structure a drawn tract passes through: lit at the edges like 'involved' but see-through, so the

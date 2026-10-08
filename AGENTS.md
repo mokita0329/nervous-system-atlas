@@ -76,13 +76,13 @@ and the browser tests). One at a time:
 ```bash
 npm run check-tree                                # nothing private, restricted or generated is committed
 npm run typecheck
-npm test                                          # 54 unit tests
+npm test                                          # 77 unit tests
 npm run content:validate                          # schemas, cross-links, word minimums, spelling, coverage
 npm run citations:check
 node scripts/check-data.ts --all                  # both manifests: meshes, volumes, coordinates
 npm run notice -- --check
 uv run --project pipeline atlas-qa                # the pipeline's own data gates
-npx playwright install chromium && npm run e2e    # 31 browser tests
+npx playwright install chromium && npm run e2e    # 43 browser tests
 npm run build                                     # ends in the redistribution gate
 python3 tools/i18n/prose.py check                 # Turkish overlays against the English entries
 ```

@@ -129,3 +129,107 @@ test('a thalamic bleed names the nuclei it is in, and grows into the capsule as 
     () => p.locator('.sim-table tr', { hasText: '手' }).first().locator('td').nth(1).innerText(),
     { timeout: 20_000 * SLOW }).toBe('右');
 });
+
+// ---- the see-through view (Step C): the brain without its cortex, the lesion and what it reaches inside it
+type GlassWin = { atlas: {
+  store: { get(): { simView: string; peel: Record<string, string>; involved: Set<string>; contextSystems: Set<string>; lesion: { mni: number[] } | null } };
+  slices: { axial: { mesh: { visible: boolean } } };
+  registry: { get(id: string): { visible: boolean; material: { userData: { state: string } } } | undefined };
+  sm: { camera: { position: { x: number; y: number; z: number } }; controls: { target: { x: number; y: number; z: number } } };
+} };
+type SceneProbe = { view: string; axial: boolean; peel: string | null; cortex: boolean | null; thalamus: boolean | null; litTracts: number };
+const sceneState = (page: Page, cortexId = 'dkt-precentral-l') => page.evaluate((cid): SceneProbe => {
+  const a = (window as unknown as GlassWin).atlas;
+  const s = a.store.get();
+  const lit = (id: string) => ['involved', 'shell'].includes(a.registry.get(id)?.material.userData.state ?? '');
+  return {
+    view: s.simView, axial: a.slices.axial.mesh.visible, peel: s.peel['axial'] ?? null,
+    cortex: a.registry.get(cid)?.visible ?? null, thalamus: a.registry.get('thalamus-l')?.visible ?? null,
+    litTracts: [...s.involved].filter((id) => id.startsWith('tract-') && lit(id)).length,
+  };
+}, cortexId);
+const meshState = (page: Page, id: string) => page.evaluate((m) => (window as unknown as GlassWin).atlas.registry.get(m)?.material.userData.state ?? null, id);
+/** which side of the brain the camera looks from: -1 left, +1 right */
+const cameraSide = (page: Page) => page.evaluate(() => { const sm = (window as unknown as GlassWin).atlas.sm; return Math.sign(sm.camera.position.x - sm.controls.target.x); });
+const camera = (page: Page) => page.evaluate(() => { const p = (window as unknown as GlassWin).atlas.sm.camera.position; return [p.x, p.y, p.z].map(Math.round); });
+
+test('the see-through view takes the cortex and the slice away, and the MRI view puts them back', async ({ page }) => {
+  test.setTimeout(180_000 * SLOW);   // two boots: the empty simulator, then the lesion
+  // nothing to look through yet: the button waits for a lesion
+  await boot(page);
+  await expect(page.locator('[data-testid=sim-view-glass]')).toBeDisabled();
+
+  await boot(page, '#/lesion/-12,-20,8,12');
+  await expect(panel(page)).toContainText('病巣が噛んでいる構造', { timeout: 30_000 * SLOW });
+  await page.waitForTimeout(1000);
+  const before = await camera(page);
+  await page.locator('[data-testid=sim-view-glass]').click();
+  // the cortex and the MRI are gone; the thalamus the bleed is in is lit; the wide tract maps are not
+  await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW })
+    .toEqual({ view: 'glass', axial: false, peel: null, cortex: false, thalamus: true, litTracts: 0 });
+  // the panel still says the bleed is *in* the thalamus: the inside test does not follow how the view draws faces
+  await expect(panel(page).locator('.sim-unit:not(.clipped)').first()).toContainText('視床 (左)');
+  // looking from the lesion's side; mirroring the lesion brings the camera round with it
+  await expect.poll(() => cameraSide(page), { timeout: 10_000 * SLOW }).toBe(-1);
+  await page.locator('[data-testid=lesion-mirror]').click();
+  await expect.poll(() => cameraSide(page), { timeout: 10_000 * SLOW }).toBe(1);
+  await page.locator('[data-testid=lesion-mirror]').click();
+
+  // back on the MRI: slice, peel, cortex, lit tracts, and the camera where it was
+  await page.locator('[data-testid=sim-view-mri]').click();
+  await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW })
+    .toMatchObject({ view: 'mri', axial: true, peel: 'positive', cortex: true, thalamus: true });
+  expect((await sceneState(page)).litTracts).toBeGreaterThan(0);
+  await expect.poll(() => camera(page), { timeout: 10_000 * SLOW }).toEqual(before);
+
+  // clearing from the see-through view goes back to the MRI, where the next lesion is placed
+  await page.locator('[data-testid=sim-view-glass]').click();
+  await expect.poll(async () => (await sceneState(page)).view, { timeout: 20_000 * SLOW }).toBe('glass');
+  await page.locator('[data-testid=lesion-clear]').click();
+  await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW })
+    .toMatchObject({ view: 'mri', axial: true, peel: 'positive', cortex: true });
+  await expect(page.locator('[data-testid=sim-view-glass]')).toBeDisabled();
+});
+
+test('in the see-through view a cortical lesion keeps the gyrus it is in, and only that one', async ({ page }) => {
+  await boot(page, '#/lesion/-38,-20,56,8');
+  await expect(panel(page)).toContainText('中心前回', { timeout: 30_000 * SLOW });
+  await page.locator('[data-testid=sim-view-glass]').click();
+  await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW }).toMatchObject({ view: 'glass', cortex: true });
+  // a gyrus the lesion does not reach is gone with the rest of the cortex
+  expect((await sceneState(page, 'dkt-superior-frontal-l')).cortex).toBe(false);
+});
+
+test('a lesion that reaches only white matter stays see-through; a link from the view opens on the MRI; leaving the simulator leaves the view', async ({ page }) => {
+  test.setTimeout(180_000 * SLOW);   // two boots: the lesion, then the shared link
+  // corona radiata: the hemisphere's white matter and tract maps, nothing else
+  await boot(page, '#/lesion/-25,-10,30,4');
+  await expect(panel(page)).toContainText('大脳白質', { timeout: 30_000 * SLOW });
+  await page.locator('[data-testid=sim-view-glass]').click();
+  await expect.poll(async () => (await sceneState(page)).view, { timeout: 20_000 * SLOW }).toBe('glass');
+  // everything it reaches is drawn faint, and the scene stays in lesion mode: the landmarks are landmarks, not solid
+  await expect.poll(() => meshState(page, 'cerebral-white-matter-l'), { timeout: 10_000 * SLOW }).toBe('dimmed');
+  await expect.poll(() => meshState(page, 'brainstem'), { timeout: 10_000 * SLOW }).toBe('context');
+
+  // a link shared from here carries the MRI view behind it, so it opens on something a lesion can be placed on
+  await page.getByTestId('share-view').click();
+  const hash = await page.evaluate(() => location.hash);
+  expect(hash).toContain('#/lesion/-25,-10,30,4');
+  for (const part of ['cerebrum', 'sl=a', 'peel=ap']) expect(hash).toContain(part);
+  // opened in this tab (a hash change, no reload) it takes the view down; opened fresh it starts on the MRI anyway
+  await boot(page, hash);
+  await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW }).toMatchObject({ view: 'mri', axial: true, peel: 'positive', cortex: true });
+  await page.reload();
+  await page.waitForFunction(() => (window as unknown as { atlas?: { store: { get(): { loaded: { volume: boolean } } } } }).atlas?.store.get().loaded.volume === true, null, { timeout: 60_000 * SLOW });
+  await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW }).toMatchObject({ view: 'mri', axial: true, peel: 'positive', cortex: true });
+
+  // going somewhere else from the see-through view takes it down on the way, cortex and landmarks put back
+  await page.locator('[data-testid=sim-view-glass]').click();
+  await expect.poll(async () => (await sceneState(page)).view, { timeout: 20_000 * SLOW }).toBe('glass');
+  await page.evaluate(() => { location.hash = '#/syndrome/syn-wallenberg-lateral-medullary'; });
+  await expect.poll(() => page.evaluate(() => {
+    const s = (window as unknown as GlassWin).atlas.store.get();
+    return { view: s.simView, context: s.contextSystems.size };
+  }), { timeout: 20_000 * SLOW }).toEqual({ view: 'mri', context: 0 });
+  await expect.poll(async () => (await sceneState(page)).cortex, { timeout: 20_000 * SLOW }).toBe(true);
+});

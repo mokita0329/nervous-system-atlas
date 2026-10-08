@@ -29,6 +29,8 @@ import { MISPLACED_MESHES, SIM_HIDDEN_SYSTEMS } from './config/hidden.ts';
 import { LesionController } from './sim/controller.ts';
 import { SimPanel } from './ui/SimPanel.ts';
 import { LesionBar } from './ui/LesionBar.ts';
+import { SimViewSwitch } from './ui/SimViewSwitch.ts';
+import { wireSimView } from './sim/view.ts';
 import type { AppState, Axis, Contrast } from './types/state.ts';
 import { PRESETS } from './scene/cameraPresets.ts';
 import { applyCameraPreset, contrasts, setContrast, setSliceVisible, setPeel } from './state/actions.ts';
@@ -109,7 +111,9 @@ async function boot(): Promise<void> {
   const aboutHost = h('div', { class: 'content', hidden: true }); right.append(aboutHost); const aboutPanel = new AboutPanel(app, aboutHost);
   const simHost = h('div', { class: 'content sim', hidden: true }); right.append(simHost);
   const lesionCtl = new LesionController(app);
+  new SimViewSwitch(app, simHost);
   new LesionBar(app, simHost, lesionCtl);
+  const simView = wireSimView(app, lesionCtl);
   const simBody = h('div', {}); simHost.append(simBody);
   new SimPanel(app, simBody, lesionCtl);
   const mainPanel = right.firstElementChild as HTMLElement;
@@ -343,8 +347,8 @@ async function boot(): Promise<void> {
   const showToast = (text: string): void => { toast.textContent = text; toast.hidden = false; clearTimeout(toastTimer); toastTimer = window.setTimeout(() => { toast.hidden = true; }, 2500); };
   /** Put the exact scene into the address bar and the clipboard: what a plain link leaves to defaults is written out. */
   const shareView = async (): Promise<void> => {
-    const s = app.store.get();
-    const hash = serialize(routeOf(s), { ...paramsOf(s), ...viewParams(s, { position: app.sm.camera.position, target: app.sm.controls.target }) });
+    const { state: s, camera } = simView.forShare(app.store.get());
+    const hash = serialize(routeOf(s), { ...paramsOf(s), ...viewParams(s, camera ?? { position: app.sm.camera.position, target: app.sm.controls.target }) });
     history.replaceState(null, '', hash);
     try { await navigator.clipboard.writeText(location.href); showToast(t('share.copied')); }
     catch { showToast(t('share.inBar')); }
@@ -354,6 +358,9 @@ async function boot(): Promise<void> {
     onRoute(route, params) { routeTo(route, params); applyView(params); },
   });
   function routeTo(route: Route, params: RouteParams): void {
+      // Anywhere but the lesion takes the see-through view down first, while its switch is still on screen to undo it;
+      // so does a link that carries a whole view (a shared one opened in this tab), which is laid over the MRI view.
+      if (route.kind !== 'lesion' || params.sys || params.sl !== undefined || params.peel || params.cam) simView.leave();
       if (params.lang && params.lang !== getLocale()) setLocale(params.lang);
       if (params.ax !== undefined || params.cor !== undefined || params.sag !== undefined) setSlices(app, { ...(params.ax !== undefined ? { axial: params.ax } : {}), ...(params.cor !== undefined ? { coronal: params.cor } : {}), ...(params.sag !== undefined ? { sagittal: params.sag } : {}) });
       if (params.c) setContrast(app, params.c);

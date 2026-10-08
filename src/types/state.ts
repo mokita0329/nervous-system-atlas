@@ -27,10 +27,15 @@ export interface AppState {
   syndrome: { id: string; step: number } | null;
   involved: ReadonlySet<string>;             // meshes involved in the active syndrome or pathway
   shell: ReadonlySet<string>;                // meshes kept translucent so a drawn tract can be followed through them
+  faint: ReadonlySet<string>;                // meshes a mode reaches but draws dimmed rather than lit (the see-through view's tract maps)
   stepHighlight: ReadonlySet<string>;        // meshes spotlighted for the current deficit step
   lesionSide: 'l' | 'r' | null;              // demo side for lateralised syndromes
   /** the simulated lesion: a sphere in MNI mm. Its own route, so a lesion can be sent to someone as a link. */
   lesion: { mni: [number, number, number]; r: number } | null;
+  /** the simulator's view: the MRI slice a lesion is placed on, or the see-through brain it is looked at in (sim/view.ts) */
+  simView: 'mri' | 'glass';
+  /** systems drawn as faint landmarks rather than at 3 % while a mode lights its own meshes (the see-through view) */
+  contextSystems: ReadonlySet<SystemId>;
   panel: { kind: 'quiz'; index: number } | { kind: 'glossary'; id: string | null } | { kind: 'topic'; id: string | null } | { kind: 'about' } | { kind: 'pathway'; id: string } | null;
   camera: PresetName | 'custom';
   showNc: boolean;
@@ -58,9 +63,12 @@ export function initialState(): AppState {
     syndrome: null,
     involved: new Set(),
     shell: new Set(),
+    faint: new Set(),
     stepHighlight: new Set(),
     lesionSide: null,
     lesion: null,
+    simView: 'mri',
+    contextSystems: new Set(),
     panel: null,
     camera: 'lateral-l',
     showNc: true,

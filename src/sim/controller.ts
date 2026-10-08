@@ -14,6 +14,7 @@ import { ensureUnitMeshes, probe, type Lesion, type ProbeResult } from './probe.
 import { symptomsOf, type Symptoms } from './symptoms.ts';
 import { anatomyAt, ensureAnatomy, type AnatomyResult } from './anatomy.ts';
 import type { FunctionalUnit } from './units.ts';
+import { faintInGlass } from './view.ts';
 
 export const DEFAULT_RADIUS_MM = 8;
 export const MIN_RADIUS_MM = 3;
@@ -65,9 +66,11 @@ export class LesionController {
     this.restore?.(); this.restore = null;
     this.app.lesion.visible = false;
     this.wire.visible = false;
-    this.app.store.set({ lesion: null, involved: new Set(), shell: new Set(), stepHighlight: new Set() });
+    this.app.store.set({ lesion: null, involved: new Set(), shell: new Set(), faint: new Set(), stepHighlight: new Set() });
     applyStates(this.app);
     this.app.sm.requestRender();
+    // nothing is left to look at through the brain: back to the MRI, where the next lesion is placed
+    if (this.app.store.get().simView === 'glass') this.app.store.set({ simView: 'mri' });
   }
 
   /** Spotlight the structure one symptom row came from, while the pointer is on it. */
@@ -113,7 +116,10 @@ export class LesionController {
     // draws these solid. `shell` keeps the ones the lesion sits *inside* translucent, so the red ball is
     // still visible in there rather than swallowed by the structure it is destroying.
     const inside = new Set([...anat.hits.filter((a) => a.contains).map((a) => a.meshId), ...unitMeshes]);
-    this.app.store.set({ involved: new Set(meshes), shell: inside, stepHighlight: new Set() });
+    // In the see-through view the long tracts and the hemisphere's white matter are still involved (they are
+    // what the lesion reaches) but drawn faint (`faintInGlass`): lit solid, they rebuild the wall that view removes.
+    const faint = this.app.store.get().simView === 'glass' ? meshes.filter((id) => faintInGlass(this.app.registry.byId.get(id))) : [];
+    this.app.store.set({ involved: new Set(meshes), shell: inside, faint: new Set(faint), stepHighlight: new Set() });
     void this.app.registry.ensure(meshes).then(() => applyStates(this.app));
     applyStates(this.app);
 
