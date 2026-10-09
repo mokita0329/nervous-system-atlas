@@ -152,7 +152,8 @@ python3 tools/i18n/prose.py check                 # Turkish overlays against the
 
 **What CI runs.** `.github/workflows/checks.yml` has a `node` job with everything that works without generated
 data, an `integration` job that fetches the *last released* bundle, rebuilds the content bundles from the commit
-(`npm run content`) and runs the browser suite on that, and a translations job. The runner has no GPU, so every
+(`npm run content`) and runs the browser suite on that, split over two runners with one browser each, and a
+translations job. The runner has no GPU, so every
 timeout in the specs is multiplied by `SLOW` (4 when `CI` is set) — write new waits as `{ timeout: N * SLOW }` —
 and a browser test may only read pipeline output the released bundle ships. The build gate over data that is not
 yet released, `check-data` and `atlas-qa` are yours to run locally.

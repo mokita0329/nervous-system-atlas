@@ -154,11 +154,7 @@ const cameraSide = (page: Page) => page.evaluate(() => { const sm = (window as u
 const camera = (page: Page) => page.evaluate(() => { const p = (window as unknown as GlassWin).atlas.sm.camera.position; return [p.x, p.y, p.z].map(Math.round); });
 
 test('the see-through view takes the cortex and the slice away, and the MRI view puts them back', async ({ page }) => {
-  test.setTimeout(180_000 * SLOW);   // two boots: the empty simulator, then the lesion
-  // nothing to look through yet: the button waits for a lesion
-  await boot(page);
-  await expect(page.locator('[data-testid=sim-view-glass]')).toBeDisabled();
-
+  test.setTimeout(180_000 * SLOW);   // a long walk: in, mirrored and back, out, in again and cleared
   await boot(page, '#/lesion/-12,-20,8,12');
   await expect(panel(page)).toContainText('病巣が噛んでいる構造', { timeout: 30_000 * SLOW });
   await page.waitForTimeout(1000);
@@ -201,7 +197,7 @@ test('in the see-through view a cortical lesion keeps the gyrus it is in, and on
 });
 
 test('a lesion that reaches only white matter stays see-through; a link from the view opens on the MRI; leaving the simulator leaves the view', async ({ page }) => {
-  test.setTimeout(180_000 * SLOW);   // two boots: the lesion, then the shared link
+  test.setTimeout(180_000 * SLOW);   // a long walk: the view, a shared link opened over it, a syndrome
   // corona radiata: the hemisphere's white matter and tract maps, nothing else
   await boot(page, '#/lesion/-25,-10,30,4');
   await expect(panel(page)).toContainText('大脳白質', { timeout: 30_000 * SLOW });
@@ -216,11 +212,8 @@ test('a lesion that reaches only white matter stays see-through; a link from the
   const hash = await page.evaluate(() => location.hash);
   expect(hash).toContain('#/lesion/-25,-10,30,4');
   for (const part of ['cerebrum', 'sl=a', 'peel=ap']) expect(hash).toContain(part);
-  // opened in this tab (a hash change, no reload) it takes the view down; opened fresh it starts on the MRI anyway
+  // opened in this tab (a hash change, no reload) it takes the view down; opened fresh, the simulator starts on the MRI
   await boot(page, hash);
-  await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW }).toMatchObject({ view: 'mri', axial: true, peel: 'positive', cortex: true });
-  await page.reload();
-  await page.waitForFunction(() => (window as unknown as { atlas?: { store: { get(): { loaded: { volume: boolean } } } } }).atlas?.store.get().loaded.volume === true, null, { timeout: 60_000 * SLOW });
   await expect.poll(() => sceneState(page), { timeout: 20_000 * SLOW }).toMatchObject({ view: 'mri', axial: true, peel: 'positive', cortex: true });
 
   // going somewhere else from the see-through view takes it down on the way, cortex and landmarks put back

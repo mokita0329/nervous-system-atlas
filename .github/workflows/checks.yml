@@ -109,16 +109,27 @@ jobs:
 
   # The smoke suite needs public/data/. `npm run data` fetches the release bundle that check-public certified
   # (pinned SHA-256, 47 MB), so this job exercises the app against real data: teaching-mode exit, Mirror, a
-  # slower selection, links that survive slice moves and reloads, the share link. It takes 20–30 minutes
-  # (no GPU, so WebGL is software-rendered), so it runs on pushes and on demand rather than on every pull
-  # request; the specs scale their timeouts by 4 when CI is set. The meshes, volumes and manifest are the
+  # slower selection, links that survive slice moves and reloads, the share link. There is no GPU, so WebGL
+  # is drawn on the CPU; it runs on pushes and on demand rather than on every pull request, and the specs
+  # scale their timeouts by 4 when CI is set.
+  #
+  # Two runners, one browser each. The default two workers on one four-core runner draw WebGL on the same
+  # cores and slow each other down: frames took about twice as long, the run went from 29 to 59 minutes and
+  # eight timing-sensitive tests timed out (2026-10-09; one worker passed everything, measured on four cores
+  # locally). `--fully-parallel` lets the shards split by test rather than by file: by file, the 23-test
+  # smoke file starts before the halfway mark and both halves land on the first runner. The github reporter
+  # turns each failure into an annotation, readable without signing in. The meshes, volumes and manifest are the
   # last release's, not this commit's: a change to the pipeline is only covered once its data has been
   # released. The content bundles are this commit's: they are rebuilt from content/ before the suite runs.
   integration:
-    name: smoke tests on the pinned public bundle
+    name: smoke tests on the pinned public bundle (${{ matrix.shard }})
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
-    # software WebGL: the suite that takes 7 minutes on a laptop took 22 here
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ['1/2', '2/2']
+    # software WebGL: about 25 minutes for each half
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -145,7 +156,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: e2e (smoke, layout and the no-data startup)
-        run: npm run e2e
+        run: npm run e2e -- --shard=${{ matrix.shard }} --fully-parallel --workers=1 --reporter=github,dot
 
   translations:
     name: turkish translations

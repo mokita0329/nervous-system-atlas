@@ -144,7 +144,9 @@ before a release. Run the whole list before anything is published.
   for the 7-minute suite). Every timeout in the specs and in `playwright.config.ts` is multiplied by `SLOW`
   (4 when `CI` is set), so write new waits as `{ timeout: N * SLOW }`. And a test may only read pipeline output
   the released bundle ships — `cord_levels*.json` is pipeline output and is not in it, which is why the cord test
-  computes level centres from the label volume the app loads.
+  computes level centres from the label volume the app loads. The `integration` job runs the suite in two
+  shards of one worker each: two workers on one four-core runner draw WebGL on the same cores, and the
+  timing-sensitive tests time out.
 - **`npm run e2e` needs a dev server with data**, except `e2e/no-data.spec.ts`, which fakes the missing
   manifest. CI's `integration` job fetches the *last released* bundle with `npm run data`, rebuilds the content
   bundles from the commit with `npm run content`, and runs the whole suite on that. A test may rely on content
