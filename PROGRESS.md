@@ -61,3 +61,21 @@
   - Step D: 病巣が切った伝導路を線で描き、切れた先を灰色の破線にする。計画は `~/.claude/plans/misty-doodling-quokka.md`
   - 保留: 余計に出る構造（大半が伝導路）を別枠に分けるか、触ってから決める
   - 記録の整備: 方向転換2件の `docs/decisions.md` への記録（文面は要承認）、`.claude/living-docs.txt` の作成、親フォルダ `neuro-atlas/README.md` の「状態」の更新
+
+## 2026-10-09 GitHub の自動点検の時間切れを修正（テストを2台に分割）
+
+- **何を**: `.github/workflows/checks.yml` の `integration` ジョブを2台に分け（`matrix.shard` 1/2・2/2）、それぞれChrome1つ（`--workers=1`）で動かすようにした。テスト単位で分ける `--fully-parallel` と、失敗を注記に出す `--reporter=github,dot` も追加。`e2e/sim.spec.ts` の Step C のテスト2本から、アプリの読み込み直しを1回ずつ削った。`AGENTS.md`・`docs/developing.md` の説明も更新（`173b04b`）
+- **なぜ**: Step C（`04606a4`）の push 後、点検が2回続けて失敗した（59分・55分、8本が時間切れ。うち5本は前日まで通っていて今回触っていないテスト）。GitHub の機械は4コアで、Chrome2つが同じコアで3Dを描いて取り合っていた。ファイル単位の分割では23本ある `smoke.spec.ts` のせいで2台目が空になるため、テスト単位にした
+- **確認**: このPCで4コアに限定し、GitHub に近い条件で再現した（`--affinity` で固定。Chrome のGPUプロセスは自分で全コアに戻すので、見張り役で固定し直した）
+
+  | 条件 | 変更前（40本） | 今の版（43本） |
+  | :-- | :-- | :-- |
+  | Chrome2つ同時 | 全部成功・27.5分 | 1本失敗・37.0分 |
+  | Chrome1つずつ | 全部成功・25.2分 | 全部成功・32.7分 |
+
+  ドラッグ1コマの時間は、2つ同時で約5.2秒、1つずつで約2.4秒（GitHub では約7.0秒）。「透かして見る」の描画はMRIの画面より軽い（1コマ約0.6秒と約1.9秒）
+- **このPCのCPU負荷**: テスト中にPCが固まっていた原因は、ChromeがGPUプロセスの優先度を「通常より上」に自分で上げていたこと。このPC専用の `playwright.local.config.ts`（`.git/info/exclude` で除外）に `--in-process-gpu` と workers=2 を入れ、低い優先度で起動する運用にした。ルールはAIの記憶に保存
+- **次にやること**
+  - push 後、2台に分けた点検が両方成功するか確認する（各25分前後の見込み）
+  - Step D: 病巣が切った伝導路を線で描き、切れた先を灰色の破線にする
+  - 記録の整備: 方向転換2件の `docs/decisions.md` への記録（文面は要承認）、`.claude/living-docs.txt` の作成、親フォルダ `neuro-atlas/README.md` の「状態」の更新
